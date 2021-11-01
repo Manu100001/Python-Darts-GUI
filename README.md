@@ -2,7 +2,11 @@
 Gui for playing Darts
 
 # Setup
-Step into directory \
+Step into directory 
+```bash
+cd Python-Darts-GUI
+```
+
 Run first:
 
 ```bash
