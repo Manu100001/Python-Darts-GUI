@@ -653,7 +653,7 @@ if __name__ == "__main__":
 
     # label best of legs
     label_best_of = Label(gui, text="Best of ", font=('Arial', 13, 'bold'))
-    label_anzahl_legs = Label(gui, text=3, font=('Arial', 13, 'bold'))
+    label_anzahl_legs = Label(gui, text=7, font=('Arial', 13, 'bold'))
     label_legs = Label(gui, text="Legs", font=('Arial', 13, 'bold'))
 
     label_best_of.place(x=250, y=20)
@@ -679,7 +679,7 @@ if __name__ == "__main__":
 
     # label best of legs
     label_first_to_sets = Label(gui, text="First to ", font=('Arial', 13, 'bold'))
-    label_anzahl_sets = Label(gui, text=1, font=('Arial', 13, 'bold'))
+    label_anzahl_sets = Label(gui, text=3, font=('Arial', 13, 'bold'))
     label_sets = Label(gui, text="Sets", font=('Arial', 13, 'bold'))
 
     label_first_to_sets.place(x=250, y=250)
