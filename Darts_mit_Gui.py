@@ -204,10 +204,10 @@ def button_inc_legs_player_one_function():
         amount = amount + 1
         label_anzahl_sets_player_one['text'] = amount
 
-        anzahl = label_anzahl_legs_for_sets_player_one['text']
+        anzahl = label_anzahl_legs_for_sets_player_one['text'] + 1
         anzahl += label_anzahl_legs_for_sets_player_two['text']
 
-        if anzahl % 2 != 0:
+        if anzahl % 2 == 0:
             switch_button_function_sets()
 
         label_anzahl_legs_for_sets_player_one['text'] = 0
@@ -258,9 +258,9 @@ def button_inc_legs_player_two_function():
         label_anzahl_sets_player_two['text'] = amount
 
         anzahl = label_anzahl_legs_for_sets_player_one['text']
-        anzahl += label_anzahl_legs_for_sets_player_two['text']
+        anzahl += label_anzahl_legs_for_sets_player_two['text'] + 1
 
-        if anzahl % 2 != 0:
+        if anzahl % 2 == 0:
             switch_button_function_sets()
 
         label_anzahl_legs_for_sets_player_one['text'] = 0
