@@ -197,10 +197,19 @@ def button_inc_legs_player_one_function():
     anzahl = int(label_anzahl_legs_for_sets_player_one['text'])
     inc = anzahl + 1
 
+    switch_button_function_sets()
+
     if inc == 3:
         amount = int(label_anzahl_sets_player_one['text'])
         amount = amount + 1
         label_anzahl_sets_player_one['text'] = amount
+
+        anzahl = label_anzahl_legs_for_sets_player_one['text']
+        anzahl += label_anzahl_legs_for_sets_player_two['text']
+
+        if anzahl % 2 != 0:
+            switch_button_function_sets()
+
         label_anzahl_legs_for_sets_player_one['text'] = 0
         label_anzahl_legs_for_sets_player_two['text'] = 0
 
@@ -241,10 +250,19 @@ def button_inc_legs_player_two_function():
     anzahl = int(label_anzahl_legs_for_sets_player_two['text'])
     inc = anzahl + 1
 
+    switch_button_function_sets()
+
     if inc == 3:
         amount = int(label_anzahl_sets_player_two['text'])
         amount = amount + 1
         label_anzahl_sets_player_two['text'] = amount
+
+        anzahl = label_anzahl_legs_for_sets_player_one['text']
+        anzahl += label_anzahl_legs_for_sets_player_two['text']
+
+        if anzahl % 2 != 0:
+            switch_button_function_sets()
+
         label_anzahl_legs_for_sets_player_one['text'] = 0
         label_anzahl_legs_for_sets_player_two['text'] = 0
 
@@ -489,6 +507,32 @@ def switch_button_function():
         p2_switch['bg'] = "yellow"
 
 
+def switch_button_function_sets():
+    """
+
+    :return:
+    """
+    if p1_switch_sets['bg'] == "white":
+        p1_switch_sets['bg'] = "yellow"
+        p2_switch_sets['bg'] = "white"
+    else:
+        p1_switch_sets['bg'] = "white"
+        p2_switch_sets['bg'] = "yellow"
+
+
+def switch_button_sets():
+    """
+
+    :return:
+    """
+    if p1_switch_sets['bg'] == "white":
+        p1_switch_sets['bg'] = "yellow"
+        p2_switch_sets['bg'] = "white"
+    else:
+        p1_switch_sets['bg'] = "white"
+        p2_switch_sets['bg'] = "yellow"
+
+
 if __name__ == "__main__":
     gui = Tk()
     gui.geometry('700x500')
@@ -664,6 +708,16 @@ if __name__ == "__main__":
     p2_switch = Label(gui, text="P2", fg="black", bg="white", font=('Arial', 13, 'bold'))
     p2_switch.place(x=360, y=175)
 
+    # new switch - button for sets
+
+    p1_switch_sets = Label(gui, text="P1", fg="black", bg="yellow", font=('Arial', 13, 'bold'))
+    p1_switch_sets.place(x=520, y=310)
+
+    switch_button_sets = Button(gui, text="Switch", fg="black", font=('Arial', 13, 'bold'), command=switch_button_sets)
+    switch_button_sets.place(x=555, y=310, height=25)
+
+    p2_switch_sets = Label(gui, text="P2", fg="black", bg="white", font=('Arial', 13, 'bold'))
+    p2_switch_sets.place(x=630, y=310)
 
     gui.mainloop()
 
