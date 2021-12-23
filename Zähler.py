@@ -24,10 +24,498 @@ def T20():
     label_dart_score['text'] = "60"
 
 
+def D20():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "40"
+
+
+def S20():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "20"
+
+
 def T19():
     """"
     """
     label_dart_score['text'] = "57"
+
+
+def D19():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "38"
+
+
+def S19():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "19"
+
+
+def T18():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "54"
+
+
+def D18():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "36"
+
+
+def S18():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "18"
+
+
+def T17():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "51"
+
+
+def D17():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "34"
+
+
+def S17():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "17"
+
+
+def T16():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "48"
+
+
+def D16():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "32"
+
+
+def S16():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "16"
+
+
+def T15():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "45"
+
+
+def D15():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "30"
+
+
+def S15():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "15"
+
+
+def T14():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "42"
+
+
+def D14():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "28"
+
+
+def S14():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "14"
+
+
+def T13():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "39"
+
+
+def D13():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "26"
+
+
+def S13():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "13"
+
+
+def T12():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "36"
+
+
+def D12():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "24"
+
+
+def S12():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "12"
+
+
+def T11():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "33"
+
+
+def D11():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "22"
+
+
+def S11():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "11"
+
+
+def T10():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "30"
+
+
+def D10():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "20"
+
+
+def S10():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "10"
+
+
+def T9():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "27"
+
+
+def D9():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "18"
+
+
+def S9():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "9"
+
+
+def T8():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "24"
+
+
+def D8():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "16"
+
+
+def S8():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "8"
+
+
+def T7():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "21"
+
+
+def D7():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "14"
+
+
+def S7():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "7"
+
+
+def T6():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "18"
+
+
+def D6():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "12"
+
+
+def S6():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "6"
+
+
+def T5():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "15"
+
+
+def D5():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "10"
+
+
+def S5():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "5"
+
+
+def T4():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "12"
+
+
+def D4():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "8"
+
+
+def S4():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "4"
+
+
+def T3():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "9"
+
+
+def D3():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "6"
+
+
+def S3():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "3"
+
+
+def T2():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "6"
+
+
+def D2():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "4"
+
+
+def S2():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "2"
+
+
+def T1():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "3"
+
+
+def D1():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "2"
+
+
+def S1():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "1"
+
+
+def Bull():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "50"
+
+
+def Single_Bull():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "25"
+
+
+def null():
+    """
+
+    :return:
+    """
+    label_dart_score['text'] = "0"
 
 
 def button_exit():
@@ -370,9 +858,6 @@ def count_down():
     next()
 
 
-
-
-
 def add():
     """
 
@@ -497,7 +982,7 @@ if __name__ == "__main__":
 
     # ################# ---------------------- ##################
     # eingabefeld für scoring (Punkte, die abgezogen werden sollen)
-    label_dart_score = Label(gui, text="20", bd=4, font=('Arial', 13))
+    label_dart_score = Label(gui, text="", bd=4, font=('Arial', 13))
     button_dart_score = Button(gui, text="Add", bd=4, fg="black", bg="lightgreen", font=('Arial', 10),
                                command=add)
     label_dart_score.place(x=0, y=300, height=30, width=90)
@@ -541,32 +1026,207 @@ if __name__ == "__main__":
     button_triple_20 = Button(gui, text="T20", bd=4, fg="black", bg="red", font=('Arial', 14),
                               command=T20)
     button_single_20 = Button(gui, text="S20", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=next_button)
+                              command=S20)
     button_double_20 = Button(gui, text="D20", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=next_button)
+                              command=D20)
 
     button_triple_19 = Button(gui, text="T19", bd=4, fg="black", bg="green", font=('Arial', 14),
                               command=T19)
     button_single_19 = Button(gui, text="S19", bd=4, fg="black", bg="green", font=('Arial', 14),
-                              command=next_button)
+                              command=S19)
     button_double_19 = Button(gui, text="D19", bd=4, fg="black", bg="green", font=('Arial', 14),
-                              command=next_button)
+                              command=D19)
 
     button_triple_18 = Button(gui, text="T18", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=next_button)
+                              command=T18)
     button_single_18 = Button(gui, text="S18", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=next_button)
+                              command=S18)
     button_double_18 = Button(gui, text="D18", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=next_button)
+                              command=D18)
 
-    button_triple_20.place(x=0, y=400, height=60, width=100)
-    button_single_20.place(x=0, y=470, height=60, width=100)
-    button_double_20.place(x=0, y=540, height=60, width=100)
-    button_triple_19.place(x=110, y=400, height=60, width=100)
-    button_single_19.place(x=110, y=470, height=60, width=100)
-    button_double_19.place(x=110, y=540, height=60, width=100)
-    button_triple_18.place(x=220, y=400, height=60, width=100)
-    button_single_18.place(x=220, y=470, height=60, width=100)
-    button_double_18.place(x=220, y=540, height=60, width=100)
+    button_triple_17 = Button(gui, text="T17", bd=4, fg="black", bg="green", font=('Arial', 14),
+                              command=T17)
+    button_single_17 = Button(gui, text="S17", bd=4, fg="black", bg="green", font=('Arial', 14),
+                              command=S17)
+    button_double_17 = Button(gui, text="D17", bd=4, fg="black", bg="green", font=('Arial', 14),
+                              command=D17)
+
+    button_triple_16 = Button(gui, text="T16", bd=4, fg="black", bg="red", font=('Arial', 14),
+                              command=T16)
+    button_single_16 = Button(gui, text="S16", bd=4, fg="black", bg="red", font=('Arial', 14),
+                              command=S16)
+    button_double_16 = Button(gui, text="D16", bd=4, fg="black", bg="red", font=('Arial', 14),
+                              command=D16)
+    button_triple_15 = Button(gui, text="T15", bd=4, fg="black", bg="green", font=('Arial', 14),
+                              command=T15)
+    button_single_15 = Button(gui, text="S15", bd=4, fg="black", bg="green", font=('Arial', 14),
+                              command=S15)
+    button_double_15 = Button(gui, text="D15", bd=4, fg="black", bg="green", font=('Arial', 14),
+                              command=D15)
+    button_triple_14 = Button(gui, text="T14", bd=4, fg="black", bg="red", font=('Arial', 14),
+                              command=T14)
+    button_single_14 = Button(gui, text="S14", bd=4, fg="black", bg="red", font=('Arial', 14),
+                              command=S14)
+    button_double_14 = Button(gui, text="D14", bd=4, fg="black", bg="red", font=('Arial', 14),
+                              command=D14)
+
+    button_triple_13 = Button(gui, text="T13", bd=4, fg="black", bg="green", font=('Arial', 14),
+                              command=T13)
+    button_single_13 = Button(gui, text="S13", bd=4, fg="black", bg="green", font=('Arial', 14),
+                              command=S13)
+    button_double_13 = Button(gui, text="D13", bd=4, fg="black", bg="green", font=('Arial', 14),
+                              command=D13)
+    button_triple_12 = Button(gui, text="T12", bd=4, fg="black", bg="red", font=('Arial', 14),
+                              command=T12)
+    button_single_12 = Button(gui, text="S12", bd=4, fg="black", bg="red", font=('Arial', 14),
+                              command=S12)
+    button_double_12 = Button(gui, text="D12", bd=4, fg="black", bg="red", font=('Arial', 14),
+                              command=D12)
+    button_triple_11 = Button(gui, text="T11", bd=4, fg="black", bg="green", font=('Arial', 14),
+                              command=T11)
+    button_single_11 = Button(gui, text="S11", bd=4, fg="black", bg="green", font=('Arial', 14),
+                              command=S11)
+    button_double_11 = Button(gui, text="D11", bd=4, fg="black", bg="green", font=('Arial', 14),
+                              command=D11)
+
+    button_triple_10 = Button(gui, text="T10", bd=4, fg="black", bg="red", font=('Arial', 14),
+                              command=T10)
+    button_single_10 = Button(gui, text="S10", bd=4, fg="black", bg="red", font=('Arial', 14),
+                              command=S10)
+    button_double_10 = Button(gui, text="D10", bd=4, fg="black", bg="red", font=('Arial', 14),
+                              command=D10)
+    button_triple_9 = Button(gui, text="T9", bd=4, fg="black", bg="green", font=('Arial', 14),
+                             command=T9)
+    button_single_9 = Button(gui, text="S9", bd=4, fg="black", bg="green", font=('Arial', 14),
+                             command=S9)
+    button_double_9 = Button(gui, text="D9", bd=4, fg="black", bg="green", font=('Arial', 14),
+                             command=D9)
+    button_triple_8 = Button(gui, text="T8", bd=4, fg="black", bg="red", font=('Arial', 14),
+                             command=T8)
+    button_single_8 = Button(gui, text="S8", bd=4, fg="black", bg="red", font=('Arial', 14),
+                             command=S8)
+    button_double_8 = Button(gui, text="D8", bd=4, fg="black", bg="red", font=('Arial', 14),
+                             command=D8)
+
+    button_triple_7 = Button(gui, text="T7", bd=4, fg="black", bg="green", font=('Arial', 14),
+                             command=T7)
+    button_single_7 = Button(gui, text="S7", bd=4, fg="black", bg="green", font=('Arial', 14),
+                             command=S7)
+    button_double_7 = Button(gui, text="D7", bd=4, fg="black", bg="green", font=('Arial', 14),
+                             command=D7)
+    button_triple_6 = Button(gui, text="T6", bd=4, fg="black", bg="red", font=('Arial', 14),
+                             command=T6)
+    button_single_6 = Button(gui, text="S6", bd=4, fg="black", bg="red", font=('Arial', 14),
+                             command=S6)
+    button_double_6 = Button(gui, text="D6", bd=4, fg="black", bg="red", font=('Arial', 14),
+                             command=D6)
+    button_triple_5 = Button(gui, text="T5", bd=4, fg="black", bg="green", font=('Arial', 14),
+                             command=T5)
+    button_single_5 = Button(gui, text="S5", bd=4, fg="black", bg="green", font=('Arial', 14),
+                             command=S5)
+    button_double_5 = Button(gui, text="D5", bd=4, fg="black", bg="green", font=('Arial', 14),
+                             command=D5)
+
+    button_triple_4 = Button(gui, text="T4", bd=4, fg="black", bg="red", font=('Arial', 14),
+                             command=T4)
+    button_single_4 = Button(gui, text="S4", bd=4, fg="black", bg="red", font=('Arial', 14),
+                             command=S4)
+    button_double_4 = Button(gui, text="D4", bd=4, fg="black", bg="red", font=('Arial', 14),
+                             command=D4)
+    button_triple_3 = Button(gui, text="T3", bd=4, fg="black", bg="green", font=('Arial', 14),
+                             command=T3)
+    button_single_3 = Button(gui, text="S3", bd=4, fg="black", bg="green", font=('Arial', 14),
+                             command=S3)
+    button_double_3 = Button(gui, text="D3", bd=4, fg="black", bg="green", font=('Arial', 14),
+                             command=D3)
+    button_triple_2 = Button(gui, text="T2", bd=4, fg="black", bg="red", font=('Arial', 14),
+                             command=T2)
+    button_single_2 = Button(gui, text="S2", bd=4, fg="black", bg="red", font=('Arial', 14),
+                             command=S2)
+    button_double_2 = Button(gui, text="D2", bd=4, fg="black", bg="red", font=('Arial', 14),
+                             command=D2)
+
+    button_triple_1 = Button(gui, text="T1", bd=4, fg="black", bg="green", font=('Arial', 14),
+                             command=T1)
+    button_single_1 = Button(gui, text="S1", bd=4, fg="black", bg="green", font=('Arial', 14),
+                             command=S1)
+    button_double_1 = Button(gui, text="D1", bd=4, fg="black", bg="green", font=('Arial', 14),
+                             command=D1)
+    button_single_bull = Button(gui, text="25", bd=4, fg="black", bg="green", font=('Arial', 14),
+                                command=Single_Bull)
+    button_bull = Button(gui, text="BULL", bd=4, fg="black", bg="red", font=('Arial', 14),
+                         command=Bull)
+    button_0 = Button(gui, text="0", bd=4, fg="black", bg="green", font=('Arial', 14),
+                      command=null)
+
+    button_triple_20.place(x=0, y=400, height=60, width=60)
+    button_double_20.place(x=0, y=470, height=60, width=60)
+    button_single_20.place(x=0, y=540, height=60, width=60)
+    button_triple_19.place(x=60, y=400, height=60, width=60)
+    button_double_19.place(x=60, y=470, height=60, width=60)
+    button_single_19.place(x=60, y=540, height=60, width=60)
+    button_triple_18.place(x=120, y=400, height=60, width=60)
+    button_double_18.place(x=120, y=470, height=60, width=60)
+    button_single_18.place(x=120, y=540, height=60, width=60)
+    button_triple_17.place(x=180, y=400, height=60, width=60)
+    button_double_17.place(x=180, y=470, height=60, width=60)
+    button_single_17.place(x=180, y=540, height=60, width=60)
+
+    button_triple_16.place(x=240, y=400, height=60, width=60)
+    button_double_16.place(x=240, y=470, height=60, width=60)
+    button_single_16.place(x=240, y=540, height=60, width=60)
+    button_triple_15.place(x=300, y=400, height=60, width=60)
+    button_double_15.place(x=300, y=470, height=60, width=60)
+    button_single_15.place(x=300, y=540, height=60, width=60)
+    button_triple_14.place(x=360, y=400, height=60, width=60)
+    button_double_14.place(x=360, y=470, height=60, width=60)
+    button_single_14.place(x=360, y=540, height=60, width=60)
+    button_triple_13.place(x=420, y=400, height=60, width=60)
+    button_double_13.place(x=420, y=470, height=60, width=60)
+    button_single_13.place(x=420, y=540, height=60, width=60)
+
+    button_triple_12.place(x=480, y=400, height=60, width=60)
+    button_double_12.place(x=480, y=470, height=60, width=60)
+    button_single_12.place(x=480, y=540, height=60, width=60)
+    button_triple_11.place(x=540, y=400, height=60, width=60)
+    button_double_11.place(x=540, y=470, height=60, width=60)
+    button_single_11.place(x=540, y=540, height=60, width=60)
+    button_triple_10.place(x=600, y=400, height=60, width=60)
+    button_double_10.place(x=600, y=470, height=60, width=60)
+    button_single_10.place(x=600, y=540, height=60, width=60)
+    button_triple_9.place(x=660, y=400, height=60, width=60)
+    button_double_9.place(x=660, y=470, height=60, width=60)
+    button_single_9.place(x=660, y=540, height=60, width=60)
+
+    button_triple_8.place(x=720, y=400, height=60, width=60)
+    button_double_8.place(x=720, y=470, height=60, width=60)
+    button_single_8.place(x=720, y=540, height=60, width=60)
+    button_triple_7.place(x=780, y=400, height=60, width=60)
+    button_double_7.place(x=780, y=470, height=60, width=60)
+    button_single_7.place(x=780, y=540, height=60, width=60)
+    button_triple_6.place(x=840, y=400, height=60, width=60)
+    button_double_6.place(x=840, y=470, height=60, width=60)
+    button_single_6.place(x=840, y=540, height=60, width=60)
+    button_triple_5.place(x=900, y=400, height=60, width=60)
+    button_double_5.place(x=900, y=470, height=60, width=60)
+    button_single_5.place(x=900, y=540, height=60, width=60)
+
+    button_triple_4.place(x=960, y=400, height=60, width=60)
+    button_double_4.place(x=960, y=470, height=60, width=60)
+    button_single_4.place(x=960, y=540, height=60, width=60)
+    button_triple_3.place(x=1020, y=400, height=60, width=60)
+    button_double_3.place(x=1020, y=470, height=60, width=60)
+    button_single_3.place(x=1020, y=540, height=60, width=60)
+    button_triple_2.place(x=1080, y=400, height=60, width=60)
+    button_double_2.place(x=1080, y=470, height=60, width=60)
+    button_single_2.place(x=1080, y=540, height=60, width=60)
+    button_triple_1.place(x=1140, y=400, height=60, width=60)
+    button_double_1.place(x=1140, y=470, height=60, width=60)
+    button_single_1.place(x=1140, y=540, height=60, width=60)
+
+    button_single_bull.place(x=1210, y=400, height=60, width=60)
+    button_bull.place(x=1210, y=470, height=60, width=60)
+    button_0.place(x=1210, y=540, height=60, width=60)
+
     # ################# ---------------------- ##################
     gui.mainloop()
