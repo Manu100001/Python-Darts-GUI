@@ -674,6 +674,15 @@ def button_start_game_function():
     """
     label_1_score['bg'] = "yellow"
 
+    if label_player_3_name['text'] == "Player 3: ":
+        print("YES§§§")
+
+    if label_player_3_name['text'] == "":
+        label_3_score['text'] = ""
+
+    if label_player_4_name['text'] == "":
+        label_4_score['text'] = ""
+
     button_start_game.pack()
     button_start_game.pack_forget()
     button_name_1.pack()
@@ -741,12 +750,19 @@ def next_button():
 
     if label_2_score['bg'] == "yellow":
         label_2_score['bg'] = "white"
-        label_3_score['bg'] = "yellow"
+        print(label_player_3_name['text'])
+        if label_player_3_name['text'] == "":
+            label_1_score['bg'] = "yellow"
+        else:
+            label_3_score['bg'] = "yellow"
         return
 
     if label_3_score['bg'] == "yellow":
         label_3_score['bg'] = "white"
-        label_4_score['bg'] = "yellow"
+        if label_player_4_name['text'] == "":
+            label_1_score['bg'] = "yellow"
+        else:
+            label_4_score['bg'] = "yellow"
         return
 
     if label_4_score['bg'] == "yellow":
@@ -767,12 +783,18 @@ def next():
 
     if label_2_score['bg'] == "yellow":
         label_2_score['bg'] = "white"
-        label_3_score['bg'] = "yellow"
+        if label_player_3_name['text'] == "":
+            label_1_score['bg'] = "yellow"
+        else:
+            label_3_score['bg'] = "yellow"
         return
 
     if label_3_score['bg'] == "yellow":
         label_3_score['bg'] = "white"
-        label_4_score['bg'] = "yellow"
+        if label_player_4_name['text'] == "":
+            label_1_score['bg'] = "yellow"
+        else:
+            label_4_score['bg'] = "yellow"
         return
 
     if label_4_score['bg'] == "yellow":
@@ -884,6 +906,33 @@ def add():
         count_down_button.place(x=440, y=300, height=30, width=90)
         button_dart_score.pack()
         button_dart_score.pack_forget()
+
+
+def reset():
+    """
+
+    :return:
+    """
+    label_1_score['text'] = "501"
+    label_2_score['text'] = "501"
+    label_3_score['text'] = "501"
+    label_4_score['text'] = "501"
+    label_player_1_name['text'] = "Player 1: "
+    label_player_2_name['text'] = "Player 2: "
+    label_player_3_name['text'] = "Player 3: "
+    label_player_4_name['text'] = "Player 4: "
+
+    zwischen_label['text'] = "0"
+    label_dart_score['text'] = ""
+
+    label_first_dart['bg'] = "yellow"
+    label_second_dart['bg'] = "white"
+    label_third_dart['bg'] = "white"
+
+    label_1_score['bg'] = "yellow"
+    label_2_score['bg'] = "white"
+    label_3_score['bg'] = "white"
+    label_4_score['bg'] = "white"
 
 
 if __name__ == "__main__":
@@ -1227,6 +1276,13 @@ if __name__ == "__main__":
     button_single_bull.place(x=1210, y=400, height=60, width=60)
     button_bull.place(x=1210, y=470, height=60, width=60)
     button_0.place(x=1210, y=540, height=60, width=60)
+
+    # ################# ---------------------- ##################
+    # reset - button
+    reset_button = Button(gui, text="Reset", bd=4, fg="black", bg="red", font=('Arial', 11),
+                          command=reset)
+
+    reset_button.place(x=1175, y=190, height=30, width=100)
 
     # ################# ---------------------- ##################
     gui.mainloop()
