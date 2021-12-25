@@ -673,14 +673,16 @@ def button_start_game_function():
     :return:
     """
     label_1_score['bg'] = "yellow"
+    label_2_score['bg'] = "white"
+    label_3_score['bg'] = "white"
+    label_4_score['bg'] = "white"
 
     if label_player_3_name['text'] == "Player 3: ":
-        print("YES§§§")
-
-    if label_player_3_name['text'] == "":
+        label_player_3_name['text'] = ""
         label_3_score['text'] = ""
 
-    if label_player_4_name['text'] == "":
+    if label_player_4_name['text'] == "Player 4: ":
+        label_player_4_name['text'] = ""
         label_4_score['text'] = ""
 
     button_start_game.pack()
@@ -745,13 +747,19 @@ def next_button():
 
     if label_1_score['bg'] == "yellow":
         label_1_score['bg'] = "white"
-        label_2_score['bg'] = "yellow"
+        if int(label_2_score['text']) == 0 and int(label_3_score['text']) != 0:
+            label_3_score['bg'] = "yellow"
+        elif int(label_2_score['text']) == 0 and int(label_3_score['text']) == 0 and int(label_4_score['text']) != 0:
+            label_4_score['bg'] = "yellow"
+        else:
+            label_2_score['bg'] = "yellow"
         return
 
     if label_2_score['bg'] == "yellow":
         label_2_score['bg'] = "white"
-        print(label_player_3_name['text'])
-        if label_player_3_name['text'] == "":
+        if int(label_3_score['text']) == 0 and int(label_4_score['text']) != 0:
+            label_4_score['bg'] = "yellow"
+        elif int(label_3_score['text']) == 0 and int(label_4_score['text']) == 0:
             label_1_score['bg'] = "yellow"
         else:
             label_3_score['bg'] = "yellow"
@@ -759,7 +767,9 @@ def next_button():
 
     if label_3_score['bg'] == "yellow":
         label_3_score['bg'] = "white"
-        if label_player_4_name['text'] == "":
+        if int(label_4_score['text']) == 0 and int(label_1_score['text']) == 0:
+            label_2_score['bg'] = "yellow"
+        elif int(label_4_score['text']) == 0:
             label_1_score['bg'] = "yellow"
         else:
             label_4_score['bg'] = "yellow"
@@ -767,7 +777,12 @@ def next_button():
 
     if label_4_score['bg'] == "yellow":
         label_4_score['bg'] = "white"
-        label_1_score['bg'] = "yellow"
+        if int(label_1_score['text']) != 0:
+            label_1_score['bg'] = "yellow"
+        elif int(label_1_score['text']) == 0 and int(label_2_score['text']) == 0:
+            label_3_score['bg'] = "yellow"
+        else:
+            label_2_score['bg'] = "yellow"
         return
 
 
@@ -778,12 +793,19 @@ def next():
     """
     if label_1_score['bg'] == "yellow":
         label_1_score['bg'] = "white"
-        label_2_score['bg'] = "yellow"
+        if int(label_2_score['text']) == 0 and int(label_3_score['text']) != 0:
+            label_3_score['bg'] = "yellow"
+        elif int(label_2_score['text']) == 0 and int(label_3_score['text']) == 0 and int(label_4_score['text']) != 0:
+            label_4_score['bg'] = "yellow"
+        else:
+            label_2_score['bg'] = "yellow"
         return
 
     if label_2_score['bg'] == "yellow":
         label_2_score['bg'] = "white"
-        if label_player_3_name['text'] == "":
+        if int(label_3_score['text']) == 0 and int(label_4_score['text']) != 0:
+            label_4_score['bg'] = "yellow"
+        elif int(label_3_score['text']) == 0 and int(label_4_score['text']) == 0:
             label_1_score['bg'] = "yellow"
         else:
             label_3_score['bg'] = "yellow"
@@ -791,7 +813,9 @@ def next():
 
     if label_3_score['bg'] == "yellow":
         label_3_score['bg'] = "white"
-        if label_player_4_name['text'] == "":
+          if int(label_4_score['text']) == 0 and int(label_1_score['text']) == 0:
+            label_2_score['bg'] = "yellow"
+        elif int(label_4_score['text']) == 0:
             label_1_score['bg'] = "yellow"
         else:
             label_4_score['bg'] = "yellow"
@@ -799,7 +823,12 @@ def next():
 
     if label_4_score['bg'] == "yellow":
         label_4_score['bg'] = "white"
-        label_1_score['bg'] = "yellow"
+        if int(label_1_score['text']) != 0:
+            label_1_score['bg'] = "yellow"
+        elif int(label_1_score['text']) == 0 and int(label_2_score['text']) == 0:
+            label_3_score['bg'] = "yellow"
+        else:
+            label_2_score['bg'] = "yellow"
         return
 
 
@@ -821,6 +850,18 @@ def count_down():
     label_third_dart['bg'] = "white"
     label_first_dart['bg'] = "yellow"
 
+    eins = int(label_1_score['text'])
+    zwei = int(label_2_score['text'])
+    drei = 501
+    vier = 501
+
+    if label_3_score['text'] != "":
+        drei = int(label_3_score['text'])
+
+    if label_4_score['text'] != "":
+        vier = int(label_4_score['text'])
+
+    # label 1
     if label_1_score['bg'] == "yellow":
         current = int(label_1_score['text'])
         if result > current:
@@ -831,10 +872,39 @@ def count_down():
         elif result == current:
             current = current - result
             label_1_score['text'] = current
-            messagebox.showinfo("Info", label_player_1_name['text'] + "wins")
+
+            # first check: alle Spieler dabei
+            if label_2_score['text'] != "" and label_3_score['text'] != "" and label_4_score['text'] != "":
+                # check if ein spieler bereits bei 0
+                if (zwei == 0 and drei != 0 and vier != 0) or (zwei != 0 and drei == 0 and vier != 0) or (
+                        zwei != 0 and drei != 0 and vier == 0):
+                    messagebox.showinfo("Info", label_player_1_name['text'] + " is the second winner.")
+                # check if zwei Spieler bereits bei 0
+                elif (zwei == 0 and drei == 0 and vier != 0) or (zwei == 0 and drei != 0 and vier == 0) or (
+                        zwei != 0 and drei == 0 and vier == 0):
+                    messagebox.showinfo("Info", label_player_1_name['text'] + " is the third winner.")
+                    end_game()
+                else:
+                    messagebox.showinfo("Info", label_player_1_name['text'] + " is the first winner.")
+
+            # second check: only 3 player
+            elif label_2_score['text'] != "" and label_3_score['text'] != "" and label_4_score['text'] == "":
+                # check if ein Spieler bereits bei 0
+                if (zwei == 0 and drei != 0) and (zwei != 0 and drei == 0):
+                    messagebox.showinfo("Info", label_player_1_name['text'] + " is the second winner.")
+                    end_game()
+                else:
+                    messagebox.showinfo("Info", label_player_1_name['text'] + " is the first winner.")
+
+            # third check: only 2 player
+            elif label_2_score['text'] != "" and label_3_score['text'] == "" and label_4_score['text'] == "":
+                messagebox.showinfo("Info", label_player_1_name['text'] + " is the second winner.")
+                end_game()
+
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
 
+    # label 2
     if label_2_score['bg'] == "yellow":
         current = int(label_2_score['text'])
         if result > current:
@@ -845,10 +915,39 @@ def count_down():
         elif result == current:
             current = current - result
             label_2_score['text'] = current
-            messagebox.showinfo("Info", label_player_2_name['text'] + "wins")
+
+            # first check: alle Spieler dabei
+            if label_1_score['text'] != "" and label_3_score['text'] != "" and label_4_score['text'] != "":
+                # check if ein spieler bereits bei 0
+                if (eins == 0 and drei != 0 and vier != 0) or (eins != 0 and drei == 0 and vier != 0) or (
+                        eins != 0 and drei != 0 and vier == 0):
+                    messagebox.showinfo("Info", label_player_2_name['text'] + " is the second winner.")
+                # check if zwei Spieler bereits bei 0
+                elif (eins == 0 and drei == 0 and vier != 0) or (eins == 0 and drei != 0 and vier == 0) or (
+                        eins != 0 and drei == 0 and vier == 0):
+                    messagebox.showinfo("Info", label_player_2_name['text'] + " is the third winner.")
+                    end_game()
+                else:
+                    messagebox.showinfo("Info", label_player_2_name['text'] + " is the first winner.")
+
+            # second check: only 3 player
+            elif label_1_score['text'] != "" and label_3_score['text'] != "" and label_4_score['text'] == "":
+                # check if ein Spieler bereits bei 0
+                if (eins == 0 and drei != 0) and (eins != 0 and drei == 0):
+                    messagebox.showinfo("Info", label_player_2_name['text'] + " is the second winner.")
+                    end_game()
+                else:
+                    messagebox.showinfo("Info", label_player_2_name['text'] + " is the first winner.")
+
+            # third check: only 2 player
+            elif label_1_score['text'] != "" and label_3_score['text'] == "" and label_4_score['text'] == "":
+                messagebox.showinfo("Info", label_player_2_name['text'] + " is the second winner.")
+                end_game()
+
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
 
+    # label 3
     if label_3_score['bg'] == "yellow":
         current = int(label_3_score['text'])
         if result > current:
@@ -859,7 +958,30 @@ def count_down():
         elif result == current:
             current = current - result
             label_3_score['text'] = current
-            messagebox.showinfo("Info", label_player_3_name['text'] + "wins")
+
+            # first check: alle Spieler dabei
+            if label_1_score['text'] != "" and label_2_score['text'] != "" and label_4_score['text'] != "":
+                # check if ein spieler bereits bei 0
+                if (zwei == 0 and eins != 0 and vier != 0) or (zwei != 0 and eins == 0 and vier != 0) or (
+                        zwei != 0 and eins != 0 and vier == 0):
+                    messagebox.showinfo("Info", label_player_3_name['text'] + " is the second winner.")
+                # check if zwei Spieler bereits bei 0
+                elif (zwei == 0 and eins == 0 and vier != 0) or (zwei == 0 and eins != 0 and vier == 0) or (
+                        zwei != 0 and eins == 0 and vier == 0):
+                    messagebox.showinfo("Info", label_player_3_name['text'] + " is the third winner.")
+                    end_game()
+                else:
+                    messagebox.showinfo("Info", label_player_3_name['text'] + " is the first winner.")
+
+            # second check: only 3 player
+            elif label_1_score['text'] != "" and label_2_score['text'] != "" and label_4_score['text'] == "":
+                # check if ein Spieler bereits bei 0
+                if (zwei == 0 and eins != 0) and (zwei != 0 and eins == 0):
+                    messagebox.showinfo("Info", label_player_3_name['text'] + " is the second winner.")
+                    end_game()
+                else:
+                    messagebox.showinfo("Info", label_player_3_name['text'] + " is the first winner.")
+
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
 
@@ -873,7 +995,19 @@ def count_down():
         elif result == current:
             current = current - result
             label_4_score['text'] = current
-            messagebox.showinfo("Info", label_player_4_name['text'] + "wins")
+
+            # check if ein spieler bereits bei 0
+            if (zwei == 0 and drei != 0 and vier != 0) or (zwei != 0 and drei == 0 and vier != 0) or (
+                    zwei != 0 and drei != 0 and vier == 0):
+                messagebox.showinfo("Info", label_player_4_name['text'] + " is the second winner.")
+            # check if zwei Spieler bereits bei 0
+            elif (zwei == 0 and drei == 0 and vier != 0) or (zwei == 0 and drei != 0 and vier == 0) or (
+                    zwei != 0 and drei == 0 and vier == 0):
+                messagebox.showinfo("Info", label_player_4_name['text'] + " is the third winner.")
+                end_game()
+            else:
+                messagebox.showinfo("Info", label_player_4_name['text'] + " is the first winner.")
+
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
 
@@ -935,6 +1069,46 @@ def reset():
     label_4_score['bg'] = "white"
 
 
+def new_game():
+    """
+
+    return:
+    """
+    label_1_score['bg'] = "yellow"
+    label_2_score['bg'] = "white"
+    label_3_score['bg'] = "white"
+    label_4_score['bg'] = "white"
+
+    label_1_score['text'] = "501"
+    label_2_score['text'] = "501"
+
+    if label_player_3_name['text'] != "":
+        label_3_score['text'] = "501"
+
+    if label_player_4_name['text'] != "":
+        label_4_score['text'] = "501"
+
+
+def end_game():
+    """
+
+    """
+    messagebox.showinfo("Info", "Spiel beendet.")
+    label_1_score['bg'] = "yellow"
+    label_2_score['bg'] = "white"
+    label_3_score['bg'] = "white"
+    label_4_score['bg'] = "white"
+
+    label_1_score['text'] = "501"
+    label_2_score['text'] = "501"
+
+    if label_player_3_name['text'] != "":
+        label_3_score['text'] = "501"
+
+    if label_player_4_name['text'] != "":
+        label_4_score['text'] = "501"
+
+
 if __name__ == "__main__":
     # configure the window to generate
     gui = Tk()
@@ -988,10 +1162,10 @@ if __name__ == "__main__":
 
     # ################# ---------------------- ##################
     # labels for game score for 4 players
-    label_1_score = Label(gui, text="501", fg="black", font=('Arial', 13, 'bold'))
-    label_2_score = Label(gui, text="501", fg="black", font=('Arial', 13, 'bold'))
-    label_3_score = Label(gui, text="501", fg="black", font=('Arial', 13, 'bold'))
-    label_4_score = Label(gui, text="501", fg="black", font=('Arial', 13, 'bold'))
+    label_1_score = Label(gui, text="501", fg="black", bg="white", font=('Arial', 13, 'bold'))
+    label_2_score = Label(gui, text="501", fg="black", bg="white", font=('Arial', 13, 'bold'))
+    label_3_score = Label(gui, text="501", fg="black", bg="white", font=('Arial', 13, 'bold'))
+    label_4_score = Label(gui, text="501", fg="black", bg="white", font=('Arial', 13, 'bold'))
 
     label_1_score.place(x=10, y=60, height=30, width=110)
     label_2_score.place(x=160, y=60, height=30, width=110)
@@ -1284,5 +1458,12 @@ if __name__ == "__main__":
 
     reset_button.place(x=1175, y=190, height=30, width=100)
 
+    new_game_button = Button(gui, text="New Game", bd=4, fg="black", bg="red", font=('Arial', 11),
+                             command=new_game)
+
+    new_game_button.place(x=850, y=200, height=30, width=100)
+
+    new_game_button.pack()
+    new_game_button.pack_forget()
     # ################# ---------------------- ##################
     gui.mainloop()
