@@ -745,44 +745,77 @@ def next_button():
     label_second_dart['bg'] = "white"
     label_third_dart['bg'] = "white"
 
+    # check label 1
     if label_1_score['bg'] == "yellow":
         label_1_score['bg'] = "white"
-        if int(label_2_score['text']) == 0 and int(label_3_score['text']) != 0:
-            label_3_score['bg'] = "yellow"
-        elif int(label_2_score['text']) == 0 and int(label_3_score['text']) == 0 and int(label_4_score['text']) != 0:
-            label_4_score['bg'] = "yellow"
+
+        if int(label_2_score['text']) == 0:
+            # is label 3 set?
+            if label_3_score['text'] != "":
+                if label_4_score['text'] != "":
+                    if int(label_3_score['text']) == 0:
+                        if int(label_4_score['text']) == 0:
+                            label_1_score['bg'] = "yellow"
+                        else:
+                            label_4_score['bg'] = "yellow"
+                    else:
+                        label_3_score['bg'] = "yellow"
         else:
             label_2_score['bg'] = "yellow"
         return
 
+    # check label 2
     if label_2_score['bg'] == "yellow":
         label_2_score['bg'] = "white"
-        if int(label_3_score['text']) == 0 and int(label_4_score['text']) != 0:
-            label_4_score['bg'] = "yellow"
-        elif int(label_3_score['text']) == 0 and int(label_4_score['text']) == 0:
-            label_1_score['bg'] = "yellow"
+
+        if label_3_score['text'] != "":
+            if label_4_score['text'] != "":
+                if int(label_3_score['text']) == 0:
+                    if int(label_4_score['text']) == 0:
+                        label_1_score['bg'] = "yellow"
+                    else:
+                        label_4_score['bg'] = "yellow"
+                else:
+                    label_3_score['bg'] = "yellow"
+            elif int(label_3_score['text']) == 0:
+                label_1_score['bg'] = "yellow"
+            else:
+                label_3_score['bg'] = "yellow"
         else:
-            label_3_score['bg'] = "yellow"
+            label_1_score['bg'] = "yellow"
         return
 
+    # check label 3
     if label_3_score['bg'] == "yellow":
         label_3_score['bg'] = "white"
-        if int(label_4_score['text']) == 0 and int(label_1_score['text']) == 0:
-            label_2_score['bg'] = "yellow"
-        elif int(label_4_score['text']) == 0:
-            label_1_score['bg'] = "yellow"
+        # check if label 4 is in use
+        if label_4_score['text'] != "":
+            if int(label_4_score['text']) == 0:
+                if int(label_1_score['text']) == 0:
+                    label_2_score['bg'] = "yellow"
+                else:
+                    label_1_score['bg'] = "yellow"
+            else:
+                label_4_score['bg'] = "yellow"
         else:
-            label_4_score['bg'] = "yellow"
+            if int(label_1_score['text']) == 0:
+                label_2_score['bg'] = "yellow"
+            else:
+                label_1_score['bg'] = "yellow"
+
         return
 
+    # check label 4
     if label_4_score['bg'] == "yellow":
         label_4_score['bg'] = "white"
-        if int(label_1_score['text']) != 0:
-            label_1_score['bg'] = "yellow"
-        elif int(label_1_score['text']) == 0 and int(label_2_score['text']) == 0:
-            label_3_score['bg'] = "yellow"
+
+        if int(label_1_score['text']) == 0:
+            if int(label_2_score['text']) == 0:
+                label_3_score['bg'] = "yellow"
+            else:
+                label_2_score['bg'] = "yellow"
         else:
-            label_2_score['bg'] = "yellow"
+            label_1_score['bg'] = "yellow"
         return
 
 
@@ -791,44 +824,77 @@ def next():
 
     :return:
     """
+    # check label 1
     if label_1_score['bg'] == "yellow":
         label_1_score['bg'] = "white"
-        if int(label_2_score['text']) == 0 and int(label_3_score['text']) != 0:
-            label_3_score['bg'] = "yellow"
-        elif int(label_2_score['text']) == 0 and int(label_3_score['text']) == 0 and int(label_4_score['text']) != 0:
-            label_4_score['bg'] = "yellow"
+
+        if int(label_2_score['text']) == 0:
+            # is label 3 set?
+            if label_3_score['text'] != "":
+                if label_4_score['text'] != "":
+                    if int(label_3_score['text']) == 0:
+                        if int(label_4_score['text']) == 0:
+                            label_1_score['bg'] = "yellow"
+                        else:
+                            label_4_score['bg'] = "yellow"
+                    else:
+                        label_3_score['bg'] = "yellow"
         else:
             label_2_score['bg'] = "yellow"
         return
 
+    # check label 2
     if label_2_score['bg'] == "yellow":
         label_2_score['bg'] = "white"
-        if int(label_3_score['text']) == 0 and int(label_4_score['text']) != 0:
-            label_4_score['bg'] = "yellow"
-        elif int(label_3_score['text']) == 0 and int(label_4_score['text']) == 0:
-            label_1_score['bg'] = "yellow"
+
+        if label_3_score['text'] != "":
+            if label_4_score['text'] != "":
+                if int(label_3_score['text']) == 0:
+                    if int(label_4_score['text']) == 0:
+                        label_1_score['bg'] = "yellow"
+                    else:
+                        label_4_score['bg'] = "yellow"
+                else:
+                    label_3_score['bg'] = "yellow"
+            elif int(label_3_score['text']) == 0:
+                label_1_score['bg'] = "yellow"
+            else:
+                label_3_score['bg'] = "yellow"
         else:
-            label_3_score['bg'] = "yellow"
+            label_1_score['bg'] = "yellow"
         return
 
+    # check label 3
     if label_3_score['bg'] == "yellow":
         label_3_score['bg'] = "white"
-          if int(label_4_score['text']) == 0 and int(label_1_score['text']) == 0:
-            label_2_score['bg'] = "yellow"
-        elif int(label_4_score['text']) == 0:
-            label_1_score['bg'] = "yellow"
+        # check if label 4 is in use
+        if label_4_score['text'] != "":
+            if int(label_4_score['text']) == 0:
+                if int(label_1_score['text']) == 0:
+                    label_2_score['bg'] = "yellow"
+                else:
+                    label_1_score['bg'] = "yellow"
+            else:
+                label_4_score['bg'] = "yellow"
         else:
-            label_4_score['bg'] = "yellow"
+            if int(label_1_score['text']) == 0:
+                label_2_score['bg'] = "yellow"
+            else:
+                label_1_score['bg'] = "yellow"
+
         return
 
+    # check label 4
     if label_4_score['bg'] == "yellow":
         label_4_score['bg'] = "white"
-        if int(label_1_score['text']) != 0:
-            label_1_score['bg'] = "yellow"
-        elif int(label_1_score['text']) == 0 and int(label_2_score['text']) == 0:
-            label_3_score['bg'] = "yellow"
+
+        if int(label_1_score['text']) == 0:
+            if int(label_2_score['text']) == 0:
+                label_3_score['bg'] = "yellow"
+            else:
+                label_2_score['bg'] = "yellow"
         else:
-            label_2_score['bg'] = "yellow"
+            label_1_score['bg'] = "yellow"
         return
 
 
@@ -837,7 +903,6 @@ def count_down():
     This function counts the score down
     :return:
     """
-    flag = False
     count_down_button.pack()
     count_down_button.pack_forget()
 
@@ -872,6 +937,7 @@ def count_down():
         elif result == current:
             current = current - result
             label_1_score['text'] = current
+            eins = 0
 
             # first check: alle Spieler dabei
             if label_2_score['text'] != "" and label_3_score['text'] != "" and label_4_score['text'] != "":
@@ -879,6 +945,7 @@ def count_down():
                 if (zwei == 0 and drei != 0 and vier != 0) or (zwei != 0 and drei == 0 and vier != 0) or (
                         zwei != 0 and drei != 0 and vier == 0):
                     messagebox.showinfo("Info", label_player_1_name['text'] + " is the second winner.")
+
                 # check if zwei Spieler bereits bei 0
                 elif (zwei == 0 and drei == 0 and vier != 0) or (zwei == 0 and drei != 0 and vier == 0) or (
                         zwei != 0 and drei == 0 and vier == 0):
@@ -890,7 +957,7 @@ def count_down():
             # second check: only 3 player
             elif label_2_score['text'] != "" and label_3_score['text'] != "" and label_4_score['text'] == "":
                 # check if ein Spieler bereits bei 0
-                if (zwei == 0 and drei != 0) and (zwei != 0 and drei == 0):
+                if (zwei == 0 and drei != 0) or (zwei != 0 and drei == 0):
                     messagebox.showinfo("Info", label_player_1_name['text'] + " is the second winner.")
                     end_game()
                 else:
@@ -915,6 +982,7 @@ def count_down():
         elif result == current:
             current = current - result
             label_2_score['text'] = current
+            zwei = 0
 
             # first check: alle Spieler dabei
             if label_1_score['text'] != "" and label_3_score['text'] != "" and label_4_score['text'] != "":
@@ -922,6 +990,7 @@ def count_down():
                 if (eins == 0 and drei != 0 and vier != 0) or (eins != 0 and drei == 0 and vier != 0) or (
                         eins != 0 and drei != 0 and vier == 0):
                     messagebox.showinfo("Info", label_player_2_name['text'] + " is the second winner.")
+
                 # check if zwei Spieler bereits bei 0
                 elif (eins == 0 and drei == 0 and vier != 0) or (eins == 0 and drei != 0 and vier == 0) or (
                         eins != 0 and drei == 0 and vier == 0):
@@ -933,7 +1002,7 @@ def count_down():
             # second check: only 3 player
             elif label_1_score['text'] != "" and label_3_score['text'] != "" and label_4_score['text'] == "":
                 # check if ein Spieler bereits bei 0
-                if (eins == 0 and drei != 0) and (eins != 0 and drei == 0):
+                if (eins == 0 and drei != 0) or (eins != 0 and drei == 0):
                     messagebox.showinfo("Info", label_player_2_name['text'] + " is the second winner.")
                     end_game()
                 else:
@@ -958,6 +1027,7 @@ def count_down():
         elif result == current:
             current = current - result
             label_3_score['text'] = current
+            drei = 0
 
             # first check: alle Spieler dabei
             if label_1_score['text'] != "" and label_2_score['text'] != "" and label_4_score['text'] != "":
@@ -965,6 +1035,7 @@ def count_down():
                 if (zwei == 0 and eins != 0 and vier != 0) or (zwei != 0 and eins == 0 and vier != 0) or (
                         zwei != 0 and eins != 0 and vier == 0):
                     messagebox.showinfo("Info", label_player_3_name['text'] + " is the second winner.")
+
                 # check if zwei Spieler bereits bei 0
                 elif (zwei == 0 and eins == 0 and vier != 0) or (zwei == 0 and eins != 0 and vier == 0) or (
                         zwei != 0 and eins == 0 and vier == 0):
@@ -976,7 +1047,7 @@ def count_down():
             # second check: only 3 player
             elif label_1_score['text'] != "" and label_2_score['text'] != "" and label_4_score['text'] == "":
                 # check if ein Spieler bereits bei 0
-                if (zwei == 0 and eins != 0) and (zwei != 0 and eins == 0):
+                if (zwei == 0 and eins != 0) or (zwei != 0 and eins == 0):
                     messagebox.showinfo("Info", label_player_3_name['text'] + " is the second winner.")
                     end_game()
                 else:
@@ -995,11 +1066,12 @@ def count_down():
         elif result == current:
             current = current - result
             label_4_score['text'] = current
-
+            vier = 0
             # check if ein spieler bereits bei 0
             if (zwei == 0 and drei != 0 and vier != 0) or (zwei != 0 and drei == 0 and vier != 0) or (
                     zwei != 0 and drei != 0 and vier == 0):
                 messagebox.showinfo("Info", label_player_4_name['text'] + " is the second winner.")
+
             # check if zwei Spieler bereits bei 0
             elif (zwei == 0 and drei == 0 and vier != 0) or (zwei == 0 and drei != 0 and vier == 0) or (
                     zwei != 0 and drei == 0 and vier == 0):
