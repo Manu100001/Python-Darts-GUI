@@ -7,14 +7,12 @@ this script will help you to calculate the scores.
 :author: Manuel Milde manuelmilde@gmx.net
 :copyright: 2021 Manuel Milde
 """
-import sqlite3
 from tkinter import *
 from tkinter import messagebox
 from datetime import datetime
 import os
 
 global_darts_counter = 0
-
 
 def T20():
     """
@@ -677,13 +675,23 @@ def button_start_game_function():
     label_3_score['bg'] = "white"
     label_4_score['bg'] = "white"
 
-    if label_player_3_name['text'] == "Player 3: ":
+    if label_player_3_name['text'] == "Player 3: " or label_player_3_name['text'] == "":
         label_player_3_name['text'] = ""
         label_3_score['text'] = ""
+    else:
+        if int(label_1_score['text']) == 501:
+            label_3_score['text'] = "501"
+        else:
+            label_3_score['text'] = "301"
 
-    if label_player_4_name['text'] == "Player 4: ":
+    if label_player_4_name['text'] == "Player 4: " or label_player_4_name['text'] == "":
         label_player_4_name['text'] = ""
         label_4_score['text'] = ""
+    else:
+        if int(label_1_score['text']) == 501:
+            label_4_score['text'] = "501"
+        else:
+            label_4_score['text'] = "301"
 
     button_start_game.pack()
     button_start_game.pack_forget()
@@ -912,8 +920,9 @@ def count_down():
     result = int(zwischen_label['text'])
     zwischen_label['text'] = "0"
 
-    label_third_dart['bg'] = "white"
     label_first_dart['bg'] = "yellow"
+    label_second_dart['bg'] = "white"
+    label_third_dart['bg'] = "white"
 
     eins = int(label_1_score['text'])
     zwei = int(label_2_score['text'])
@@ -951,6 +960,7 @@ def count_down():
                         zwei != 0 and drei == 0 and vier == 0):
                     messagebox.showinfo("Info", label_player_1_name['text'] + " is the third winner.")
                     end_game()
+                    return
                 else:
                     messagebox.showinfo("Info", label_player_1_name['text'] + " is the first winner.")
 
@@ -960,6 +970,7 @@ def count_down():
                 if (zwei == 0 and drei != 0) or (zwei != 0 and drei == 0):
                     messagebox.showinfo("Info", label_player_1_name['text'] + " is the second winner.")
                     end_game()
+                    return
                 else:
                     messagebox.showinfo("Info", label_player_1_name['text'] + " is the first winner.")
 
@@ -967,6 +978,7 @@ def count_down():
             elif label_2_score['text'] != "" and label_3_score['text'] == "" and label_4_score['text'] == "":
                 messagebox.showinfo("Info", label_player_1_name['text'] + " is the second winner.")
                 end_game()
+                return
 
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
@@ -996,6 +1008,7 @@ def count_down():
                         eins != 0 and drei == 0 and vier == 0):
                     messagebox.showinfo("Info", label_player_2_name['text'] + " is the third winner.")
                     end_game()
+                    return
                 else:
                     messagebox.showinfo("Info", label_player_2_name['text'] + " is the first winner.")
 
@@ -1005,6 +1018,7 @@ def count_down():
                 if (eins == 0 and drei != 0) or (eins != 0 and drei == 0):
                     messagebox.showinfo("Info", label_player_2_name['text'] + " is the second winner.")
                     end_game()
+                    return
                 else:
                     messagebox.showinfo("Info", label_player_2_name['text'] + " is the first winner.")
 
@@ -1012,6 +1026,7 @@ def count_down():
             elif label_1_score['text'] != "" and label_3_score['text'] == "" and label_4_score['text'] == "":
                 messagebox.showinfo("Info", label_player_2_name['text'] + " is the second winner.")
                 end_game()
+                return
 
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
@@ -1041,6 +1056,7 @@ def count_down():
                         zwei != 0 and eins == 0 and vier == 0):
                     messagebox.showinfo("Info", label_player_3_name['text'] + " is the third winner.")
                     end_game()
+                    return
                 else:
                     messagebox.showinfo("Info", label_player_3_name['text'] + " is the first winner.")
 
@@ -1050,6 +1066,7 @@ def count_down():
                 if (zwei == 0 and eins != 0) or (zwei != 0 and eins == 0):
                     messagebox.showinfo("Info", label_player_3_name['text'] + " is the second winner.")
                     end_game()
+                    return
                 else:
                     messagebox.showinfo("Info", label_player_3_name['text'] + " is the first winner.")
 
@@ -1077,6 +1094,7 @@ def count_down():
                     zwei != 0 and drei == 0 and vier == 0):
                 messagebox.showinfo("Info", label_player_4_name['text'] + " is the third winner.")
                 end_game()
+                return
             else:
                 messagebox.showinfo("Info", label_player_4_name['text'] + " is the first winner.")
 
@@ -1096,6 +1114,16 @@ def add():
     result = current + count
     zwischen_label['text'] = result
     label_dart_score['text'] = ""
+
+    if (label_1_score['bg'] == "yellow" and int(label_1_score['text'] == result)) \
+            or (label_2_score['bg'] == "yellow" and int(label_2_score['text'] == result)) \
+            or (label_3_score['bg'] == "yellow" and int(label_3_score['text'] == result)) \
+            or (label_4_score['bg'] == "yellow" and int(label_4_score['text'] == result)):
+
+        count_down_button.pack()
+        count_down_button.place(x=440, y=300, height=30, width=90)
+        button_dart_score.pack()
+        button_dart_score.pack_forget()
 
     if label_first_dart['bg'] == "yellow":
         label_first_dart['bg'] = "white"
@@ -1167,6 +1195,7 @@ def end_game():
     """
     messagebox.showinfo("Info", "Spiel beendet.")
     label_1_score['bg'] = "yellow"
+    print("Action")
     label_2_score['bg'] = "white"
     label_3_score['bg'] = "white"
     label_4_score['bg'] = "white"
