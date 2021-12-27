@@ -1,7 +1,7 @@
 # Python-Darts-GUI
 Gui for playing Darts
 
-# Setup
+# Setup for electronic dartboard
 Step into directory 
 ```bash
 cd Python-Darts-GUI
@@ -30,4 +30,6 @@ python Darts_mit_Gui.py  # to start the Gui for the game
   First to 3 sets means that whoever has 3 sets first wins the game. \
   To achieve a set, you have to win 3 legs. \
   The switch - button has the same function here. 
+  
+  # Setup for normal dartboard
 
