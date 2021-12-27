@@ -14,6 +14,65 @@ import os
 
 global_darts_counter = 0
 
+player1 = []
+player2 = []
+player3 = []
+player4 = []
+
+
+def add_player1(result, dart):
+    """
+
+    :return:
+    """
+    player1.append({"Score": result, "Darts": dart})
+    return
+
+
+def add_player2(result, dart):
+    """
+
+    :return:
+    """
+    player2.append({"Score": result, "Darts": dart})
+    return
+
+
+def add_player3(result, dart):
+    """
+
+    :return:
+    """
+    player3.append({"Score": result, "Darts": dart})
+    return
+
+
+def add_player4(result, dart):
+    """
+
+    :return:
+    """
+    player4.append({"Score": result, "Darts": dart})
+    return
+
+
+def save_score():
+    """
+
+    :return:
+    """
+    if not os.path.isdir("Spielstände"):
+        os.mkdir("Spielstände")
+
+    if not os.path.isdir("Spielstände/Scoring"):
+        os.mkdir("Spielstände/Scoring")
+
+    #TODO
+    # Create Excel - file for the scoring with timestamp index as filename
+    # create new excel for every instance of the gui
+    # call the save_score - function when the game is resetet, started a new game or the games end
+
+
 def T20():
     """
 
@@ -920,6 +979,15 @@ def count_down():
     result = int(zwischen_label['text'])
     zwischen_label['text'] = "0"
 
+    darts = 3
+
+    if label_first_dart['bg'] == "yellow":
+        darts = 1
+    elif label_second_dart['bg'] == "yellow":
+        darts = 2
+    elif label_third_dart['bg'] == "yellow":
+        darts = 3
+
     label_first_dart['bg'] = "yellow"
     label_second_dart['bg'] = "white"
     label_third_dart['bg'] = "white"
@@ -940,12 +1008,18 @@ def count_down():
         current = int(label_1_score['text'])
         if result > current:
             messagebox.showinfo("Achtung", "Sie haben überworfen!")
+            result = 0
+            add_player1(result, darts)
+
         elif current > result:
             current = current - result
             label_1_score['text'] = current
+            add_player1(result, darts)
+
         elif result == current:
             current = current - result
             label_1_score['text'] = current
+            add_player1(result, darts)
             eins = 0
 
             # first check: alle Spieler dabei
@@ -976,10 +1050,9 @@ def count_down():
 
             # third check: only 2 player
             elif label_2_score['text'] != "" and label_3_score['text'] == "" and label_4_score['text'] == "":
-                messagebox.showinfo("Info", label_player_1_name['text'] + " is the second winner.")
+                messagebox.showinfo("Info", label_player_1_name['text'] + " is the first winner.")
                 end_game()
                 return
-
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
 
@@ -988,12 +1061,18 @@ def count_down():
         current = int(label_2_score['text'])
         if result > current:
             messagebox.showinfo("Achtung", "Sie haben überworfen!")
+            result = 0
+            add_player2(result, darts)
+
         elif current > result:
             current = current - result
             label_2_score['text'] = current
+            add_player2(result, darts)
+
         elif result == current:
             current = current - result
             label_2_score['text'] = current
+            add_player2(result, darts)
             zwei = 0
 
             # first check: alle Spieler dabei
@@ -1024,7 +1103,7 @@ def count_down():
 
             # third check: only 2 player
             elif label_1_score['text'] != "" and label_3_score['text'] == "" and label_4_score['text'] == "":
-                messagebox.showinfo("Info", label_player_2_name['text'] + " is the second winner.")
+                messagebox.showinfo("Info", label_player_2_name['text'] + " is the first winner.")
                 end_game()
                 return
 
@@ -1036,12 +1115,18 @@ def count_down():
         current = int(label_3_score['text'])
         if result > current:
             messagebox.showinfo("Achtung", "Sie haben überworfen!")
+            result = 0
+            add_player3(result, darts)
+
         elif current > result:
             current = current - result
             label_3_score['text'] = current
+            add_player3(result, darts)
+
         elif result == current:
             current = current - result
             label_3_score['text'] = current
+            add_player3(result, darts)
             drei = 0
 
             # first check: alle Spieler dabei
@@ -1077,12 +1162,19 @@ def count_down():
         current = int(label_4_score['text'])
         if result > current:
             messagebox.showinfo("Achtung", "Sie haben überworfen!")
+            result = 0
+            add_player4(result, darts)
+
         elif current > result:
             current = current - result
             label_4_score['text'] = current
+            add_player4(result, darts)
+
         elif result == current:
             current = current - result
             label_4_score['text'] = current
+            add_player4(result, darts)
+
             vier = 0
             # check if ein spieler bereits bei 0
             if (zwei == 0 and drei != 0 and vier != 0) or (zwei != 0 and drei == 0 and vier != 0) or (
@@ -1124,6 +1216,7 @@ def add():
         count_down_button.place(x=440, y=300, height=30, width=90)
         button_dart_score.pack()
         button_dart_score.pack_forget()
+        return
 
     if label_first_dart['bg'] == "yellow":
         label_first_dart['bg'] = "white"
@@ -1168,6 +1261,15 @@ def reset():
     label_3_score['bg'] = "white"
     label_4_score['bg'] = "white"
 
+    for item in player1:
+        player1.remove(item)
+    for item in player2:
+        player2.remove(item)
+    for item in player3:
+        player3.remove(item)
+    for item in player4:
+        player4.remove(item)
+
 
 def new_game():
     """
@@ -1188,14 +1290,35 @@ def new_game():
     if label_player_4_name['text'] != "":
         label_4_score['text'] = "501"
 
+    for item in player1:
+        player1.remove(item)
+    for item in player2:
+        player2.remove(item)
+    for item in player3:
+        player3.remove(item)
+    for item in player4:
+        player4.remove(item)
+
 
 def end_game():
     """
 
     """
     messagebox.showinfo("Info", "Spiel beendet.")
+    print("#############")
+    for item in player1:
+        print(item)
+    print("#############")
+    for item in player2:
+        print(item)
+    print("#############")
+    for item in player3:
+        print(item)
+    print("#############")
+    for item in player4:
+        print(item)
+
     label_1_score['bg'] = "yellow"
-    print("Action")
     label_2_score['bg'] = "white"
     label_3_score['bg'] = "white"
     label_4_score['bg'] = "white"
@@ -1208,6 +1331,15 @@ def end_game():
 
     if label_player_4_name['text'] != "":
         label_4_score['text'] = "501"
+
+    for item in player1:
+        player1.remove(item)
+    for item in player2:
+        player2.remove(item)
+    for item in player3:
+        player3.remove(item)
+    for item in player4:
+        player4.remove(item)
 
 
 if __name__ == "__main__":
