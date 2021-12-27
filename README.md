@@ -31,7 +31,7 @@ python Darts_mit_Gui.py  # to start the Gui for the game
   To achieve a set, you have to win 3 legs. \
   The switch - button has the same function here. 
   
-  # Setup for normal dartboard
+# Setup for normal dartboard
   
 Step into directory 
 ```bash
