@@ -3,7 +3,7 @@ Gui for playing Darts
 
 # Setup for electronic dartboard
 Step into directory 
-```
+```bash
 cd Python-Darts-GUI
 ```
 
@@ -32,4 +32,17 @@ python Darts_mit_Gui.py  # to start the Gui for the game
   The switch - button has the same function here. 
   
   # Setup for normal dartboard
+  
+Step into directory 
+```bash
+cd Python-Darts-GUI
+```
 
+Run:
+
+```bash
+python Zähler.py  # to start the gui for counting
+```
+
+# Description
+TBD
