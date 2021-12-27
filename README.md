@@ -3,7 +3,7 @@ Gui for playing Darts
 
 # Setup for electronic dartboard
 Step into directory 
-```bash
+```
 cd Python-Darts-GUI
 ```
 
