@@ -10,14 +10,249 @@ this script will help you to calculate the scores.
 from tkinter import *
 from tkinter import messagebox
 from datetime import datetime
+from openpyxl import Workbook
+from openpyxl.styles import PatternFill
 import os
 
-global_darts_counter = 0
+# color for excel
+greenFill = PatternFill(start_color='92D050', end_color='92D050', fill_type='solid')
 
+# months for creating timebased excel
+months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November',
+          'Dezember']
+
+# safe darts and score for each player
 player1 = []
 player2 = []
 player3 = []
 player4 = []
+
+# index for players for excel sheet
+start_index_1 = 0
+start_index_2 = 0
+start_index_3 = 0
+start_index_4 = 0
+
+# dictionaries for each player
+player1_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, "60": 0}]
+player2_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, "60": 0}]
+player3_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, "60": 0}]
+player4_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, "60": 0}]
+
+
+def create_excel():
+    """
+
+    :return:
+    """
+    if not os.path.isdir("Spielstände"):
+        os.mkdir("Spielstände")
+
+    if not os.path.isdir("Spielstände/Scoring"):
+        os.mkdir("Spielstände/Scoring")
+
+    # current year
+    current_year = datetime.now().strftime('%Y')
+    if not os.path.isdir("Spielstände/Scoring/" + current_year):
+        os.mkdir("Spielstände/Scoring/" + current_year)
+
+    # current month
+    current_month = datetime.now().strftime('%m')
+    month_name = months[int(current_month) - 1]
+    if not os.path.isdir("Spielstände/Scoring/" + current_year + "/" + month_name):
+        os.mkdir("Spielstände/Scoring/" + current_year + "/" + month_name)
+
+    # current day
+    current_day = int(datetime.now().strftime('%d'))
+    date = str(current_day) + "." + str(current_month)
+    if not os.path.isdir("Spielstände/Scoring/" + current_year + "/" + month_name + "/" + date):
+        os.mkdir("Spielstände/Scoring/" + current_year + "/" + month_name + "/" + date)
+
+    # create new score - file
+    time = datetime.now().strftime('%H-%M-%S')
+
+    excel_file = Workbook()
+    sheet = excel_file.create_sheet('Scoring')
+    path = "Spielstände/Scoring/" + current_year + "/" + month_name + "/" + date + "/" + time + ".xlsx"
+    # set standards
+    sheet.cell(row=3, column=2).value = "Spieler"
+    sheet.cell(row=3, column=3).value = "Average"
+    sheet.cell(row=3, column=4).value = "180"
+    sheet.cell(row=3, column=5).value = "140+"
+    sheet.cell(row=3, column=6).value = "100+"
+    sheet.cell(row=3, column=7).value = "80+"
+    sheet.cell(row=3, column=8).value = "60+"
+
+    sheet.cell(row=3, column=9).value = "Geworfene Punkte"
+    sheet.cell(row=3, column=10).value = "Geworfene Darts"
+
+    sheet['B3'].fill = greenFill
+    sheet['C3'].fill = greenFill
+    sheet['D3'].fill = greenFill
+    sheet['E3'].fill = greenFill
+    sheet['F3'].fill = greenFill
+    sheet['G3'].fill = greenFill
+    sheet['H3'].fill = greenFill
+    sheet['I3'].fill = greenFill
+    sheet['J3'].fill = greenFill
+
+    sheet.column_dimensions['C'].width = 15
+    sheet.column_dimensions['I'].width = 18
+    sheet.column_dimensions['J'].width = 18
+
+    # logic for excel - file
+    sheet.cell(row=4, column=2).value = label_player_1_name['text']
+    sheet.cell(row=5, column=2).value = label_player_2_name['text']
+    sheet.cell(row=6, column=2).value = label_player_3_name['text']
+    sheet.cell(row=7, column=2).value = label_player_4_name['text']
+
+    # show data in excel
+    # player 1
+    sheet.cell(row=4, column=3).value = round((player1_kpis[0]['Score'] / player1_kpis[0]['Darts']) * 3, 2)
+    sheet.cell(row=4, column=4).value = player1_kpis[0]['180']
+    sheet.cell(row=4, column=5).value = player1_kpis[0]['140']
+    sheet.cell(row=4, column=6).value = player1_kpis[0]['100']
+    sheet.cell(row=4, column=7).value = player1_kpis[0]['80']
+    sheet.cell(row=4, column=8).value = player1_kpis[0]['60']
+
+    sheet.cell(row=4, column=9).value = player1_kpis[0]['Score']
+    sheet.cell(row=4, column=10).value = player1_kpis[0]['Darts']
+
+    # player 2
+    sheet.cell(row=5, column=3).value = round((player2_kpis[0]['Score'] / player2_kpis[0]['Darts']) * 3, 2)
+    sheet.cell(row=5, column=4).value = player2_kpis[0]['180']
+    sheet.cell(row=5, column=5).value = player2_kpis[0]['140']
+    sheet.cell(row=5, column=6).value = player2_kpis[0]['100']
+    sheet.cell(row=5, column=7).value = player2_kpis[0]['80']
+    sheet.cell(row=5, column=8).value = player2_kpis[0]['60']
+
+    sheet.cell(row=5, column=9).value = player2_kpis[0]['Score']
+    sheet.cell(row=5, column=10).value = player2_kpis[0]['Darts']
+
+    # player 3
+    if label_player_3_name['text'] != "":
+        sheet.cell(row=6, column=3).value = round((player3_kpis[0]['Score'] / player3_kpis[0]['Darts']) * 3, 2)
+        sheet.cell(row=6, column=4).value = player3_kpis[0]['180']
+        sheet.cell(row=6, column=5).value = player3_kpis[0]['140']
+        sheet.cell(row=6, column=6).value = player3_kpis[0]['100']
+        sheet.cell(row=6, column=7).value = player3_kpis[0]['80']
+        sheet.cell(row=6, column=8).value = player3_kpis[0]['60']
+
+        sheet.cell(row=6, column=9).value = player3_kpis[0]['Score']
+        sheet.cell(row=6, column=10).value = player3_kpis[0]['Darts']
+
+    # player 4
+    if label_player_4_name['text'] != "":
+        sheet.cell(row=7, column=3).value = round((player4_kpis[0]['Score'] / player4_kpis[0]['Darts']) * 3, 2)
+        sheet.cell(row=7, column=4).value = player4_kpis[0]['180']
+        sheet.cell(row=7, column=5).value = player4_kpis[0]['140']
+        sheet.cell(row=7, column=6).value = player4_kpis[0]['100']
+        sheet.cell(row=7, column=7).value = player4_kpis[0]['80']
+        sheet.cell(row=7, column=8).value = player4_kpis[0]['60']
+
+        sheet.cell(row=7, column=9).value = player4_kpis[0]['Score']
+        sheet.cell(row=7, column=10).value = player4_kpis[0]['Darts']
+
+    # save excel - file
+    excel_file.save(path)
+
+
+def save_score():
+    """
+
+    :return:
+    """
+    # update data
+    for item in player1:
+        score = item['Score']
+        darts = item['Darts']
+
+        player1_kpis[0]['Score'] += score
+        player1_kpis[0]['Darts'] += darts
+
+        if score >= 60:
+            if score >= 80:
+                if score >= 100:
+                    if score >= 140:
+                        if score == 180:
+                            player1_kpis[0]['180'] += 1
+                        else:
+                            player1_kpis[0]['140'] += 1
+                    else:
+                        player1_kpis[0]['100'] += 1
+                else:
+                    player1_kpis[0]['80'] += 1
+            else:
+                player1_kpis[0]['60'] += 1
+
+    # update player 2
+    for item in player2:
+        score = item['Score']
+        darts = item['Darts']
+
+        player2_kpis[0]['Score'] += score
+        player2_kpis[0]['Darts'] += darts
+
+        if score >= 60:
+            if score >= 80:
+                if score >= 100:
+                    if score >= 140:
+                        if score == 180:
+                            player2_kpis[0]['180'] += 1
+                        else:
+                            player2_kpis[0]['140'] += 1
+                    else:
+                        player2_kpis[0]['100'] += 1
+                else:
+                    player2_kpis[0]['80'] += 1
+            else:
+                player2_kpis[0]['60'] += 1
+
+    # update player 3
+    for item in player3:
+        score = item['Score']
+        darts = item['Darts']
+
+        player3_kpis[0]['Score'] += score
+        player3_kpis[0]['Darts'] += darts
+
+        if score >= 60:
+            if score >= 80:
+                if score >= 100:
+                    if score >= 140:
+                        if score == 180:
+                            player3_kpis[0]['180'] += 1
+                        else:
+                            player3_kpis[0]['140'] += 1
+                    else:
+                        player3_kpis[0]['100'] += 1
+                else:
+                    player3_kpis[0]['80'] += 1
+            else:
+                player3_kpis[0]['60'] += 1
+
+    # update player 4
+    for item in player4:
+        score = item['Score']
+        darts = item['Darts']
+
+        player4_kpis[0]['Score'] += score
+        player4_kpis[0]['Darts'] += darts
+
+        if score >= 60:
+            if score >= 80:
+                if score >= 100:
+                    if score >= 140:
+                        if score == 180:
+                            player4_kpis[0]['180'] += 1
+                        else:
+                            player4_kpis[0]['140'] += 1
+                    else:
+                        player4_kpis[0]['100'] += 1
+                else:
+                    player4_kpis[0]['80'] += 1
+            else:
+                player4_kpis[0]['60'] += 1
 
 
 def add_player1(result, dart):
@@ -54,23 +289,6 @@ def add_player4(result, dart):
     """
     player4.append({"Score": result, "Darts": dart})
     return
-
-
-def save_score():
-    """
-
-    :return:
-    """
-    if not os.path.isdir("Spielstände"):
-        os.mkdir("Spielstände")
-
-    if not os.path.isdir("Spielstände/Scoring"):
-        os.mkdir("Spielstände/Scoring")
-
-    #TODO
-    # Create Excel - file for the scoring with timestamp index as filename
-    # create new excel for every instance of the gui
-    # call the save_score - function when the game is resetet, started a new game or the games end
 
 
 def T20():
@@ -734,11 +952,27 @@ def button_start_game_function():
     label_3_score['bg'] = "white"
     label_4_score['bg'] = "white"
 
+    for item in player1:
+        player1.remove(item)
+    for item in player2:
+        player2.remove(item)
+    for item in player3:
+        player3.remove(item)
+    for item in player4:
+        player4.remove(item)
+
+    if int(label_switch_score['text']) == 501:
+        label_1_score['text'] = "501"
+        label_2_score['text'] = "501"
+    else:
+        label_1_score['text'] = "301"
+        label_2_score['text'] = "301"
+
     if label_player_3_name['text'] == "Player 3: " or label_player_3_name['text'] == "":
         label_player_3_name['text'] = ""
         label_3_score['text'] = ""
     else:
-        if int(label_1_score['text']) == 501:
+        if int(label_switch_score['text']) == 501:
             label_3_score['text'] = "501"
         else:
             label_3_score['text'] = "301"
@@ -747,7 +981,7 @@ def button_start_game_function():
         label_player_4_name['text'] = ""
         label_4_score['text'] = ""
     else:
-        if int(label_1_score['text']) == 501:
+        if int(label_switch_score['text']) == 501:
             label_4_score['text'] = "501"
         else:
             label_4_score['text'] = "301"
@@ -1008,8 +1242,8 @@ def count_down():
         current = int(label_1_score['text'])
         if result > current:
             messagebox.showinfo("Achtung", "Sie haben überworfen!")
-            result = 0
-            add_player1(result, darts)
+            result2 = 0
+            add_player1(result2, darts)
 
         elif current > result:
             current = current - result
@@ -1061,8 +1295,8 @@ def count_down():
         current = int(label_2_score['text'])
         if result > current:
             messagebox.showinfo("Achtung", "Sie haben überworfen!")
-            result = 0
-            add_player2(result, darts)
+            result2 = 0
+            add_player2(result2, darts)
 
         elif current > result:
             current = current - result
@@ -1115,8 +1349,8 @@ def count_down():
         current = int(label_3_score['text'])
         if result > current:
             messagebox.showinfo("Achtung", "Sie haben überworfen!")
-            result = 0
-            add_player3(result, darts)
+            result2 = 0
+            add_player3(result2, darts)
 
         elif current > result:
             current = current - result
@@ -1162,8 +1396,8 @@ def count_down():
         current = int(label_4_score['text'])
         if result > current:
             messagebox.showinfo("Achtung", "Sie haben überworfen!")
-            result = 0
-            add_player4(result, darts)
+            result2 = 0
+            add_player4(result2, darts)
 
         elif current > result:
             current = current - result
@@ -1177,8 +1411,8 @@ def count_down():
 
             vier = 0
             # check if ein spieler bereits bei 0
-            if (zwei == 0 and drei != 0 and vier != 0) or (zwei != 0 and drei == 0 and vier != 0) or (
-                    zwei != 0 and drei != 0 and vier == 0):
+            if (zwei == 0 and drei != 0 and eins != 0) or (zwei != 0 and drei == 0 and eins != 0) or (
+                    zwei != 0 and drei != 0 and eins == 0):
                 messagebox.showinfo("Info", label_player_4_name['text'] + " is the second winner.")
 
             # check if zwei Spieler bereits bei 0
@@ -1211,7 +1445,6 @@ def add():
             or (label_2_score['bg'] == "yellow" and int(label_2_score['text'] == result)) \
             or (label_3_score['bg'] == "yellow" and int(label_3_score['text'] == result)) \
             or (label_4_score['bg'] == "yellow" and int(label_4_score['text'] == result)):
-
         count_down_button.pack()
         count_down_button.place(x=440, y=300, height=30, width=90)
         button_dart_score.pack()
@@ -1261,6 +1494,8 @@ def reset():
     label_3_score['bg'] = "white"
     label_4_score['bg'] = "white"
 
+    save_score()
+
     for item in player1:
         player1.remove(item)
     for item in player2:
@@ -1281,14 +1516,25 @@ def new_game():
     label_3_score['bg'] = "white"
     label_4_score['bg'] = "white"
 
-    label_1_score['text'] = "501"
-    label_2_score['text'] = "501"
+    if label_switch_score['text'] == "501":
+        label_1_score['text'] = "501"
+        label_2_score['text'] = "501"
 
-    if label_player_3_name['text'] != "":
-        label_3_score['text'] = "501"
+        if label_player_3_name['text'] != "":
+            label_3_score['text'] = "501"
 
-    if label_player_4_name['text'] != "":
-        label_4_score['text'] = "501"
+        if label_player_4_name['text'] != "":
+            label_4_score['text'] = "501"
+    else:
+        label_1_score['text'] = "301"
+        label_2_score['text'] = "301"
+        if label_player_3_name['text'] != "":
+            label_3_score['text'] = "301"
+
+        if label_player_4_name['text'] != "":
+            label_4_score['text'] = "301"
+
+    save_score()
 
     for item in player1:
         player1.remove(item)
@@ -1323,14 +1569,25 @@ def end_game():
     label_3_score['bg'] = "white"
     label_4_score['bg'] = "white"
 
-    label_1_score['text'] = "501"
-    label_2_score['text'] = "501"
+    if label_switch_score['text'] == "501":
+        label_1_score['text'] = "501"
+        label_2_score['text'] = "501"
 
-    if label_player_3_name['text'] != "":
-        label_3_score['text'] = "501"
+        if label_player_3_name['text'] != "":
+            label_3_score['text'] = "501"
 
-    if label_player_4_name['text'] != "":
-        label_4_score['text'] = "501"
+        if label_player_4_name['text'] != "":
+            label_4_score['text'] = "501"
+    else:
+        label_1_score['text'] = "301"
+        label_2_score['text'] = "301"
+        if label_player_3_name['text'] != "":
+            label_3_score['text'] = "301"
+
+        if label_player_4_name['text'] != "":
+            label_4_score['text'] = "301"
+
+    save_score()
 
     for item in player1:
         player1.remove(item)
@@ -1477,6 +1734,13 @@ if __name__ == "__main__":
     label_third_dart.pack_forget()
     zwischen_label.pack_forget()
     count_down_button.pack_forget()
+
+    # ################# ---------------------- ##################
+    # calculate kpis button
+    button_create_excel = Button(gui, text="Score berechnen", bd=4, fg="black", bg="lightblue", font=('Arial', 11),
+                                 command=create_excel)
+    button_create_excel.place(x=1125, y=250, height=80, width=150)
+
     # ################# ---------------------- ##################
     # here set the values for all numbers (Tripel, Double and Single)
     button_triple_20 = Button(gui, text="T20", bd=4, fg="black", bg="red", font=('Arial', 14),
