@@ -1551,18 +1551,6 @@ def end_game():
 
     """
     messagebox.showinfo("Info", "Spiel beendet.")
-    print("#############")
-    for item in player1:
-        print(item)
-    print("#############")
-    for item in player2:
-        print(item)
-    print("#############")
-    for item in player3:
-        print(item)
-    print("#############")
-    for item in player4:
-        print(item)
 
     label_1_score['bg'] = "yellow"
     label_2_score['bg'] = "white"
