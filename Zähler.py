@@ -27,12 +27,6 @@ player2 = []
 player3 = []
 player4 = []
 
-# index for players for excel sheet
-start_index_1 = 0
-start_index_2 = 0
-start_index_3 = 0
-start_index_4 = 0
-
 # dictionaries for each player
 player1_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, "60": 0}]
 player2_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, "60": 0}]
@@ -1496,14 +1490,21 @@ def reset():
 
     save_score()
 
-    for item in player1:
-        player1.remove(item)
-    for item in player2:
-        player2.remove(item)
-    for item in player3:
-        player3.remove(item)
-    for item in player4:
-        player4.remove(item)
+    while len(player1) > 0:
+        for item in player1:
+            player1.remove(item)
+
+    while len(player2) > 0:
+        for item in player2:
+            player2.remove(item)
+
+    while len(player3) > 0:
+        for item in player3:
+            player3.remove(item)
+
+    while len(player4) > 0:
+        for item in player4:
+            player4.remove(item)
 
 
 def new_game():
@@ -1536,14 +1537,21 @@ def new_game():
 
     save_score()
 
-    for item in player1:
-        player1.remove(item)
-    for item in player2:
-        player2.remove(item)
-    for item in player3:
-        player3.remove(item)
-    for item in player4:
-        player4.remove(item)
+    while len(player1) > 0:
+        for item in player1:
+            player1.remove(item)
+
+    while len(player2) > 0:
+        for item in player2:
+            player2.remove(item)
+
+    while len(player3) > 0:
+        for item in player3:
+            player3.remove(item)
+
+    while len(player4) > 0:
+        for item in player4:
+            player4.remove(item)
 
 
 def end_game():
@@ -1577,14 +1585,21 @@ def end_game():
 
     save_score()
 
-    for item in player1:
-        player1.remove(item)
-    for item in player2:
-        player2.remove(item)
-    for item in player3:
-        player3.remove(item)
-    for item in player4:
-        player4.remove(item)
+    while len(player1) > 0:
+        for item in player1:
+            player1.remove(item)
+
+    while len(player2) > 0:
+        for item in player2:
+            player2.remove(item)
+
+    while len(player3) > 0:
+        for item in player3:
+            player3.remove(item)
+
+    while len(player4) > 0:
+        for item in player4:
+            player4.remove(item)
 
 
 if __name__ == "__main__":
