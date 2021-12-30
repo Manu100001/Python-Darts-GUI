@@ -18,7 +18,7 @@ Run second:
 python Darts_mit_Gui.py  # to start the Gui for the game 
 ```
 
-# Description
+Description
 - On the left side you can search for a checkout (between 170 and 2) \
   The checkouts are intended for finishing the game with a double - field 
 
@@ -44,7 +44,7 @@ Run:
 python Zähler.py  # to start the gui for counting
 ```
 
-# Description
+Description
 TBD
 
 
