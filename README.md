@@ -1,5 +1,5 @@
 # Python-Darts-GUI
-Gui for playing Darts
+Different GUIs for playing darts
 
 # Setup for electronic dartboard
 Step into directory 
@@ -45,4 +45,8 @@ python Zähler.py  # to start the gui for counting
 ```
 
 # Description
+TBD
+
+
+# Setup for around-the-clock
 TBD
