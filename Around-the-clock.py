@@ -35,70 +35,189 @@ def create_excel():
     if not os.path.isdir("Spielstände"):
         os.mkdir("Spielstände")
 
-    if not os.path.isdir("Spielstände/Scoring"):
-        os.mkdir("Spielstände/Scoring")
+    if not os.path.isdir("Spielstände/Around-the-clock"):
+        os.mkdir("Spielstände/Around-the-clock")
 
     # current year
     current_year = datetime.now().strftime('%Y')
-    if not os.path.isdir("Spielstände/Scoring/" + current_year):
-        os.mkdir("Spielstände/Scoring/" + current_year)
+    if not os.path.isdir("Spielstände/Around-the-clock/" + current_year):
+        os.mkdir("Spielstände/Around-the-clock/" + current_year)
 
     # current month
     current_month = datetime.now().strftime('%m')
     month_name = months[int(current_month) - 1]
-    if not os.path.isdir("Spielstände/Scoring/" + current_year + "/" + month_name):
-        os.mkdir("Spielstände/Scoring/" + current_year + "/" + month_name)
+    if not os.path.isdir("Spielstände/Around-the-clock/" + current_year + "/" + month_name):
+        os.mkdir("Spielstände/Around-the-clock/" + current_year + "/" + month_name)
 
     # current day
     current_day = int(datetime.now().strftime('%d'))
     date = str(current_day) + "." + str(current_month)
-    if not os.path.isdir("Spielstände/Scoring/" + current_year + "/" + month_name + "/" + date):
-        os.mkdir("Spielstände/Scoring/" + current_year + "/" + month_name + "/" + date)
+    if not os.path.isdir("Spielstände/Around-the-clock/" + current_year + "/" + month_name + "/" + date):
+        os.mkdir("Spielstände/Around-the-clock/" + current_year + "/" + month_name + "/" + date)
 
     # create new score - file
     time = datetime.now().strftime('%H-%M-%S')
 
     excel_file = Workbook()
-    sheet = excel_file.create_sheet('Scoring')
-    path = "Spielstände/Scoring/" + current_year + "/" + month_name + "/" + date + "/" + time + ".xlsx"
+    sheet = excel_file.create_sheet('Around-the-clock')
+    path = "Spielstände/Around-the-clock/" + current_year + "/" + month_name + "/" + date + "/" + time + ".xlsx"
+    darts = 0
+    gesamt_darts = 0
     # set standards
+    if label_single['bg'] == "yellow":
+        sheet.cell(row=1, column=1).value = "Single"
+        gesamt_darts += 3
+    elif label_double['bg'] == "yellow":
+        sheet.cell(row=1, column=1).value = "Double"
+        gesamt_darts += 3
+    else:
+        sheet.cell(row=1, column=1).value = "Triple"
+
     sheet.cell(row=3, column=2).value = "Spieler"
-    sheet.cell(row=3, column=3).value = "Average"
-    sheet.cell(row=3, column=4).value = "180"
-    sheet.cell(row=3, column=5).value = "140+"
-    sheet.cell(row=3, column=6).value = "100+"
-    sheet.cell(row=3, column=7).value = "80+"
-    sheet.cell(row=3, column=8).value = "60+"
+    sheet.cell(row=3, column=3).value = "Manu"
 
-    sheet.cell(row=3, column=9).value = "Geworfene Punkte"
-    sheet.cell(row=3, column=10).value = "Geworfene Darts"
+    sheet.cell(row=5, column=2).value = "Feld"
+    sheet.cell(row=5, column=3).value = "Treffer"
 
+    sheet.cell(row=5, column=5).value = "Feld"
+    sheet.cell(row=5, column=6).value = "Treffer"
+
+    sheet['A1'].fill = greenFill
     sheet['B3'].fill = greenFill
     sheet['C3'].fill = greenFill
-    sheet['D3'].fill = greenFill
-    sheet['E3'].fill = greenFill
-    sheet['F3'].fill = greenFill
-    sheet['G3'].fill = greenFill
-    sheet['H3'].fill = greenFill
-    sheet['I3'].fill = greenFill
-    sheet['J3'].fill = greenFill
+    sheet['B5'].fill = greenFill
+    sheet['C5'].fill = greenFill
 
-    sheet.column_dimensions['C'].width = 15
-    sheet.column_dimensions['I'].width = 18
-    sheet.column_dimensions['J'].width = 18
+    sheet['E5'].fill = greenFill
+    sheet['F5'].fill = greenFill
+
+    sheet['B6'].fill = greenFill
+    sheet['B7'].fill = greenFill
+    sheet['B8'].fill = greenFill
+    sheet['B9'].fill = greenFill
+    sheet['B10'].fill = greenFill
+    sheet['B11'].fill = greenFill
+    sheet['B12'].fill = greenFill
+    sheet['B13'].fill = greenFill
+    sheet['B14'].fill = greenFill
+    sheet['B15'].fill = greenFill
+
+    sheet['E6'].fill = greenFill
+    sheet['E7'].fill = greenFill
+    sheet['E8'].fill = greenFill
+    sheet['E9'].fill = greenFill
+    sheet['E10'].fill = greenFill
+    sheet['E11'].fill = greenFill
+    sheet['E12'].fill = greenFill
+    sheet['E13'].fill = greenFill
+    sheet['E14'].fill = greenFill
+    sheet['E15'].fill = greenFill
+
+    sheet.column_dimensions['L'].width = 18
+    sheet.column_dimensions['M'].width = 18
 
     # logic for excel - file
-    sheet.cell(row=4, column=2).value = label_player_1_name['text']
+    sheet.cell(row=6, column=2).value = "1"
+    sheet.cell(row=7, column=2).value = "2"
+    sheet.cell(row=8, column=2).value = "3"
+    sheet.cell(row=9, column=2).value = "4"
+    sheet.cell(row=10, column=2).value = "5"
+    sheet.cell(row=11, column=2).value = "6"
+    sheet.cell(row=12, column=2).value = "7"
+    sheet.cell(row=13, column=2).value = "8"
+    sheet.cell(row=14, column=2).value = "9"
+    sheet.cell(row=15, column=2).value = "10"
+
+    sheet.cell(row=6, column=5).value = "11"
+    sheet.cell(row=7, column=5).value = "12"
+    sheet.cell(row=8, column=5).value = "13"
+    sheet.cell(row=9, column=5).value = "14"
+    sheet.cell(row=10, column=5).value = "15"
+    sheet.cell(row=11, column=5).value = "16"
+    sheet.cell(row=12, column=5).value = "17"
+    sheet.cell(row=13, column=5).value = "18"
+    sheet.cell(row=14, column=5).value = "19"
+    sheet.cell(row=15, column=5).value = "20"
 
     # show data in excel
-    # player 1
+    sheet.cell(row=6, column=3).value = label_count_1['text']
+    sheet.cell(row=7, column=3).value = label_count_2['text']
+    sheet.cell(row=8, column=3).value = label_count_3['text']
+    sheet.cell(row=9, column=3).value = label_count_4['text']
+    sheet.cell(row=10, column=3).value = label_count_5['text']
+    sheet.cell(row=11, column=3).value = label_count_6['text']
+    sheet.cell(row=12, column=3).value = label_count_7['text']
+    sheet.cell(row=13, column=3).value = label_count_8['text']
+    sheet.cell(row=14, column=3).value = label_count_9['text']
+    sheet.cell(row=15, column=3).value = label_count_10['text']
 
-    # player 3
+    sheet.cell(row=6, column=6).value = label_count_11['text']
+    sheet.cell(row=7, column=6).value = label_count_12['text']
+    sheet.cell(row=8, column=6).value = label_count_13['text']
+    sheet.cell(row=9, column=6).value = label_count_14['text']
+    sheet.cell(row=10, column=6).value = label_count_15['text']
+    sheet.cell(row=11, column=6).value = label_count_16['text']
+    sheet.cell(row=12, column=6).value = label_count_17['text']
+    sheet.cell(row=13, column=6).value = label_count_18['text']
+    sheet.cell(row=14, column=6).value = label_count_19['text']
+    sheet.cell(row=15, column=6).value = label_count_20['text']
 
-    # player 4
+    if label_single['bg'] == "yellow":
+        sheet.cell(row=5, column=8).value = "Feld"
+        sheet.cell(row=5, column=9).value = "Treffer"
+        sheet['H5'].fill = greenFill
+        sheet['I5'].fill = greenFill
+        sheet['H6'].fill = greenFill
+        sheet.cell(row=6, column=8).value = "25"
+        sheet.cell(row=6, column=9).value = label_count_25['text']
+        darts += label_count_25['text']
+
+    if label_double['bg'] == "yellow":
+        sheet.cell(row=5, column=8).value = "Feld"
+        sheet.cell(row=5, column=9).value = "Treffer"
+        sheet['H5'].fill = greenFill
+        sheet['I5'].fill = greenFill
+        sheet['H6'].fill = greenFill
+        sheet.cell(row=6, column=8).value = "50"
+        sheet.cell(row=6, column=9).value = label_count_50['text']
+        darts += label_count_50['text']
+
+    sheet.cell(row=5, column=12).value = "Getroffene Darts"
+    sheet.cell(row=5, column=13).value = "Mögliche Darts"
+    sheet.cell(row=5, column=14).value = "Prozent"
+
+    sheet['L5'].fill = greenFill
+    sheet['M5'].fill = greenFill
+    sheet['N5'].fill = greenFill
+
+    summe_darts = get_sum()
+    summe_darts += darts
+
+    sheet.cell(row=6, column=12).value = summe_darts
+    sheet.cell(row=6, column=13).value = gesamt_darts + 60
+    sheet.cell(row=6, column=14).value = round((summe_darts / (gesamt_darts + 60)) * 100, 2)
 
     # save excel - file
     excel_file.save(path)
+
+
+def get_sum():
+    """
+
+    :return:
+    """
+    summe = int(label_count_1['text']) + int(label_count_2['text']) + int(label_count_3['text']) + int(
+        label_count_4['text']) + \
+            int(label_count_5['text']) + int(label_count_6['text']) + int(label_count_7['text']) + int(
+        label_count_8['text']) + \
+            int(label_count_9['text']) + int(label_count_10['text']) + int(label_count_11['text']) + int(
+        label_count_12['text']) + \
+            int(label_count_13['text']) + int(label_count_14['text']) + int(label_count_15['text']) + int(
+        label_count_16['text']) + \
+            int(label_count_17['text']) + int(label_count_18['text']) + int(label_count_19['text']) + int(
+        label_count_20['text'])
+
+    return summe
 
 
 def button_exit():
@@ -441,79 +560,173 @@ def minus():
             label_count_1['text'] = number
         return
 
-# label 1
-    if label_count_1['bg'] == "yellow":
-        number = int(label_count_1['text'])
+    # label 2
+    if label_count_2['bg'] == "yellow":
+        number = int(label_count_2['text'])
         if number > 0:
             number -= 1
-            label_count_1['text'] = number
+            label_count_2['text'] = number
         return
 
-# label 1
-    if label_count_1['bg'] == "yellow":
-        number = int(label_count_1['text'])
+    # label 3
+    if label_count_3['bg'] == "yellow":
+        number = int(label_count_3['text'])
         if number > 0:
             number -= 1
-            label_count_1['text'] = number
+            label_count_3['text'] = number
         return
 
-# label 1
-    if label_count_1['bg'] == "yellow":
-        number = int(label_count_1['text'])
+    # label 4
+    if label_count_4['bg'] == "yellow":
+        number = int(label_count_4['text'])
         if number > 0:
             number -= 1
-            label_count_1['text'] = number
+            label_count_4['text'] = number
         return
 
-# label 1
-    if label_count_1['bg'] == "yellow":
-        number = int(label_count_1['text'])
+    # label 5
+    if label_count_5['bg'] == "yellow":
+        number = int(label_count_5['text'])
         if number > 0:
             number -= 1
-            label_count_1['text'] = number
+            label_count_5['text'] = number
         return
 
-# label 1
-    if label_count_1['bg'] == "yellow":
-        number = int(label_count_1['text'])
+    # label 6
+    if label_count_6['bg'] == "yellow":
+        number = int(label_count_6['text'])
         if number > 0:
             number -= 1
-            label_count_1['text'] = number
+            label_count_6['text'] = number
         return
 
-# label 1
-    if label_count_1['bg'] == "yellow":
-        number = int(label_count_1['text'])
+    # label 7
+    if label_count_7['bg'] == "yellow":
+        number = int(label_count_7['text'])
         if number > 0:
             number -= 1
-            label_count_1['text'] = number
+            label_count_7['text'] = number
         return
 
-# label 1
-    if label_count_1['bg'] == "yellow":
-        number = int(label_count_1['text'])
+    # label 8
+    if label_count_8['bg'] == "yellow":
+        number = int(label_count_8['text'])
         if number > 0:
             number -= 1
-            label_count_1['text'] = number
+            label_count_8['text'] = number
         return
 
-# label 1
-    if label_count_1['bg'] == "yellow":
-        number = int(label_count_1['text'])
+    # label 9
+    if label_count_9['bg'] == "yellow":
+        number = int(label_count_9['text'])
         if number > 0:
             number -= 1
-            label_count_1['text'] = number
+            label_count_9['text'] = number
         return
 
-# label 1
-    if label_count_1['bg'] == "yellow":
-        number = int(label_count_1['text'])
+    # label 10
+    if label_count_10['bg'] == "yellow":
+        number = int(label_count_10['text'])
         if number > 0:
             number -= 1
-            label_count_1['text'] = number
+            label_count_10['text'] = number
         return
 
+    # label 11
+    if label_count_11['bg'] == "yellow":
+        number = int(label_count_11['text'])
+        if number > 0:
+            number -= 1
+            label_count_11['text'] = number
+        return
 
+    # label 12
+    if label_count_12['bg'] == "yellow":
+        number = int(label_count_12['text'])
+        if number > 0:
+            number -= 1
+            label_count_12['text'] = number
+        return
+
+    # label 13
+    if label_count_13['bg'] == "yellow":
+        number = int(label_count_13['text'])
+        if number > 0:
+            number -= 1
+            label_count_13['text'] = number
+        return
+
+    # label 14
+    if label_count_14['bg'] == "yellow":
+        number = int(label_count_14['text'])
+        if number > 0:
+            number -= 1
+            label_count_14['text'] = number
+        return
+
+    # label 15
+    if label_count_15['bg'] == "yellow":
+        number = int(label_count_15['text'])
+        if number > 0:
+            number -= 1
+            label_count_15['text'] = number
+        return
+
+    # label 16
+    if label_count_16['bg'] == "yellow":
+        number = int(label_count_16['text'])
+        if number > 0:
+            number -= 1
+            label_count_16['text'] = number
+        return
+
+    # label 17
+    if label_count_17['bg'] == "yellow":
+        number = int(label_count_17['text'])
+        if number > 0:
+            number -= 1
+            label_count_17['text'] = number
+        return
+
+    # label 18
+    if label_count_18['bg'] == "yellow":
+        number = int(label_count_18['text'])
+        if number > 0:
+            number -= 1
+            label_count_18['text'] = number
+        return
+
+    # label 19
+    if label_count_19['bg'] == "yellow":
+        number = int(label_count_19['text'])
+        if number > 0:
+            number -= 1
+            label_count_19['text'] = number
+        return
+
+    # label 20
+    if label_count_20['bg'] == "yellow":
+        number = int(label_count_20['text'])
+        if number > 0:
+            number -= 1
+            label_count_20['text'] = number
+        return
+
+    # label 25
+    if label_count_25['bg'] == "yellow":
+        number = int(label_count_25['text'])
+        if number > 0:
+            number -= 1
+            label_count_25['text'] = number
+        return
+
+    # label Bull
+    if label_count_50['bg'] == "yellow":
+        number = int(label_count_50['text'])
+        if number > 0:
+            number -= 1
+            label_count_50['text'] = number
+        return
 
 
 def next():
@@ -636,8 +849,9 @@ def end_game():
 
     :return:
     """
-    messagebox.showinfo("Info", "Spiel beendet")
-    # TODO: call: safe-score to safe in into an excel - file
+    messagebox.showinfo("Info", "Around-the-clock beendet")
+
+    create_excel()
     reset()
 
 
@@ -671,19 +885,6 @@ if __name__ == "__main__":
     label_double.place(x=560, y=10, height=30, width=110)
     label_triple.place(x=670, y=10, height=30, width=110)
     switch_button.place(x=350, y=10, height=30, width=100)
-    # ################# ---------------------- ##################
-
-    # ################# ---------------------- ##################
-
-    # ################# ---------------------- ##################
-
-    # ################# ---------------------- ##################
-
-    # ################# ---------------------- ##################
-    # ################# ---------------------- ##################
-    # ################# ---------------------- ##################
-
-    # ################# ---------------------- ##################
 
     # ################# ---------------------- ##################
     # reset - button
