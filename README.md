@@ -49,4 +49,16 @@ TBD
 
 
 # Setup for around-the-clock
+Step into directory 
+```bash
+cd Python-Darts-GUI
+```
+
+Run:
+
+```bash
+python Around-the-clock.py  # to start the gui for counting
+```
+
+Description:
 TBD
