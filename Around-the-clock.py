@@ -182,6 +182,17 @@ def reset():
     label_count_25['text'] = 0
     label_count_50['text'] = 0
 
+    label_25.pack()
+    label_count_25.pack()
+    label_50.pack()
+    label_count_50.pack()
+
+    label_50.pack_forget()
+    label_count_50.pack_forget()
+
+    label_25.place(x=400, y=160, height=30, width=100)
+    label_count_25.place(x=510, y=160, height=30, width=30)
+
 
 def switch_modes():
     """
@@ -191,16 +202,47 @@ def switch_modes():
     if label_single['bg'] == "yellow":
         label_single['bg'] = "white"
         label_double['bg'] = "yellow"
+
+        label_25.pack()
+        label_count_25.pack()
+
+        label_25.pack_forget()
+        label_count_25.pack_forget()
+
+        label_50.pack()
+        label_count_50.pack()
+
+        label_50.place(x=400, y=200, height=30, width=100)
+        label_count_50.place(x=510, y=200, height=30, width=30)
+
         return
 
     if label_double['bg'] == "yellow":
         label_double['bg'] = "white"
         label_triple['bg'] = "yellow"
+
+        label_50.pack()
+        label_25.pack()
+        label_count_50.pack()
+        label_count_25.pack()
+
+        label_50.pack_forget()
+        label_count_50.pack_forget()
+        label_25.pack_forget()
+        label_count_25.pack_forget()
+
         return
 
     if label_triple['bg'] == "yellow":
         label_triple['bg'] = "white"
         label_single['bg'] = "yellow"
+
+        label_25.pack()
+        label_count_25.pack()
+
+        label_25.place(x=400, y=160, height=30, width=100)
+        label_count_25.place(x=510, y=160, height=30, width=30)
+
         return
 
 
@@ -233,6 +275,157 @@ def plus():
             label_count_3['text'] = number
         return
 
+    # label 4
+    if label_count_4['bg'] == "yellow":
+        number = int(label_count_4['text'])
+        if number < 3:
+            number += 1
+            label_count_4['text'] = number
+        return
+
+    # label 5
+    if label_count_5['bg'] == "yellow":
+        number = int(label_count_5['text'])
+        if number < 3:
+            number += 1
+            label_count_5['text'] = number
+        return
+
+    # label 6
+    if label_count_6['bg'] == "yellow":
+        number = int(label_count_6['text'])
+        if number < 3:
+            number += 1
+            label_count_6['text'] = number
+        return
+
+    # label 7
+    if label_count_7['bg'] == "yellow":
+        number = int(label_count_7['text'])
+        if number < 3:
+            number += 1
+            label_count_7['text'] = number
+        return
+
+    # label 8
+    if label_count_8['bg'] == "yellow":
+        number = int(label_count_8['text'])
+        if number < 3:
+            number += 1
+            label_count_8['text'] = number
+        return
+
+    # label 9
+    if label_count_9['bg'] == "yellow":
+        number = int(label_count_9['text'])
+        if number < 3:
+            number += 1
+            label_count_9['text'] = number
+        return
+
+    # label 10
+    if label_count_10['bg'] == "yellow":
+        number = int(label_count_10['text'])
+        if number < 3:
+            number += 1
+            label_count_10['text'] = number
+        return
+
+    # label 11
+    if label_count_11['bg'] == "yellow":
+        number = int(label_count_11['text'])
+        if number < 3:
+            number += 1
+            label_count_11['text'] = number
+        return
+
+    # label 12
+    if label_count_12['bg'] == "yellow":
+        number = int(label_count_12['text'])
+        if number < 3:
+            number += 1
+            label_count_12['text'] = number
+        return
+
+    # label 13
+    if label_count_13['bg'] == "yellow":
+        number = int(label_count_13['text'])
+        if number < 3:
+            number += 1
+            label_count_13['text'] = number
+        return
+
+    # label 14
+    if label_count_14['bg'] == "yellow":
+        number = int(label_count_14['text'])
+        if number < 3:
+            number += 1
+            label_count_14['text'] = number
+        return
+
+    # label 15
+    if label_count_15['bg'] == "yellow":
+        number = int(label_count_15['text'])
+        if number < 3:
+            number += 1
+            label_count_15['text'] = number
+        return
+
+    # label 16
+    if label_count_16['bg'] == "yellow":
+        number = int(label_count_16['text'])
+        if number < 3:
+            number += 1
+            label_count_16['text'] = number
+        return
+
+    # label 17
+    if label_count_17['bg'] == "yellow":
+        number = int(label_count_17['text'])
+        if number < 3:
+            number += 1
+            label_count_17['text'] = number
+        return
+
+    # label 18
+    if label_count_18['bg'] == "yellow":
+        number = int(label_count_18['text'])
+        if number < 3:
+            number += 1
+            label_count_18['text'] = number
+        return
+
+    # label 19
+    if label_count_19['bg'] == "yellow":
+        number = int(label_count_19['text'])
+        if number < 3:
+            number += 1
+            label_count_19['text'] = number
+        return
+
+    # label 20
+    if label_count_20['bg'] == "yellow":
+        number = int(label_count_20['text'])
+        if number < 3:
+            number += 1
+            label_count_20['text'] = number
+        return
+
+    # label 25
+    if label_count_25['bg'] == "yellow":
+        number = int(label_count_25['text'])
+        if number < 3:
+            number += 1
+            label_count_25['text'] = number
+        return
+
+    # label 50
+    if label_count_50['bg'] == "yellow":
+        number = int(label_count_50['text'])
+        if number < 3:
+            number += 1
+            label_count_50['text'] = number
+        return
 
 
 def minus():
@@ -240,13 +433,87 @@ def minus():
 
     :return:
     """
-    amount = int(label_count_20['text'])
-    if amount == 0:
+    # label 1
+    if label_count_1['bg'] == "yellow":
+        number = int(label_count_1['text'])
+        if number > 0:
+            number -= 1
+            label_count_1['text'] = number
         return
-    else:
-        amount -= 1
 
-    label_count_20['text'] = amount
+# label 1
+    if label_count_1['bg'] == "yellow":
+        number = int(label_count_1['text'])
+        if number > 0:
+            number -= 1
+            label_count_1['text'] = number
+        return
+
+# label 1
+    if label_count_1['bg'] == "yellow":
+        number = int(label_count_1['text'])
+        if number > 0:
+            number -= 1
+            label_count_1['text'] = number
+        return
+
+# label 1
+    if label_count_1['bg'] == "yellow":
+        number = int(label_count_1['text'])
+        if number > 0:
+            number -= 1
+            label_count_1['text'] = number
+        return
+
+# label 1
+    if label_count_1['bg'] == "yellow":
+        number = int(label_count_1['text'])
+        if number > 0:
+            number -= 1
+            label_count_1['text'] = number
+        return
+
+# label 1
+    if label_count_1['bg'] == "yellow":
+        number = int(label_count_1['text'])
+        if number > 0:
+            number -= 1
+            label_count_1['text'] = number
+        return
+
+# label 1
+    if label_count_1['bg'] == "yellow":
+        number = int(label_count_1['text'])
+        if number > 0:
+            number -= 1
+            label_count_1['text'] = number
+        return
+
+# label 1
+    if label_count_1['bg'] == "yellow":
+        number = int(label_count_1['text'])
+        if number > 0:
+            number -= 1
+            label_count_1['text'] = number
+        return
+
+# label 1
+    if label_count_1['bg'] == "yellow":
+        number = int(label_count_1['text'])
+        if number > 0:
+            number -= 1
+            label_count_1['text'] = number
+        return
+
+# label 1
+    if label_count_1['bg'] == "yellow":
+        number = int(label_count_1['text'])
+        if number > 0:
+            number -= 1
+            label_count_1['text'] = number
+        return
+
+
 
 
 def next():
@@ -423,7 +690,7 @@ if __name__ == "__main__":
     reset_button = Button(gui, text="Reset", bd=4, fg="black", bg="red", font=('Arial', 11),
                           command=reset)
 
-    reset_button.place(x=1175, y=190, height=30, width=100)
+    reset_button.place(x=1175, y=110, height=30, width=100)
 
     # ################# ---------------------- ##################
     # labels for all numbers
@@ -534,7 +801,14 @@ if __name__ == "__main__":
     button_next = Button(gui, text="Next", bd=4, fg="white", bg="black", font=('Arial', 11),
                          command=next)
 
-    button_minus.place(x=1000, y=160, height=30, width=60)
-    button_plus.place(x=1090, y=160, height=30, width=60)
-    button_next.place(x=800, y=160, height=30, width=100)
+    button_minus.place(x=800, y=240, height=60, width=60)
+    button_plus.place(x=880, y=240, height=60, width=60)
+    button_next.place(x=800, y=160, height=60, width=140)
+
+    # standard is single, so Bull will be hidden
+    label_50.pack()
+    label_50.pack_forget()
+
+    label_count_50.pack()
+    label_count_50.pack_forget()
     gui.mainloop()
