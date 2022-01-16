@@ -16,6 +16,7 @@ import os
 
 # color for excel
 greenFill = PatternFill(start_color='92D050', end_color='92D050', fill_type='solid')
+redFill = PatternFill(start_color='FFFF0000', end_color='FFFF0000', fill_type='solid')
 
 # months for creating timebased excel
 months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November',
@@ -32,6 +33,11 @@ player1_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, 
 player2_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, "60": 0}]
 player3_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, "60": 0}]
 player4_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, "60": 0}]
+
+player1_scores = [{"T20": 0, "T19": 0, "S20": 0, "S19": 0, "Triple": 0, "Double": 0}]
+player2_scores = [{"T20": 0, "T19": 0, "S20": 0, "S19": 0, "Triple": 0, "Double": 0}]
+player3_scores = [{"T20": 0, "T19": 0, "S20": 0, "S19": 0, "Triple": 0, "Double": 0}]
+player4_scores = [{"T20": 0, "T19": 0, "S20": 0, "S19": 0, "Triple": 0, "Double": 0}]
 
 
 def create_excel():
@@ -79,6 +85,12 @@ def create_excel():
 
     sheet.cell(row=3, column=9).value = "Geworfene Punkte"
     sheet.cell(row=3, column=10).value = "Geworfene Darts"
+    sheet.cell(row=3, column=11).value = "Geworfene T20"
+    sheet.cell(row=3, column=12).value = "Geworfene S20"
+    sheet.cell(row=3, column=13).value = "Geworfene T19"
+    sheet.cell(row=3, column=14).value = "Geworfene S19"
+    sheet.cell(row=3, column=15).value = "Geworfene Triple"
+    sheet.cell(row=3, column=16).value = "Geworfene Double"
 
     sheet['B3'].fill = greenFill
     sheet['C3'].fill = greenFill
@@ -89,10 +101,22 @@ def create_excel():
     sheet['H3'].fill = greenFill
     sheet['I3'].fill = greenFill
     sheet['J3'].fill = greenFill
+    sheet['K3'].fill = redFill
+    sheet['L3'].fill = redFill
+    sheet['M3'].fill = greenFill
+    sheet['N3'].fill = greenFill
+    sheet['O3'].fill = redFill
+    sheet['P3'].fill = greenFill
 
-    sheet.column_dimensions['C'].width = 15
+    sheet.column_dimensions['C'].width = 8
     sheet.column_dimensions['I'].width = 18
     sheet.column_dimensions['J'].width = 18
+    sheet.column_dimensions['K'].width = 14
+    sheet.column_dimensions['L'].width = 14
+    sheet.column_dimensions['M'].width = 14
+    sheet.column_dimensions['N'].width = 14
+    sheet.column_dimensions['O'].width = 17
+    sheet.column_dimensions['P'].width = 17
 
     # logic for excel - file
     sheet.cell(row=4, column=2).value = label_player_1_name['text']
@@ -112,6 +136,13 @@ def create_excel():
     sheet.cell(row=4, column=9).value = player1_kpis[0]['Score']
     sheet.cell(row=4, column=10).value = player1_kpis[0]['Darts']
 
+    sheet.cell(row=4, column=11).value = player1_scores[0]['T20']
+    sheet.cell(row=4, column=12).value = player1_scores[0]['S20']
+    sheet.cell(row=4, column=13).value = player1_scores[0]['T19']
+    sheet.cell(row=4, column=14).value = player1_scores[0]['S19']
+    sheet.cell(row=4, column=15).value = player1_scores[0]['Triple']
+    sheet.cell(row=4, column=16).value = player1_scores[0]['Double']
+
     # player 2
     sheet.cell(row=5, column=3).value = round((player2_kpis[0]['Score'] / player2_kpis[0]['Darts']) * 3, 2)
     sheet.cell(row=5, column=4).value = player2_kpis[0]['180']
@@ -122,6 +153,13 @@ def create_excel():
 
     sheet.cell(row=5, column=9).value = player2_kpis[0]['Score']
     sheet.cell(row=5, column=10).value = player2_kpis[0]['Darts']
+
+    sheet.cell(row=5, column=11).value = player2_scores[0]['T20']
+    sheet.cell(row=5, column=12).value = player2_scores[0]['S20']
+    sheet.cell(row=5, column=13).value = player2_scores[0]['T19']
+    sheet.cell(row=5, column=14).value = player2_scores[0]['S19']
+    sheet.cell(row=5, column=15).value = player2_scores[0]['Triple']
+    sheet.cell(row=5, column=16).value = player2_scores[0]['Double']
 
     # player 3
     if label_player_3_name['text'] != "":
@@ -135,6 +173,13 @@ def create_excel():
         sheet.cell(row=6, column=9).value = player3_kpis[0]['Score']
         sheet.cell(row=6, column=10).value = player3_kpis[0]['Darts']
 
+        sheet.cell(row=6, column=11).value = player3_scores[0]['T20']
+        sheet.cell(row=6, column=12).value = player3_scores[0]['S20']
+        sheet.cell(row=6, column=13).value = player3_scores[0]['T19']
+        sheet.cell(row=6, column=14).value = player3_scores[0]['S19']
+        sheet.cell(row=6, column=15).value = player3_scores[0]['Triple']
+        sheet.cell(row=6, column=16).value = player3_scores[0]['Double']
+
     # player 4
     if label_player_4_name['text'] != "":
         sheet.cell(row=7, column=3).value = round((player4_kpis[0]['Score'] / player4_kpis[0]['Darts']) * 3, 2)
@@ -146,6 +191,13 @@ def create_excel():
 
         sheet.cell(row=7, column=9).value = player4_kpis[0]['Score']
         sheet.cell(row=7, column=10).value = player4_kpis[0]['Darts']
+
+        sheet.cell(row=7, column=11).value = player4_scores[0]['T20']
+        sheet.cell(row=7, column=12).value = player4_scores[0]['S20']
+        sheet.cell(row=7, column=13).value = player4_scores[0]['T19']
+        sheet.cell(row=7, column=14).value = player4_scores[0]['S19']
+        sheet.cell(row=7, column=15).value = player4_scores[0]['Triple']
+        sheet.cell(row=7, column=16).value = player4_scores[0]['Double']
 
     # save excel - file
     excel_file.save(path)
@@ -291,6 +343,21 @@ def T20():
     :return:
     """
     label_dart_score['text'] = "60"
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['T20'] += 1
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['T20'] += 1
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['T20'] += 1
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['T20'] += 1
+        player4_scores[0]['Triple'] += 1
 
 
 def D20():
@@ -300,6 +367,18 @@ def D20():
     """
     label_dart_score['text'] = "40"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
+
 
 def S20():
     """
@@ -308,11 +387,38 @@ def S20():
     """
     label_dart_score['text'] = "20"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['S20'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['S20'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['S20'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['S20'] += 1
+
 
 def T19():
     """"
     """
     label_dart_score['text'] = "57"
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['T19'] += 1
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['T19'] += 1
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['T19'] += 1
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['T19'] += 1
+        player4_scores[0]['Triple'] += 1
 
 
 def D19():
@@ -322,6 +428,18 @@ def D19():
     """
     label_dart_score['text'] = "38"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
+
 
 def S19():
     """
@@ -329,6 +447,18 @@ def S19():
     :return:
     """
     label_dart_score['text'] = "19"
+
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['S19'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['S19'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['S19'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['S19'] += 1
 
 
 def T18():
@@ -338,6 +468,18 @@ def T18():
     """
     label_dart_score['text'] = "54"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Triple'] += 1
+
 
 def D18():
     """
@@ -345,6 +487,18 @@ def D18():
     :return:
     """
     label_dart_score['text'] = "36"
+
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
 
 
 def S18():
@@ -362,6 +516,18 @@ def T17():
     """
     label_dart_score['text'] = "51"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Triple'] += 1
+
 
 def D17():
     """
@@ -369,6 +535,18 @@ def D17():
     :return:
     """
     label_dart_score['text'] = "34"
+
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
 
 
 def S17():
@@ -386,6 +564,18 @@ def T16():
     """
     label_dart_score['text'] = "48"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Triple'] += 1
+
 
 def D16():
     """
@@ -393,6 +583,18 @@ def D16():
     :return:
     """
     label_dart_score['text'] = "32"
+
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
 
 
 def S16():
@@ -410,6 +612,18 @@ def T15():
     """
     label_dart_score['text'] = "45"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Triple'] += 1
+
 
 def D15():
     """
@@ -417,6 +631,18 @@ def D15():
     :return:
     """
     label_dart_score['text'] = "30"
+
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
 
 
 def S15():
@@ -434,6 +660,18 @@ def T14():
     """
     label_dart_score['text'] = "42"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Triple'] += 1
+
 
 def D14():
     """
@@ -441,6 +679,18 @@ def D14():
     :return:
     """
     label_dart_score['text'] = "28"
+
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
 
 
 def S14():
@@ -458,6 +708,18 @@ def T13():
     """
     label_dart_score['text'] = "39"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Triple'] += 1
+
 
 def D13():
     """
@@ -465,6 +727,18 @@ def D13():
     :return:
     """
     label_dart_score['text'] = "26"
+
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
 
 
 def S13():
@@ -482,6 +756,18 @@ def T12():
     """
     label_dart_score['text'] = "36"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Triple'] += 1
+
 
 def D12():
     """
@@ -489,6 +775,18 @@ def D12():
     :return:
     """
     label_dart_score['text'] = "24"
+
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
 
 
 def S12():
@@ -506,6 +804,18 @@ def T11():
     """
     label_dart_score['text'] = "33"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Triple'] += 1
+
 
 def D11():
     """
@@ -513,6 +823,18 @@ def D11():
     :return:
     """
     label_dart_score['text'] = "22"
+
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
 
 
 def S11():
@@ -530,6 +852,18 @@ def T10():
     """
     label_dart_score['text'] = "30"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Triple'] += 1
+
 
 def D10():
     """
@@ -537,6 +871,18 @@ def D10():
     :return:
     """
     label_dart_score['text'] = "20"
+
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
 
 
 def S10():
@@ -554,6 +900,18 @@ def T9():
     """
     label_dart_score['text'] = "27"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Triple'] += 1
+
 
 def D9():
     """
@@ -561,6 +919,18 @@ def D9():
     :return:
     """
     label_dart_score['text'] = "18"
+
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
 
 
 def S9():
@@ -578,6 +948,18 @@ def T8():
     """
     label_dart_score['text'] = "24"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Triple'] += 1
+
 
 def D8():
     """
@@ -585,6 +967,18 @@ def D8():
     :return:
     """
     label_dart_score['text'] = "16"
+
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
 
 
 def S8():
@@ -602,6 +996,18 @@ def T7():
     """
     label_dart_score['text'] = "21"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Triple'] += 1
+
 
 def D7():
     """
@@ -609,6 +1015,18 @@ def D7():
     :return:
     """
     label_dart_score['text'] = "14"
+
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
 
 
 def S7():
@@ -626,6 +1044,18 @@ def T6():
     """
     label_dart_score['text'] = "18"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Triple'] += 1
+
 
 def D6():
     """
@@ -633,6 +1063,18 @@ def D6():
     :return:
     """
     label_dart_score['text'] = "12"
+
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
 
 
 def S6():
@@ -650,6 +1092,18 @@ def T5():
     """
     label_dart_score['text'] = "15"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Triple'] += 1
+
 
 def D5():
     """
@@ -657,6 +1111,18 @@ def D5():
     :return:
     """
     label_dart_score['text'] = "10"
+
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
 
 
 def S5():
@@ -674,6 +1140,18 @@ def T4():
     """
     label_dart_score['text'] = "12"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Triple'] += 1
+
 
 def D4():
     """
@@ -681,6 +1159,18 @@ def D4():
     :return:
     """
     label_dart_score['text'] = "8"
+
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
 
 
 def S4():
@@ -698,6 +1188,18 @@ def T3():
     """
     label_dart_score['text'] = "9"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Triple'] += 1
+
 
 def D3():
     """
@@ -705,6 +1207,18 @@ def D3():
     :return:
     """
     label_dart_score['text'] = "6"
+
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
 
 
 def S3():
@@ -722,6 +1236,18 @@ def T2():
     """
     label_dart_score['text'] = "6"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Triple'] += 1
+
 
 def D2():
     """
@@ -729,6 +1255,18 @@ def D2():
     :return:
     """
     label_dart_score['text'] = "4"
+
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
 
 
 def S2():
@@ -746,6 +1284,18 @@ def T1():
     """
     label_dart_score['text'] = "3"
 
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Triple'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Triple'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Triple'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Triple'] += 1
+
 
 def D1():
     """
@@ -753,6 +1303,18 @@ def D1():
     :return:
     """
     label_dart_score['text'] = "2"
+
+    if label_1_score['bg'] == "yellow":
+        player1_scores[0]['Double'] += 1
+
+    elif label_2_score['bg'] == "yellow":
+        player2_scores[0]['Double'] += 1
+
+    elif label_3_score['bg'] == "yellow":
+        player3_scores[0]['Double'] += 1
+
+    elif label_4_score['bg'] == "yellow":
+        player4_scores[0]['Double'] += 1
 
 
 def S1():
@@ -1435,10 +1997,10 @@ def add():
     zwischen_label['text'] = result
     label_dart_score['text'] = ""
 
-    if (label_1_score['bg'] == "yellow" and int(label_1_score['text'] == result)) \
-            or (label_2_score['bg'] == "yellow" and int(label_2_score['text'] == result)) \
-            or (label_3_score['bg'] == "yellow" and int(label_3_score['text'] == result)) \
-            or (label_4_score['bg'] == "yellow" and int(label_4_score['text'] == result)):
+    if (label_1_score['bg'] == "yellow" and result >= int(label_1_score['text'])) \
+            or (label_2_score['bg'] == "yellow" and result >= int(label_2_score['text'])) \
+            or (label_3_score['bg'] == "yellow" and result >= int(label_3_score['text'])) \
+            or (label_4_score['bg'] == "yellow" and result >= int(label_4_score['text'])):
         count_down_button.pack()
         count_down_button.place(x=440, y=300, height=30, width=90)
         button_dart_score.pack()
