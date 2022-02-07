@@ -1997,11 +1997,22 @@ def add():
     zwischen_label['text'] = result
     label_dart_score['text'] = ""
 
-    if (label_1_score['bg'] == "yellow" and result >= int(label_1_score['text'])) \
-            or (label_2_score['bg'] == "yellow" and result >= int(label_2_score['text'])) \
-            or (label_3_score['bg'] == "yellow" and result >= int(label_3_score['text'])) \
-            or (label_4_score['bg'] == "yellow" and result >= int(label_4_score['text'])):
+    if (label_1_score['bg'] == "yellow" and result == int(label_1_score['text'])) \
+            or (label_2_score['bg'] == "yellow" and result == int(label_2_score['text'])) \
+            or (label_3_score['bg'] == "yellow" and result == int(label_3_score['text'])) \
+            or (label_4_score['bg'] == "yellow" and result == int(label_4_score['text'])):
         count_down_button.pack()
+        count_down_button.place(x=440, y=300, height=30, width=90)
+        button_dart_score.pack()
+        button_dart_score.pack_forget()
+        return
+
+    if (label_1_score['bg'] == "yellow" and result > int(label_1_score['text'])) \
+            or (label_2_score['bg'] == "yellow" and result > int(label_2_score['text'])) \
+            or (label_3_score['bg'] == "yellow" and result > int(label_3_score['text'])) \
+            or (label_4_score['bg'] == "yellow" and result > int(label_4_score['text'])):
+        count_down_button.pack()
+        count_down_button['text'] = "Next"
         count_down_button.place(x=440, y=300, height=30, width=90)
         button_dart_score.pack()
         button_dart_score.pack_forget()
