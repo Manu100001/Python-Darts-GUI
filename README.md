@@ -31,6 +31,8 @@ Description
   First to 3 sets means that whoever has 3 sets first wins the game. \
   To achieve a set, you have to win 3 legs. \
   The switch - button has the same function here. 
+
+![Alt text](https://github.com/Manu100001/Python-Darts-GUI/tree/dev/Images/darts-with-gui.png?raw=true "Title")
   
 ## Setup for normal dartboard
   
