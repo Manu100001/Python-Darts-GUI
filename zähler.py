@@ -7,20 +7,24 @@ this script will help you to calculate the scores.
 :author: Manuel Milde manuelmilde@gmx.net
 :copyright: 2021 Manuel Milde
 """
-from tkinter import *
+import os
+from tkinter import Tk
+from tkinter import Toplevel
+from tkinter import Label
+from tkinter import Button
+from tkinter import Entry
 from tkinter import messagebox
 from datetime import datetime
 from openpyxl import Workbook
 from openpyxl.styles import PatternFill
-import os
 
 # color for excel
 greenFill = PatternFill(start_color='92D050', end_color='92D050', fill_type='solid')
 redFill = PatternFill(start_color='FFFF0000', end_color='FFFF0000', fill_type='solid')
 
 # months for creating timebased excel
-months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November',
-          'Dezember']
+months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli',
+          'August', 'September', 'Oktober', 'November', 'Dezember']
 
 # safe darts and score for each player
 player1 = []
@@ -42,7 +46,7 @@ player4_scores = [{"T20": 0, "T19": 0, "S20": 0, "S19": 0, "Triple": 0, "Double"
 
 def create_excel():
     """
-
+    This function creates an excel file
     :return:
     """
     if not os.path.isdir("Spielstände"):
@@ -73,7 +77,8 @@ def create_excel():
 
     excel_file = Workbook()
     sheet = excel_file.create_sheet('Scoring')
-    path = "Spielstände/Scoring/" + current_year + "/" + month_name + "/" + date + "/" + time + ".xlsx"
+    path = "Spielstände/Scoring/" + current_year + "/" + \
+           month_name + "/" + date + "/" + time + ".xlsx"
     # set standards
     sheet.cell(row=3, column=2).value = "Spieler"
     sheet.cell(row=3, column=3).value = "Average"
@@ -126,7 +131,8 @@ def create_excel():
 
     # show data in excel
     # player 1
-    sheet.cell(row=4, column=3).value = round((player1_kpis[0]['Score'] / player1_kpis[0]['Darts']) * 3, 2)
+    sheet.cell(row=4, column=3).value = round((player1_kpis[0]['Score'] /
+                                               player1_kpis[0]['Darts']) * 3, 2)
     sheet.cell(row=4, column=4).value = player1_kpis[0]['180']
     sheet.cell(row=4, column=5).value = player1_kpis[0]['140']
     sheet.cell(row=4, column=6).value = player1_kpis[0]['100']
@@ -144,7 +150,8 @@ def create_excel():
     sheet.cell(row=4, column=16).value = player1_scores[0]['Double']
 
     # player 2
-    sheet.cell(row=5, column=3).value = round((player2_kpis[0]['Score'] / player2_kpis[0]['Darts']) * 3, 2)
+    sheet.cell(row=5, column=3).value = round((player2_kpis[0]['Score'] /
+                                               player2_kpis[0]['Darts']) * 3, 2)
     sheet.cell(row=5, column=4).value = player2_kpis[0]['180']
     sheet.cell(row=5, column=5).value = player2_kpis[0]['140']
     sheet.cell(row=5, column=6).value = player2_kpis[0]['100']
@@ -163,7 +170,8 @@ def create_excel():
 
     # player 3
     if label_player_3_name['text'] != "":
-        sheet.cell(row=6, column=3).value = round((player3_kpis[0]['Score'] / player3_kpis[0]['Darts']) * 3, 2)
+        sheet.cell(row=6, column=3).value = round((player3_kpis[0]['Score'] /
+                                                   player3_kpis[0]['Darts']) * 3, 2)
         sheet.cell(row=6, column=4).value = player3_kpis[0]['180']
         sheet.cell(row=6, column=5).value = player3_kpis[0]['140']
         sheet.cell(row=6, column=6).value = player3_kpis[0]['100']
@@ -182,7 +190,8 @@ def create_excel():
 
     # player 4
     if label_player_4_name['text'] != "":
-        sheet.cell(row=7, column=3).value = round((player4_kpis[0]['Score'] / player4_kpis[0]['Darts']) * 3, 2)
+        sheet.cell(row=7, column=3).value = round((player4_kpis[0]['Score'] /
+                                                   player4_kpis[0]['Darts']) * 3, 2)
         sheet.cell(row=7, column=4).value = player4_kpis[0]['180']
         sheet.cell(row=7, column=5).value = player4_kpis[0]['140']
         sheet.cell(row=7, column=6).value = player4_kpis[0]['100']
@@ -205,7 +214,7 @@ def create_excel():
 
 def save_score():
     """
-
+    This fucntion saves the score
     :return:
     """
     # update data
@@ -303,43 +312,39 @@ def save_score():
 
 def add_player1(result, dart):
     """
-
+    This function adds a throw to the list
     :return:
     """
     player1.append({"Score": result, "Darts": dart})
-    return
 
 
 def add_player2(result, dart):
     """
-
+    This function adds a throw to the list
     :return:
     """
     player2.append({"Score": result, "Darts": dart})
-    return
 
 
 def add_player3(result, dart):
     """
-
+    This function adds a throw to the list
     :return:
     """
     player3.append({"Score": result, "Darts": dart})
-    return
 
 
 def add_player4(result, dart):
     """
-
+    This function adds a throw to the list
     :return:
     """
     player4.append({"Score": result, "Darts": dart})
-    return
 
 
-def T20():
+def t20():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "60"
@@ -360,9 +365,9 @@ def T20():
         player4_scores[0]['Triple'] += 1
 
 
-def D20():
+def d20():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "40"
@@ -380,9 +385,9 @@ def D20():
         player4_scores[0]['Double'] += 1
 
 
-def S20():
+def s20():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "20"
@@ -400,8 +405,10 @@ def S20():
         player4_scores[0]['S20'] += 1
 
 
-def T19():
+def t19():
     """"
+    This function adds the thrown score
+    :return:
     """
     label_dart_score['text'] = "57"
     if label_1_score['bg'] == "yellow":
@@ -421,9 +428,9 @@ def T19():
         player4_scores[0]['Triple'] += 1
 
 
-def D19():
+def d19():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "38"
@@ -441,9 +448,9 @@ def D19():
         player4_scores[0]['Double'] += 1
 
 
-def S19():
+def s19():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "19"
@@ -461,9 +468,9 @@ def S19():
         player4_scores[0]['S19'] += 1
 
 
-def T18():
+def t18():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "54"
@@ -481,9 +488,9 @@ def T18():
         player4_scores[0]['Triple'] += 1
 
 
-def D18():
+def d18():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "36"
@@ -501,17 +508,17 @@ def D18():
         player4_scores[0]['Double'] += 1
 
 
-def S18():
+def s18():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "18"
 
 
-def T17():
+def t17():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "51"
@@ -529,9 +536,9 @@ def T17():
         player4_scores[0]['Triple'] += 1
 
 
-def D17():
+def d17():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "34"
@@ -549,17 +556,17 @@ def D17():
         player4_scores[0]['Double'] += 1
 
 
-def S17():
+def s17():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "17"
 
 
-def T16():
+def t16():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "48"
@@ -577,9 +584,9 @@ def T16():
         player4_scores[0]['Triple'] += 1
 
 
-def D16():
+def d16():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "32"
@@ -597,17 +604,17 @@ def D16():
         player4_scores[0]['Double'] += 1
 
 
-def S16():
+def s16():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "16"
 
 
-def T15():
+def t15():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "45"
@@ -625,9 +632,9 @@ def T15():
         player4_scores[0]['Triple'] += 1
 
 
-def D15():
+def d15():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "30"
@@ -645,17 +652,17 @@ def D15():
         player4_scores[0]['Double'] += 1
 
 
-def S15():
+def s15():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "15"
 
 
-def T14():
+def t14():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "42"
@@ -673,9 +680,9 @@ def T14():
         player4_scores[0]['Triple'] += 1
 
 
-def D14():
+def d14():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "28"
@@ -693,17 +700,17 @@ def D14():
         player4_scores[0]['Double'] += 1
 
 
-def S14():
+def s14():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "14"
 
 
-def T13():
+def t13():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "39"
@@ -721,9 +728,9 @@ def T13():
         player4_scores[0]['Triple'] += 1
 
 
-def D13():
+def d13():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "26"
@@ -741,17 +748,17 @@ def D13():
         player4_scores[0]['Double'] += 1
 
 
-def S13():
+def s13():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "13"
 
 
-def T12():
+def t12():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "36"
@@ -769,9 +776,9 @@ def T12():
         player4_scores[0]['Triple'] += 1
 
 
-def D12():
+def d12():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "24"
@@ -789,17 +796,17 @@ def D12():
         player4_scores[0]['Double'] += 1
 
 
-def S12():
+def s12():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "12"
 
 
-def T11():
+def t11():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "33"
@@ -817,9 +824,9 @@ def T11():
         player4_scores[0]['Triple'] += 1
 
 
-def D11():
+def d11():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "22"
@@ -837,17 +844,17 @@ def D11():
         player4_scores[0]['Double'] += 1
 
 
-def S11():
+def s11():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "11"
 
 
-def T10():
+def t10():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "30"
@@ -865,9 +872,9 @@ def T10():
         player4_scores[0]['Triple'] += 1
 
 
-def D10():
+def d10():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "20"
@@ -885,17 +892,17 @@ def D10():
         player4_scores[0]['Double'] += 1
 
 
-def S10():
+def s10():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "10"
 
 
-def T9():
+def t_9():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "27"
@@ -913,9 +920,9 @@ def T9():
         player4_scores[0]['Triple'] += 1
 
 
-def D9():
+def d_9():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "18"
@@ -933,17 +940,17 @@ def D9():
         player4_scores[0]['Double'] += 1
 
 
-def S9():
+def s_9():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "9"
 
 
-def T8():
+def t_8():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "24"
@@ -961,9 +968,9 @@ def T8():
         player4_scores[0]['Triple'] += 1
 
 
-def D8():
+def d_8():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "16"
@@ -981,17 +988,17 @@ def D8():
         player4_scores[0]['Double'] += 1
 
 
-def S8():
+def s_8():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "8"
 
 
-def T7():
+def t_7():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "21"
@@ -1009,9 +1016,9 @@ def T7():
         player4_scores[0]['Triple'] += 1
 
 
-def D7():
+def d_7():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "14"
@@ -1029,17 +1036,17 @@ def D7():
         player4_scores[0]['Double'] += 1
 
 
-def S7():
+def s_7():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "7"
 
 
-def T6():
+def t_6():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "18"
@@ -1057,9 +1064,9 @@ def T6():
         player4_scores[0]['Triple'] += 1
 
 
-def D6():
+def d_6():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "12"
@@ -1077,17 +1084,17 @@ def D6():
         player4_scores[0]['Double'] += 1
 
 
-def S6():
+def s_6():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "6"
 
 
-def T5():
+def t_5():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "15"
@@ -1105,9 +1112,9 @@ def T5():
         player4_scores[0]['Triple'] += 1
 
 
-def D5():
+def d_5():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "10"
@@ -1125,17 +1132,17 @@ def D5():
         player4_scores[0]['Double'] += 1
 
 
-def S5():
+def s_5():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "5"
 
 
-def T4():
+def t_4():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "12"
@@ -1153,9 +1160,9 @@ def T4():
         player4_scores[0]['Triple'] += 1
 
 
-def D4():
+def d_4():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "8"
@@ -1173,17 +1180,17 @@ def D4():
         player4_scores[0]['Double'] += 1
 
 
-def S4():
+def s_4():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "4"
 
 
-def T3():
+def t_3():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "9"
@@ -1201,9 +1208,9 @@ def T3():
         player4_scores[0]['Triple'] += 1
 
 
-def D3():
+def d_3():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "6"
@@ -1221,17 +1228,17 @@ def D3():
         player4_scores[0]['Double'] += 1
 
 
-def S3():
+def s_3():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "3"
 
 
-def T2():
+def t_2():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "6"
@@ -1249,9 +1256,9 @@ def T2():
         player4_scores[0]['Triple'] += 1
 
 
-def D2():
+def d_2():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "4"
@@ -1269,17 +1276,17 @@ def D2():
         player4_scores[0]['Double'] += 1
 
 
-def S2():
+def s_2():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "2"
 
 
-def T1():
+def t_1():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "3"
@@ -1297,9 +1304,9 @@ def T1():
         player4_scores[0]['Triple'] += 1
 
 
-def D1():
+def d_1():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "2"
@@ -1317,25 +1324,25 @@ def D1():
         player4_scores[0]['Double'] += 1
 
 
-def S1():
+def s_1():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "1"
 
 
-def Bull():
+def bull():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "50"
 
 
-def Single_Bull():
+def single_bull():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "25"
@@ -1343,7 +1350,7 @@ def Single_Bull():
 
 def null():
     """
-
+    This function adds the thrown score
     :return:
     """
     label_dart_score['text'] = "0"
@@ -1361,9 +1368,11 @@ def button_exit():
         exit_window.title("Beenden?")
 
         label_exit = Label(exit_window, text="Spiel beenden?", font=('Arial', 11))
-        button_ja = Button(exit_window, text="Ja", command=exit_window.quit, font=('Arial', 10, 'bold'), bg="white",
+        button_ja = Button(exit_window, text="Ja", command=exit_window.quit,
+                           font=('Arial', 10, 'bold'), bg="white",
                            fg="green")
-        button_nein = Button(exit_window, text="Nein", command=exit_window.destroy, font=('Arial', 10, 'bold'),
+        button_nein = Button(exit_window, text="Nein", command=exit_window.destroy,
+                             font=('Arial', 10, 'bold'),
                              bg="white", fg="red")
 
         label_exit.place(x=80, y=0, width=100, height=50)
@@ -1676,7 +1685,7 @@ def next_button():
         return
 
 
-def next():
+def next_label():
     """
 
     :return:
@@ -1813,33 +1822,41 @@ def count_down():
             eins = 0
 
             # first check: alle Spieler dabei
-            if label_2_score['text'] != "" and label_3_score['text'] != "" and label_4_score['text'] != "":
+            if label_2_score['text'] != "" and label_3_score['text'] != "" \
+                    and label_4_score['text'] != "":
                 # check if ein spieler bereits bei 0
-                if (zwei == 0 and drei != 0 and vier != 0) or (zwei != 0 and drei == 0 and vier != 0) or (
-                        zwei != 0 and drei != 0 and vier == 0):
-                    messagebox.showinfo("Info", label_player_1_name['text'] + " is the second winner.")
+                if (zwei == 0 and drei != 0 and vier != 0) or \
+                        (zwei != 0 and drei == 0 and vier != 0) or \
+                        (zwei != 0 and drei != 0 and vier == 0):
+                    messagebox.showinfo("Info", label_player_1_name['text'] +
+                                        " is the second winner.")
 
                 # check if zwei Spieler bereits bei 0
-                elif (zwei == 0 and drei == 0 and vier != 0) or (zwei == 0 and drei != 0 and vier == 0) or (
-                        zwei != 0 and drei == 0 and vier == 0):
-                    messagebox.showinfo("Info", label_player_1_name['text'] + " is the third winner.")
+                elif (zwei == 0 and drei == 0 and vier != 0) or \
+                        (zwei == 0 and drei != 0 and vier == 0) or \
+                        (zwei != 0 and drei == 0 and vier == 0):
+                    messagebox.showinfo("Info", label_player_1_name['text'] +
+                                        " is the third winner.")
                     end_game()
                     return
                 else:
                     messagebox.showinfo("Info", label_player_1_name['text'] + " is the winner.")
 
             # second check: only 3 player
-            elif label_2_score['text'] != "" and label_3_score['text'] != "" and label_4_score['text'] == "":
+            elif label_2_score['text'] != "" and label_3_score['text'] != "" \
+                    and label_4_score['text'] == "":
                 # check if ein Spieler bereits bei 0
                 if (zwei == 0 and drei != 0) or (zwei != 0 and drei == 0):
-                    messagebox.showinfo("Info", label_player_1_name['text'] + " is the second winner.")
+                    messagebox.showinfo("Info", label_player_1_name['text'] +
+                                        " is the second winner.")
                     end_game()
                     return
                 else:
                     messagebox.showinfo("Info", label_player_1_name['text'] + " is the winner.")
 
             # third check: only 2 player
-            elif label_2_score['text'] != "" and label_3_score['text'] == "" and label_4_score['text'] == "":
+            elif label_2_score['text'] != "" and label_3_score['text'] == "" \
+                    and label_4_score['text'] == "":
                 messagebox.showinfo("Info", label_player_1_name['text'] + " is the winner.")
                 end_game()
                 return
@@ -1866,33 +1883,41 @@ def count_down():
             zwei = 0
 
             # first check: alle Spieler dabei
-            if label_1_score['text'] != "" and label_3_score['text'] != "" and label_4_score['text'] != "":
+            if label_1_score['text'] != "" and label_3_score['text'] != "" \
+                    and label_4_score['text'] != "":
                 # check if ein spieler bereits bei 0
-                if (eins == 0 and drei != 0 and vier != 0) or (eins != 0 and drei == 0 and vier != 0) or (
-                        eins != 0 and drei != 0 and vier == 0):
-                    messagebox.showinfo("Info", label_player_2_name['text'] + " is the second winner.")
+                if (eins == 0 and drei != 0 and vier != 0) or \
+                        (eins != 0 and drei == 0 and vier != 0) or \
+                        (eins != 0 and drei != 0 and vier == 0):
+                    messagebox.showinfo("Info", label_player_2_name['text'] +
+                                        " is the second winner.")
 
                 # check if zwei Spieler bereits bei 0
-                elif (eins == 0 and drei == 0 and vier != 0) or (eins == 0 and drei != 0 and vier == 0) or (
-                        eins != 0 and drei == 0 and vier == 0):
-                    messagebox.showinfo("Info", label_player_2_name['text'] + " is the third winner.")
+                elif (eins == 0 and drei == 0 and vier != 0) or \
+                        (eins == 0 and drei != 0 and vier == 0) or \
+                        (eins != 0 and drei == 0 and vier == 0):
+                    messagebox.showinfo("Info", label_player_2_name['text'] +
+                                        " is the third winner.")
                     end_game()
                     return
                 else:
                     messagebox.showinfo("Info", label_player_2_name['text'] + " is the winner.")
 
             # second check: only 3 player
-            elif label_1_score['text'] != "" and label_3_score['text'] != "" and label_4_score['text'] == "":
+            elif label_1_score['text'] != "" and label_3_score['text'] != "" \
+                    and label_4_score['text'] == "":
                 # check if ein Spieler bereits bei 0
                 if (eins == 0 and drei != 0) or (eins != 0 and drei == 0):
-                    messagebox.showinfo("Info", label_player_2_name['text'] + " is the second winner.")
+                    messagebox.showinfo("Info", label_player_2_name['text'] +
+                                        " is the second winner.")
                     end_game()
                     return
                 else:
                     messagebox.showinfo("Info", label_player_2_name['text'] + " is the winner.")
 
             # third check: only 2 player
-            elif label_1_score['text'] != "" and label_3_score['text'] == "" and label_4_score['text'] == "":
+            elif label_1_score['text'] != "" and label_3_score['text'] == "" \
+                    and label_4_score['text'] == "":
                 messagebox.showinfo("Info", label_player_2_name['text'] + " is the winner.")
                 end_game()
                 return
@@ -1920,26 +1945,33 @@ def count_down():
             drei = 0
 
             # first check: alle Spieler dabei
-            if label_1_score['text'] != "" and label_2_score['text'] != "" and label_4_score['text'] != "":
+            if label_1_score['text'] != "" and label_2_score['text'] != "" \
+                    and label_4_score['text'] != "":
                 # check if ein spieler bereits bei 0
-                if (zwei == 0 and eins != 0 and vier != 0) or (zwei != 0 and eins == 0 and vier != 0) or (
-                        zwei != 0 and eins != 0 and vier == 0):
-                    messagebox.showinfo("Info", label_player_3_name['text'] + " is the second winner.")
+                if (zwei == 0 and eins != 0 and vier != 0) or \
+                        (zwei != 0 and eins == 0 and vier != 0) or \
+                        (zwei != 0 and eins != 0 and vier == 0):
+                    messagebox.showinfo("Info", label_player_3_name['text'] +
+                                        " is the second winner.")
 
                 # check if zwei Spieler bereits bei 0
-                elif (zwei == 0 and eins == 0 and vier != 0) or (zwei == 0 and eins != 0 and vier == 0) or (
-                        zwei != 0 and eins == 0 and vier == 0):
-                    messagebox.showinfo("Info", label_player_3_name['text'] + " is the third winner.")
+                elif (zwei == 0 and eins == 0 and vier != 0) or \
+                        (zwei == 0 and eins != 0 and vier == 0) or \
+                        (zwei != 0 and eins == 0 and vier == 0):
+                    messagebox.showinfo("Info", label_player_3_name['text'] +
+                                        " is the third winner.")
                     end_game()
                     return
                 else:
                     messagebox.showinfo("Info", label_player_3_name['text'] + " is the winner.")
 
             # second check: only 3 player
-            elif label_1_score['text'] != "" and label_2_score['text'] != "" and label_4_score['text'] == "":
+            elif label_1_score['text'] != "" and label_2_score['text'] != "" \
+                    and label_4_score['text'] == "":
                 # check if ein Spieler bereits bei 0
                 if (zwei == 0 and eins != 0) or (zwei != 0 and eins == 0):
-                    messagebox.showinfo("Info", label_player_3_name['text'] + " is the second winner.")
+                    messagebox.showinfo("Info", label_player_3_name['text'] +
+                                        " is the second winner.")
                     end_game()
                     return
                 else:
@@ -1967,13 +1999,15 @@ def count_down():
 
             vier = 0
             # check if ein spieler bereits bei 0
-            if (zwei == 0 and drei != 0 and eins != 0) or (zwei != 0 and drei == 0 and eins != 0) or (
-                    zwei != 0 and drei != 0 and eins == 0):
+            if (zwei == 0 and drei != 0 and eins != 0) or \
+                    (zwei != 0 and drei == 0 and eins != 0) or \
+                    (zwei != 0 and drei != 0 and eins == 0):
                 messagebox.showinfo("Info", label_player_4_name['text'] + " is the second winner.")
 
             # check if zwei Spieler bereits bei 0
-            elif (zwei == 0 and drei == 0 and vier != 0) or (zwei == 0 and drei != 0 and vier == 0) or (
-                    zwei != 0 and drei == 0 and vier == 0):
+            elif (zwei == 0 and drei == 0 and vier != 0) or \
+                    (zwei == 0 and drei != 0 and vier == 0) or \
+                    (zwei != 0 and drei == 0 and vier == 0):
                 messagebox.showinfo("Info", label_player_4_name['text'] + " is the third winner.")
                 end_game()
                 return
@@ -1983,7 +2017,7 @@ def count_down():
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
 
-    next()
+    next_label()
 
 
 def add():
@@ -2131,7 +2165,7 @@ def new_game():
 
 def end_game():
     """
-
+    This function stops the game
     """
     messagebox.showinfo("Info", "Spiel beendet.")
 
@@ -2243,7 +2277,8 @@ if __name__ == "__main__":
     # ################# ---------------------- ##################
     # label and button for switching points
     label_switch_score = Label(gui, text="501", fg="black", font=('Arial', 13, 'bold'))
-    button_switch_score_inc = Button(gui, text="+", bd=4, fg="black", bg="lightgreen", font=('Arial', 10),
+    button_switch_score_inc = Button(gui, text="+", bd=4, fg="black",
+                                     bg="lightgreen", font=('Arial', 10),
                                      command=button_switch_score_inc)
     button_switch_score_dec = Button(gui, text="-", bd=4, fg="black", bg="red", font=('Arial', 10),
                                      command=button_switch_score_dec)
@@ -2274,7 +2309,8 @@ if __name__ == "__main__":
     # ################# ---------------------- ##################
     # eingabefeld für scoring (Punkte, die abgezogen werden sollen)
     label_dart_score = Label(gui, text="", bd=4, font=('Arial', 13))
-    button_dart_score = Button(gui, text="Add", bd=4, fg="black", bg="lightgreen", font=('Arial', 10),
+    button_dart_score = Button(gui, text="Add", bd=4, fg="black",
+                               bg="lightgreen", font=('Arial', 10),
                                command=add)
     label_dart_score.place(x=0, y=300, height=30, width=90)
     button_dart_score.place(x=100, y=300, height=30, width=80)
@@ -2292,7 +2328,8 @@ if __name__ == "__main__":
     label_third_dart = Label(gui, text="3", bd=4, bg="white", font=('Arial', 13))
 
     zwischen_label = Label(gui, text="0", bd=4, bg="yellow", font=('Arial', 13))
-    count_down_button = Button(gui, text="Count down", bd=4, fg="black", bg="lightgreen", font=('Arial', 10),
+    count_down_button = Button(gui, text="Count down", bd=4, fg="black",
+                               bg="lightgreen", font=('Arial', 10),
                                command=count_down)
 
     label_first_dart.place(x=210, y=300, height=30, width=30)
@@ -2315,145 +2352,146 @@ if __name__ == "__main__":
 
     # ################# ---------------------- ##################
     # calculate kpis button
-    button_create_excel = Button(gui, text="Calculate Score", bd=4, fg="black", bg="lightblue", font=('Arial', 11),
+    button_create_excel = Button(gui, text="Calculate Score", bd=4, fg="black",
+                                 bg="lightblue", font=('Arial', 11),
                                  command=create_excel)
     button_create_excel.place(x=1125, y=250, height=80, width=150)
 
     # ################# ---------------------- ##################
     # here set the values for all numbers (Tripel, Double and Single)
     button_triple_20 = Button(gui, text="T20", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=T20)
+                              command=t20)
     button_single_20 = Button(gui, text="S20", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=S20)
+                              command=s20)
     button_double_20 = Button(gui, text="D20", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=D20)
+                              command=d20)
 
     button_triple_19 = Button(gui, text="T19", bd=4, fg="black", bg="green", font=('Arial', 14),
-                              command=T19)
+                              command=t19)
     button_single_19 = Button(gui, text="S19", bd=4, fg="black", bg="green", font=('Arial', 14),
-                              command=S19)
+                              command=s19)
     button_double_19 = Button(gui, text="D19", bd=4, fg="black", bg="green", font=('Arial', 14),
-                              command=D19)
+                              command=d19)
 
     button_triple_18 = Button(gui, text="T18", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=T18)
+                              command=t18)
     button_single_18 = Button(gui, text="S18", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=S18)
+                              command=s18)
     button_double_18 = Button(gui, text="D18", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=D18)
+                              command=d18)
 
     button_triple_17 = Button(gui, text="T17", bd=4, fg="black", bg="green", font=('Arial', 14),
-                              command=T17)
+                              command=t17)
     button_single_17 = Button(gui, text="S17", bd=4, fg="black", bg="green", font=('Arial', 14),
-                              command=S17)
+                              command=s17)
     button_double_17 = Button(gui, text="D17", bd=4, fg="black", bg="green", font=('Arial', 14),
-                              command=D17)
+                              command=d17)
 
     button_triple_16 = Button(gui, text="T16", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=T16)
+                              command=t16)
     button_single_16 = Button(gui, text="S16", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=S16)
+                              command=s16)
     button_double_16 = Button(gui, text="D16", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=D16)
+                              command=d16)
     button_triple_15 = Button(gui, text="T15", bd=4, fg="black", bg="green", font=('Arial', 14),
-                              command=T15)
+                              command=t15)
     button_single_15 = Button(gui, text="S15", bd=4, fg="black", bg="green", font=('Arial', 14),
-                              command=S15)
+                              command=s_5)
     button_double_15 = Button(gui, text="D15", bd=4, fg="black", bg="green", font=('Arial', 14),
-                              command=D15)
+                              command=d15)
     button_triple_14 = Button(gui, text="T14", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=T14)
+                              command=t14)
     button_single_14 = Button(gui, text="S14", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=S14)
+                              command=s14)
     button_double_14 = Button(gui, text="D14", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=D14)
+                              command=d14)
 
     button_triple_13 = Button(gui, text="T13", bd=4, fg="black", bg="green", font=('Arial', 14),
-                              command=T13)
+                              command=t13)
     button_single_13 = Button(gui, text="S13", bd=4, fg="black", bg="green", font=('Arial', 14),
-                              command=S13)
+                              command=s13)
     button_double_13 = Button(gui, text="D13", bd=4, fg="black", bg="green", font=('Arial', 14),
-                              command=D13)
+                              command=d13)
     button_triple_12 = Button(gui, text="T12", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=T12)
+                              command=t12)
     button_single_12 = Button(gui, text="S12", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=S12)
+                              command=s12)
     button_double_12 = Button(gui, text="D12", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=D12)
+                              command=d12)
     button_triple_11 = Button(gui, text="T11", bd=4, fg="black", bg="green", font=('Arial', 14),
-                              command=T11)
+                              command=t11)
     button_single_11 = Button(gui, text="S11", bd=4, fg="black", bg="green", font=('Arial', 14),
-                              command=S11)
+                              command=s11)
     button_double_11 = Button(gui, text="D11", bd=4, fg="black", bg="green", font=('Arial', 14),
-                              command=D11)
+                              command=d11)
 
     button_triple_10 = Button(gui, text="T10", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=T10)
+                              command=t10)
     button_single_10 = Button(gui, text="S10", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=S10)
+                              command=s10)
     button_double_10 = Button(gui, text="D10", bd=4, fg="black", bg="red", font=('Arial', 14),
-                              command=D10)
+                              command=d10)
     button_triple_9 = Button(gui, text="T9", bd=4, fg="black", bg="green", font=('Arial', 14),
-                             command=T9)
+                             command=t_9)
     button_single_9 = Button(gui, text="S9", bd=4, fg="black", bg="green", font=('Arial', 14),
-                             command=S9)
+                             command=s_9)
     button_double_9 = Button(gui, text="D9", bd=4, fg="black", bg="green", font=('Arial', 14),
-                             command=D9)
+                             command=d_9)
     button_triple_8 = Button(gui, text="T8", bd=4, fg="black", bg="red", font=('Arial', 14),
-                             command=T8)
+                             command=t_8)
     button_single_8 = Button(gui, text="S8", bd=4, fg="black", bg="red", font=('Arial', 14),
-                             command=S8)
+                             command=s_8)
     button_double_8 = Button(gui, text="D8", bd=4, fg="black", bg="red", font=('Arial', 14),
-                             command=D8)
+                             command=d_8)
 
     button_triple_7 = Button(gui, text="T7", bd=4, fg="black", bg="green", font=('Arial', 14),
-                             command=T7)
+                             command=t_7)
     button_single_7 = Button(gui, text="S7", bd=4, fg="black", bg="green", font=('Arial', 14),
-                             command=S7)
+                             command=s_7)
     button_double_7 = Button(gui, text="D7", bd=4, fg="black", bg="green", font=('Arial', 14),
-                             command=D7)
+                             command=d_7)
     button_triple_6 = Button(gui, text="T6", bd=4, fg="black", bg="red", font=('Arial', 14),
-                             command=T6)
+                             command=t_6)
     button_single_6 = Button(gui, text="S6", bd=4, fg="black", bg="red", font=('Arial', 14),
-                             command=S6)
+                             command=s_6)
     button_double_6 = Button(gui, text="D6", bd=4, fg="black", bg="red", font=('Arial', 14),
-                             command=D6)
+                             command=d_6)
     button_triple_5 = Button(gui, text="T5", bd=4, fg="black", bg="green", font=('Arial', 14),
-                             command=T5)
+                             command=t_5)
     button_single_5 = Button(gui, text="S5", bd=4, fg="black", bg="green", font=('Arial', 14),
-                             command=S5)
+                             command=s_5)
     button_double_5 = Button(gui, text="D5", bd=4, fg="black", bg="green", font=('Arial', 14),
-                             command=D5)
+                             command=d_5)
 
     button_triple_4 = Button(gui, text="T4", bd=4, fg="black", bg="red", font=('Arial', 14),
-                             command=T4)
+                             command=t_4)
     button_single_4 = Button(gui, text="S4", bd=4, fg="black", bg="red", font=('Arial', 14),
-                             command=S4)
+                             command=s_4)
     button_double_4 = Button(gui, text="D4", bd=4, fg="black", bg="red", font=('Arial', 14),
-                             command=D4)
+                             command=d_4)
     button_triple_3 = Button(gui, text="T3", bd=4, fg="black", bg="green", font=('Arial', 14),
-                             command=T3)
+                             command=t_3)
     button_single_3 = Button(gui, text="S3", bd=4, fg="black", bg="green", font=('Arial', 14),
-                             command=S3)
+                             command=s_3)
     button_double_3 = Button(gui, text="D3", bd=4, fg="black", bg="green", font=('Arial', 14),
-                             command=D3)
+                             command=d_3)
     button_triple_2 = Button(gui, text="T2", bd=4, fg="black", bg="red", font=('Arial', 14),
-                             command=T2)
+                             command=t_2)
     button_single_2 = Button(gui, text="S2", bd=4, fg="black", bg="red", font=('Arial', 14),
-                             command=S2)
+                             command=s_2)
     button_double_2 = Button(gui, text="D2", bd=4, fg="black", bg="red", font=('Arial', 14),
-                             command=D2)
+                             command=d_2)
 
     button_triple_1 = Button(gui, text="T1", bd=4, fg="black", bg="green", font=('Arial', 14),
-                             command=T1)
+                             command=t_1)
     button_single_1 = Button(gui, text="S1", bd=4, fg="black", bg="green", font=('Arial', 14),
-                             command=S1)
+                             command=s_1)
     button_double_1 = Button(gui, text="D1", bd=4, fg="black", bg="green", font=('Arial', 14),
-                             command=D1)
+                             command=d_1)
     button_single_bull = Button(gui, text="25", bd=4, fg="black", bg="green", font=('Arial', 14),
-                                command=Single_Bull)
+                                command=single_bull)
     button_bull = Button(gui, text="BULL", bd=4, fg="black", bg="red", font=('Arial', 14),
-                         command=Bull)
+                         command=bull)
     button_0 = Button(gui, text="0", bd=4, fg="black", bg="green", font=('Arial', 14),
                       command=null)
 
