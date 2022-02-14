@@ -79,7 +79,7 @@ def button_exit():
         exit_window.resizable(width=0, height=0)
         exit_window.title("Stop?")
 
-        label_exit = Label(exit_window, text="Stop game??", font=('Arial', 11))
+        label_exit = Label(exit_window, text="Stop game?", font=('Arial', 11))
         button_yes = Button(exit_window, text="Yes", command=exit_window.quit,
                             font=('Arial', 10, 'bold'), bg="white",
                             fg="green")
