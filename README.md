@@ -53,12 +53,13 @@ python zähler.py  # to start the gui for counting
 
 Description
 - First, enter your names in the text fields on the top right-hand side. By pressing the Buttons `P1`, `P2`, `P3` and `P4` the names appear on the left side. \
-  If there are only two of you, dimply leave the third and fourth fields empty.
+  If there are only two of you, simply leave the third and fourth fields empty.
 - Then set whether you want to play 501 or 301.
 - After that press `Start`.
 - Now you can type in what you have thrown and press respectively `Add`. After 3 entries press `Count Down` to count down your thrown number of points from your stand.
 - The next player will be chosen automatically.
 - If you throw more, e.g. 60, but you only have 50 left, a message appears that you have overthrown and it is the next players turn.
+- If the first player has 0 points left, a new game will be started automatically. If there are three or four players, the game will continue until there is only one player left
 - When you have finished playing, you can press `Calculate Score`, which will create an Excel file where you can view your average and various statistics.
 
 ![ Screenshot](https://github.com/Manu100001/Python-Darts-GUI/tree/dev/Images/zähler.png?raw=true "Title")
@@ -79,6 +80,6 @@ Description:
 - You can use the `Switch` button to set whether you want to play on the single, double or triple fields.
 - You always start with `1` and end with `20` or `Bull`.
 - Use the `+` and `-` buttons to set the number of darts hit, minimum 0 and maximum 3. Use the `next` button to move to the next field.
-- When you are finished, an excel file is automatically created in which everything important is listed.
+- When you have finished, an excel file is automatically created in which everything important is listed.
 
 ![ Screenshot: around-the-clock](https://github.com/Manu100001/Python-Darts-GUI/tree/dev/Images/around-the-clock.png?raw=true "Title")
