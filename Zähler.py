@@ -1797,7 +1797,7 @@ def count_down():
     if label_1_score['bg'] == "yellow":
         current = int(label_1_score['text'])
         if result > current:
-            messagebox.showinfo("Achtung", "Sie haben überworfen!")
+            messagebox.showinfo("Warning", "No score.")
             result2 = 0
             add_player1(result2, darts)
 
@@ -1826,7 +1826,7 @@ def count_down():
                     end_game()
                     return
                 else:
-                    messagebox.showinfo("Info", label_player_1_name['text'] + " is the first winner.")
+                    messagebox.showinfo("Info", label_player_1_name['text'] + " is the winner.")
 
             # second check: only 3 player
             elif label_2_score['text'] != "" and label_3_score['text'] != "" and label_4_score['text'] == "":
@@ -1836,11 +1836,11 @@ def count_down():
                     end_game()
                     return
                 else:
-                    messagebox.showinfo("Info", label_player_1_name['text'] + " is the first winner.")
+                    messagebox.showinfo("Info", label_player_1_name['text'] + " is the winner.")
 
             # third check: only 2 player
             elif label_2_score['text'] != "" and label_3_score['text'] == "" and label_4_score['text'] == "":
-                messagebox.showinfo("Info", label_player_1_name['text'] + " is the first winner.")
+                messagebox.showinfo("Info", label_player_1_name['text'] + " is the winner.")
                 end_game()
                 return
         else:
@@ -1850,7 +1850,7 @@ def count_down():
     if label_2_score['bg'] == "yellow":
         current = int(label_2_score['text'])
         if result > current:
-            messagebox.showinfo("Achtung", "Sie haben überworfen!")
+            messagebox.showinfo("Warning", "No score.")
             result2 = 0
             add_player2(result2, darts)
 
@@ -1879,7 +1879,7 @@ def count_down():
                     end_game()
                     return
                 else:
-                    messagebox.showinfo("Info", label_player_2_name['text'] + " is the first winner.")
+                    messagebox.showinfo("Info", label_player_2_name['text'] + " is the winner.")
 
             # second check: only 3 player
             elif label_1_score['text'] != "" and label_3_score['text'] != "" and label_4_score['text'] == "":
@@ -1889,11 +1889,11 @@ def count_down():
                     end_game()
                     return
                 else:
-                    messagebox.showinfo("Info", label_player_2_name['text'] + " is the first winner.")
+                    messagebox.showinfo("Info", label_player_2_name['text'] + " is the winner.")
 
             # third check: only 2 player
             elif label_1_score['text'] != "" and label_3_score['text'] == "" and label_4_score['text'] == "":
-                messagebox.showinfo("Info", label_player_2_name['text'] + " is the first winner.")
+                messagebox.showinfo("Info", label_player_2_name['text'] + " is the winner.")
                 end_game()
                 return
 
@@ -1904,7 +1904,7 @@ def count_down():
     if label_3_score['bg'] == "yellow":
         current = int(label_3_score['text'])
         if result > current:
-            messagebox.showinfo("Achtung", "Sie haben überworfen!")
+            messagebox.showinfo("Warning", "No score.")
             result2 = 0
             add_player3(result2, darts)
 
@@ -1933,7 +1933,7 @@ def count_down():
                     end_game()
                     return
                 else:
-                    messagebox.showinfo("Info", label_player_3_name['text'] + " is the first winner.")
+                    messagebox.showinfo("Info", label_player_3_name['text'] + " is the winner.")
 
             # second check: only 3 player
             elif label_1_score['text'] != "" and label_2_score['text'] != "" and label_4_score['text'] == "":
@@ -1943,7 +1943,7 @@ def count_down():
                     end_game()
                     return
                 else:
-                    messagebox.showinfo("Info", label_player_3_name['text'] + " is the first winner.")
+                    messagebox.showinfo("Info", label_player_3_name['text'] + " is the winner.")
 
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
@@ -1951,7 +1951,7 @@ def count_down():
     if label_4_score['bg'] == "yellow":
         current = int(label_4_score['text'])
         if result > current:
-            messagebox.showinfo("Achtung", "Sie haben überworfen!")
+            messagebox.showinfo("Warning", "No score.")
             result2 = 0
             add_player4(result2, darts)
 
@@ -1996,13 +1996,26 @@ def add():
     result = current + count
     zwischen_label['text'] = result
     label_dart_score['text'] = ""
+    count_down_button['text'] = "Count down"
 
-    if (label_1_score['bg'] == "yellow" and result >= int(label_1_score['text'])) \
-            or (label_2_score['bg'] == "yellow" and result >= int(label_2_score['text'])) \
-            or (label_3_score['bg'] == "yellow" and result >= int(label_3_score['text'])) \
-            or (label_4_score['bg'] == "yellow" and result >= int(label_4_score['text'])):
+    if (label_1_score['bg'] == "yellow" and result == int(label_1_score['text'])) \
+            or (label_2_score['bg'] == "yellow" and result == int(label_2_score['text'])) \
+            or (label_3_score['bg'] == "yellow" and result == int(label_3_score['text'])) \
+            or (label_4_score['bg'] == "yellow" and result == int(label_4_score['text'])):
         count_down_button.pack()
+        count_down_button['text'] = "Count down"
         count_down_button.place(x=440, y=300, height=30, width=90)
+        button_dart_score.pack()
+        button_dart_score.pack_forget()
+        return
+
+    if (label_1_score['bg'] == "yellow" and result > int(label_1_score['text'])) \
+            or (label_2_score['bg'] == "yellow" and result > int(label_2_score['text'])) \
+            or (label_3_score['bg'] == "yellow" and result > int(label_3_score['text'])) \
+            or (label_4_score['bg'] == "yellow" and result > int(label_4_score['text'])):
+        count_down_button.pack()
+        count_down_button['text'] = "No score. Next Player"
+        count_down_button.place(x=440, y=300, height=30, width=150)
         button_dart_score.pack()
         button_dart_score.pack_forget()
         return
