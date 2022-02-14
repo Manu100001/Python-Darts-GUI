@@ -1,7 +1,7 @@
 # Python-Darts-GUI
 Different GUIs for playing darts
 
-# Setup for electronic dartboard
+## Setup for electronic dartboard / setup to play best of sets or legs / setup to get suggestions for checkouts
 Step into directory 
 ```bash
 cd Python-Darts-GUI
@@ -31,7 +31,7 @@ Description
   To achieve a set, you have to win 3 legs. \
   The switch - button has the same function here. 
   
-# Setup for normal dartboard
+## Setup for normal dartboard
   
 Step into directory 
 ```bash
@@ -55,7 +55,7 @@ Description
 - When you have finished playing, you can press `Calculate Score`, which will create an Excel file where you can view your average and various statistics.
 
 
-# Setup for around-the-clock
+## Setup for around-the-clock
 Step into directory 
 ```bash
 cd Python-Darts-GUI
