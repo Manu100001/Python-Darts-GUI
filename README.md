@@ -1,6 +1,10 @@
 # Python-Darts-GUI
 Different GUIs for playing darts
 
+# Contact
+For questions and suggestions and wishes
+manuelmilde@gmx.net
+
 ## Setup for electronic dartboard
 #### This can be used for an electronic dartboard or for playing best of sets/legs or for getting suggestions for checkouts
 Step into directory 
