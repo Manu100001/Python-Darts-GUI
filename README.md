@@ -32,7 +32,7 @@ Description
   To achieve a set, you have to win 3 legs. \
   The switch - button has the same function here. 
 
-![Alt text](https://github.com/Manu100001/Python-Darts-GUI/tree/dev/Images/darts-with-gui.png?raw=true "Title")
+![Screenshot of the gui](https://github.com/Manu100001/Python-Darts-GUI/tree/dev/Images/darts-with-gui.png?raw=true "Title")
   
 ## Setup for normal dartboard
   
@@ -57,6 +57,7 @@ Description
 - If you throw more, e.g. 60, but you only have 50 left, a message appears that you have overthrown and it is the next players turn.
 - When you have finished playing, you can press `Calculate Score`, which will create an Excel file where you can view your average and various statistics.
 
+![Screenshot of the gui](https://github.com/Manu100001/Python-Darts-GUI/tree/dev/Images/zähler.png?raw=true "Title")
 
 ## Setup for around-the-clock
 Step into directory 
@@ -75,3 +76,5 @@ Description:
 - You always start with `1` and end with `20` or `Bull`.
 - Use the `+` and `-` buttons to set the number of darts hit, minimum 0 and maximum 3. Use the `next` button to move to the next field.
 - When you are finished, an excel file is automatically created in which everything important is listed.
+
+![Screenshot of the gui](https://github.com/Manu100001/Python-Darts-GUI/tree/dev/Images/around-the-clock.png?raw=true "Title")
