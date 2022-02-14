@@ -1365,22 +1365,22 @@ def button_exit():
         exit_window = Toplevel(gui)
         exit_window.geometry('250x150')
         exit_window.resizable(width=0, height=0)
-        exit_window.title("Beenden?")
+        exit_window.title("Stop?")
 
-        label_exit = Label(exit_window, text="Spiel beenden?", font=('Arial', 11))
-        button_ja = Button(exit_window, text="Ja", command=exit_window.quit,
-                           font=('Arial', 10, 'bold'), bg="white",
-                           fg="green")
-        button_nein = Button(exit_window, text="Nein", command=exit_window.destroy,
-                             font=('Arial', 10, 'bold'),
-                             bg="white", fg="red")
+        label_exit = Label(exit_window, text="End game?", font=('Arial', 11))
+        button_yes = Button(exit_window, text="Yes", command=exit_window.quit,
+                            font=('Arial', 10, 'bold'), bg="white",
+                            fg="green")
+        button_no = Button(exit_window, text="No", command=exit_window.destroy,
+                           font=('Arial', 10, 'bold'),
+                           bg="white", fg="red")
 
         label_exit.place(x=80, y=0, width=100, height=50)
-        button_ja.place(x=50, y=60, width=50, height=50)
-        button_nein.place(x=150, y=60, width=50, height=50)
+        button_yes.place(x=50, y=60, width=50, height=50)
+        button_no.place(x=150, y=60, width=50, height=50)
 
     else:
-        messagebox.showinfo("Info", "You already clicked on \"Beenden\"!")
+        messagebox.showinfo("Info", "You already clicked on \"Stop\"!")
 
 
 def button_name_1():
@@ -2220,7 +2220,7 @@ if __name__ == "__main__":
     gui.configure(background='grey')
 
     # define the exit - button
-    exit_button = Button(gui, text="Beenden", command=button_exit, fg="black", bg="lightgreen",
+    exit_button = Button(gui, text="End game", command=button_exit, fg="black", bg="lightgreen",
                          font=('Arial', 10, 'bold'))
     exit_button.place(x=1175, y=0, height=80, width=100)
 
