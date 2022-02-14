@@ -2,7 +2,7 @@
 Different GUIs for playing darts
 
 ## Setup for electronic dartboard
-#### This can be used for an electronic dartboard or for playing best of sets/legs or for getting suggestions for checkouts \
+#### This can be used for an electronic dartboard or for playing best of sets/legs or for getting suggestions for checkouts
 Step into directory 
 ```bash
 cd Python-Darts-GUI
