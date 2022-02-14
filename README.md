@@ -50,7 +50,7 @@ Description
   If there are only two of you, dimply leave the third and fourth fields empty.
 - Then set whether you want to play 501 or 301.
 - After that press `Start`.
-- Now you can type in what you have thrown and press respectively `Add`. After 3 entries press `Count Down` to count down your thrown number of points from your stand..
+- Now you can type in what you have thrown and press respectively `Add`. After 3 entries press `Count Down` to count down your thrown number of points from your stand.
 - The next player will be chosen automatically.
 - If you throw more, e.g. 60, but you only have 50 left, a message appears that you have overthrown and it is the next players turn.
 - When you have finished playing, you can press `Calculate Score`, which will create an Excel file where you can view your average and various statistics.
@@ -70,6 +70,6 @@ python Around-the-clock.py  # to start the gui for counting
 
 Description:
 - You can use the `Switch` button to set whether you want to play on the single, double or triple fields.
-- You always start with `1` and end with `20` or `Bull`
+- You always start with `1` and end with `20` or `Bull`.
 - Use the `+` and `-` buttons to set the number of darts hit, minimum 0 and maximum 3. Use the `next` button to move to the next field.
 - When you are finished, an excel file is automatically created in which everything important is listed.
