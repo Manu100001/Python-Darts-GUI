@@ -2315,7 +2315,7 @@ if __name__ == "__main__":
 
     # ################# ---------------------- ##################
     # calculate kpis button
-    button_create_excel = Button(gui, text="Score berechnen", bd=4, fg="black", bg="lightblue", font=('Arial', 11),
+    button_create_excel = Button(gui, text="Calculate Score", bd=4, fg="black", bg="lightblue", font=('Arial', 11),
                                  command=create_excel)
     button_create_excel.place(x=1125, y=250, height=80, width=150)
 
