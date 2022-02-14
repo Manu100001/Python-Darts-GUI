@@ -16,7 +16,7 @@ python init_database.py  # to setup the database for the checkouts
 
 Run second:
 ```bash
-python Darts_mit_Gui.py  # to start the Gui for the game 
+python darts_with_gui.py  # to start the Gui for the game 
 ```
 
 Description
@@ -42,7 +42,7 @@ cd Python-Darts-GUI
 Run:
 
 ```bash
-python Zähler.py  # to start the gui for counting
+python zähler.py  # to start the gui for counting
 ```
 
 Description
@@ -65,7 +65,7 @@ cd Python-Darts-GUI
 Run:
 
 ```bash
-python Around-the-clock.py  # to start the gui for counting
+python around_the_clock.py  # to start the gui for counting
 ```
 
 Description:
