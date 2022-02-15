@@ -98,8 +98,13 @@ def create_excel():
     sheet.cell(row=3, column=12).value = "Geworfene S20"
     sheet.cell(row=3, column=13).value = "Geworfene T19"
     sheet.cell(row=3, column=14).value = "Geworfene S19"
-    sheet.cell(row=3, column=15).value = "Geworfene Triple"
-    sheet.cell(row=3, column=16).value = "Geworfene Double"
+    sheet.cell(row=3, column=15).value = "Geworfene T18"
+    sheet.cell(row=3, column=16).value = "Geworfene S18"
+    sheet.cell(row=3, column=17).value = "Geworfene Single-Bulls"
+    sheet.cell(row=3, column=18).value = "Geworfene Bulls"
+    sheet.cell(row=3, column=19).value = "Geworfene Triple"
+    sheet.cell(row=3, column=20).value = "Geworfene Double"
+    sheet.cell(row=3, column=21).value = "No scores"
 
     sheet['B3'].fill = greenFill
     sheet['C3'].fill = greenFill
@@ -115,7 +120,12 @@ def create_excel():
     sheet['M3'].fill = greenFill
     sheet['N3'].fill = greenFill
     sheet['O3'].fill = redFill
-    sheet['P3'].fill = greenFill
+    sheet['P3'].fill = redFill
+    sheet['Q3'].fill = greenFill
+    sheet['R3'].fill = redFill
+    sheet['S3'].fill = greenFill
+    sheet['T3'].fill = redFill
+    sheet['U3'].fill = greenFill
 
     sheet.column_dimensions['C'].width = 8
     sheet.column_dimensions['I'].width = 18
@@ -124,8 +134,13 @@ def create_excel():
     sheet.column_dimensions['L'].width = 14
     sheet.column_dimensions['M'].width = 14
     sheet.column_dimensions['N'].width = 14
-    sheet.column_dimensions['O'].width = 17
-    sheet.column_dimensions['P'].width = 17
+    sheet.column_dimensions['O'].width = 14
+    sheet.column_dimensions['P'].width = 14
+    sheet.column_dimensions['Q'].width = 20
+    sheet.column_dimensions['R'].width = 15
+    sheet.column_dimensions['S'].width = 17
+    sheet.column_dimensions['T'].width = 17
+    sheet.column_dimensions['U'].width = 12
 
     # logic for excel - file
     sheet.cell(row=4, column=2).value = label_player_1_name['text']
@@ -150,8 +165,14 @@ def create_excel():
     sheet.cell(row=4, column=12).value = player1_scores[0]['S20']
     sheet.cell(row=4, column=13).value = player1_scores[0]['T19']
     sheet.cell(row=4, column=14).value = player1_scores[0]['S19']
-    sheet.cell(row=4, column=15).value = player1_scores[0]['Triple']
-    sheet.cell(row=4, column=16).value = player1_scores[0]['Double']
+    sheet.cell(row=4, column=15).value = player1_scores[0]['T18']
+    sheet.cell(row=4, column=16).value = player1_scores[0]['S18']
+    sheet.cell(row=4, column=17).value = player1_scores[0]['Single_Bull']
+    sheet.cell(row=4, column=18).value = player1_scores[0]['Bull']
+    sheet.cell(row=4, column=19).value = player1_scores[0]['Triple']
+    sheet.cell(row=4, column=20).value = player1_scores[0]['Double']
+    sheet.cell(row=4, column=21).value = player1_scores[0]['No_Score']
+
 
     # player 2
     sheet.cell(row=5, column=3).value = round((player2_kpis[0]['Score'] /
@@ -169,8 +190,13 @@ def create_excel():
     sheet.cell(row=5, column=12).value = player2_scores[0]['S20']
     sheet.cell(row=5, column=13).value = player2_scores[0]['T19']
     sheet.cell(row=5, column=14).value = player2_scores[0]['S19']
-    sheet.cell(row=5, column=15).value = player2_scores[0]['Triple']
-    sheet.cell(row=5, column=16).value = player2_scores[0]['Double']
+    sheet.cell(row=5, column=15).value = player2_scores[0]['T18']
+    sheet.cell(row=5, column=16).value = player2_scores[0]['S18']
+    sheet.cell(row=5, column=17).value = player2_scores[0]['Single_Bull']
+    sheet.cell(row=5, column=18).value = player2_scores[0]['Bull']
+    sheet.cell(row=5, column=19).value = player2_scores[0]['Triple']
+    sheet.cell(row=5, column=20).value = player2_scores[0]['Double']
+    sheet.cell(row=5, column=21).value = player2_scores[0]['No_Score']
 
     # player 3
     if label_player_3_name['text'] != "":
@@ -189,8 +215,13 @@ def create_excel():
         sheet.cell(row=6, column=12).value = player3_scores[0]['S20']
         sheet.cell(row=6, column=13).value = player3_scores[0]['T19']
         sheet.cell(row=6, column=14).value = player3_scores[0]['S19']
-        sheet.cell(row=6, column=15).value = player3_scores[0]['Triple']
-        sheet.cell(row=6, column=16).value = player3_scores[0]['Double']
+        sheet.cell(row=6, column=15).value = player3_scores[0]['T18']
+        sheet.cell(row=6, column=16).value = player3_scores[0]['S18']
+        sheet.cell(row=6, column=17).value = player3_scores[0]['Single_Bull']
+        sheet.cell(row=6, column=18).value = player3_scores[0]['Bull']
+        sheet.cell(row=6, column=19).value = player3_scores[0]['Triple']
+        sheet.cell(row=6, column=20).value = player3_scores[0]['Double']
+        sheet.cell(row=6, column=21).value = player3_scores[0]['No_Score']
 
     # player 4
     if label_player_4_name['text'] != "":
@@ -209,8 +240,13 @@ def create_excel():
         sheet.cell(row=7, column=12).value = player4_scores[0]['S20']
         sheet.cell(row=7, column=13).value = player4_scores[0]['T19']
         sheet.cell(row=7, column=14).value = player4_scores[0]['S19']
-        sheet.cell(row=7, column=15).value = player4_scores[0]['Triple']
-        sheet.cell(row=7, column=16).value = player4_scores[0]['Double']
+        sheet.cell(row=7, column=15).value = player4_scores[0]['T18']
+        sheet.cell(row=7, column=16).value = player4_scores[0]['S18']
+        sheet.cell(row=7, column=17).value = player4_scores[0]['Single_Bull']
+        sheet.cell(row=7, column=18).value = player4_scores[0]['Bull']
+        sheet.cell(row=7, column=19).value = player4_scores[0]['Triple']
+        sheet.cell(row=7, column=20).value = player4_scores[0]['Double']
+        sheet.cell(row=7, column=21).value = player4_scores[0]['No_Score']
 
     # save excel - file
     excel_file.save(path)
@@ -911,7 +947,7 @@ def null():
     This function adds the thrown score
     :return:
     """
-    label_invisible['text'] = "0"
+    label_invisible['text'] = ""
     label_dart_score['text'] = "0"
 
 
@@ -1614,10 +1650,8 @@ def add_scores():
                 player1_scores[0]["Single_Bull"] += 1
             else:
                 player1_scores[0]["Bull"] += 1
-        elif score == "0":
-            player1_scores[0]["No_Score"] += 1
         else:
-            messagebox.showinfo(SystemError, "Restart")
+            player1_scores[0]["No_Score"] += 1
 
     # player 2
     elif label_2_score['bg'] == "yellow":
@@ -1644,10 +1678,8 @@ def add_scores():
                 player2_scores[0]["Single_Bull"] += 1
             else:
                 player2_scores[0]["Bull"] += 1
-        elif score == "0":
-            player2_scores[0]["No_Score"] += 1
         else:
-            messagebox.showinfo(SystemError, "Restart")
+            player2_scores[0]["No_Score"] += 1
 
     # player 3
     elif label_3_score['bg'] == "yellow":
@@ -1674,10 +1706,8 @@ def add_scores():
                 player3_scores[0]["Single_Bull"] += 1
             else:
                 player3_scores[0]["Bull"] += 1
-        elif score == "0":
-            player3_scores[0]["No_Score"] += 1
         else:
-            messagebox.showinfo(SystemError, "Restart")
+            player3_scores[0]["No_Score"] += 1
 
     # player 4
     elif label_4_score['bg'] == "yellow":
@@ -1704,10 +1734,9 @@ def add_scores():
                 player4_scores[0]["Single_Bull"] += 1
             else:
                 player4_scores[0]["Bull"] += 1
-        elif score == "0":
-            player4_scores[0]["No_Score"] += 1
         else:
-            messagebox.showinfo(SystemError, "Restart")
+            player4_scores[0]["No_Score"] += 1
+
     else:
         messagebox.showinfo(SystemError, "Restart")
 
