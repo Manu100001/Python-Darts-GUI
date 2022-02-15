@@ -38,10 +38,14 @@ player2_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, 
 player3_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, "60": 0}]
 player4_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, "60": 0}]
 
-player1_scores = [{"T20": 0, "T19": 0, "S20": 0, "S19": 0, "Triple": 0, "Double": 0}]
-player2_scores = [{"T20": 0, "T19": 0, "S20": 0, "S19": 0, "Triple": 0, "Double": 0}]
-player3_scores = [{"T20": 0, "T19": 0, "S20": 0, "S19": 0, "Triple": 0, "Double": 0}]
-player4_scores = [{"T20": 0, "T19": 0, "S20": 0, "S19": 0, "Triple": 0, "Double": 0}]
+player1_scores = [{"T20": 0, "T19": 0, "T18": 0, "S20": 0, "S19": 0, "S18": 0,
+                   "Bull": 0, "Single_Bull": 0, "Triple": 0, "Double": 0, "No_Score": 0}]
+player2_scores = [{"T20": 0, "T19": 0, "T18": 0, "S20": 0, "S19": 0, "S18": 0,
+                   "Bull": 0, "Single_Bull": 0, "Triple": 0, "Double": 0, "No_Score": 0}]
+player3_scores = [{"T20": 0, "T19": 0, "T18": 0, "S20": 0, "S19": 0, "S18": 0,
+                   "Bull": 0, "Single_Bull": 0, "Triple": 0, "Double": 0, "No_Score": 0}]
+player4_scores = [{"T20": 0, "T19": 0, "T18": 0, "S20": 0, "S19": 0, "S18": 0,
+                   "Bull": 0, "Single_Bull": 0, "Triple": 0, "Double": 0, "No_Score": 0}]
 
 
 def create_excel():
@@ -889,7 +893,7 @@ def bull():
     This function adds the thrown score
     :return:
     """
-    label_invisible['text'] = "BULL"
+    label_invisible['text'] = "Bull"
     label_dart_score['text'] = "50"
 
 
@@ -898,7 +902,7 @@ def single_bull():
     This function adds the thrown score
     :return:
     """
-    label_invisible['text'] = "Single_BULL"
+    label_invisible['text'] = "Single_Bull"
     label_dart_score['text'] = "25"
 
 
@@ -1591,16 +1595,29 @@ def add_scores():
             player1_scores[0]["Triple"] += 1
             if score == "T20":
                 player1_scores[0]["T20"] += 1
-            if score == "T19":
+            elif score == "T19":
                 player1_scores[0]["T19"] += 1
+            elif score == "T18":
+                player1_scores[0]["T18"] += 1
 
         elif "D" in score:
             player1_scores[0]["Double"] += 1
         elif "S" in score:
             if score == "S20":
                 player1_scores[0]["S20"] += 1
-            elif score == "T19":
+            elif score == "S19":
                 player1_scores[0]["S19"] += 1
+            elif score == "S18":
+                player1_scores[0]["S18"] += 1
+        elif "Bull" in score:
+            if score == "Single_Bull":
+                player1_scores[0]["Single_Bull"] += 1
+            else:
+                player1_scores[0]["Bull"] += 1
+        elif score == "0":
+            player1_scores[0]["No_Score"] += 1
+        else:
+            messagebox.showinfo(SystemError, "Restart")
 
     # player 2
     elif label_2_score['bg'] == "yellow":
@@ -1608,16 +1625,29 @@ def add_scores():
             player2_scores[0]["Triple"] += 1
             if score == "T20":
                 player2_scores[0]["T20"] += 1
-            if score == "T19":
+            elif score == "T19":
                 player2_scores[0]["T19"] += 1
+            elif score == "T18":
+                player2_scores[0]["T18"] += 1
 
         elif "D" in score:
             player2_scores[0]["Double"] += 1
         elif "S" in score:
             if score == "S20":
                 player2_scores[0]["S20"] += 1
-            elif score == "T19":
+            elif score == "S19":
                 player2_scores[0]["S19"] += 1
+            elif score == "S18":
+                player2_scores[0]["S18"] += 1
+        elif "Bull" in score:
+            if score == "Single_Bull":
+                player2_scores[0]["Single_Bull"] += 1
+            else:
+                player2_scores[0]["Bull"] += 1
+        elif score == "0":
+            player2_scores[0]["No_Score"] += 1
+        else:
+            messagebox.showinfo(SystemError, "Restart")
 
     # player 3
     elif label_3_score['bg'] == "yellow":
@@ -1625,16 +1655,29 @@ def add_scores():
             player3_scores[0]["Triple"] += 1
             if score == "T20":
                 player3_scores[0]["T20"] += 1
-            if score == "T19":
+            elif score == "T19":
                 player3_scores[0]["T19"] += 1
+            elif score == "T18":
+                player3_scores[0]["T18"] += 1
 
         elif "D" in score:
             player3_scores[0]["Double"] += 1
         elif "S" in score:
             if score == "S20":
                 player3_scores[0]["S20"] += 1
-            elif score == "T19":
+            elif score == "S19":
                 player3_scores[0]["S19"] += 1
+            elif score == "S18":
+                player3_scores[0]["S18"] += 1
+        elif "Bull" in score:
+            if score == "Single_Bull":
+                player3_scores[0]["Single_Bull"] += 1
+            else:
+                player3_scores[0]["Bull"] += 1
+        elif score == "0":
+            player3_scores[0]["No_Score"] += 1
+        else:
+            messagebox.showinfo(SystemError, "Restart")
 
     # player 4
     elif label_4_score['bg'] == "yellow":
@@ -1642,16 +1685,29 @@ def add_scores():
             player4_scores[0]["Triple"] += 1
             if score == "T20":
                 player4_scores[0]["T20"] += 1
-            if score == "T19":
+            elif score == "T19":
                 player4_scores[0]["T19"] += 1
+            elif score == "T18":
+                player4_scores[0]["T18"] += 1
 
         elif "D" in score:
             player4_scores[0]["Double"] += 1
         elif "S" in score:
             if score == "S20":
                 player4_scores[0]["S20"] += 1
-            elif score == "T19":
+            elif score == "S19":
                 player4_scores[0]["S19"] += 1
+            elif score == "S18":
+                player4_scores[0]["S18"] += 1
+        elif "Bull" in score:
+            if score == "Single_Bull":
+                player4_scores[0]["Single_Bull"] += 1
+            else:
+                player4_scores[0]["Bull"] += 1
+        elif score == "0":
+            player4_scores[0]["No_Score"] += 1
+        else:
+            messagebox.showinfo(SystemError, "Restart")
     else:
         messagebox.showinfo(SystemError, "Restart")
 
