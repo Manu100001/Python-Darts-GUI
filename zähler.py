@@ -347,22 +347,8 @@ def t20():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T20"
     label_dart_score['text'] = "60"
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['T20'] += 1
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['T20'] += 1
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['T20'] += 1
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['T20'] += 1
-        player4_scores[0]['Triple'] += 1
 
 
 def d20():
@@ -370,19 +356,8 @@ def d20():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D20"
     label_dart_score['text'] = "40"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s20():
@@ -390,19 +365,8 @@ def s20():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S20"
     label_dart_score['text'] = "20"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['S20'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['S20'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['S20'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['S20'] += 1
 
 
 def t19():
@@ -410,22 +374,8 @@ def t19():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T19"
     label_dart_score['text'] = "57"
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['T19'] += 1
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['T19'] += 1
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['T19'] += 1
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['T19'] += 1
-        player4_scores[0]['Triple'] += 1
 
 
 def d19():
@@ -433,19 +383,8 @@ def d19():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D19"
     label_dart_score['text'] = "38"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s19():
@@ -453,19 +392,8 @@ def s19():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S19"
     label_dart_score['text'] = "19"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['S19'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['S19'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['S19'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['S19'] += 1
 
 
 def t18():
@@ -473,19 +401,8 @@ def t18():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T18"
     label_dart_score['text'] = "54"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Triple'] += 1
 
 
 def d18():
@@ -493,19 +410,9 @@ def d18():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D18"
+
     label_dart_score['text'] = "36"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s18():
@@ -513,6 +420,8 @@ def s18():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S18"
+
     label_dart_score['text'] = "18"
 
 
@@ -521,19 +430,8 @@ def t17():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T17"
     label_dart_score['text'] = "51"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Triple'] += 1
 
 
 def d17():
@@ -541,19 +439,8 @@ def d17():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D17"
     label_dart_score['text'] = "34"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s17():
@@ -561,6 +448,7 @@ def s17():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S17"
     label_dart_score['text'] = "17"
 
 
@@ -569,19 +457,8 @@ def t16():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T16"
     label_dart_score['text'] = "48"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Triple'] += 1
 
 
 def d16():
@@ -589,19 +466,8 @@ def d16():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D16"
     label_dart_score['text'] = "32"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s16():
@@ -609,6 +475,7 @@ def s16():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S16"
     label_dart_score['text'] = "16"
 
 
@@ -617,19 +484,8 @@ def t15():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T15"
     label_dart_score['text'] = "45"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Triple'] += 1
 
 
 def d15():
@@ -637,19 +493,8 @@ def d15():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D15"
     label_dart_score['text'] = "30"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s15():
@@ -657,6 +502,7 @@ def s15():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S15"
     label_dart_score['text'] = "15"
 
 
@@ -665,19 +511,8 @@ def t14():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T14"
     label_dart_score['text'] = "42"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Triple'] += 1
 
 
 def d14():
@@ -685,19 +520,8 @@ def d14():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D14"
     label_dart_score['text'] = "28"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s14():
@@ -705,6 +529,7 @@ def s14():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S14"
     label_dart_score['text'] = "14"
 
 
@@ -713,19 +538,8 @@ def t13():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T13"
     label_dart_score['text'] = "39"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Triple'] += 1
 
 
 def d13():
@@ -733,19 +547,8 @@ def d13():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D13"
     label_dart_score['text'] = "26"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s13():
@@ -753,6 +556,7 @@ def s13():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S13"
     label_dart_score['text'] = "13"
 
 
@@ -761,19 +565,8 @@ def t12():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T12"
     label_dart_score['text'] = "36"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Triple'] += 1
 
 
 def d12():
@@ -781,19 +574,8 @@ def d12():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D12"
     label_dart_score['text'] = "24"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s12():
@@ -801,6 +583,7 @@ def s12():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S12"
     label_dart_score['text'] = "12"
 
 
@@ -809,19 +592,8 @@ def t11():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T11"
     label_dart_score['text'] = "33"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Triple'] += 1
 
 
 def d11():
@@ -829,19 +601,8 @@ def d11():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D11"
     label_dart_score['text'] = "22"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s11():
@@ -849,6 +610,7 @@ def s11():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S11"
     label_dart_score['text'] = "11"
 
 
@@ -857,19 +619,8 @@ def t10():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T10"
     label_dart_score['text'] = "30"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Triple'] += 1
 
 
 def d10():
@@ -877,19 +628,8 @@ def d10():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D10"
     label_dart_score['text'] = "20"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s10():
@@ -897,6 +637,7 @@ def s10():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S10"
     label_dart_score['text'] = "10"
 
 
@@ -905,19 +646,8 @@ def t_9():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T9"
     label_dart_score['text'] = "27"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Triple'] += 1
 
 
 def d_9():
@@ -925,19 +655,8 @@ def d_9():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D9"
     label_dart_score['text'] = "18"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s_9():
@@ -945,6 +664,7 @@ def s_9():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S9"
     label_dart_score['text'] = "9"
 
 
@@ -953,19 +673,8 @@ def t_8():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T8"
     label_dart_score['text'] = "24"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Triple'] += 1
 
 
 def d_8():
@@ -973,19 +682,8 @@ def d_8():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D8"
     label_dart_score['text'] = "16"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s_8():
@@ -993,6 +691,7 @@ def s_8():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S8"
     label_dart_score['text'] = "8"
 
 
@@ -1001,19 +700,8 @@ def t_7():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T7"
     label_dart_score['text'] = "21"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Triple'] += 1
 
 
 def d_7():
@@ -1021,19 +709,8 @@ def d_7():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D7"
     label_dart_score['text'] = "14"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s_7():
@@ -1041,6 +718,7 @@ def s_7():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S7"
     label_dart_score['text'] = "7"
 
 
@@ -1049,19 +727,8 @@ def t_6():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T6"
     label_dart_score['text'] = "18"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Triple'] += 1
 
 
 def d_6():
@@ -1069,19 +736,8 @@ def d_6():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D6"
     label_dart_score['text'] = "12"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s_6():
@@ -1089,6 +745,7 @@ def s_6():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S6"
     label_dart_score['text'] = "6"
 
 
@@ -1097,19 +754,8 @@ def t_5():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T5"
     label_dart_score['text'] = "15"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Triple'] += 1
 
 
 def d_5():
@@ -1117,19 +763,8 @@ def d_5():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D5"
     label_dart_score['text'] = "10"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s_5():
@@ -1137,6 +772,7 @@ def s_5():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S5"
     label_dart_score['text'] = "5"
 
 
@@ -1145,19 +781,8 @@ def t_4():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T4"
     label_dart_score['text'] = "12"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Triple'] += 1
 
 
 def d_4():
@@ -1165,19 +790,8 @@ def d_4():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D4"
     label_dart_score['text'] = "8"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s_4():
@@ -1185,6 +799,7 @@ def s_4():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S4"
     label_dart_score['text'] = "4"
 
 
@@ -1193,19 +808,8 @@ def t_3():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T3"
     label_dart_score['text'] = "9"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Triple'] += 1
 
 
 def d_3():
@@ -1213,19 +817,8 @@ def d_3():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D3"
     label_dart_score['text'] = "6"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s_3():
@@ -1233,6 +826,7 @@ def s_3():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S3"
     label_dart_score['text'] = "3"
 
 
@@ -1241,19 +835,8 @@ def t_2():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T2"
     label_dart_score['text'] = "6"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Triple'] += 1
 
 
 def d_2():
@@ -1261,19 +844,8 @@ def d_2():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D2"
     label_dart_score['text'] = "4"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s_2():
@@ -1281,6 +853,7 @@ def s_2():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S2"
     label_dart_score['text'] = "2"
 
 
@@ -1289,19 +862,8 @@ def t_1():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "T1"
     label_dart_score['text'] = "3"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Triple'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Triple'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Triple'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Triple'] += 1
 
 
 def d_1():
@@ -1309,19 +871,8 @@ def d_1():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "D1"
     label_dart_score['text'] = "2"
-
-    if label_1_score['bg'] == "yellow":
-        player1_scores[0]['Double'] += 1
-
-    elif label_2_score['bg'] == "yellow":
-        player2_scores[0]['Double'] += 1
-
-    elif label_3_score['bg'] == "yellow":
-        player3_scores[0]['Double'] += 1
-
-    elif label_4_score['bg'] == "yellow":
-        player4_scores[0]['Double'] += 1
 
 
 def s_1():
@@ -1329,6 +880,7 @@ def s_1():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "S1"
     label_dart_score['text'] = "1"
 
 
@@ -1337,6 +889,7 @@ def bull():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "BULL"
     label_dart_score['text'] = "50"
 
 
@@ -1345,6 +898,7 @@ def single_bull():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "Single_BULL"
     label_dart_score['text'] = "25"
 
 
@@ -1353,6 +907,7 @@ def null():
     This function adds the thrown score
     :return:
     """
+    label_invisible['text'] = "0"
     label_dart_score['text'] = "0"
 
 
@@ -1771,6 +1326,7 @@ def count_down():
     """
     count_down_button.pack()
     count_down_button.pack_forget()
+    count_down_button['text'] = "Count down"
 
     button_dart_score.pack()
     button_dart_score.place(x=90, y=300, height=30, width=80)
@@ -2020,17 +1576,100 @@ def count_down():
     next_label()
 
 
-def add():
+def add_scores():
     """
-
+    This function adds the thrown darts to the kpis/player_scores
     :return:
     """
+    # get the score from invisible label and reset it to 0
+    score = label_invisible['text']
+    label_invisible['text'] = "0"
+
+    # player 1
+    if label_1_score['bg'] == "yellow":
+        if "T" in score:
+            player1_scores[0]["Triple"] += 1
+            if score == "T20":
+                player1_scores[0]["T20"] += 1
+            if score == "T19":
+                player1_scores[0]["T19"] += 1
+
+        elif "D" in score:
+            player1_scores[0]["Double"] += 1
+        elif "S" in score:
+            if score == "S20":
+                player1_scores[0]["S20"] += 1
+            elif score == "T19":
+                player1_scores[0]["S19"] += 1
+
+    # player 2
+    elif label_2_score['bg'] == "yellow":
+        if "T" in score:
+            player2_scores[0]["Triple"] += 1
+            if score == "T20":
+                player2_scores[0]["T20"] += 1
+            if score == "T19":
+                player2_scores[0]["T19"] += 1
+
+        elif "D" in score:
+            player2_scores[0]["Double"] += 1
+        elif "S" in score:
+            if score == "S20":
+                player2_scores[0]["S20"] += 1
+            elif score == "T19":
+                player2_scores[0]["S19"] += 1
+
+    # player 3
+    elif label_3_score['bg'] == "yellow":
+        if "T" in score:
+            player3_scores[0]["Triple"] += 1
+            if score == "T20":
+                player3_scores[0]["T20"] += 1
+            if score == "T19":
+                player3_scores[0]["T19"] += 1
+
+        elif "D" in score:
+            player3_scores[0]["Double"] += 1
+        elif "S" in score:
+            if score == "S20":
+                player3_scores[0]["S20"] += 1
+            elif score == "T19":
+                player3_scores[0]["S19"] += 1
+
+    # player 4
+    elif label_4_score['bg'] == "yellow":
+        if "T" in score:
+            player4_scores[0]["Triple"] += 1
+            if score == "T20":
+                player4_scores[0]["T20"] += 1
+            if score == "T19":
+                player4_scores[0]["T19"] += 1
+
+        elif "D" in score:
+            player4_scores[0]["Double"] += 1
+        elif "S" in score:
+            if score == "S20":
+                player4_scores[0]["S20"] += 1
+            elif score == "T19":
+                player4_scores[0]["S19"] += 1
+    else:
+        messagebox.showinfo(SystemError, "Restart")
+
+
+def add():
+    """
+    This function adds the thrown score to the total score
+    :return:
+    """
+    # save scores to kpis
+    add_scores()
+
     count = int(label_dart_score['text'])
     current = int(zwischen_label['text'])
+
     result = current + count
     zwischen_label['text'] = result
     label_dart_score['text'] = ""
-    count_down_button['text'] = "Count down"
 
     if (label_1_score['bg'] == "yellow" and result == int(label_1_score['text'])) \
             or (label_2_score['bg'] == "yellow" and result == int(label_2_score['text'])) \
@@ -2321,6 +1960,10 @@ if __name__ == "__main__":
     label_dart_score.pack_forget()
     button_dart_score.pack_forget()
 
+    # label, which will be invisible, for calculating scores at the end
+    label_invisible = Label(gui, text="", bd=4, font=('Arial', 13))
+    label_invisible.place(x=0, y=250, height=30, width=90)
+
     # ################# ---------------------- ##################
     # create Label for 1,2 and 3 Darts and zwischen and count down button
     label_first_dart = Label(gui, text="1", bd=4, bg="yellow", font=('Arial', 13))
@@ -2396,7 +2039,7 @@ if __name__ == "__main__":
     button_triple_15 = Button(gui, text="T15", bd=4, fg="black", bg="green", font=('Arial', 14),
                               command=t15)
     button_single_15 = Button(gui, text="S15", bd=4, fg="black", bg="green", font=('Arial', 14),
-                              command=s_5)
+                              command=s15)
     button_double_15 = Button(gui, text="D15", bd=4, fg="black", bg="green", font=('Arial', 14),
                               command=d15)
     button_triple_14 = Button(gui, text="T14", bd=4, fg="black", bg="red", font=('Arial', 14),
