@@ -6,7 +6,7 @@ This project is intended for private use only. \
 For all other uses, my consent is mandatory. Requests for use at tournaments are possible.
 
 # Contact
-For questions and suggestions and wishes \
+For questions, suggestions, wishes and requests \
 Contact me: manuelmilde@gmx.net
 
 ## Setup for electronic dartboard
