@@ -2,7 +2,8 @@
 Different GUIs for playing darts
 
 # Usage
-This project is intended for private use only.
+This project is intended for private use only. \
+For all other uses, my consent is mandatory. Requests for use at tournaments are possible.
 
 # Contact
 For questions and suggestions and wishes \
