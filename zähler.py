@@ -1963,6 +1963,8 @@ if __name__ == "__main__":
     # label, which will be invisible, for calculating scores at the end
     label_invisible = Label(gui, text="", bd=4, font=('Arial', 13))
     label_invisible.place(x=0, y=250, height=30, width=90)
+    label_invisible.pack()
+    label_invisible.pack_forget()
 
     # ################# ---------------------- ##################
     # create Label for 1,2 and 3 Darts and zwischen and count down button
