@@ -1601,9 +1601,9 @@ def count_down():
                 messagebox.showinfo("Info", label_player_4_name['text'] + " is the second winner.")
 
             # check if zwei Spieler bereits bei 0
-            elif (zwei == 0 and drei == 0 and vier != 0) or \
-                    (zwei == 0 and drei != 0 and vier == 0) or \
-                    (zwei != 0 and drei == 0 and vier == 0):
+            elif (zwei == 0 and drei == 0 and eins != 0) or \
+                    (zwei == 0 and drei != 0 and eins == 0) or \
+                    (zwei != 0 and drei == 0 and eins == 0):
                 messagebox.showinfo("Info", label_player_4_name['text'] + " is the third winner.")
                 end_game()
                 return
