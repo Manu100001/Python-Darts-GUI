@@ -1,13 +1,16 @@
 # Python-Darts-GUI
 Different GUIs for playing darts
 
-# Usage
+## Usage
 This project is intended for private use only. \
 For all other uses, my consent is mandatory. Requests for use at tournaments are possible.
 
-# Contact
+## Contact
 For questions, suggestions, wishes, problems and requests \
 Contact me: manuelmilde@gmx.net
+
+## Created Excel - files
+The created excel - files can be found here: `../Python-Darts-GUI/Spielstände/..`
 
 ## Setup for electronic dartboard
 #### This can be used for an electronic dartboard or for playing best of sets/legs or for getting suggestions for checkouts
