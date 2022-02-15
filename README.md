@@ -1,6 +1,9 @@
 # Python-Darts-GUI
 Different GUIs for playing darts
 
+# Usage
+This project is intended for private use only.
+
 # Contact
 For questions and suggestions and wishes \
 Contact me: manuelmilde@gmx.net
