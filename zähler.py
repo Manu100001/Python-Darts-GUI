@@ -22,7 +22,7 @@ from openpyxl.styles import PatternFill
 greenFill = PatternFill(start_color='92D050', end_color='92D050', fill_type='solid')
 redFill = PatternFill(start_color='FFFF0000', end_color='FFFF0000', fill_type='solid')
 
-# months for creating timebased excel
+# months for creating time-based excel
 months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli',
           'August', 'September', 'Oktober', 'November', 'Dezember']
 
@@ -104,7 +104,7 @@ def create_excel():
     sheet.cell(row=3, column=18).value = "Geworfene Bulls"
     sheet.cell(row=3, column=19).value = "Geworfene Triple"
     sheet.cell(row=3, column=20).value = "Geworfene Double"
-    sheet.cell(row=3, column=21).value = "No scores"
+    sheet.cell(row=3, column=21).value = "No hit"
 
     sheet['B3'].fill = greenFill
     sheet['C3'].fill = greenFill
@@ -136,7 +136,7 @@ def create_excel():
     sheet.column_dimensions['N'].width = 14
     sheet.column_dimensions['O'].width = 14
     sheet.column_dimensions['P'].width = 14
-    sheet.column_dimensions['Q'].width = 20
+    sheet.column_dimensions['Q'].width = 21
     sheet.column_dimensions['R'].width = 15
     sheet.column_dimensions['S'].width = 17
     sheet.column_dimensions['T'].width = 17
@@ -172,7 +172,6 @@ def create_excel():
     sheet.cell(row=4, column=19).value = player1_scores[0]['Triple']
     sheet.cell(row=4, column=20).value = player1_scores[0]['Double']
     sheet.cell(row=4, column=21).value = player1_scores[0]['No_Score']
-
 
     # player 2
     sheet.cell(row=5, column=3).value = round((player2_kpis[0]['Score'] /
@@ -254,7 +253,7 @@ def create_excel():
 
 def save_score():
     """
-    This fucntion saves the score
+    This function saves the score
     :return:
     """
     # update data
@@ -980,7 +979,7 @@ def button_exit():
 
 def button_name_1():
     """
-
+    This function gets the name of player 1
     :return:
     """
     name = eingabefeld_p1.get()
@@ -990,7 +989,7 @@ def button_name_1():
 
 def button_name_2():
     """
-
+    This function gets the name of player 2
     :return:
     """
     name = eingabefeld_p2.get()
@@ -1000,8 +999,7 @@ def button_name_2():
 
 def button_name_3():
     """
-
-
+    This function gets the name of player 3
     :return:
     """
     name = eingabefeld_p3.get()
@@ -1011,7 +1009,7 @@ def button_name_3():
 
 def button_name_4():
     """
-
+    This function gets the name of player 4
     :return:
     """
     name = eingabefeld_p4.get()
@@ -1021,7 +1019,7 @@ def button_name_4():
 
 def button_switch_score_inc():
     """
-
+    Ths function sets all labels to 501
     :return:
     """
     label_switch_score['text'] = "501"
@@ -1033,7 +1031,7 @@ def button_switch_score_inc():
 
 def button_switch_score_dec():
     """
-
+    This function sets all labels to 301
     :return:
     """
     label_switch_score['text'] = "301"
@@ -1045,7 +1043,7 @@ def button_switch_score_dec():
 
 def button_stop_game_function():
     """
-
+    This function stops the game
     :return:
     """
     button_stop_game.pack()
@@ -1104,7 +1102,7 @@ def button_stop_game_function():
 
 def button_start_game_function():
     """
-
+    This function starts the game
     :return:
     """
     label_1_score['bg'] = "yellow"
@@ -1198,7 +1196,7 @@ def button_start_game_function():
 
 def next_button():
     """
-
+    This function switches to the next player
     :return:
     """
     zwischen_label['text'] = "0"
@@ -1282,7 +1280,7 @@ def next_button():
 
 def next_label():
     """
-
+    This function switches to the next player
     :return:
     """
     # check label 1
@@ -1387,16 +1385,16 @@ def count_down():
     label_second_dart['bg'] = "white"
     label_third_dart['bg'] = "white"
 
-    eins = int(label_1_score['text'])
-    zwei = int(label_2_score['text'])
-    drei = 501
-    vier = 501
+    one = int(label_1_score['text'])
+    two = int(label_2_score['text'])
+    three = 501
+    four = 501
 
     if label_3_score['text'] != "":
-        drei = int(label_3_score['text'])
+        three = int(label_3_score['text'])
 
     if label_4_score['text'] != "":
-        vier = int(label_4_score['text'])
+        four = int(label_4_score['text'])
 
     # label 1
     if label_1_score['bg'] == "yellow":
@@ -1415,22 +1413,22 @@ def count_down():
             current = current - result
             label_1_score['text'] = current
             add_player1(result, darts)
-            eins = 0
+            one = 0
 
-            # first check: alle Spieler dabei
+            # first check if all players participate
             if label_2_score['text'] != "" and label_3_score['text'] != "" \
                     and label_4_score['text'] != "":
                 # check if ein spieler bereits bei 0
-                if (zwei == 0 and drei != 0 and vier != 0) or \
-                        (zwei != 0 and drei == 0 and vier != 0) or \
-                        (zwei != 0 and drei != 0 and vier == 0):
+                if (two == 0 and three != 0 and four != 0) or \
+                        (two != 0 and three == 0 and four != 0) or \
+                        (two != 0 and three != 0 and four == 0):
                     messagebox.showinfo("Info", label_player_1_name['text'] +
                                         " is the second winner.")
 
-                # check if zwei Spieler bereits bei 0
-                elif (zwei == 0 and drei == 0 and vier != 0) or \
-                        (zwei == 0 and drei != 0 and vier == 0) or \
-                        (zwei != 0 and drei == 0 and vier == 0):
+                # check if two players have 0 points left
+                elif (two == 0 and three == 0 and four != 0) or \
+                        (two == 0 and three != 0 and four == 0) or \
+                        (two != 0 and three == 0 and four == 0):
                     messagebox.showinfo("Info", label_player_1_name['text'] +
                                         " is the third winner.")
                     end_game()
@@ -1441,8 +1439,8 @@ def count_down():
             # second check: only 3 player
             elif label_2_score['text'] != "" and label_3_score['text'] != "" \
                     and label_4_score['text'] == "":
-                # check if ein Spieler bereits bei 0
-                if (zwei == 0 and drei != 0) or (zwei != 0 and drei == 0):
+                # check if one player has 0 points left
+                if (two == 0 and three != 0) or (two != 0 and three == 0):
                     messagebox.showinfo("Info", label_player_1_name['text'] +
                                         " is the second winner.")
                     end_game()
@@ -1476,22 +1474,22 @@ def count_down():
             current = current - result
             label_2_score['text'] = current
             add_player2(result, darts)
-            zwei = 0
+            two = 0
 
-            # first check: alle Spieler dabei
+            # first check: all players participate
             if label_1_score['text'] != "" and label_3_score['text'] != "" \
                     and label_4_score['text'] != "":
-                # check if ein spieler bereits bei 0
-                if (eins == 0 and drei != 0 and vier != 0) or \
-                        (eins != 0 and drei == 0 and vier != 0) or \
-                        (eins != 0 and drei != 0 and vier == 0):
+                # check if one player has 0 points left
+                if (one == 0 and three != 0 and four != 0) or \
+                        (one != 0 and three == 0 and four != 0) or \
+                        (one != 0 and three != 0 and four == 0):
                     messagebox.showinfo("Info", label_player_2_name['text'] +
                                         " is the second winner.")
 
-                # check if zwei Spieler bereits bei 0
-                elif (eins == 0 and drei == 0 and vier != 0) or \
-                        (eins == 0 and drei != 0 and vier == 0) or \
-                        (eins != 0 and drei == 0 and vier == 0):
+                # check if two players have 0 points left
+                elif (one == 0 and three == 0 and four != 0) or \
+                        (one == 0 and three != 0 and four == 0) or \
+                        (one != 0 and three == 0 and four == 0):
                     messagebox.showinfo("Info", label_player_2_name['text'] +
                                         " is the third winner.")
                     end_game()
@@ -1502,8 +1500,8 @@ def count_down():
             # second check: only 3 player
             elif label_1_score['text'] != "" and label_3_score['text'] != "" \
                     and label_4_score['text'] == "":
-                # check if ein Spieler bereits bei 0
-                if (eins == 0 and drei != 0) or (eins != 0 and drei == 0):
+                # check if one player has 0 points left
+                if (one == 0 and three != 0) or (one != 0 and three == 0):
                     messagebox.showinfo("Info", label_player_2_name['text'] +
                                         " is the second winner.")
                     end_game()
@@ -1538,22 +1536,22 @@ def count_down():
             current = current - result
             label_3_score['text'] = current
             add_player3(result, darts)
-            drei = 0
+            three = 0
 
-            # first check: alle Spieler dabei
+            # first check: all players participate
             if label_1_score['text'] != "" and label_2_score['text'] != "" \
                     and label_4_score['text'] != "":
-                # check if ein spieler bereits bei 0
-                if (zwei == 0 and eins != 0 and vier != 0) or \
-                        (zwei != 0 and eins == 0 and vier != 0) or \
-                        (zwei != 0 and eins != 0 and vier == 0):
+                # check if one player has 0 points left
+                if (two == 0 and one != 0 and four != 0) or \
+                        (two != 0 and one == 0 and four != 0) or \
+                        (two != 0 and one != 0 and four == 0):
                     messagebox.showinfo("Info", label_player_3_name['text'] +
                                         " is the second winner.")
 
-                # check if zwei Spieler bereits bei 0
-                elif (zwei == 0 and eins == 0 and vier != 0) or \
-                        (zwei == 0 and eins != 0 and vier == 0) or \
-                        (zwei != 0 and eins == 0 and vier == 0):
+                # check if two players have 0 points left
+                elif (two == 0 and one == 0 and four != 0) or \
+                        (two == 0 and one != 0 and four == 0) or \
+                        (two != 0 and one == 0 and four == 0):
                     messagebox.showinfo("Info", label_player_3_name['text'] +
                                         " is the third winner.")
                     end_game()
@@ -1564,8 +1562,8 @@ def count_down():
             # second check: only 3 player
             elif label_1_score['text'] != "" and label_2_score['text'] != "" \
                     and label_4_score['text'] == "":
-                # check if ein Spieler bereits bei 0
-                if (zwei == 0 and eins != 0) or (zwei != 0 and eins == 0):
+                # check if one player has 0 points left
+                if (two == 0 and one != 0) or (two != 0 and one == 0):
                     messagebox.showinfo("Info", label_player_3_name['text'] +
                                         " is the second winner.")
                     end_game()
@@ -1593,17 +1591,16 @@ def count_down():
             label_4_score['text'] = current
             add_player4(result, darts)
 
-            vier = 0
-            # check if ein spieler bereits bei 0
-            if (zwei == 0 and drei != 0 and eins != 0) or \
-                    (zwei != 0 and drei == 0 and eins != 0) or \
-                    (zwei != 0 and drei != 0 and eins == 0):
+            # check if one player has 0 points left
+            if (two == 0 and three != 0 and one != 0) or \
+                    (two != 0 and three == 0 and one != 0) or \
+                    (two != 0 and three != 0 and one == 0):
                 messagebox.showinfo("Info", label_player_4_name['text'] + " is the second winner.")
 
-            # check if zwei Spieler bereits bei 0
-            elif (zwei == 0 and drei == 0 and eins != 0) or \
-                    (zwei == 0 and drei != 0 and eins == 0) or \
-                    (zwei != 0 and drei == 0 and eins == 0):
+            # check if two players have 0 points left
+            elif (two == 0 and three == 0 and one != 0) or \
+                    (two == 0 and three != 0 and one == 0) or \
+                    (two != 0 and three == 0 and one == 0):
                 messagebox.showinfo("Info", label_player_4_name['text'] + " is the third winner.")
                 end_game()
                 return
@@ -1638,6 +1635,12 @@ def add_scores():
 
         elif "D" in score:
             player1_scores[0]["Double"] += 1
+
+        elif "Bull" in score:
+            if score == "Single_Bull":
+                player1_scores[0]["Single_Bull"] += 1
+            else:
+                player1_scores[0]["Bull"] += 1
         elif "S" in score:
             if score == "S20":
                 player1_scores[0]["S20"] += 1
@@ -1645,11 +1648,6 @@ def add_scores():
                 player1_scores[0]["S19"] += 1
             elif score == "S18":
                 player1_scores[0]["S18"] += 1
-        elif "Bull" in score:
-            if score == "Single_Bull":
-                player1_scores[0]["Single_Bull"] += 1
-            else:
-                player1_scores[0]["Bull"] += 1
         else:
             player1_scores[0]["No_Score"] += 1
 
@@ -1666,6 +1664,13 @@ def add_scores():
 
         elif "D" in score:
             player2_scores[0]["Double"] += 1
+
+        elif "Bull" in score:
+            if score == "Single_Bull":
+                player2_scores[0]["Single_Bull"] += 1
+            else:
+                player2_scores[0]["Bull"] += 1
+
         elif "S" in score:
             if score == "S20":
                 player2_scores[0]["S20"] += 1
@@ -1673,11 +1678,7 @@ def add_scores():
                 player2_scores[0]["S19"] += 1
             elif score == "S18":
                 player2_scores[0]["S18"] += 1
-        elif "Bull" in score:
-            if score == "Single_Bull":
-                player2_scores[0]["Single_Bull"] += 1
-            else:
-                player2_scores[0]["Bull"] += 1
+
         else:
             player2_scores[0]["No_Score"] += 1
 
@@ -1694,6 +1695,13 @@ def add_scores():
 
         elif "D" in score:
             player3_scores[0]["Double"] += 1
+
+        elif "Bull" in score:
+            if score == "Single_Bull":
+                player3_scores[0]["Single_Bull"] += 1
+            else:
+                player3_scores[0]["Bull"] += 1
+
         elif "S" in score:
             if score == "S20":
                 player3_scores[0]["S20"] += 1
@@ -1701,11 +1709,7 @@ def add_scores():
                 player3_scores[0]["S19"] += 1
             elif score == "S18":
                 player3_scores[0]["S18"] += 1
-        elif "Bull" in score:
-            if score == "Single_Bull":
-                player3_scores[0]["Single_Bull"] += 1
-            else:
-                player3_scores[0]["Bull"] += 1
+
         else:
             player3_scores[0]["No_Score"] += 1
 
@@ -1722,6 +1726,13 @@ def add_scores():
 
         elif "D" in score:
             player4_scores[0]["Double"] += 1
+
+        elif "Bull" in score:
+            if score == "Single_Bull":
+                player4_scores[0]["Single_Bull"] += 1
+            else:
+                player4_scores[0]["Bull"] += 1
+
         elif "S" in score:
             if score == "S20":
                 player4_scores[0]["S20"] += 1
@@ -1729,11 +1740,7 @@ def add_scores():
                 player4_scores[0]["S19"] += 1
             elif score == "S18":
                 player4_scores[0]["S18"] += 1
-        elif "Bull" in score:
-            if score == "Single_Bull":
-                player4_scores[0]["Single_Bull"] += 1
-            else:
-                player4_scores[0]["Bull"] += 1
+
         else:
             player4_scores[0]["No_Score"] += 1
 
@@ -1797,7 +1804,7 @@ def add():
 
 def reset():
     """
-
+    This function resets the GUI
     :return:
     """
     label_1_score['text'] = "501"
@@ -1842,7 +1849,7 @@ def reset():
 
 def new_game():
     """
-
+    This function starts a new game
     return:
     """
     label_1_score['bg'] = "yellow"
@@ -1891,7 +1898,7 @@ def end_game():
     """
     This function stops the game
     """
-    messagebox.showinfo("Info", "Spiel beendet.")
+    messagebox.showinfo("Info", "Game is over.")
 
     label_1_score['bg'] = "yellow"
     label_2_score['bg'] = "white"
@@ -1936,6 +1943,7 @@ def end_game():
 
 
 if __name__ == "__main__":
+
     # configure the window to generate
     gui = Tk()
     gui.geometry('1275x645')
@@ -1948,7 +1956,6 @@ if __name__ == "__main__":
                          font=('Arial', 10, 'bold'))
     exit_button.place(x=1175, y=0, height=80, width=100)
 
-    # ################# ---------------------- ##################
     # labels for 4 players
     label_player_1_name = Label(gui, text="Player 1: ", fg="black", font=('Arial', 13, 'bold'))
     label_player_2_name = Label(gui, text="Player 2: ", fg="black", font=('Arial', 13, 'bold'))
@@ -1960,7 +1967,6 @@ if __name__ == "__main__":
     label_player_3_name.place(x=310, y=10, height=30, width=110)
     label_player_4_name.place(x=460, y=10, height=30, width=110)
 
-    # ################# ---------------------- ##################
     # text input for 4 player names and buttons
     eingabefeld_p1 = Entry(gui, bd=4, font=('Arial', 13))
     eingabefeld_p2 = Entry(gui, bd=4, font=('Arial', 13))
@@ -1986,7 +1992,6 @@ if __name__ == "__main__":
     button_name_3.place(x=1000, y=5, height=30)
     button_name_4.place(x=1000, y=35, height=30)
 
-    # ################# ---------------------- ##################
     # labels for game score for 4 players
     label_1_score = Label(gui, text="501", fg="black", bg="white", font=('Arial', 13, 'bold'))
     label_2_score = Label(gui, text="501", fg="black", bg="white", font=('Arial', 13, 'bold'))
@@ -1998,7 +2003,6 @@ if __name__ == "__main__":
     label_3_score.place(x=310, y=60, height=30, width=110)
     label_4_score.place(x=460, y=60, height=30, width=110)
 
-    # ################# ---------------------- ##################
     # label and button for switching points
     label_switch_score = Label(gui, text="501", fg="black", font=('Arial', 13, 'bold'))
     button_switch_score_inc = Button(gui, text="+", bd=4, fg="black",
@@ -2011,7 +2015,6 @@ if __name__ == "__main__":
     button_switch_score_dec.place(x=1215, y=90, height=30, width=30)
     button_switch_score_inc.place(x=1240, y=90, height=30, width=30)
 
-    # ################# ---------------------- ##################
     # start - button und stop - button
     button_start_game = Button(gui, text="Start", bd=4, fg="black", bg="yellow", font=('Arial', 11),
                                command=button_start_game_function)
@@ -2022,7 +2025,6 @@ if __name__ == "__main__":
     button_stop_game.pack()
     button_stop_game.pack_forget()
 
-    # ################# ---------------------- ##################
     # next - button
     next_button = Button(gui, text="Next", bd=4, fg="black", bg="yellow", font=('Arial', 11),
                          command=next_button)
@@ -2030,8 +2032,7 @@ if __name__ == "__main__":
     next_button.pack()
     next_button.pack_forget()
 
-    # ################# ---------------------- ##################
-    # eingabefeld für scoring (Punkte, die abgezogen werden sollen)
+    # textarea for scoring points which shall be decremented
     label_dart_score = Label(gui, text="", bd=4, font=('Arial', 13))
     button_dart_score = Button(gui, text="Add", bd=4, fg="black",
                                bg="lightgreen", font=('Arial', 10),
@@ -2048,11 +2049,10 @@ if __name__ == "__main__":
     # label, which will be invisible, for calculating scores at the end
     label_invisible = Label(gui, text="", bd=4, font=('Arial', 13))
     label_invisible.place(x=0, y=250, height=30, width=90)
-    label_invisible.pack()
-    label_invisible.pack_forget()
+    #label_invisible.pack()
+    #label_invisible.pack_forget()
 
-    # ################# ---------------------- ##################
-    # create Label for 1,2 and 3 Darts and zwischen and count down button
+    # create Label for 1,2 and 3 Darts and count down button
     label_first_dart = Label(gui, text="1", bd=4, bg="yellow", font=('Arial', 13))
     label_second_dart = Label(gui, text="2", bd=4, bg="white", font=('Arial', 13))
     label_third_dart = Label(gui, text="3", bd=4, bg="white", font=('Arial', 13))
@@ -2080,15 +2080,13 @@ if __name__ == "__main__":
     zwischen_label.pack_forget()
     count_down_button.pack_forget()
 
-    # ################# ---------------------- ##################
     # calculate kpis button
     button_create_excel = Button(gui, text="Calculate Score", bd=4, fg="black",
                                  bg="lightblue", font=('Arial', 11),
                                  command=create_excel)
     button_create_excel.place(x=1125, y=250, height=80, width=150)
 
-    # ################# ---------------------- ##################
-    # here set the values for all numbers (Tripel, Double and Single)
+    # create all triple, double and single buttons
     button_triple_20 = Button(gui, text="T20", bd=4, fg="black", bg="red", font=('Arial', 14),
                               command=t20)
     button_single_20 = Button(gui, text="S20", bd=4, fg="black", bg="red", font=('Arial', 14),
@@ -2225,6 +2223,7 @@ if __name__ == "__main__":
     button_0 = Button(gui, text="0", bd=4, fg="black", bg="green", font=('Arial', 14),
                       command=null)
 
+    # all single, double and triple buttons are placed here
     button_triple_20.place(x=0, y=400, height=60, width=60)
     button_double_20.place(x=0, y=470, height=60, width=60)
     button_single_20.place(x=0, y=540, height=60, width=60)
@@ -2294,7 +2293,6 @@ if __name__ == "__main__":
     button_bull.place(x=1210, y=470, height=60, width=60)
     button_0.place(x=1210, y=540, height=60, width=60)
 
-    # ################# ---------------------- ##################
     # reset - button
     reset_button = Button(gui, text="Reset", bd=4, fg="black", bg="red", font=('Arial', 11),
                           command=reset)
@@ -2308,5 +2306,5 @@ if __name__ == "__main__":
 
     new_game_button.pack()
     new_game_button.pack_forget()
-    # ################# ---------------------- ##################
+
     gui.mainloop()
