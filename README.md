@@ -43,7 +43,7 @@ Description
   To achieve a set, you have to win 3 legs. \
   The switch - button has the same function here. 
 
-![ Screenshot](https://github.com/Manu100001/Python-Darts-GUI/tree/dev/Images/darts-with-gui.png?raw=true "Title")
+![ Screenshot](https://github.com/Manu100001/Python-Darts-GUI/tree/dev/Images/darts-with-gui.png?raw=true)
   
 ## Setup for normal dartboard
   
@@ -69,7 +69,7 @@ Description
 - If the first player has 0 points left, a new game will be started automatically. If there are three or four players, the game will continue until there is only one player left
 - When you have finished playing, you can press `Calculate Score`, which will create an Excel file where you can view your average and various statistics.
 
-![ Screenshot](https://github.com/Manu100001/Python-Darts-GUI/tree/dev/Images/zähler.png?raw=true "Title")
+![ Screenshot](https://github.com/Manu100001/Python-Darts-GUI/tree/dev/Images/zähler.png?raw=true)
 
 ## Setup for around-the-clock
 Step into directory 
@@ -89,4 +89,4 @@ Description:
 - Use the `+` and `-` buttons to set the number of darts hit, minimum 0 and maximum 3. Use the `next` button to move to the next field.
 - When you have finished, an excel file is automatically created in which everything important is listed.
 
-![ Screenshot: around-the-clock](https://github.com/Manu100001/Python-Darts-GUI/tree/dev/Images/around-the-clock.png?raw=true "Title")
+![ Screenshot: around-the-clock](https://github.com/Manu100001/Python-Darts-GUI/tree/dev/Images/around-the-clock.png?raw=true)
