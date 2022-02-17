@@ -17,6 +17,8 @@ from datetime import datetime
 from openpyxl import Workbook
 from openpyxl.styles import PatternFill
 
+# TODO add choice to add player names
+
 
 def button_exit():
     """
@@ -51,8 +53,37 @@ def reset():
     The initial state will be restored
     :return:
     """
-    # TODO: set all labels_result to ""
-    # TODO: disable plus,minus,next and back button
+    label_result_player1['text'] = ""
+    label_result_player2['text'] = ""
+    label_result_player3['text'] = ""
+    label_result_player4['text'] = ""
+    label_result_player5['text'] = ""
+    label_result_player6['text'] = ""
+    label_result_player7['text'] = ""
+    label_result_player8['text'] = ""
+
+    label_result_quarter1['text'] = ""
+    label_result_quarter2['text'] = ""
+    label_result_quarter3['text'] = ""
+    label_result_quarter4['text'] = ""
+
+    label_result_semi1['text'] = ""
+    label_result_semi2['text'] = ""
+
+    label_winner_4players['text'] = ""
+    label_winner_8players['text'] = ""
+
+    label_quarter1['text'] = ""
+    label_quarter2['text'] = ""
+    label_quarter3['text'] = ""
+    label_quarter4['text'] = ""
+
+    label_semi1['text'] = ""
+    label_semi2['text'] = ""
+
+    label_winner_4players['bg'] = "white"
+    label_winner_8players['bg'] = "white"
+
     # enable start und switch buttons
     label_mode_4players.pack()
     label_mode_8players.pack()
@@ -67,6 +98,17 @@ def reset():
     # disable enter result button
     button_enter_results.pack()
     button_enter_results.pack_forget()
+
+    # disable plus,minus, next and back button
+    button_plus.pack()
+    button_minus.pack()
+    button_next.pack()
+    button_back.pack()
+
+    button_plus.pack_forget()
+    button_minus.pack_forget()
+    button_next.pack_forget()
+    button_back.pack_forget()
 
     # disable all labels
     label_player1_name.pack()
@@ -315,14 +357,22 @@ def start_tree():
     button_enter_results.place(x=5, y=10, height=30, width=130)
 
 
-def enter_results1():
+def enter_results():
     """
     This function allows to enter all results to the tournament tree
     :return:
     """
     button_enter_results.pack()
     button_enter_results.pack_forget()
-    label_result_player1['bg'] = "yellow"
+
+    if label_quarter1['text'] == "":
+        label_result_player1['bg'] = "yellow"
+
+    elif label_mode_8players['bg'] == "yellow" and label_semi1['text'] != "":
+        label_result_semi1['bg'] = "yellow"
+
+    else:
+        label_result_quarter1['bg'] = "yellow"
 
     button_next.pack()
     button_back.pack()
@@ -340,36 +390,68 @@ def back_button1():
      This function switches the labels of the player names (4 or 8) backwards
     :return:
     """
-    if label_quarter1['text'] != "":
+    if label_semi1['text'] != "":
+        back_third_round()
+
+    elif label_quarter1['text'] != "":
         back_second_round()
 
-    if label_result_player8['bg'] == "yellow":
-        label_result_player8['bg'] = "white"
-        label_result_player7['bg'] = "yellow"
+    else:
+        if label_result_player8['bg'] == "yellow":
+            label_result_player8['bg'] = "white"
+            label_result_player7['bg'] = "yellow"
 
-    elif label_result_player7['bg'] == "yellow":
-        label_result_player7['bg'] = "white"
-        label_result_player6['bg'] = "yellow"
+        elif label_result_player7['bg'] == "yellow":
+            label_result_player7['bg'] = "white"
+            label_result_player6['bg'] = "yellow"
 
-    elif label_result_player6['bg'] == "yellow":
-        label_result_player6['bg'] = "white"
-        label_result_player5['bg'] = "yellow"
+        elif label_result_player6['bg'] == "yellow":
+            label_result_player6['bg'] = "white"
+            label_result_player5['bg'] = "yellow"
 
-    elif label_result_player5['bg'] == "yellow":
-        label_result_player5['bg'] = "white"
-        label_result_player4['bg'] = "yellow"
+        elif label_result_player5['bg'] == "yellow":
+            label_result_player5['bg'] = "white"
+            label_result_player4['bg'] = "yellow"
 
-    elif label_result_player4['bg'] == "yellow":
-        label_result_player4['bg'] = "white"
-        label_result_player3['bg'] = "yellow"
+        elif label_result_player4['bg'] == "yellow":
+            label_result_player4['bg'] = "white"
+            label_result_player3['bg'] = "yellow"
 
-    elif label_result_player3['bg'] == "yellow":
-        label_result_player3['bg'] = "white"
-        label_result_player2['bg'] = "yellow"
+        elif label_result_player3['bg'] == "yellow":
+            label_result_player3['bg'] = "white"
+            label_result_player2['bg'] = "yellow"
 
-    elif label_result_player2['bg'] == "yellow":
-        label_result_player2['bg'] = "white"
-        label_result_player1['bg'] = "yellow"
+        elif label_result_player2['bg'] == "yellow":
+            label_result_player2['bg'] = "white"
+            label_result_player1['bg'] = "yellow"
+
+
+def back_second_round():
+    """
+
+    :return:
+    """
+    if label_result_quarter4['bg'] == "yellow":
+        label_result_quarter4['bg'] = "white"
+        label_result_quarter3['bg'] = "yellow"
+
+    elif label_result_quarter3['bg'] == "yellow":
+        label_result_quarter3['bg'] = "white"
+        label_result_quarter2['bg'] = "yellow"
+
+    elif label_result_quarter2['bg'] == "yellow":
+        label_result_quarter2['bg'] = "white"
+        label_result_quarter1['bg'] = "yellow"
+
+
+def back_third_round():
+    """
+
+    :return:
+    """
+    if label_result_semi2['bg'] == "yellow":
+        label_result_semi2['bg'] = "white"
+        label_result_semi1['bg'] = "yellow"
 
 
 def next_button1():
@@ -377,46 +459,117 @@ def next_button1():
     This function switches the labels of the player names (4 or 8) forwards
     :return:
     """
-    if label_quarter1['text'] != "":
+    if label_semi1['text'] != "":
+        next_third_round()
+
+    elif label_quarter1['text'] != "":
         next_second_round()
 
-    if label_result_player1['bg'] == "yellow":
-        label_result_player1['bg'] = "white"
-        label_result_player2['bg'] = "yellow"
+    else:
+        if label_result_player1['bg'] == "yellow":
+            label_result_player1['bg'] = "white"
+            label_result_player2['bg'] = "yellow"
 
-    elif label_result_player2['bg'] == "yellow":
-        label_result_player2['bg'] = "white"
-        label_result_player3['bg'] = "yellow"
+        elif label_result_player2['bg'] == "yellow":
+            label_result_player2['bg'] = "white"
+            label_result_player3['bg'] = "yellow"
 
-    elif label_result_player3['bg'] == "yellow":
-        label_result_player3['bg'] = "white"
-        label_result_player4['bg'] = "yellow"
+        elif label_result_player3['bg'] == "yellow":
+            label_result_player3['bg'] = "white"
+            label_result_player4['bg'] = "yellow"
 
-    elif label_result_player4['bg'] == "yellow":
-        if label_mode_4players['bg'] == "yellow":
-            if check_if_all_labels_filled():
+        elif label_result_player4['bg'] == "yellow":
+            if label_mode_4players['bg'] == "yellow":
+                if check_if_all_labels_filled():
+                    label_result_player4['bg'] = "white"
+                    calculate1()
+            else:
                 label_result_player4['bg'] = "white"
+                label_result_player5['bg'] = "yellow"
+
+        elif label_result_player5['bg'] == "yellow":
+            label_result_player5['bg'] = "white"
+            label_result_player6['bg'] = "yellow"
+
+        elif label_result_player6['bg'] == "yellow":
+            label_result_player6['bg'] = "white"
+            label_result_player7['bg'] = "yellow"
+
+        elif label_result_player7['bg'] == "yellow":
+            label_result_player7['bg'] = "white"
+            label_result_player8['bg'] = "yellow"
+
+        elif label_result_player8['bg'] == "yellow":
+            if check_if_all_labels_filled():
+                label_result_player8['bg'] = "white"
                 calculate1()
+
+
+def next_second_round():
+    """
+    This function shall enable the plus, minus, back and next - button
+    :return:
+    """
+    button_next.pack()
+    button_back.pack()
+    button_minus.pack()
+    button_plus.pack()
+
+    button_minus.place(x=135, y=10, height=30, width=30)
+    button_plus.place(x=165, y=10, height=30, width=30)
+    button_back.place(x=5, y=10, height=30, width=100)
+    button_next.place(x=215, y=10, height=30, width=100)
+
+    if label_result_quarter1['bg'] == "yellow":
+        label_result_quarter1['bg'] = "white"
+        label_result_quarter2['bg'] = "yellow"
+
+    elif label_result_quarter2['bg'] == "yellow":
+        if label_mode_4players['bg'] == "yellow":
+            if check_if_all_labels_filled2():
+                label_result_quarter2['bg'] = "white"
+                calculate2()
         else:
-            label_result_player4['bg'] = "white"
-            label_result_player5['bg'] = "yellow"
+            label_result_quarter2['bg'] = "white"
+            label_result_quarter3['bg'] = "yellow"
 
-    elif label_result_player5['bg'] == "yellow":
-        label_result_player5['bg'] = "white"
-        label_result_player6['bg'] = "yellow"
+    elif label_result_quarter3['bg'] == "yellow":
+        label_result_quarter3['bg'] = "white"
+        label_result_quarter4['bg'] = "yellow"
 
-    elif label_result_player6['bg'] == "yellow":
-        label_result_player6['bg'] = "white"
-        label_result_player7['bg'] = "yellow"
+    elif label_result_quarter4['bg'] == "yellow":
+        if check_if_all_labels_filled2():
+            label_result_quarter4['bg'] = "white"
+            calculate2()
 
-    elif label_result_player7['bg'] == "yellow":
-        label_result_player7['bg'] = "white"
-        label_result_player8['bg'] = "yellow"
+    if label_mode_4players['bg'] == "yellow":
+        button_enter_results.pack()
+        button_enter_results.pack_forget()
 
-    elif label_result_player8['bg'] == "yellow":
-        if check_if_all_labels_filled():
-            label_result_player8['bg'] = "white"
-            calculate1()
+
+def next_third_round():
+    """
+
+    :return:
+    """
+    button_next.pack()
+    button_back.pack()
+    button_minus.pack()
+    button_plus.pack()
+
+    button_minus.place(x=135, y=10, height=30, width=30)
+    button_plus.place(x=165, y=10, height=30, width=30)
+    button_back.place(x=5, y=10, height=30, width=100)
+    button_next.place(x=215, y=10, height=30, width=100)
+
+    if label_result_semi1['bg'] == "yellow":
+        label_result_semi1['bg'] = "white"
+        label_result_semi2['bg'] = "yellow"
+
+    elif label_result_semi2['bg'] == "yellow":
+        if check_if_all_labels_filled3():
+            label_result_semi2['bg'] = "white"
+            calculate3()
 
 
 def check_if_all_labels_filled():
@@ -430,7 +583,7 @@ def check_if_all_labels_filled():
         return False
 
     if int(label_result_player1['text']) == int(label_result_player2['text']) \
-            or int(label_result_player3['text'] == int(label_result_player4['text'])):
+            or int(label_result_player3['text']) == int(label_result_player4['text']):
         messagebox.showinfo("Error", "Check if everything has been entered correctly.")
         return False
 
@@ -440,7 +593,7 @@ def check_if_all_labels_filled():
             messagebox.showinfo("Error", "Check if everything has been entered correctly.")
             return False
 
-        if int(label_result_player7['text']) == int(label_result_player8['text']) \
+        if int(label_result_player5['text']) == int(label_result_player6['text']) \
                 or int(label_result_player7['text'] == int(label_result_player8['text'])):
             messagebox.showinfo("Error", "Check if everything has been entered correctly.")
             return False
@@ -453,7 +606,40 @@ def check_if_all_labels_filled2():
     After entering the results of the second round we need a check if all labels are filled
     :return:
     """
-    # label_result_quarter1['text'] ==
+    if label_result_quarter1['text'] == "" or label_result_quarter2['text'] == "":
+        messagebox.showinfo("Error", "Check if everything has been entered correctly.")
+        return False
+
+    if int(label_result_quarter1['text']) == int(label_result_quarter2['text']):
+        messagebox.showinfo("Error", "Check if everything has been entered correctly.")
+        return False
+
+    if label_mode_8players['bg'] == "yellow":
+        if label_result_quarter3['text'] == "" or label_result_quarter4['text'] == "":
+            messagebox.showinfo("Error", "Check if everything has been entered correctly.")
+            return False
+
+        if int(label_result_quarter3['text']) == int(label_result_quarter4['text']):
+            messagebox.showinfo("Error", "Check if everything has been entered correctly.")
+            return False
+
+    return True
+
+
+def check_if_all_labels_filled3():
+    """
+
+    :return
+    """
+    if label_result_semi1['text'] == "" or label_result_semi2['text'] == "":
+        messagebox.showinfo("Error", "Check if everything has been entered correctly.")
+        return False
+
+    if int(label_result_semi1['text']) == int(label_result_semi2['text']):
+        messagebox.showinfo("Error", "Check if everything has been entered correctly.")
+        return False
+
+    return True
 
 
 def calculate1():
@@ -495,7 +681,8 @@ def calculate1():
         else:
             label_quarter4['text'] = label_player8_name['text']
 
-    next_second_round()
+    button_enter_results.pack()
+    button_enter_results.place(x=5, y=10, height=30, width=130)
 
 
 def calculate2():
@@ -503,40 +690,69 @@ def calculate2():
 
     :return:
     """
+    button_next.pack()
+    button_next.pack_forget()
+
+    button_back.pack()
+    button_back.pack_forget()
+
+    button_minus.pack()
+    button_plus.pack()
+    button_plus.pack_forget()
+    button_minus.pack_forget()
+
+    # check which player has won the second round und set him to the semi-finals or winner (4 players)
+    if label_mode_4players['bg'] == "yellow":
+        if int(label_result_quarter1['text']) > int(label_result_quarter2['text']):
+            label_winner_4players['text'] = label_quarter1['text']
+        else:
+            label_winner_4players['text'] = label_quarter1['text']
+
+        label_winner_4players['bg'] = "yellow"
+        messagebox.showinfo("Info", label_winner_4players['text'] + " is the winner of the tournament!")
+
+        end_game()
+
+    else:
+        if int(label_result_quarter1['text']) > int(label_result_quarter2['text']):
+            label_semi1['text'] = label_quarter1['text']
+        else:
+            label_semi1['text'] = label_quarter2['text']
+
+        if int(label_result_quarter3['text']) > int(label_result_quarter4['text']):
+            label_semi2['text'] = label_quarter3['text']
+        else:
+            label_semi2['text'] = label_quarter4['text']
+
+    button_enter_results.pack()
+    button_enter_results.place(x=5, y=10, height=30, width=130)
 
 
-def next_second_round():
+def calculate3():
     """
-    This function shall enable the plus, minus, back and next - button
+
     :return:
     """
-    if label_result_quarter1['bg'] == "yellow":
-        label_result_quarter1['bg'] = "white"
-        label_result_quarter2['bg'] = "yellow"
+    # check which player has won the final
+    button_next.pack()
+    button_next.pack_forget()
 
-    elif label_result_quarter2['bg'] == "yellow":
-        label_result_quarter2['bg'] = "white"
-        if label_mode_4players['bg'] == "yellow":
-            if check_if_all_labels_filled2():
-                label_result_quarter2['bg'] = "white"
-                calculate2()
-        label_result_quarter3['bg'] = "yellow"
+    button_back.pack()
+    button_back.pack_forget()
 
-    elif label_result_quarter3['bg'] == "yellow":
-        label_result_quarter3['bg'] = "white"
-        label_result_quarter4['bg'] = "yellow"
+    button_minus.pack()
+    button_plus.pack()
+    button_plus.pack_forget()
+    button_minus.pack_forget()
 
-    elif label_result_quarter4['bg'] == "yellow":
-            if check_if_all_labels_filled2():
-                label_result_player4['bg'] = "white"
-                calculate2()
+    if int(label_result_semi1['text']) > int(label_result_semi2['text']):
+        label_winner_8players['text'] = label_semi1['text']
+    else:
+        label_winner_8players['text'] = label_semi2['text']
 
-
-def back_second_round():
-    """
-
-    :return:
-    """
+    label_winner_8players['bg'] = "yellow"
+    messagebox.showinfo("Info", label_winner_8players['text'] + " is the winner of the tournament!")
+    end_game()
 
 
 def plus_first_round():
@@ -544,56 +760,60 @@ def plus_first_round():
     This function increments
     :return:
     """
-    if label_quarter1['text'] != "":
+    if label_semi1['text'] != "":
+        plus_third_round()
+
+    elif label_quarter1['text'] != "":
         plus_second_round()
 
-    elif label_result_player1['bg'] == "yellow":
-        if label_result_player1['text'] == "":
-            label_result_player1['text'] = "1"
-        else:
-            label_result_player1['text'] = int(label_result_player1['text']) + 1
+    else:
+        if label_result_player1['bg'] == "yellow":
+            if label_result_player1['text'] == "":
+                label_result_player1['text'] = "1"
+            else:
+                label_result_player1['text'] = int(label_result_player1['text']) + 1
 
-    elif label_result_player2['bg'] == "yellow":
-        if label_result_player2['text'] == "":
-            label_result_player2['text'] = "1"
-        else:
-            label_result_player2['text'] = int(label_result_player2['text']) + 1
+        elif label_result_player2['bg'] == "yellow":
+            if label_result_player2['text'] == "":
+                label_result_player2['text'] = "1"
+            else:
+                label_result_player2['text'] = int(label_result_player2['text']) + 1
 
-    elif label_result_player3['bg'] == "yellow":
-        if label_result_player3['text'] == "":
-            label_result_player3['text'] = "1"
-        else:
-            label_result_player3['text'] = int(label_result_player3['text']) + 1
+        elif label_result_player3['bg'] == "yellow":
+            if label_result_player3['text'] == "":
+                label_result_player3['text'] = "1"
+            else:
+                label_result_player3['text'] = int(label_result_player3['text']) + 1
 
-    elif label_result_player4['bg'] == "yellow":
-        if label_result_player4['text'] == "":
-            label_result_player4['text'] = "1"
-        else:
-            label_result_player4['text'] = int(label_result_player4['text']) + 1
+        elif label_result_player4['bg'] == "yellow":
+            if label_result_player4['text'] == "":
+                label_result_player4['text'] = "1"
+            else:
+                label_result_player4['text'] = int(label_result_player4['text']) + 1
 
-    elif label_result_player5['bg'] == "yellow":
-        if label_result_player5['text'] == "":
-            label_result_player5['text'] = "1"
-        else:
-            label_result_player5['text'] = int(label_result_player5['text']) + 1
+        elif label_result_player5['bg'] == "yellow":
+            if label_result_player5['text'] == "":
+                label_result_player5['text'] = "1"
+            else:
+                label_result_player5['text'] = int(label_result_player5['text']) + 1
 
-    elif label_result_player6['bg'] == "yellow":
-        if label_result_player6['text'] == "":
-            label_result_player6['text'] = "1"
-        else:
-            label_result_player6['text'] = int(label_result_player6['text']) + 1
+        elif label_result_player6['bg'] == "yellow":
+            if label_result_player6['text'] == "":
+                label_result_player6['text'] = "1"
+            else:
+                label_result_player6['text'] = int(label_result_player6['text']) + 1
 
-    elif label_result_player7['bg'] == "yellow":
-        if label_result_player7['text'] == "":
-            label_result_player7['text'] = "1"
-        else:
-            label_result_player7['text'] = int(label_result_player7['text']) + 1
+        elif label_result_player7['bg'] == "yellow":
+            if label_result_player7['text'] == "":
+                label_result_player7['text'] = "1"
+            else:
+                label_result_player7['text'] = int(label_result_player7['text']) + 1
 
-    elif label_result_player8['bg'] == "yellow":
-        if label_result_player8['text'] == "":
-            label_result_player8['text'] = "1"
-        else:
-            label_result_player8['text'] = int(label_result_player8['text']) + 1
+        elif label_result_player8['bg'] == "yellow":
+            if label_result_player8['text'] == "":
+                label_result_player8['text'] = "1"
+            else:
+                label_result_player8['text'] = int(label_result_player8['text']) + 1
 
 
 def minus_first_round():
@@ -601,53 +821,60 @@ def minus_first_round():
     This function decrements
     :return:
     """
-    if label_result_player1['bg'] == "yellow":
-        if label_result_player1['text'] == "":
-            label_result_player1['text'] = "0"
-        elif int(label_result_player1['text']) > 0:
-            label_result_player1['text'] = int(label_result_player1['text']) - 1
+    if label_semi1['text'] != "":
+        minus_third_round()
 
-    elif label_result_player2['bg'] == "yellow":
-        if label_result_player2['text'] == "":
-            label_result_player2['text'] = "0"
-        elif int(label_result_player2['text']) > 0:
-            label_result_player2['text'] = int(label_result_player2['text']) - 1
+    elif label_quarter1['text'] != "":
+        minus_second_round()
 
-    elif label_result_player3['bg'] == "yellow":
-        if label_result_player3['text'] == "":
-            label_result_player3['text'] = "0"
-        elif int(label_result_player3['text']) > 0:
-            label_result_player3['text'] = int(label_result_player3['text']) - 1
+    else:
+        if label_result_player1['bg'] == "yellow":
+            if label_result_player1['text'] == "":
+                label_result_player1['text'] = "0"
+            elif int(label_result_player1['text']) > 0:
+                label_result_player1['text'] = int(label_result_player1['text']) - 1
 
-    elif label_result_player4['bg'] == "yellow":
-        if label_result_player4['text'] == "":
-            label_result_player4['text'] = "0"
-        elif int(label_result_player4['text']) > 0:
-            label_result_player4['text'] = int(label_result_player4['text']) - 1
+        elif label_result_player2['bg'] == "yellow":
+            if label_result_player2['text'] == "":
+                label_result_player2['text'] = "0"
+            elif int(label_result_player2['text']) > 0:
+                label_result_player2['text'] = int(label_result_player2['text']) - 1
 
-    elif label_result_player5['bg'] == "yellow":
-        if label_result_player5['text'] == "":
-            label_result_player5['text'] = "0"
-        elif int(label_result_player5['text']) > 0:
-            label_result_player5['text'] = int(label_result_player5['text']) - 1
+        elif label_result_player3['bg'] == "yellow":
+            if label_result_player3['text'] == "":
+                label_result_player3['text'] = "0"
+            elif int(label_result_player3['text']) > 0:
+                label_result_player3['text'] = int(label_result_player3['text']) - 1
 
-    elif label_result_player6['bg'] == "yellow":
-        if label_result_player6['text'] == "":
-            label_result_player6['text'] = "0"
-        elif int(label_result_player6['text']) > 0:
-            label_result_player6['text'] = int(label_result_player6['text']) - 1
+        elif label_result_player4['bg'] == "yellow":
+            if label_result_player4['text'] == "":
+                label_result_player4['text'] = "0"
+            elif int(label_result_player4['text']) > 0:
+                label_result_player4['text'] = int(label_result_player4['text']) - 1
 
-    elif label_result_player7['bg'] == "yellow":
-        if label_result_player7['text'] == "":
-            label_result_player7['text'] = "0"
-        elif int(label_result_player7['text']) > 0:
-            label_result_player7['text'] = int(label_result_player7['text']) - 1
+        elif label_result_player5['bg'] == "yellow":
+            if label_result_player5['text'] == "":
+                label_result_player5['text'] = "0"
+            elif int(label_result_player5['text']) > 0:
+                label_result_player5['text'] = int(label_result_player5['text']) - 1
 
-    elif label_result_player8['bg'] == "yellow":
-        if label_result_player8['text'] == "":
-            label_result_player8['text'] = "0"
-        elif int(label_result_player8['text']) > 0:
-            label_result_player8['text'] = int(label_result_player8['text']) - 1
+        elif label_result_player6['bg'] == "yellow":
+            if label_result_player6['text'] == "":
+                label_result_player6['text'] = "0"
+            elif int(label_result_player6['text']) > 0:
+                label_result_player6['text'] = int(label_result_player6['text']) - 1
+
+        elif label_result_player7['bg'] == "yellow":
+            if label_result_player7['text'] == "":
+                label_result_player7['text'] = "0"
+            elif int(label_result_player7['text']) > 0:
+                label_result_player7['text'] = int(label_result_player7['text']) - 1
+
+        elif label_result_player8['bg'] == "yellow":
+            if label_result_player8['text'] == "":
+                label_result_player8['text'] = "0"
+            elif int(label_result_player8['text']) > 0:
+                label_result_player8['text'] = int(label_result_player8['text']) - 1
 
 
 def plus_second_round():
@@ -710,6 +937,51 @@ def minus_second_round():
             label_result_quarter4['text'] = int(label_result_quarter4['text']) - 1
 
 
+def plus_third_round():
+    """
+    This function increments for the third round
+    :return:
+    """
+    if label_result_semi1['bg'] == "yellow":
+        if label_result_semi1['text'] == "":
+            label_result_semi1['text'] = "1"
+        else:
+            label_result_semi1['text'] = int(label_result_semi1['text']) + 1
+
+    elif label_result_semi2['bg'] == "yellow":
+        if label_result_semi2['text'] == "":
+            label_result_semi2['text'] = "1"
+        else:
+            label_result_semi2['text'] = int(label_result_semi2['text']) + 1
+
+
+def minus_third_round():
+    """
+    This function decrements for the third round
+    """
+    if label_result_semi1['bg'] == "yellow":
+        if label_result_semi1['text'] == "":
+            label_result_semi1['text'] = "0"
+        elif int(label_result_semi1['text']) > 0:
+            label_result_semi1['text'] = int(label_result_semi1['text']) - 1
+
+    elif label_result_semi2['bg'] == "yellow":
+        if label_result_semi2['text'] == "":
+            label_result_semi2['text'] = "0"
+        elif int(label_result_semi2['text']) > 0:
+            label_result_semi2['text'] = int(label_result_semi2['text']) - 1
+
+
+def end_game():
+    """
+
+    :return:
+    """
+    button_enter_results.pack()
+    button_enter_results.pack_forget()
+    # TODO enable button for creating excel with all information
+
+
 if __name__ == "__main__":
     # configure the window to generate
     gui = Tk()
@@ -747,7 +1019,7 @@ if __name__ == "__main__":
 
     # define button for entering results
     button_enter_results = Button(gui, text="Enter results", bd=1, fg="black", bg="lightgreen",
-                                  font=('Arial', 10), command=enter_results1)
+                                  font=('Arial', 10), command=enter_results)
 
     button_enter_results.place(x=5, y=10, height=30, width=130)
 
