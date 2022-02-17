@@ -423,7 +423,7 @@ def check_names():
     button_switch_order.pack_forget()
 
     take_names()
-    
+
 
 def take_names():
     """
