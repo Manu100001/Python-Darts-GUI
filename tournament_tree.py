@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# pylint: disable=C0302
 """
 This script creates a tournament tree
 Overview over all participants
@@ -7,6 +8,7 @@ Overview over all participants
 :copyright: 2022 Manuel Milde
 """
 import os
+import random
 from tkinter import Tk
 from tkinter import Toplevel
 from tkinter import Label
@@ -16,6 +18,8 @@ from tkinter import messagebox
 from datetime import datetime
 from openpyxl import Workbook
 from openpyxl.styles import PatternFill
+
+all_player_names = []
 
 # TODO add choice to add player names
 
@@ -207,6 +211,20 @@ def switch_mode():
         label_mode_8players['bg'] = "white"
 
 
+def switch_order():
+    """
+
+    :return:
+    """
+    if label_name_order1['bg'] == "yellow":
+        label_name_order1['bg'] = "white"
+        label_name_order2['bg'] = "yellow"
+
+    elif label_name_order2['bg'] == "yellow":
+        label_name_order2['bg'] = "white"
+        label_name_order1['bg'] = "yellow"
+
+
 def mode_4players():
     """
     This function creates all required labels for 4 players
@@ -331,6 +349,134 @@ def mode_8players2():
 
     label_result_semi1.place(x=486, y=270, height=30, width=30)
     label_result_semi2.place(x=486, y=310, height=30, width=30)
+
+
+def check_names():
+    """
+    This function checks if all names have been entered
+    :return:
+    """
+    name1 = input_name1.get()
+    name2 = input_name2.get()
+    name3 = input_name3.get()
+    name4 = input_name4.get()
+
+    if name1 == "" or name2 == "" or name3 == "" or name4 == "":
+        messagebox.showinfo("Error", "Not all names were entered.")
+        return
+
+    all_player_names.append(name1)
+    all_player_names.append(name2)
+    all_player_names.append(name3)
+    all_player_names.append(name4)
+
+    # check if 8 players
+    if label_mode_8players['bg'] == "yellow":
+        name5 = input_name5.get()
+        name6 = input_name6.get()
+        name7 = input_name7.get()
+        name8 = input_name8.get()
+
+        if name5 == "" or name6 == "" or name7 == "" or name8 == "":
+            messagebox.showinfo("Error", "Not all names were entered.")
+            return
+
+        all_player_names.append(name5)
+        all_player_names.append(name6)
+        all_player_names.append(name7)
+        all_player_names.append(name8)
+
+    button_enter_names.pack()
+    button_enter_names.pack_forget()
+
+    # disable input fields
+    input_name1.pack()
+    input_name2.pack()
+    input_name3.pack()
+    input_name4.pack()
+
+    input_name1.pack_forget()
+    input_name2.pack_forget()
+    input_name3.pack_forget()
+    input_name4.pack_forget()
+
+    if label_mode_8players['bg'] == "yellow":
+        input_name5.pack()
+        input_name6.pack()
+        input_name7.pack()
+        input_name8.pack()
+
+        input_name5.pack_forget()
+        input_name6.pack_forget()
+        input_name7.pack_forget()
+        input_name8.pack_forget()
+
+    label_info_names.pack()
+    label_info_names.pack_forget()
+
+    label_name_order1.pack()
+    label_name_order2.pack()
+    button_switch_order.pack()
+
+    label_name_order1.pack_forget()
+    label_name_order2.pack_forget()
+    button_switch_order.pack_forget()
+
+    take_names()
+    
+
+def take_names():
+    """
+    This function writes the names into the tournament tree
+    :return:
+    """
+    # check if random order
+    if label_name_order1['bg'] == "yellow":
+        if label_mode_4players['bg'] == "yellow":
+            numbers = []
+            while len(numbers) < 4:
+                # i = 8
+
+                random_number = round(random.uniform(0, 3))
+                if random_number not in numbers:
+                    numbers.append(random_number)
+
+            label_player1_name['text'] = all_player_names[numbers[0]]
+            label_player2_name['text'] = all_player_names[numbers[1]]
+            label_player3_name['text'] = all_player_names[numbers[2]]
+            label_player4_name['text'] = all_player_names[numbers[3]]
+
+        else:
+            numbers = []
+            while len(numbers) < 8:
+                # i = 8
+
+                random_number = round(random.uniform(0, 7))
+                if random_number not in numbers:
+                    numbers.append(random_number)
+
+            label_player1_name['text'] = all_player_names[numbers[0]]
+            label_player2_name['text'] = all_player_names[numbers[1]]
+            label_player3_name['text'] = all_player_names[numbers[2]]
+            label_player4_name['text'] = all_player_names[numbers[3]]
+            label_player5_name['text'] = all_player_names[numbers[4]]
+            label_player6_name['text'] = all_player_names[numbers[5]]
+            label_player7_name['text'] = all_player_names[numbers[6]]
+            label_player8_name['text'] = all_player_names[numbers[7]]
+
+    else:
+        label_player1_name['text'] = all_player_names[0]
+        label_player2_name['text'] = all_player_names[1]
+        label_player3_name['text'] = all_player_names[2]
+        label_player4_name['text'] = all_player_names[3]
+
+        if label_mode_8players['bg'] == "yellow":
+            label_player5_name['text'] = all_player_names[4]
+            label_player6_name['text'] = all_player_names[5]
+            label_player7_name['text'] = all_player_names[6]
+            label_player8_name['text'] = all_player_names[7]
+
+    start_tree()
 
 
 def start_tree():
@@ -701,7 +847,8 @@ def calculate2():
     button_plus.pack_forget()
     button_minus.pack_forget()
 
-    # check which player has won the second round und set him to the semi-finals or winner (4 players)
+    # check which player has won the second round und set him to the
+    # semi-finals or winner (4 players)
     if label_mode_4players['bg'] == "yellow":
         if int(label_result_quarter1['text']) > int(label_result_quarter2['text']):
             label_winner_4players['text'] = label_quarter1['text']
@@ -709,7 +856,8 @@ def calculate2():
             label_winner_4players['text'] = label_quarter1['text']
 
         label_winner_4players['bg'] = "yellow"
-        messagebox.showinfo("Info", label_winner_4players['text'] + " is the winner of the tournament!")
+        messagebox.showinfo("Info", label_winner_4players['text'] +
+                            " is the winner of the tournament!")
 
         end_game()
 
@@ -982,6 +1130,62 @@ def end_game():
     # TODO enable button for creating excel with all information
 
 
+def start():
+    """
+    After the mode has been selected, all names must be entered
+    """
+    start_button.pack()
+    label_mode_4players.pack()
+    label_mode_8players.pack()
+    switch_mode_button.pack()
+
+    start_button.pack_forget()
+    label_mode_4players.pack_forget()
+    label_mode_8players.pack_forget()
+    switch_mode_button.pack_forget()
+
+    label_name_order1.pack()
+    label_name_order2.pack()
+    button_switch_order.pack()
+    label_name_order1.place(x=637.5, y=30, height=30, width=100)
+    label_name_order2.place(x=537.5, y=30, height=30, width=100)
+    button_switch_order.place(x=587.5, y=0, height=30, width=100)
+
+    input_name1.pack()
+    input_name2.pack()
+    input_name3.pack()
+    input_name4.pack()
+
+    input_name1.place(x=337.5, y=132.5, height=30, width=250)
+    input_name2.place(x=337.5, y=182.5, height=30, width=250)
+    input_name3.place(x=337.5, y=232.5, height=30, width=250)
+    input_name4.place(x=337.5, y=282.5, height=30, width=250)
+
+    if label_mode_8players['bg'] == "yellow":
+        input_name5.pack()
+        input_name6.pack()
+        input_name7.pack()
+        input_name8.pack()
+
+        input_name5.place(x=687.5, y=132.5, height=30, width=250)
+        input_name6.place(x=687.5, y=182.5, height=30, width=250)
+        input_name7.place(x=687.5, y=232.5, height=30, width=250)
+        input_name8.place(x=687.5, y=282.5, height=30, width=250)
+
+        # enable label with entering all names
+        label_info_names.pack()
+        label_info_names.place(x=537.5, y=82.5, height=30, width=200)
+
+    else:
+        # enable label with entering all names
+        label_info_names.pack()
+        label_info_names.place(x=362.5, y=82.5, height=30, width=200)
+
+    # enable button for next step and read the given names
+    button_enter_names.pack()
+    button_enter_names.place(x=1175, y=282.5, height=30, width=100)
+
+
 if __name__ == "__main__":
     # configure the window to generate
     gui = Tk()
@@ -1010,7 +1214,7 @@ if __name__ == "__main__":
 
     # define start-button after the mode was chosen the tournament tree can be created
     start_button = Button(gui, text="Start", bg="lightgreen", font=('Arial', 10),
-                          command=start_tree)
+                          command=start)
     start_button.place(x=750, y=0, height=30, width=100)
 
     # define reset - button
@@ -1054,16 +1258,61 @@ if __name__ == "__main__":
     button_minus.pack_forget()
     button_plus.pack_forget()
 
+    # define labels, text-fields and buttons for name input
+    input_name1 = Entry(gui, bd=1, font=('Arial', 13))
+    input_name2 = Entry(gui, bd=1, font=('Arial', 13))
+    input_name3 = Entry(gui, bd=1, font=('Arial', 13))
+    input_name4 = Entry(gui, bd=1, font=('Arial', 13))
+    input_name5 = Entry(gui, bd=1, font=('Arial', 13))
+    input_name6 = Entry(gui, bd=1, font=('Arial', 13))
+    input_name7 = Entry(gui, bd=1, font=('Arial', 13))
+    input_name8 = Entry(gui, bd=1, font=('Arial', 13))
+
+    input_name1.pack()
+    input_name2.pack()
+    input_name3.pack()
+    input_name4.pack()
+    input_name5.pack()
+    input_name6.pack()
+    input_name7.pack()
+    input_name8.pack()
+
+    input_name1.pack_forget()
+    input_name2.pack_forget()
+    input_name3.pack_forget()
+    input_name4.pack_forget()
+    input_name5.pack_forget()
+    input_name6.pack_forget()
+    input_name7.pack_forget()
+    input_name8.pack_forget()
+
+    # define label for entering names
+    label_info_names = Label(gui, text="Please enter all names", font=('Arial', 10))
+    label_info_names.pack()
+    label_info_names.pack_forget()
+
+    # define button for entering names
+    button_enter_names = Button(gui, text="Continue", bg="yellow",
+                                font=('Arial', 10), command=check_names)
+    button_enter_names.pack()
+    button_enter_names.pack_forget()
+
+    # define button and label for name - order
+    label_name_order1 = Label(gui, text="Random order", bg="yellow", font=('Arial', 10))
+    label_name_order2 = Label(gui, text="Entered order", bg="white", font=('Arial', 10))
+    button_switch_order = Button(gui, text="Choose order", bg="lightgreen",
+                                 font=('Arial', 10), command=switch_order)
+
     # ---------------------------------------------------------------------------------------------#
     # define labels for 8 player names
-    label_player1_name = Label(gui, text="Michael van Gerwen", font=('Arial', 10))
-    label_player2_name = Label(gui, text="Devon Peterson", font=('Arial', 10))
-    label_player3_name = Label(gui, text="Michael Smith", font=('Arial', 10))
-    label_player4_name = Label(gui, text="Peter Wright", font=('Arial', 10))
-    label_player5_name = Label(gui, text="Gary Anderson", font=('Arial', 10))
-    label_player6_name = Label(gui, text="Gabriel Clemens", font=('Arial', 10))
-    label_player7_name = Label(gui, text="Jonny Clayton", font=('Arial', 10))
-    label_player8_name = Label(gui, text="Darius Labanauskas", font=('Arial', 10))
+    label_player1_name = Label(gui, text="", font=('Arial', 10))
+    label_player2_name = Label(gui, text="", font=('Arial', 10))
+    label_player3_name = Label(gui, text="", font=('Arial', 10))
+    label_player4_name = Label(gui, text="", font=('Arial', 10))
+    label_player5_name = Label(gui, text="", font=('Arial', 10))
+    label_player6_name = Label(gui, text="", font=('Arial', 10))
+    label_player7_name = Label(gui, text="", font=('Arial', 10))
+    label_player8_name = Label(gui, text="", font=('Arial', 10))
 
     label_player1_name.place(x=5, y=110, height=30, width=130)
     label_player2_name.place(x=5, y=150, height=30, width=130)
