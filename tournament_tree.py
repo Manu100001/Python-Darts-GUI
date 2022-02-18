@@ -1292,7 +1292,8 @@ if __name__ == "__main__":
     label_info_names.pack_forget()
 
     # define button for entering names
-    button_enter_names = Button(gui, text="Continue", bg="yellow",
+
+    button_enter_names = Button(gui, text="Continue", bg="lightgreen",
                                 font=('Arial', 10), command=check_names)
     button_enter_names.pack()
     button_enter_names.pack_forget()
