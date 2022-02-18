@@ -12,22 +12,24 @@ from tkinter import Toplevel
 from tkinter import Label
 from tkinter import Button
 from tkinter import messagebox
+from tkinter import Entry
 from datetime import datetime
 from openpyxl import Workbook
 from openpyxl.styles import PatternFill
 
 
-# color for excel
+# color for Excel
 greenFill = PatternFill(start_color='92D050', end_color='92D050', fill_type='solid')
+redFill = PatternFill(start_color='FFFF0000', end_color='FFFF0000', fill_type='solid')
 
-# months for creating timebased excel
+# months for creating time-based Excel
 months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September',
           'Oktober', 'November', 'Dezember']
 
 
 def create_excel():
     """
-    This function creates an excel file in which everything important is listed
+    This function creates an Excel file in which everything important is listed
     :return:
     """
     # create new directories if they do not exist yet
@@ -65,32 +67,31 @@ def create_excel():
     darts = 0
     all_darts = 0
     # set standards
+    sheet.cell(row=1, column=1).value = "Mode:"
+
     if label_single['bg'] == "yellow":
-        sheet.cell(row=1, column=1).value = "Single"
+        sheet.cell(row=1, column=2).value = "Single"
         all_darts += 3
     elif label_double['bg'] == "yellow":
-        sheet.cell(row=1, column=1).value = "Double"
+        sheet.cell(row=1, column=2).value = "Double"
         all_darts += 3
     else:
-        sheet.cell(row=1, column=1).value = "Triple"
+        sheet.cell(row=1, column=2).value = "Triple"
 
-    sheet.cell(row=3, column=2).value = "Spieler"
-    sheet.cell(row=3, column=3).value = "Manu"
+    sheet.cell(row=3, column=2).value = "Name:"
+    sheet.cell(row=3, column=3).value = input_name1.get()
 
-    sheet.cell(row=5, column=2).value = "Feld"
-    sheet.cell(row=5, column=3).value = "Treffer"
+    sheet.cell(row=5, column=2).value = "Field"
+    sheet.cell(row=5, column=3).value = "Hits"
 
-    sheet.cell(row=5, column=5).value = "Feld"
-    sheet.cell(row=5, column=6).value = "Treffer"
+    sheet.cell(row=5, column=5).value = "Field"
+    sheet.cell(row=5, column=6).value = "Hits"
 
-    sheet['A1'].fill = greenFill
-    sheet['B3'].fill = greenFill
-    sheet['C3'].fill = greenFill
     sheet['B5'].fill = greenFill
-    sheet['C5'].fill = greenFill
+    sheet['C5'].fill = redFill
 
     sheet['E5'].fill = greenFill
-    sheet['F5'].fill = greenFill
+    sheet['F5'].fill = redFill
 
     sheet['B6'].fill = greenFill
     sheet['B7'].fill = greenFill
@@ -114,8 +115,8 @@ def create_excel():
     sheet['E14'].fill = greenFill
     sheet['E15'].fill = greenFill
 
-    sheet.column_dimensions['L'].width = 18
-    sheet.column_dimensions['M'].width = 18
+    sheet.column_dimensions['L'].width = 9
+    sheet.column_dimensions['M'].width = 13
 
     # logic for excel - file
     sheet.cell(row=6, column=2).value = "1"
@@ -140,7 +141,7 @@ def create_excel():
     sheet.cell(row=14, column=5).value = "19"
     sheet.cell(row=15, column=5).value = "20"
 
-    # show data in excel
+    # show data in Excel
     sheet.cell(row=6, column=3).value = label_count_1['text']
     sheet.cell(row=7, column=3).value = label_count_2['text']
     sheet.cell(row=8, column=3).value = label_count_3['text']
@@ -164,31 +165,31 @@ def create_excel():
     sheet.cell(row=15, column=6).value = label_count_20['text']
 
     if label_single['bg'] == "yellow":
-        sheet.cell(row=5, column=8).value = "Feld"
-        sheet.cell(row=5, column=9).value = "Treffer"
+        sheet.cell(row=5, column=8).value = "Field"
+        sheet.cell(row=5, column=9).value = "Hits"
         sheet['H5'].fill = greenFill
-        sheet['I5'].fill = greenFill
+        sheet['I5'].fill = redFill
         sheet['H6'].fill = greenFill
         sheet.cell(row=6, column=8).value = "25"
         sheet.cell(row=6, column=9).value = label_count_25['text']
-        darts += label_count_25['text']
+        darts += int(label_count_25['text'])
 
     if label_double['bg'] == "yellow":
-        sheet.cell(row=5, column=8).value = "Feld"
-        sheet.cell(row=5, column=9).value = "Treffer"
+        sheet.cell(row=5, column=8).value = "Field"
+        sheet.cell(row=5, column=9).value = "Hits"
         sheet['H5'].fill = greenFill
         sheet['I5'].fill = greenFill
         sheet['H6'].fill = greenFill
         sheet.cell(row=6, column=8).value = "50"
         sheet.cell(row=6, column=9).value = label_count_50['text']
-        darts += label_count_50['text']
+        darts += int(label_count_50['text'])
 
-    sheet.cell(row=5, column=12).value = "Getroffene Darts"
-    sheet.cell(row=5, column=13).value = "Mögliche Darts"
-    sheet.cell(row=5, column=14).value = "Prozent"
+    sheet.cell(row=5, column=12).value = "Darts hit"
+    sheet.cell(row=5, column=13).value = "Possible darts"
+    sheet.cell(row=5, column=14).value = "In percent"
 
     sheet['L5'].fill = greenFill
-    sheet['M5'].fill = greenFill
+    sheet['M5'].fill = redFill
     sheet['N5'].fill = greenFill
 
     sum_darts = get_sum()
@@ -229,7 +230,7 @@ def button_exit():
     if not any(isinstance(window, Toplevel) for window in gui.winfo_children()):
         exit_window = Toplevel(gui)
         exit_window.geometry('250x150')
-        exit_window.resizable(width=0, height=0)
+        exit_window.resizable(width=False, height=False)
         exit_window.title("Stop?")
 
         label_exit = Label(exit_window, text="Stop game?", font=('Arial', 11))
@@ -252,6 +253,9 @@ def reset():
     This function restores the original state
     :return:
     """
+    label_selected_mode.pack()
+    label_selected_mode.pack_forget()
+
     label_count_1['bg'] = "yellow"
     label_count_2['bg'] = "white"
     label_count_3['bg'] = "white"
@@ -303,16 +307,113 @@ def reset():
     label_count_25['text'] = 0
     label_count_50['text'] = 0
 
-    label_25.pack()
+    label_count_1.pack()
+    label_count_2.pack()
+    label_count_3.pack()
+    label_count_4.pack()
+    label_count_5.pack()
+    label_count_6.pack()
+    label_count_7.pack()
+    label_count_8.pack()
+    label_count_9.pack()
+    label_count_10.pack()
+    label_count_11.pack()
+    label_count_12.pack()
+    label_count_13.pack()
+    label_count_14.pack()
+    label_count_15.pack()
+    label_count_16.pack()
+    label_count_17.pack()
+    label_count_18.pack()
+    label_count_19.pack()
+    label_count_20.pack()
     label_count_25.pack()
-    label_50.pack()
     label_count_50.pack()
 
-    label_50.pack_forget()
+    label_count_1.pack_forget()
+    label_count_2.pack_forget()
+    label_count_3.pack_forget()
+    label_count_4.pack_forget()
+    label_count_5.pack_forget()
+    label_count_6.pack_forget()
+    label_count_7.pack_forget()
+    label_count_8.pack_forget()
+    label_count_9.pack_forget()
+    label_count_10.pack_forget()
+    label_count_11.pack_forget()
+    label_count_12.pack_forget()
+    label_count_13.pack_forget()
+    label_count_14.pack_forget()
+    label_count_15.pack_forget()
+    label_count_16.pack_forget()
+    label_count_17.pack_forget()
+    label_count_18.pack_forget()
+    label_count_19.pack_forget()
+    label_count_20.pack_forget()
+    label_count_25.pack_forget()
     label_count_50.pack_forget()
 
-    label_25.place(x=400, y=160, height=30, width=100)
-    label_count_25.place(x=510, y=160, height=30, width=30)
+    label_1.pack()
+    label_2.pack()
+    label_3.pack()
+    label_4.pack()
+    label_5.pack()
+    label_6.pack()
+    label_7.pack()
+    label_8.pack()
+    label_9.pack()
+    label_10.pack()
+    label_11.pack()
+    label_12.pack()
+    label_13.pack()
+    label_14.pack()
+    label_15.pack()
+    label_16.pack()
+    label_17.pack()
+    label_18.pack()
+    label_19.pack()
+    label_20.pack()
+    label_25.pack()
+    label_50.pack()
+
+    label_1.pack_forget()
+    label_2.pack_forget()
+    label_3.pack_forget()
+    label_4.pack_forget()
+    label_5.pack_forget()
+    label_6.pack_forget()
+    label_7.pack_forget()
+    label_8.pack_forget()
+    label_9.pack_forget()
+    label_10.pack_forget()
+    label_11.pack_forget()
+    label_12.pack_forget()
+    label_13.pack_forget()
+    label_14.pack_forget()
+    label_15.pack_forget()
+    label_16.pack_forget()
+    label_17.pack_forget()
+    label_18.pack_forget()
+    label_19.pack_forget()
+    label_20.pack_forget()
+    label_25.pack_forget()
+    label_50.pack_forget()
+
+    button_next.pack()
+    button_plus.pack()
+    button_minus.pack()
+
+    button_next.pack_forget()
+    button_plus.pack_forget()
+    button_minus.pack_forget()
+
+    label_welcome['text'] = "Please select a game mode"
+
+    label_single.place(x=470, y=120, height=30, width=110)
+    label_double.place(x=580, y=120, height=30, width=110)
+    label_triple.place(x=690, y=120, height=30, width=110)
+    switch_button.place(x=320, y=120, height=30, width=100)
+    button_start.place(x=850, y=120, height=30, width=110)
 
 
 def switch_modes():
@@ -324,47 +425,13 @@ def switch_modes():
         label_single['bg'] = "white"
         label_double['bg'] = "yellow"
 
-        label_25.pack()
-        label_count_25.pack()
-
-        label_25.pack_forget()
-        label_count_25.pack_forget()
-
-        label_50.pack()
-        label_count_50.pack()
-
-        label_50.place(x=400, y=200, height=30, width=100)
-        label_count_50.place(x=510, y=200, height=30, width=30)
-
-        return
-
-    if label_double['bg'] == "yellow":
+    elif label_double['bg'] == "yellow":
         label_double['bg'] = "white"
         label_triple['bg'] = "yellow"
 
-        label_50.pack()
-        label_25.pack()
-        label_count_50.pack()
-        label_count_25.pack()
-
-        label_50.pack_forget()
-        label_count_50.pack_forget()
-        label_25.pack_forget()
-        label_count_25.pack_forget()
-
-        return
-
-    if label_triple['bg'] == "yellow":
+    elif label_triple['bg'] == "yellow":
         label_triple['bg'] = "white"
         label_single['bg'] = "yellow"
-
-        label_25.pack()
-        label_count_25.pack()
-
-        label_25.place(x=400, y=160, height=30, width=100)
-        label_count_25.place(x=510, y=160, height=30, width=30)
-
-        return
 
 
 def plus():
@@ -372,30 +439,25 @@ def plus():
     This function increments the labels
     :return:
     """
-    # label 1
+    # check each label
     if label_count_1['bg'] == "yellow":
         number = int(label_count_1['text'])
         if number < 3:
             number += 1
             label_count_1['text'] = number
-        return
 
-    # label 2
-    if label_count_2['bg'] == "yellow":
+    elif label_count_2['bg'] == "yellow":
         number = int(label_count_2['text'])
         if number < 3:
             number += 1
             label_count_2['text'] = number
-        return
 
-    # label 3
-    if label_count_3['bg'] == "yellow":
+    elif label_count_3['bg'] == "yellow":
         number = int(label_count_3['text'])
         if number < 3:
             number += 1
             label_count_3['text'] = number
-        return
-
+       
     # label 4
     if label_count_4['bg'] == "yellow":
         number = int(label_count_4['text'])
@@ -851,17 +913,131 @@ def end_game():
     This function ends the game
     :return:
     """
-    messagebox.showinfo("Info", "Around-the-clock beendet")
+    messagebox.showinfo("Info", "Around-the-clock finished.")
 
     create_excel()
     reset()
+
+
+def start_game():
+    """
+    After the mode was chosen, the game can be started
+    :return:
+    """
+    if label_single['bg'] == "yellow":
+        label_selected_mode['text'] = "Selected mode: single"
+
+    elif label_double['bg'] == "yellow":
+        label_selected_mode['text'] = "Selected mode: double"
+
+    elif label_triple['bg'] == "yellow":
+        label_selected_mode['text'] = "Selected mode: triple"
+
+    label_selected_mode.place(x=250, y=10, height=30, width=200)
+
+    label_single.pack()
+    label_double.pack()
+    label_triple.pack()
+    label_welcome.pack()
+    button_start.pack()
+    switch_button.pack()
+
+    label_single.pack_forget()
+    label_double.pack_forget()
+    label_triple.pack_forget()
+    label_welcome.pack_forget()
+    button_start.pack_forget()
+    switch_button.pack_forget()
+
+    # enable player name
+    label_player_1_name.place(x=10, y=10, height=30, width=150)
+
+    # enable all buttons and labels for the game
+    label_1.place(x=0, y=160, height=30, width=100)
+    label_2.place(x=0, y=200, height=30, width=100)
+    label_3.place(x=0, y=240, height=30, width=100)
+    label_4.place(x=0, y=280, height=30, width=100)
+    label_5.place(x=0, y=320, height=30, width=100)
+    label_6.place(x=0, y=360, height=30, width=100)
+    label_7.place(x=0, y=400, height=30, width=100)
+    label_8.place(x=0, y=440, height=30, width=100)
+    label_9.place(x=0, y=480, height=30, width=100)
+    label_10.place(x=0, y=520, height=30, width=100)
+    label_11.place(x=200, y=160, height=30, width=100)
+    label_12.place(x=200, y=200, height=30, width=100)
+    label_13.place(x=200, y=240, height=30, width=100)
+    label_14.place(x=200, y=280, height=30, width=100)
+    label_15.place(x=200, y=320, height=30, width=100)
+    label_16.place(x=200, y=360, height=30, width=100)
+    label_17.place(x=200, y=400, height=30, width=100)
+    label_18.place(x=200, y=440, height=30, width=100)
+    label_19.place(x=200, y=480, height=30, width=100)
+    label_20.place(x=200, y=520, height=30, width=100)
+
+    label_count_1.place(x=110, y=160, height=30, width=30)
+    label_count_2.place(x=110, y=200, height=30, width=30)
+    label_count_3.place(x=110, y=240, height=30, width=30)
+    label_count_4.place(x=110, y=280, height=30, width=30)
+    label_count_5.place(x=110, y=320, height=30, width=30)
+    label_count_6.place(x=110, y=360, height=30, width=30)
+    label_count_7.place(x=110, y=400, height=30, width=30)
+    label_count_8.place(x=110, y=440, height=30, width=30)
+    label_count_9.place(x=110, y=480, height=30, width=30)
+    label_count_10.place(x=110, y=520, height=30, width=30)
+    label_count_11.place(x=310, y=160, height=30, width=30)
+    label_count_12.place(x=310, y=200, height=30, width=30)
+    label_count_13.place(x=310, y=240, height=30, width=30)
+    label_count_14.place(x=310, y=280, height=30, width=30)
+    label_count_15.place(x=310, y=320, height=30, width=30)
+    label_count_16.place(x=310, y=360, height=30, width=30)
+    label_count_17.place(x=310, y=400, height=30, width=30)
+    label_count_18.place(x=310, y=440, height=30, width=30)
+    label_count_19.place(x=310, y=480, height=30, width=30)
+    label_count_20.place(x=310, y=520, height=30, width=30)
+
+    button_minus.place(x=800, y=240, height=60, width=60)
+    button_plus.place(x=880, y=240, height=60, width=60)
+    button_next.place(x=800, y=160, height=60, width=140)
+
+    if label_single['bg'] == "yellow":
+        label_count_25.place(x=510, y=160, height=30, width=30)
+        label_25.place(x=400, y=160, height=30, width=100)
+
+    elif label_double['bg'] == "yellow":
+        label_count_50.place(x=510, y=160, height=30, width=30)
+        label_50.place(x=400, y=160, height=30, width=100)
+
+
+def enter_name():
+    """
+
+    :return:
+    """
+    name = input_name1.get()
+    if name != "":
+        input_name1.pack()
+        input_name1.pack_forget()
+        button_entering_name.pack()
+        button_entering_name.pack_forget()
+        label_welcome['text'] = "Please select a game mode"
+
+        label_single.place(x=470, y=120, height=30, width=110)
+        label_double.place(x=580, y=120, height=30, width=110)
+        label_triple.place(x=690, y=120, height=30, width=110)
+        switch_button.place(x=320, y=120, height=30, width=100)
+        button_start.place(x=850, y=120, height=30, width=110)
+
+        label_player_1_name['text'] = name
+
+    else:
+        messagebox.showinfo("Error", "Please enter your name.")
 
 
 if __name__ == "__main__":
     # configure the window to generate
     gui = Tk()
     gui.geometry('1275x645')
-    gui.resizable(width=0, height=0)
+    gui.resizable(width=False, height=False)
     gui.title("Around the clock")
     gui.configure(background='grey')
 
@@ -870,14 +1046,23 @@ if __name__ == "__main__":
                          font=('Arial', 10, 'bold'))
     exit_button.place(x=1175, y=0, height=80, width=100)
 
-    # ################# ---------------------- ##################
-    # labels for Manu
-    # if u want to have another name, just fix it here
-    label_player_1_name = Label(gui, text="Manu", bg="yellow",
-                                fg="black", font=('Arial', 13, 'bold'))
-    label_player_1_name.place(x=10, y=10, height=30, width=110)
+    # welcome label
+    label_welcome = Label(gui, text="Welcome to the Around-the-clock game!"
+                                    " Please enter your name.", bg="grey",
+                          font=('Arial', 14))
+    label_welcome.place(x=337.5, y=20, height=30, width=600)
 
-    # ################# ---------------------- ##################
+    button_entering_name = Button(gui, text="Continue", bg="yellow",
+                                  font=('Arial', 10), command=enter_name)
+    button_entering_name.place(x=737.5, y=140, height=30, width=100)
+    # label and button for entering name
+
+    input_name1 = Entry(gui, bd=1, font=('Arial', 13))
+
+    input_name1.place(x=537.5, y=140, height=30, width=200)
+    label_player_1_name = Label(gui, text="", bg="yellow",
+                                fg="black", font=('Arial', 13, 'bold'))
+
     # Label for Single, Double and Single, also button to switch
     switch_button = Button(gui, text="Switch", command=switch_modes, fg="black", bg="lightblue",
                            font=('Arial', 13, 'bold'))
@@ -885,20 +1070,20 @@ if __name__ == "__main__":
     label_double = Label(gui, text="Double", bg="white", fg="black", font=('Arial', 13, 'bold'))
     label_triple = Label(gui, text="Triple", bg="white", fg="black", font=('Arial', 13, 'bold'))
 
-    label_single.place(x=450, y=10, height=30, width=110)
-    label_double.place(x=560, y=10, height=30, width=110)
-    label_triple.place(x=670, y=10, height=30, width=110)
-    switch_button.place(x=350, y=10, height=30, width=100)
+    # define start button
+    button_start = Button(gui, text="Start", bg="lightgreen", fg="black",
+                          font=('Arial', 13, 'bold'), command=start_game)
 
-    # ################# ---------------------- ##################
     # reset - button
     reset_button = Button(gui, text="Reset", bd=4, fg="black", bg="red", font=('Arial', 11),
                           command=reset)
 
     reset_button.place(x=1175, y=110, height=30, width=100)
 
-    # ################# ---------------------- ##################
-    # labels for all numbers
+    # define label for selected mode
+    label_selected_mode = Label(gui, text="", font=('Arial', 13))
+
+    # labels for all fields
     label_20 = Label(gui, text="20", bg="red", fg="black", font=('Arial', 13, 'bold'))
     label_19 = Label(gui, text="19", bg="green", fg="black", font=('Arial', 13, 'bold'))
     label_18 = Label(gui, text="18", bg="red", fg="black", font=('Arial', 13, 'bold'))
@@ -922,33 +1107,7 @@ if __name__ == "__main__":
     label_50 = Label(gui, text="BULL", bg="red", fg="black", font=('Arial', 13, 'bold'))
     label_25 = Label(gui, text="25", bg="green", fg="black", font=('Arial', 13, 'bold'))
 
-    label_1.place(x=0, y=160, height=30, width=100)
-    label_2.place(x=0, y=200, height=30, width=100)
-    label_3.place(x=0, y=240, height=30, width=100)
-    label_4.place(x=0, y=280, height=30, width=100)
-    label_5.place(x=0, y=320, height=30, width=100)
-    label_6.place(x=0, y=360, height=30, width=100)
-    label_7.place(x=0, y=400, height=30, width=100)
-    label_8.place(x=0, y=440, height=30, width=100)
-    label_9.place(x=0, y=480, height=30, width=100)
-    label_10.place(x=0, y=520, height=30, width=100)
-
-    label_11.place(x=200, y=160, height=30, width=100)
-    label_12.place(x=200, y=200, height=30, width=100)
-    label_13.place(x=200, y=240, height=30, width=100)
-    label_14.place(x=200, y=280, height=30, width=100)
-    label_15.place(x=200, y=320, height=30, width=100)
-    label_16.place(x=200, y=360, height=30, width=100)
-    label_17.place(x=200, y=400, height=30, width=100)
-    label_18.place(x=200, y=440, height=30, width=100)
-    label_19.place(x=200, y=480, height=30, width=100)
-    label_20.place(x=200, y=520, height=30, width=100)
-
-    label_25.place(x=400, y=160, height=30, width=100)
-    label_50.place(x=400, y=200, height=30, width=100)
-
-    # ################# ---------------------- ##################
-    # labels for amount
+    # labels for results of the thrown darts
     label_count_20 = Label(gui, text="0", bg="white", fg="black", font=('Arial', 13, 'bold'))
     label_count_19 = Label(gui, text="0", bg="white", fg="black", font=('Arial', 13, 'bold'))
     label_count_18 = Label(gui, text="0", bg="white", fg="black", font=('Arial', 13, 'bold'))
@@ -972,32 +1131,7 @@ if __name__ == "__main__":
     label_count_50 = Label(gui, text="0", bg="white", fg="black", font=('Arial', 13, 'bold'))
     label_count_25 = Label(gui, text="0", bg="white", fg="black", font=('Arial', 13, 'bold'))
 
-    label_count_1.place(x=110, y=160, height=30, width=30)
-    label_count_2.place(x=110, y=200, height=30, width=30)
-    label_count_3.place(x=110, y=240, height=30, width=30)
-    label_count_4.place(x=110, y=280, height=30, width=30)
-    label_count_5.place(x=110, y=320, height=30, width=30)
-    label_count_6.place(x=110, y=360, height=30, width=30)
-    label_count_7.place(x=110, y=400, height=30, width=30)
-    label_count_8.place(x=110, y=440, height=30, width=30)
-    label_count_9.place(x=110, y=480, height=30, width=30)
-    label_count_10.place(x=110, y=520, height=30, width=30)
-
-    label_count_11.place(x=310, y=160, height=30, width=30)
-    label_count_12.place(x=310, y=200, height=30, width=30)
-    label_count_13.place(x=310, y=240, height=30, width=30)
-    label_count_14.place(x=310, y=280, height=30, width=30)
-    label_count_15.place(x=310, y=320, height=30, width=30)
-    label_count_16.place(x=310, y=360, height=30, width=30)
-    label_count_17.place(x=310, y=400, height=30, width=30)
-    label_count_18.place(x=310, y=440, height=30, width=30)
-    label_count_19.place(x=310, y=480, height=30, width=30)
-    label_count_20.place(x=310, y=520, height=30, width=30)
-
-    label_count_25.place(x=510, y=160, height=30, width=30)
-    label_count_50.place(x=510, y=200, height=30, width=30)
-
-    # buttons for + and - and next
+    # buttons for plus and minus and next
     button_plus = Button(gui, text="+", bd=4, fg="black", bg="lightgreen", font=('Arial', 11),
                          command=plus)
     button_minus = Button(gui, text="-", bd=4, fg="black", bg="red", font=('Arial', 11),
@@ -1006,14 +1140,4 @@ if __name__ == "__main__":
     button_next = Button(gui, text="Next", bd=4, fg="white", bg="black", font=('Arial', 11),
                          command=next_label)
 
-    button_minus.place(x=800, y=240, height=60, width=60)
-    button_plus.place(x=880, y=240, height=60, width=60)
-    button_next.place(x=800, y=160, height=60, width=140)
-
-    # standard is single, so Bull will be hidden
-    label_50.pack()
-    label_50.pack_forget()
-
-    label_count_50.pack()
-    label_count_50.pack_forget()
     gui.mainloop()
