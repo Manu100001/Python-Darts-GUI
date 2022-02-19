@@ -18,7 +18,6 @@ from datetime import datetime
 from openpyxl import Workbook
 from openpyxl.styles import PatternFill
 
-
 # color for Excel
 greenFill = PatternFill(start_color='92D050', end_color='92D050', fill_type='solid')
 redFill = PatternFill(start_color='FFFF0000', end_color='FFFF0000', fill_type='solid')
@@ -28,9 +27,9 @@ months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August'
           'Oktober', 'November', 'Dezember']
 
 
-def create_excel():
+def check_directories():
     """
-    This function creates an Excel file in which everything important is listed
+
     :return:
     """
     # create new directories if they do not exist yet
@@ -61,33 +60,17 @@ def create_excel():
     # create new score - file
     time = datetime.now().strftime('%H-%M-%S')
 
-    excel_file = Workbook()
-    sheet = excel_file.create_sheet('Around-the-clock')
     path = "Spielstände/Around-the-clock/" + current_year + \
            "/" + month_name + "/" + date + "/" + time + ".xlsx"
-    darts = 0
-    all_darts = 0
-    # set standards
-    sheet.cell(row=1, column=1).value = "Mode:"
 
-    if label_single['bg'] == "yellow":
-        sheet.cell(row=1, column=2).value = "Single"
-        all_darts += 3
-    elif label_double['bg'] == "yellow":
-        sheet.cell(row=1, column=2).value = "Double"
-        all_darts += 3
-    else:
-        sheet.cell(row=1, column=2).value = "Triple"
+    return path
 
-    sheet.cell(row=3, column=2).value = "Name:"
-    sheet.cell(row=3, column=3).value = input_name1.get()
 
-    sheet.cell(row=5, column=2).value = "Field"
-    sheet.cell(row=5, column=3).value = "Hits"
+def set_standards_in_excel(sheet):
+    """
 
-    sheet.cell(row=5, column=5).value = "Field"
-    sheet.cell(row=5, column=6).value = "Hits"
-
+    :return:
+    """
     sheet['B5'].fill = greenFill
     sheet['C5'].fill = redFill
 
@@ -116,10 +99,21 @@ def create_excel():
     sheet['E14'].fill = greenFill
     sheet['E15'].fill = greenFill
 
+    sheet['L5'].fill = greenFill
+    sheet['M5'].fill = redFill
+    sheet['N5'].fill = greenFill
+
     sheet.column_dimensions['L'].width = 9
     sheet.column_dimensions['M'].width = 13
 
-    # logic for excel - file
+
+def set_values_in_excel(sheet):
+    """
+
+    :return:
+    """
+    sheet.cell(row=1, column=1).value = "Mode:"
+
     sheet.cell(row=6, column=2).value = "1"
     sheet.cell(row=7, column=2).value = "2"
     sheet.cell(row=8, column=2).value = "3"
@@ -141,6 +135,10 @@ def create_excel():
     sheet.cell(row=13, column=5).value = "18"
     sheet.cell(row=14, column=5).value = "19"
     sheet.cell(row=15, column=5).value = "20"
+
+    sheet.cell(row=5, column=12).value = "Darts hit"
+    sheet.cell(row=5, column=13).value = "Possible darts"
+    sheet.cell(row=5, column=14).value = "In percent"
 
     # show data in Excel
     sheet.cell(row=6, column=3).value = label_count_1['text']
@@ -165,6 +163,42 @@ def create_excel():
     sheet.cell(row=14, column=6).value = label_count_19['text']
     sheet.cell(row=15, column=6).value = label_count_20['text']
 
+
+def create_excel():
+    """
+    This function creates an Excel file in which everything important is listed
+    :return:
+    """
+    path = check_directories()
+
+    excel_file = Workbook()
+    sheet = excel_file.create_sheet('Around-the-clock')
+
+    # set cells in excel sheet
+    set_standards_in_excel(sheet)
+    set_values_in_excel(sheet)
+
+    darts = 0
+    all_darts = 0
+
+    if label_single['bg'] == "yellow":
+        sheet.cell(row=1, column=2).value = "Single"
+        all_darts += 3
+    elif label_double['bg'] == "yellow":
+        sheet.cell(row=1, column=2).value = "Double"
+        all_darts += 3
+    else:
+        sheet.cell(row=1, column=2).value = "Triple"
+
+    sheet.cell(row=3, column=2).value = "Name:"
+    sheet.cell(row=3, column=3).value = input_name1.get()
+
+    sheet.cell(row=5, column=2).value = "Field"
+    sheet.cell(row=5, column=3).value = "Hits"
+
+    sheet.cell(row=5, column=5).value = "Field"
+    sheet.cell(row=5, column=6).value = "Hits"
+
     if label_single['bg'] == "yellow":
         sheet.cell(row=5, column=8).value = "Field"
         sheet.cell(row=5, column=9).value = "Hits"
@@ -185,14 +219,6 @@ def create_excel():
         sheet.cell(row=6, column=9).value = label_count_50['text']
         darts += int(label_count_50['text'])
 
-    sheet.cell(row=5, column=12).value = "Darts hit"
-    sheet.cell(row=5, column=13).value = "Possible darts"
-    sheet.cell(row=5, column=14).value = "In percent"
-
-    sheet['L5'].fill = greenFill
-    sheet['M5'].fill = redFill
-    sheet['N5'].fill = greenFill
-
     sum_darts = get_sum()
     sum_darts += darts
 
@@ -210,15 +236,15 @@ def get_sum():
     :return:
     """
     sum_darts = int(label_count_1['text']) + int(label_count_2['text']) + \
-          int(label_count_3['text']) + int(label_count_4['text']) + \
-          int(label_count_5['text']) + int(label_count_6['text']) + \
-          int(label_count_7['text']) + int(label_count_8['text']) + \
-          int(label_count_9['text']) + int(label_count_10['text']) + \
-          int(label_count_11['text']) + int(label_count_12['text']) + \
-          int(label_count_13['text']) + int(label_count_14['text']) + \
-          int(label_count_15['text']) + int(label_count_16['text']) + \
-          int(label_count_17['text']) + int(label_count_18['text']) + \
-          int(label_count_19['text']) + int(label_count_20['text'])
+        int(label_count_3['text']) + int(label_count_4['text']) + \
+        int(label_count_5['text']) + int(label_count_6['text']) + \
+        int(label_count_7['text']) + int(label_count_8['text']) + \
+        int(label_count_9['text']) + int(label_count_10['text']) + \
+        int(label_count_11['text']) + int(label_count_12['text']) + \
+        int(label_count_13['text']) + int(label_count_14['text']) + \
+        int(label_count_15['text']) + int(label_count_16['text']) + \
+        int(label_count_17['text']) + int(label_count_18['text']) + \
+        int(label_count_19['text']) + int(label_count_20['text'])
 
     return sum_darts
 
@@ -281,10 +307,6 @@ def reset():
     label_count_25['bg'] = "white"
     label_count_50['bg'] = "white"
 
-    label_single['bg'] = "yellow"
-    label_double['bg'] = "white"
-    label_triple['bg'] = "white"
-
     label_count_1['text'] = 0
     label_count_2['text'] = 0
     label_count_3['text'] = 0
@@ -308,6 +330,14 @@ def reset():
     label_count_25['text'] = 0
     label_count_50['text'] = 0
 
+    reset2()
+
+
+def reset2():
+    """
+    This function restores the original state
+    :return:
+    """
     label_count_1.pack()
     label_count_2.pack()
     label_count_3.pack()
@@ -353,6 +383,15 @@ def reset():
     label_count_20.pack_forget()
     label_count_25.pack_forget()
     label_count_50.pack_forget()
+
+    reset3()
+
+
+def reset3():
+    """
+    This function restores the original state
+    :return:
+    """
 
     label_1.pack()
     label_2.pack()
@@ -400,6 +439,15 @@ def reset():
     label_25.pack_forget()
     label_50.pack_forget()
 
+    reset4()
+
+
+def reset4():
+    """
+    This function restores the original state
+    :return
+    """
+
     button_next.pack()
     button_plus.pack()
     button_minus.pack()
@@ -415,6 +463,10 @@ def reset():
     label_triple.place(x=690, y=120, height=30, width=110)
     switch_button.place(x=320, y=120, height=30, width=100)
     button_start.place(x=850, y=120, height=30, width=110)
+
+    label_single['bg'] = "yellow"
+    label_double['bg'] = "white"
+    label_triple['bg'] = "white"
 
 
 def switch_modes():
@@ -588,9 +640,16 @@ def plus4():
             number += 1
             label_count_20['text'] = number
 
-    #else:
+    else:
+        plus5()
 
-    elif label_count_25['bg'] == "yellow":
+
+def plus5():
+    """
+    This function increments the labels
+    :return:
+    """
+    if label_count_25['bg'] == "yellow":
         number = int(label_count_25['text'])
         if number < 3:
             number += 1
@@ -601,7 +660,6 @@ def plus4():
         if number < 3:
             number += 1
             label_count_50['text'] = number
-        return
 
 
 def minus():
