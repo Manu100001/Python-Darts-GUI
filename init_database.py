@@ -11,8 +11,9 @@ import sqlite3
 
 # create variable with all checkouts for the database
 
-insert = "INSERT INTO Checkouts (id, number,first_dart,second_dart,third_dart, three_darts, two_darts, one_dart) " \
-         "VALUES (1, 170, 'T20', 'T20', 'BULL', 1, 0, 0), (2, 167, 'T20', 'T19', 'BULL', 1, 0, 0), " \
+INSERT = "INSERT INTO Checkouts (id, number,first_dart,second_dart,third_dart, three_darts, " \
+         "two_darts, one_dart) VALUES (1, 170, 'T20', 'T20', 'BULL', 1, 0, 0), " \
+         "(2, 167, 'T20', 'T19', 'BULL', 1, 0, 0), " \
          "(3, 164, 'T20', 'T18', 'BULL', 1, 0, 0), (4, 164, 'T19', 'T19', 'BULL', 1, 0, 0)," \
          "(5, 161, 'T20', 'T17', 'BULL', 1, 0, 0), (6, 160, 'T20', 'T20', 'D20', 1, 0, 0), " \
          "(7, 158, 'T20', 'T20', 'D19', 1, 0, 0),	(8, 158, 'T18', 'T18', 'BULL', 1, 0, 0)," \
@@ -185,11 +186,13 @@ insert = "INSERT INTO Checkouts (id, number,first_dart,second_dart,third_dart, t
          "(341, 5, 1, 'D2', 0, 0, 1, 0), (342, 4, 'D2', 0, 0, 0, 0, 1)," \
          "(343, 3, 1, 'D1', 0, 0, 1, 0), (344, 2, 'D1', 0, 0, 0, 0, 1);"
 
-insert2 = "INSERT INTO throw_check (id, number) VALUES (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7), (8, 8), " \
-          "(9, 9), (10, 10), (11, 11), (12, 12), (13,13),(14, 14), (15, 15), (16, 16), (17, 17), (18, 18), (19, 19), " \
-          "(20, 20), (21, 21), (22,22), (23, 24), (24, 25), (25, 26), (26, 27), (27, 28), (28, 30), (29, 32), " \
-          "(30, 33), (31, 34), (32, 36), (33, 38), (34, 39), (35, 40), (36, 42), (37, 45), (38, 48), (39, 50), " \
-          "(40, 51), (41, 54), (42, 57), (43, 60);"
+SECOND_INSERT = "INSERT INTO throw_check (id, number) VALUES (1, 1), (2, 2), (3, 3)," \
+          " (4, 4), (5, 5), (6, 6), (7, 7), (8, 8), (9, 9), (10, 10), (11, 11), " \
+          "(12, 12), (13,13),(14, 14), (15, 15), (16, 16), (17, 17), (18, 18), " \
+          "(19, 19), (20, 20), (21, 21), (22,22), (23, 24), (24, 25), (25, 26), " \
+          "(26, 27), (27, 28), (28, 30), (29, 32), (30, 33), (31, 34), (32, 36), " \
+          "(33, 38), (34, 39), (35, 40), (36, 42), (37, 45), (38, 48), (39, 50)," \
+          " (40, 51), (41, 54), (42, 57), (43, 60);"
 
 
 def init_database():
@@ -206,12 +209,13 @@ def init_database():
         with open("Datenbanken/checkouts.db", 'w') as file:
             file.write("")
 
-    # connect to databse
+    # connect to database
     connection = sqlite3.connect("Datenbanken/checkouts.db")
     access = connection.cursor()
 
     # create Checkouts - table if it does not already exist
-    statement = "CREATE TABLE IF NOT EXISTS Checkouts (id INT UNIQUE, number INT, first_dart VARCHAR(4), " \
+    statement = "CREATE TABLE IF NOT EXISTS Checkouts " \
+                "(id INT UNIQUE, number INT, first_dart VARCHAR(4), " \
                 "second_dart VARCHAR(4), third_dart VARCHAR(4), " \
                 "three_darts BOOLEAN, two_darts BOOLEAN, one_dart BOOLEAN)"
 
@@ -223,11 +227,11 @@ def init_database():
     connection.commit()
 
     # insert data into database
-    access.execute(insert)
+    access.execute(INSERT)
     connection.commit()
 
     # insert data into database
-    access.execute(insert2)
+    access.execute(SECOND_INSERT)
     connection.commit()
 
 
