@@ -1,6 +1,7 @@
 #!/usr/bin/python3
+# pylint: disable=C0302
 """
-This script generate a GUI for the around-the-clock darts game
+This script generates a GUI for the around-the-clock darts game
 Single, Double and Triple fields are possible
 
 :author: Manuel Milde manuelmilde@gmx.net
@@ -457,153 +458,145 @@ def plus():
         if number < 3:
             number += 1
             label_count_3['text'] = number
-       
-    # label 4
-    if label_count_4['bg'] == "yellow":
+
+    elif label_count_4['bg'] == "yellow":
         number = int(label_count_4['text'])
         if number < 3:
             number += 1
             label_count_4['text'] = number
-        return
 
-    # label 5
-    if label_count_5['bg'] == "yellow":
+    elif label_count_5['bg'] == "yellow":
         number = int(label_count_5['text'])
         if number < 3:
             number += 1
             label_count_5['text'] = number
-        return
 
-    # label 6
+    else:
+        plus2()
+
+
+def plus2():
+    """
+    This function increments the labels
+    :return:
+    """
     if label_count_6['bg'] == "yellow":
         number = int(label_count_6['text'])
         if number < 3:
             number += 1
             label_count_6['text'] = number
-        return
 
-    # label 7
-    if label_count_7['bg'] == "yellow":
+    elif label_count_7['bg'] == "yellow":
         number = int(label_count_7['text'])
         if number < 3:
             number += 1
             label_count_7['text'] = number
-        return
 
-    # label 8
-    if label_count_8['bg'] == "yellow":
+    elif label_count_8['bg'] == "yellow":
         number = int(label_count_8['text'])
         if number < 3:
             number += 1
             label_count_8['text'] = number
-        return
 
-    # label 9
-    if label_count_9['bg'] == "yellow":
+    elif label_count_9['bg'] == "yellow":
         number = int(label_count_9['text'])
         if number < 3:
             number += 1
             label_count_9['text'] = number
-        return
 
-    # label 10
-    if label_count_10['bg'] == "yellow":
+    elif label_count_10['bg'] == "yellow":
         number = int(label_count_10['text'])
         if number < 3:
             number += 1
             label_count_10['text'] = number
-        return
 
-    # label 11
+    else:
+        plus3()
+
+
+def plus3():
+    """
+    This function increments the labels
+    :return:
+    """
     if label_count_11['bg'] == "yellow":
         number = int(label_count_11['text'])
         if number < 3:
             number += 1
             label_count_11['text'] = number
-        return
 
-    # label 12
-    if label_count_12['bg'] == "yellow":
+    elif label_count_12['bg'] == "yellow":
         number = int(label_count_12['text'])
         if number < 3:
             number += 1
             label_count_12['text'] = number
-        return
 
-    # label 13
-    if label_count_13['bg'] == "yellow":
+    elif label_count_13['bg'] == "yellow":
         number = int(label_count_13['text'])
         if number < 3:
             number += 1
             label_count_13['text'] = number
-        return
 
-    # label 14
-    if label_count_14['bg'] == "yellow":
+    elif label_count_14['bg'] == "yellow":
         number = int(label_count_14['text'])
         if number < 3:
             number += 1
             label_count_14['text'] = number
-        return
 
-    # label 15
-    if label_count_15['bg'] == "yellow":
+    elif label_count_15['bg'] == "yellow":
         number = int(label_count_15['text'])
         if number < 3:
             number += 1
             label_count_15['text'] = number
-        return
 
-    # label 16
+    else:
+        plus4()
+
+
+def plus4():
+    """
+    This function increments the labels
+    :return:
+    """
     if label_count_16['bg'] == "yellow":
         number = int(label_count_16['text'])
         if number < 3:
             number += 1
             label_count_16['text'] = number
-        return
 
-    # label 17
-    if label_count_17['bg'] == "yellow":
+    elif label_count_17['bg'] == "yellow":
         number = int(label_count_17['text'])
         if number < 3:
             number += 1
             label_count_17['text'] = number
-        return
 
-    # label 18
-    if label_count_18['bg'] == "yellow":
+    elif label_count_18['bg'] == "yellow":
         number = int(label_count_18['text'])
         if number < 3:
             number += 1
             label_count_18['text'] = number
-        return
 
-    # label 19
-    if label_count_19['bg'] == "yellow":
+    elif label_count_19['bg'] == "yellow":
         number = int(label_count_19['text'])
         if number < 3:
             number += 1
             label_count_19['text'] = number
-        return
 
-    # label 20
-    if label_count_20['bg'] == "yellow":
+    elif label_count_20['bg'] == "yellow":
         number = int(label_count_20['text'])
         if number < 3:
             number += 1
             label_count_20['text'] = number
-        return
 
-    # label 25
-    if label_count_25['bg'] == "yellow":
+    #else:
+
+    elif label_count_25['bg'] == "yellow":
         number = int(label_count_25['text'])
         if number < 3:
             number += 1
             label_count_25['text'] = number
-        return
 
-    # label 50
-    if label_count_50['bg'] == "yellow":
+    elif label_count_50['bg'] == "yellow":
         number = int(label_count_50['text'])
         if number < 3:
             number += 1
@@ -616,184 +609,177 @@ def minus():
     This function decrements the labels
     :return:
     """
-    # label 1
     if label_count_1['bg'] == "yellow":
         number = int(label_count_1['text'])
         if number > 0:
             number -= 1
             label_count_1['text'] = number
-        return
 
-    # label 2
-    if label_count_2['bg'] == "yellow":
+    elif label_count_2['bg'] == "yellow":
         number = int(label_count_2['text'])
         if number > 0:
             number -= 1
             label_count_2['text'] = number
-        return
 
-    # label 3
-    if label_count_3['bg'] == "yellow":
+    elif label_count_3['bg'] == "yellow":
         number = int(label_count_3['text'])
         if number > 0:
             number -= 1
             label_count_3['text'] = number
-        return
 
-    # label 4
-    if label_count_4['bg'] == "yellow":
+    elif label_count_4['bg'] == "yellow":
         number = int(label_count_4['text'])
         if number > 0:
             number -= 1
             label_count_4['text'] = number
-        return
 
-    # label 5
-    if label_count_5['bg'] == "yellow":
+    elif label_count_5['bg'] == "yellow":
         number = int(label_count_5['text'])
         if number > 0:
             number -= 1
             label_count_5['text'] = number
-        return
 
-    # label 6
+    else:
+        minus2()
+
+
+def minus2():
+    """
+    This function decrements the labels
+    :return:
+    """
     if label_count_6['bg'] == "yellow":
         number = int(label_count_6['text'])
         if number > 0:
             number -= 1
             label_count_6['text'] = number
-        return
 
-    # label 7
-    if label_count_7['bg'] == "yellow":
+    elif label_count_7['bg'] == "yellow":
         number = int(label_count_7['text'])
         if number > 0:
             number -= 1
             label_count_7['text'] = number
-        return
 
-    # label 8
-    if label_count_8['bg'] == "yellow":
+    elif label_count_8['bg'] == "yellow":
         number = int(label_count_8['text'])
         if number > 0:
             number -= 1
             label_count_8['text'] = number
-        return
 
-    # label 9
-    if label_count_9['bg'] == "yellow":
+    elif label_count_9['bg'] == "yellow":
         number = int(label_count_9['text'])
         if number > 0:
             number -= 1
             label_count_9['text'] = number
-        return
 
-    # label 10
-    if label_count_10['bg'] == "yellow":
+    elif label_count_10['bg'] == "yellow":
         number = int(label_count_10['text'])
         if number > 0:
             number -= 1
             label_count_10['text'] = number
-        return
 
-    # label 11
+    else:
+        minus3()
+
+
+def minus3():
+    """
+    This function decrements the labels
+    :return:
+    """
+
     if label_count_11['bg'] == "yellow":
         number = int(label_count_11['text'])
         if number > 0:
             number -= 1
             label_count_11['text'] = number
-        return
 
-    # label 12
-    if label_count_12['bg'] == "yellow":
+    elif label_count_12['bg'] == "yellow":
         number = int(label_count_12['text'])
         if number > 0:
             number -= 1
             label_count_12['text'] = number
-        return
 
-    # label 13
-    if label_count_13['bg'] == "yellow":
+    elif label_count_13['bg'] == "yellow":
         number = int(label_count_13['text'])
         if number > 0:
             number -= 1
             label_count_13['text'] = number
-        return
 
-    # label 14
-    if label_count_14['bg'] == "yellow":
+    elif label_count_14['bg'] == "yellow":
         number = int(label_count_14['text'])
         if number > 0:
             number -= 1
             label_count_14['text'] = number
-        return
 
-    # label 15
-    if label_count_15['bg'] == "yellow":
+    elif label_count_15['bg'] == "yellow":
         number = int(label_count_15['text'])
         if number > 0:
             number -= 1
             label_count_15['text'] = number
-        return
 
-    # label 16
+    else:
+        minus4()
+
+
+def minus4():
+    """
+    This function decrements the labels
+    :return:
+    """
     if label_count_16['bg'] == "yellow":
         number = int(label_count_16['text'])
         if number > 0:
             number -= 1
             label_count_16['text'] = number
-        return
 
-    # label 17
-    if label_count_17['bg'] == "yellow":
+    elif label_count_17['bg'] == "yellow":
         number = int(label_count_17['text'])
         if number > 0:
             number -= 1
             label_count_17['text'] = number
-        return
 
-    # label 18
-    if label_count_18['bg'] == "yellow":
+    elif label_count_18['bg'] == "yellow":
         number = int(label_count_18['text'])
         if number > 0:
             number -= 1
             label_count_18['text'] = number
-        return
 
-    # label 19
-    if label_count_19['bg'] == "yellow":
+    elif label_count_19['bg'] == "yellow":
         number = int(label_count_19['text'])
         if number > 0:
             number -= 1
             label_count_19['text'] = number
-        return
 
-    # label 20
-    if label_count_20['bg'] == "yellow":
+    elif label_count_20['bg'] == "yellow":
         number = int(label_count_20['text'])
         if number > 0:
             number -= 1
             label_count_20['text'] = number
-        return
 
-    # label 25
+    else:
+        minus5()
+
+
+def minus5():
+    """
+    This function decrements the labels
+    :return:
+    """
     if label_count_25['bg'] == "yellow":
         number = int(label_count_25['text'])
         if number > 0:
             number -= 1
             label_count_25['text'] = number
-        return
 
-    # label Bull
-    if label_count_50['bg'] == "yellow":
+    elif label_count_50['bg'] == "yellow":
         number = int(label_count_50['text'])
         if number > 0:
             number -= 1
             label_count_50['text'] = number
-        return
 
 
-def next_label():
+def next_label1():
     """
     This function moves on to the next field
     :return:
@@ -801,97 +787,98 @@ def next_label():
     if label_count_1['bg'] == "yellow":
         label_count_1['bg'] = "white"
         label_count_2['bg'] = "yellow"
-        return
 
-    if label_count_2['bg'] == "yellow":
+    elif label_count_2['bg'] == "yellow":
         label_count_2['bg'] = "white"
         label_count_3['bg'] = "yellow"
-        return
 
-    if label_count_3['bg'] == "yellow":
+    elif label_count_3['bg'] == "yellow":
         label_count_3['bg'] = "white"
         label_count_4['bg'] = "yellow"
-        return
 
-    if label_count_4['bg'] == "yellow":
+    elif label_count_4['bg'] == "yellow":
         label_count_4['bg'] = "white"
         label_count_5['bg'] = "yellow"
-        return
 
-    if label_count_5['bg'] == "yellow":
+    elif label_count_5['bg'] == "yellow":
         label_count_5['bg'] = "white"
         label_count_6['bg'] = "yellow"
-        return
 
-    if label_count_6['bg'] == "yellow":
+    elif label_count_6['bg'] == "yellow":
         label_count_6['bg'] = "white"
         label_count_7['bg'] = "yellow"
-        return
 
-    if label_count_7['bg'] == "yellow":
+    elif label_count_7['bg'] == "yellow":
         label_count_7['bg'] = "white"
         label_count_8['bg'] = "yellow"
-        return
-    if label_count_8['bg'] == "yellow":
+
+    elif label_count_8['bg'] == "yellow":
         label_count_8['bg'] = "white"
         label_count_9['bg'] = "yellow"
-        return
-    if label_count_9['bg'] == "yellow":
+
+    elif label_count_9['bg'] == "yellow":
         label_count_9['bg'] = "white"
         label_count_10['bg'] = "yellow"
-        return
 
-    if label_count_10['bg'] == "yellow":
+    elif label_count_10['bg'] == "yellow":
         label_count_10['bg'] = "white"
         label_count_11['bg'] = "yellow"
-        return
 
-    if label_count_11['bg'] == "yellow":
+    elif label_count_11['bg'] == "yellow":
         label_count_11['bg'] = "white"
         label_count_12['bg'] = "yellow"
-        return
 
+    else:
+        next_label2()
+
+
+def next_label2():
+    """
+    This function moves on to the next field
+    :return:
+    """
     if label_count_12['bg'] == "yellow":
         label_count_12['bg'] = "white"
         label_count_13['bg'] = "yellow"
-        return
 
-    if label_count_13['bg'] == "yellow":
+    elif label_count_13['bg'] == "yellow":
         label_count_13['bg'] = "white"
         label_count_14['bg'] = "yellow"
-        return
 
-    if label_count_14['bg'] == "yellow":
+    elif label_count_14['bg'] == "yellow":
         label_count_14['bg'] = "white"
         label_count_15['bg'] = "yellow"
-        return
 
-    if label_count_15['bg'] == "yellow":
+    elif label_count_15['bg'] == "yellow":
         label_count_15['bg'] = "white"
         label_count_16['bg'] = "yellow"
-        return
 
-    if label_count_16['bg'] == "yellow":
+    elif label_count_16['bg'] == "yellow":
         label_count_16['bg'] = "white"
         label_count_17['bg'] = "yellow"
-        return
 
-    if label_count_17['bg'] == "yellow":
+    elif label_count_17['bg'] == "yellow":
         label_count_17['bg'] = "white"
         label_count_18['bg'] = "yellow"
-        return
 
-    if label_count_18['bg'] == "yellow":
+    elif label_count_18['bg'] == "yellow":
         label_count_18['bg'] = "white"
         label_count_19['bg'] = "yellow"
-        return
 
+    else:
+        next_label3()
+
+
+def next_label3():
+    """
+    This function moves on to the next field
+    :return:
+    """
     if label_count_19['bg'] == "yellow":
         label_count_19['bg'] = "white"
         label_count_20['bg'] = "yellow"
-        return
 
-    if label_count_20['bg'] == "yellow":
+    elif label_count_20['bg'] == "yellow":
         label_count_20['bg'] = "white"
         if label_single['bg'] == "yellow":
             label_count_25['bg'] = "yellow"
@@ -899,12 +886,11 @@ def next_label():
             label_count_50['bg'] = "yellow"
         else:
             end_game()
-        return
 
-    if label_count_25['bg'] == "yellow":
+    elif label_count_25['bg'] == "yellow":
         end_game()
 
-    if label_count_50['bg'] == "yellow":
+    elif label_count_50['bg'] == "yellow":
         end_game()
 
 
@@ -974,6 +960,14 @@ def start_game():
     label_19.place(x=200, y=480, height=30, width=100)
     label_20.place(x=200, y=520, height=30, width=100)
 
+    start_game2()
+
+
+def start_game2():
+    """
+    After the mode was chosen, the game can be started
+    :return:
+    """
     label_count_1.place(x=110, y=160, height=30, width=30)
     label_count_2.place(x=110, y=200, height=30, width=30)
     label_count_3.place(x=110, y=240, height=30, width=30)
@@ -1138,6 +1132,6 @@ if __name__ == "__main__":
                           command=minus)
 
     button_next = Button(gui, text="Next", bd=4, fg="white", bg="black", font=('Arial', 11),
-                         command=next_label)
+                         command=next_label1)
 
     gui.mainloop()
