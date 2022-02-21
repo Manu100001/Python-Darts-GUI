@@ -21,8 +21,6 @@ from openpyxl.styles import PatternFill
 
 all_player_names = []
 
-# TODO add choice to add player names
-
 
 def button_exit():
     """
@@ -99,10 +97,6 @@ def reset():
     switch_mode_button.place(x=490, y=0, height=30, width=100)
     start_button.place(x=750, y=0, height=30, width=100)
 
-    # disable enter result button
-    button_enter_results.pack()
-    button_enter_results.pack_forget()
-
     # disable plus,minus, next and back button
     button_plus.pack()
     button_minus.pack()
@@ -123,6 +117,19 @@ def reset():
     label_player6_name.pack()
     label_player7_name.pack()
     label_player8_name.pack()
+
+    reset2()
+
+
+def reset2():
+    """
+    This function is called by the reset()- function
+    The function is split due to pylint - warnings
+    :return:
+    """
+    # disable enter result button
+    button_enter_results.pack()
+    button_enter_results.pack_forget()
 
     label_player1_name.pack_forget()
     label_player2_name.pack_forget()
@@ -148,15 +155,7 @@ def reset():
 
     label_semi1.pack_forget()
     label_semi2.pack_forget()
-    reset2()
 
-
-def reset2():
-    """
-    This function is called by the reset()- function
-    The function is split due to pylint - warnings
-    :return:
-    """
     label_winner_4players.pack()
     label_winner_8players.pack()
 
@@ -185,6 +184,15 @@ def reset2():
     label_result_quarter2.pack()
     label_result_quarter3.pack()
     label_result_quarter4.pack()
+    reset3()
+
+
+def reset3():
+    """
+    This function is called by the reset()- function
+    The function is split due to pylint - warnings
+    :return:
+    """
 
     label_result_quarter1.pack_forget()
     label_result_quarter2.pack_forget()
