@@ -214,9 +214,13 @@ def switch_mode():
         label_mode_4players['bg'] = "white"
         label_mode_8players['bg'] = "yellow"
 
-    else:
-        label_mode_4players['bg'] = "yellow"
+    elif label_mode_8players['bg'] == "yellow":
         label_mode_8players['bg'] = "white"
+        label_mode_16players['bg'] = "yellow"
+
+    else:
+        label_mode_16players['bg'] = "white"
+        label_mode_4players['bg'] = "yellow"
 
 
 def switch_order():
@@ -1189,11 +1193,13 @@ def start():
     start_button.pack()
     label_mode_4players.pack()
     label_mode_8players.pack()
+    label_mode_16players.pack()
     switch_mode_button.pack()
 
     start_button.pack_forget()
     label_mode_4players.pack_forget()
     label_mode_8players.pack_forget()
+    label_mode_16players.pack_forget()
     switch_mode_button.pack_forget()
 
     label_name_order1.pack()
@@ -1203,6 +1209,7 @@ def start():
     label_name_order2.place(x=537.5, y=30, height=30, width=100)
     button_switch_order.place(x=587.5, y=0, height=30, width=100)
 
+    # 4 names always required
     input_name1.pack()
     input_name2.pack()
     input_name3.pack()
@@ -1228,7 +1235,42 @@ def start():
         label_info_names.pack()
         label_info_names.place(x=537.5, y=82.5, height=30, width=200)
 
+    elif label_mode_16players['bg'] == "yellow":
+        input_name5.pack()
+        input_name6.pack()
+        input_name7.pack()
+        input_name8.pack()
+
+        input_name9.pack()
+        input_name10.pack()
+        input_name11.pack()
+        input_name12.pack()
+
+        input_name13.pack()
+        input_name14.pack()
+        input_name15.pack()
+        input_name16.pack()
+
+        input_name5.place(x=337.5, y=332.5, height=30, width=250)
+        input_name6.place(x=337.5, y=382.5, height=30, width=250)
+        input_name7.place(x=337.5, y=432.5, height=30, width=250)
+        input_name8.place(x=337.5, y=482.5, height=30, width=250)
+
+        input_name9.place(x=687.5, y=132.5, height=30, width=250)
+        input_name10.place(x=687.5, y=182.5, height=30, width=250)
+        input_name11.place(x=687.5, y=232.5, height=30, width=250)
+        input_name12.place(x=687.5, y=282.5, height=30, width=250)
+        input_name13.place(x=687.5, y=332.5, height=30, width=250)
+        input_name14.place(x=687.5, y=382.5, height=30, width=250)
+        input_name15.place(x=687.5, y=432.5, height=30, width=250)
+        input_name16.place(x=687.5, y=482.5, height=30, width=250)
+
+        # enable label with entering all names
+        label_info_names.pack()
+        label_info_names.place(x=537.5, y=82.5, height=30, width=200)
+
     else:
+        # for 4 players
         # enable label with entering all names
         label_info_names.pack()
         label_info_names.place(x=362.5, y=82.5, height=30, width=200)
@@ -1251,24 +1293,25 @@ if __name__ == "__main__":
                          font=('Arial', 10, 'bold'))
     exit_button.place(x=1175, y=0, height=80, width=100)
 
-    # define button for switching mode (4 or 8 players)
+    # define button for switching mode (4, 8 or 16 players)
     switch_mode_button = Button(gui, text="Switch mode", bd=1, fg="black", bg="white",
                                 font=('Arial', 10), command=switch_mode)
 
-    switch_mode_button.place(x=490, y=0, height=30, width=100)
+    switch_mode_button.place(x=412.4, y=0, height=30, width=100)
 
     # define labels for switching mode (4 or 8 players)
-    label_mode_4players = Label(gui, text="4 Players", bg="white", font=('Arial', 10))
-    label_mode_8players = Label(gui, text="8 Players", bg="yellow", font=('Arial', 10))
-    label_mode_16players = Label(gui, text="16 Players", bg="yellow", font=('Arial', 10))
+    label_mode_4players = Label(gui, text="4 Players", bg="yellow", font=('Arial', 10))
+    label_mode_8players = Label(gui, text="8 Players", bg="white", font=('Arial', 10))
+    label_mode_16players = Label(gui, text="16 Players", bg="white", font=('Arial', 10))
 
-    label_mode_4players.place(x=610, y=0, height=30, width=60)
-    label_mode_8players.place(x=670, y=0, height=30, width=60)
+    label_mode_4players.place(x=532.5, y=0, height=30, width=70)
+    label_mode_8players.place(x=602.5, y=0, height=30, width=70)
+    label_mode_16players.place(x=672.5, y=0, height=30, width=70)
 
     # define start-button after the mode was chosen the tournament tree can be created
     start_button = Button(gui, text="Start", bg="lightgreen", font=('Arial', 10),
                           command=start)
-    start_button.place(x=750, y=0, height=30, width=100)
+    start_button.place(x=762.5, y=0, height=30, width=100)
 
     # define reset - button
     reset_button = Button(gui, text="Reset", bg="red", font=('Arial', 10, 'bold'), command=reset)
@@ -1303,6 +1346,15 @@ if __name__ == "__main__":
     input_name7 = Entry(gui, bd=1, font=('Arial', 13))
     input_name8 = Entry(gui, bd=1, font=('Arial', 13))
 
+    input_name9 = Entry(gui, bd=1, font=('Arial', 13))
+    input_name10 = Entry(gui, bd=1, font=('Arial', 13))
+    input_name11 = Entry(gui, bd=1, font=('Arial', 13))
+    input_name12 = Entry(gui, bd=1, font=('Arial', 13))
+    input_name13 = Entry(gui, bd=1, font=('Arial', 13))
+    input_name14 = Entry(gui, bd=1, font=('Arial', 13))
+    input_name15 = Entry(gui, bd=1, font=('Arial', 13))
+    input_name16 = Entry(gui, bd=1, font=('Arial', 13))
+
     # define label for entering names
     label_info_names = Label(gui, text="Please enter all names", font=('Arial', 10))
 
@@ -1318,7 +1370,7 @@ if __name__ == "__main__":
                                  font=('Arial', 10), command=switch_order)
 
     # ---------------------------------------------------------------------------------------------#
-    # define labels for 8 player names
+    # define labels for 16 player names
     label_player1_name = Label(gui, text="", font=('Arial', 10))
     label_player2_name = Label(gui, text="", font=('Arial', 10))
     label_player3_name = Label(gui, text="", font=('Arial', 10))
@@ -1328,15 +1380,36 @@ if __name__ == "__main__":
     label_player7_name = Label(gui, text="", font=('Arial', 10))
     label_player8_name = Label(gui, text="", font=('Arial', 10))
 
-    # define labels for 4 quarter finals
+    label_player9_name = Label(gui, text="", font=('Arial', 10))
+    label_player10_name = Label(gui, text="", font=('Arial', 10))
+    label_player11_name = Label(gui, text="", font=('Arial', 10))
+    label_player12_name = Label(gui, text="", font=('Arial', 10))
+    label_player13_name = Label(gui, text="", font=('Arial', 10))
+    label_player14_name = Label(gui, text="", font=('Arial', 10))
+    label_player15_name = Label(gui, text="", font=('Arial', 10))
+    label_player16_name = Label(gui, text="", font=('Arial', 10))
+
+    # define labels for 8 quarter finals
     label_quarter1 = Label(gui, text="", font=('Arial', 10))
     label_quarter2 = Label(gui, text="", font=('Arial', 10))
     label_quarter3 = Label(gui, text="", font=('Arial', 10))
     label_quarter4 = Label(gui, text="", font=('Arial', 10))
 
-    # define labels for 2 semi finals
+    label_quarter5 = Label(gui, text="", font=('Arial', 10))
+    label_quarter6 = Label(gui, text="", font=('Arial', 10))
+    label_quarter7 = Label(gui, text="", font=('Arial', 10))
+    label_quarter8 = Label(gui, text="", font=('Arial', 10))
+
+    # define labels for 4 semi finals
     label_semi1 = Label(gui, text="", font=('Arial', 10))
     label_semi2 = Label(gui, text="", font=('Arial', 10))
+
+    label_semi3 = Label(gui, text="", font=('Arial', 10))
+    label_semi4 = Label(gui, text="", font=('Arial', 10))
+
+    # define labels for 2 finals
+    label_final1 = Label(gui, text="", font=('Arial', 10))
+    label_final2 = Label(gui, text="", font=('Arial', 10))
 
     # define label for winner for 4 players
     label_winner_4players = Label(gui, text="", font=('Arial', 10))
@@ -1344,7 +1417,10 @@ if __name__ == "__main__":
     # define label for winner for 8 players
     label_winner_8players = Label(gui, text="", font=('Arial', 10))
 
-    # define result - labels for players 1-8
+    # define label for winner for 16 players
+    label_winner_16players = Label(gui, text="", font=('Arial', 10))
+
+    # define result - labels for players 1-16
     label_result_player1 = Label(gui, text="", font=('Arial', 10))
     label_result_player2 = Label(gui, text="", font=('Arial', 10))
     label_result_player3 = Label(gui, text="", font=('Arial', 10))
@@ -1354,14 +1430,34 @@ if __name__ == "__main__":
     label_result_player7 = Label(gui, text="", font=('Arial', 10))
     label_result_player8 = Label(gui, text="", font=('Arial', 10))
 
-    # define result - labels for 4 quarter
+    label_result_player9 = Label(gui, text="", font=('Arial', 10))
+    label_result_player10 = Label(gui, text="", font=('Arial', 10))
+    label_result_player11 = Label(gui, text="", font=('Arial', 10))
+    label_result_player12 = Label(gui, text="", font=('Arial', 10))
+    label_result_player13 = Label(gui, text="", font=('Arial', 10))
+    label_result_player14 = Label(gui, text="", font=('Arial', 10))
+    label_result_player15 = Label(gui, text="", font=('Arial', 10))
+    label_result_player16 = Label(gui, text="", font=('Arial', 10))
+
+    # define result - labels for 8 quarter
     label_result_quarter1 = Label(gui, text="", font=('Arial', 10))
     label_result_quarter2 = Label(gui, text="", font=('Arial', 10))
     label_result_quarter3 = Label(gui, text="", font=('Arial', 10))
     label_result_quarter4 = Label(gui, text="", font=('Arial', 10))
 
-    # define result - labels for 2 semi
+    label_result_quarter5 = Label(gui, text="", font=('Arial', 10))
+    label_result_quarter6 = Label(gui, text="", font=('Arial', 10))
+    label_result_quarter7 = Label(gui, text="", font=('Arial', 10))
+    label_result_quarter8 = Label(gui, text="", font=('Arial', 10))
+
+    # define result - labels for 4 semi
     label_result_semi1 = Label(gui, text="", font=('Arial', 10))
     label_result_semi2 = Label(gui, text="", font=('Arial', 10))
+    label_result_semi3 = Label(gui, text="", font=('Arial', 10))
+    label_result_semi4 = Label(gui, text="", font=('Arial', 10))
+
+    # define labels for 2 finals
+    label_result_final1 = Label(gui, text="", font=('Arial', 10))
+    label_result_final2 = Label(gui, text="", font=('Arial', 10))
 
     gui.mainloop()
