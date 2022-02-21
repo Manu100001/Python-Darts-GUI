@@ -243,35 +243,35 @@ def mode_4players():
     label_player3_name.pack()
     label_player4_name.pack()
 
-    label_player1_name.place(x=5, y=110, height=30, width=130)
-    label_player2_name.place(x=5, y=150, height=30, width=130)
-    label_player3_name.place(x=5, y=220, height=30, width=130)
-    label_player4_name.place(x=5, y=260, height=30, width=130)
+    label_player1_name.place(x=5, y=140, height=30, width=130)
+    label_player2_name.place(x=5, y=180, height=30, width=130)
+    label_player3_name.place(x=5, y=250, height=30, width=130)
+    label_player4_name.place(x=5, y=290, height=30, width=130)
 
     label_quarter1.pack()
     label_quarter2.pack()
 
-    label_quarter1.place(x=180, y=165, height=30, width=130)
-    label_quarter2.place(x=180, y=205, height=30, width=130)
+    label_quarter1.place(x=180, y=195, height=30, width=130)
+    label_quarter2.place(x=180, y=235, height=30, width=130)
 
     label_winner_4players.pack()
-    label_winner_4players.place(x=355, y=185, height=30, width=130)
+    label_winner_4players.place(x=355, y=215, height=30, width=130)
 
     label_result_player1.pack()
     label_result_player2.pack()
     label_result_player3.pack()
     label_result_player4.pack()
 
-    label_result_player1.place(x=136, y=110, height=30, width=30)
-    label_result_player2.place(x=136, y=150, height=30, width=30)
-    label_result_player3.place(x=136, y=220, height=30, width=30)
-    label_result_player4.place(x=136, y=260, height=30, width=30)
+    label_result_player1.place(x=136, y=140, height=30, width=30)
+    label_result_player2.place(x=136, y=180, height=30, width=30)
+    label_result_player3.place(x=136, y=250, height=30, width=30)
+    label_result_player4.place(x=136, y=290, height=30, width=30)
 
     label_result_quarter1.pack()
     label_result_quarter2.pack()
 
-    label_result_quarter1.place(x=311, y=165, height=30, width=30)
-    label_result_quarter2.place(x=311, y=205, height=30, width=30)
+    label_result_quarter1.place(x=311, y=195, height=30, width=30)
+    label_result_quarter2.place(x=311, y=235, height=30, width=30)
 
 
 def mode_8players():
@@ -288,33 +288,33 @@ def mode_8players():
     label_player7_name.pack()
     label_player8_name.pack()
 
-    label_player1_name.place(x=5, y=110, height=30, width=130)
-    label_player2_name.place(x=5, y=150, height=30, width=130)
-    label_player3_name.place(x=5, y=220, height=30, width=130)
-    label_player4_name.place(x=5, y=260, height=30, width=130)
-    label_player5_name.place(x=5, y=330, height=30, width=130)
-    label_player6_name.place(x=5, y=370, height=30, width=130)
-    label_player7_name.place(x=5, y=440, height=30, width=130)
-    label_player8_name.place(x=5, y=480, height=30, width=130)
+    label_player1_name.place(x=5, y=140, height=30, width=130)
+    label_player2_name.place(x=5, y=180, height=30, width=130)
+    label_player3_name.place(x=5, y=250, height=30, width=130)
+    label_player4_name.place(x=5, y=290, height=30, width=130)
+    label_player5_name.place(x=5, y=360, height=30, width=130)
+    label_player6_name.place(x=5, y=400, height=30, width=130)
+    label_player7_name.place(x=5, y=470, height=30, width=130)
+    label_player8_name.place(x=5, y=510, height=30, width=130)
 
     label_quarter1.pack()
     label_quarter2.pack()
     label_quarter3.pack()
     label_quarter4.pack()
 
-    label_quarter1.place(x=180, y=165, height=30, width=130)
-    label_quarter2.place(x=180, y=205, height=30, width=130)
-    label_quarter3.place(x=180, y=385, height=30, width=130)
-    label_quarter4.place(x=180, y=425, height=30, width=130)
+    label_quarter1.place(x=180, y=195, height=30, width=130)
+    label_quarter2.place(x=180, y=235, height=30, width=130)
+    label_quarter3.place(x=180, y=415, height=30, width=130)
+    label_quarter4.place(x=180, y=455, height=30, width=130)
 
     label_semi1.pack()
     label_semi2.pack()
 
-    label_semi1.place(x=355, y=270, height=30, width=130)
-    label_semi2.place(x=355, y=310, height=30, width=130)
+    label_semi1.place(x=355, y=300, height=30, width=130)
+    label_semi2.place(x=355, y=340, height=30, width=130)
 
     label_winner_8players.pack()
-    label_winner_8players.place(x=530, y=290, height=30, width=130)
+    label_winner_8players.place(x=530, y=320, height=30, width=130)
     mode_8players2()
 
 
@@ -333,30 +333,30 @@ def mode_8players2():
     label_result_player7.pack()
     label_result_player8.pack()
 
-    label_result_player1.place(x=136, y=110, height=30, width=30)
-    label_result_player2.place(x=136, y=150, height=30, width=30)
-    label_result_player3.place(x=136, y=220, height=30, width=30)
-    label_result_player4.place(x=136, y=260, height=30, width=30)
-    label_result_player5.place(x=136, y=330, height=30, width=30)
-    label_result_player6.place(x=136, y=370, height=30, width=30)
-    label_result_player7.place(x=136, y=440, height=30, width=30)
-    label_result_player8.place(x=136, y=480, height=30, width=30)
+    label_result_player1.place(x=136, y=140, height=30, width=30)
+    label_result_player2.place(x=136, y=180, height=30, width=30)
+    label_result_player3.place(x=136, y=250, height=30, width=30)
+    label_result_player4.place(x=136, y=290, height=30, width=30)
+    label_result_player5.place(x=136, y=360, height=30, width=30)
+    label_result_player6.place(x=136, y=400, height=30, width=30)
+    label_result_player7.place(x=136, y=470, height=30, width=30)
+    label_result_player8.place(x=136, y=510, height=30, width=30)
 
     label_result_quarter1.pack()
     label_result_quarter2.pack()
     label_result_quarter3.pack()
     label_result_quarter4.pack()
 
-    label_result_quarter1.place(x=311, y=165, height=30, width=30)
-    label_result_quarter2.place(x=311, y=205, height=30, width=30)
-    label_result_quarter3.place(x=311, y=385, height=30, width=30)
-    label_result_quarter4.place(x=311, y=425, height=30, width=30)
+    label_result_quarter1.place(x=311, y=195, height=30, width=30)
+    label_result_quarter2.place(x=311, y=235, height=30, width=30)
+    label_result_quarter3.place(x=311, y=415, height=30, width=30)
+    label_result_quarter4.place(x=311, y=455, height=30, width=30)
 
     label_result_semi1.pack()
     label_result_semi2.pack()
 
-    label_result_semi1.place(x=486, y=270, height=30, width=30)
-    label_result_semi2.place(x=486, y=310, height=30, width=30)
+    label_result_semi1.place(x=486, y=300, height=30, width=30)
+    label_result_semi2.place(x=486, y=340, height=30, width=30)
 
 
 def check_names():
@@ -608,7 +608,7 @@ def back_third_round():
         label_result_semi1['bg'] = "yellow"
 
 
-def next_button1():
+def next_button_first_1():
     """
     This function switches the labels of the player names (4 or 8) forwards
     :return:
@@ -620,43 +620,51 @@ def next_button1():
         next_second_round()
 
     else:
-        if label_result_player1['bg'] == "yellow":
-            label_result_player1['bg'] = "white"
-            label_result_player2['bg'] = "yellow"
+        next_button_first_2()
 
-        elif label_result_player2['bg'] == "yellow":
-            label_result_player2['bg'] = "white"
-            label_result_player3['bg'] = "yellow"
 
-        elif label_result_player3['bg'] == "yellow":
-            label_result_player3['bg'] = "white"
-            label_result_player4['bg'] = "yellow"
+def next_button_first_2():
+    """
 
-        elif label_result_player4['bg'] == "yellow":
-            if label_mode_4players['bg'] == "yellow":
-                if check_if_all_labels_filled():
-                    label_result_player4['bg'] = "white"
-                    calculate1()
-            else:
-                label_result_player4['bg'] = "white"
-                label_result_player5['bg'] = "yellow"
+    :return:
+    """
+    if label_result_player1['bg'] == "yellow":
+        label_result_player1['bg'] = "white"
+        label_result_player2['bg'] = "yellow"
 
-        elif label_result_player5['bg'] == "yellow":
-            label_result_player5['bg'] = "white"
-            label_result_player6['bg'] = "yellow"
+    elif label_result_player2['bg'] == "yellow":
+        label_result_player2['bg'] = "white"
+        label_result_player3['bg'] = "yellow"
 
-        elif label_result_player6['bg'] == "yellow":
-            label_result_player6['bg'] = "white"
-            label_result_player7['bg'] = "yellow"
+    elif label_result_player3['bg'] == "yellow":
+        label_result_player3['bg'] = "white"
+        label_result_player4['bg'] = "yellow"
 
-        elif label_result_player7['bg'] == "yellow":
-            label_result_player7['bg'] = "white"
-            label_result_player8['bg'] = "yellow"
-
-        elif label_result_player8['bg'] == "yellow":
+    elif label_result_player4['bg'] == "yellow":
+        if label_mode_4players['bg'] == "yellow":
             if check_if_all_labels_filled():
-                label_result_player8['bg'] = "white"
+                label_result_player4['bg'] = "white"
                 calculate1()
+        else:
+            label_result_player4['bg'] = "white"
+            label_result_player5['bg'] = "yellow"
+
+    elif label_result_player5['bg'] == "yellow":
+        label_result_player5['bg'] = "white"
+        label_result_player6['bg'] = "yellow"
+
+    elif label_result_player6['bg'] == "yellow":
+        label_result_player6['bg'] = "white"
+        label_result_player7['bg'] = "yellow"
+
+    elif label_result_player7['bg'] == "yellow":
+        label_result_player7['bg'] = "white"
+        label_result_player8['bg'] = "yellow"
+
+    elif label_result_player8['bg'] == "yellow":
+        if check_if_all_labels_filled():
+            label_result_player8['bg'] = "white"
+            calculate1()
 
 
 def next_second_round():
@@ -748,7 +756,7 @@ def check_if_all_labels_filled():
             return False
 
         if int(label_result_player5['text']) == int(label_result_player6['text']) \
-                or int(label_result_player7['text'] == int(label_result_player8['text'])):
+                or int(label_result_player7['text']) == int(label_result_player8['text']):
             messagebox.showinfo("Error", "Check if everything has been entered correctly.")
             return False
 
@@ -911,7 +919,7 @@ def calculate3():
     end_game()
 
 
-def plus_first_round():
+def plus_first_round_1():
     """
     This function increments
     :return:
@@ -941,35 +949,53 @@ def plus_first_round():
             else:
                 label_result_player3['text'] = int(label_result_player3['text']) + 1
 
-        elif label_result_player4['bg'] == "yellow":
-            if label_result_player4['text'] == "":
-                label_result_player4['text'] = "1"
-            else:
-                label_result_player4['text'] = int(label_result_player4['text']) + 1
+        else:
+            plus_first_round_2()
 
-        elif label_result_player5['bg'] == "yellow":
-            if label_result_player5['text'] == "":
-                label_result_player5['text'] = "1"
-            else:
-                label_result_player5['text'] = int(label_result_player5['text']) + 1
 
-        elif label_result_player6['bg'] == "yellow":
-            if label_result_player6['text'] == "":
-                label_result_player6['text'] = "1"
-            else:
-                label_result_player6['text'] = int(label_result_player6['text']) + 1
+def plus_first_round_2():
+    """
 
-        elif label_result_player7['bg'] == "yellow":
-            if label_result_player7['text'] == "":
-                label_result_player7['text'] = "1"
-            else:
-                label_result_player7['text'] = int(label_result_player7['text']) + 1
+    :return:
+    """
+    if label_result_player4['bg'] == "yellow":
+        if label_result_player4['text'] == "":
+            label_result_player4['text'] = "1"
+        else:
+            label_result_player4['text'] = int(label_result_player4['text']) + 1
 
-        elif label_result_player8['bg'] == "yellow":
-            if label_result_player8['text'] == "":
-                label_result_player8['text'] = "1"
-            else:
-                label_result_player8['text'] = int(label_result_player8['text']) + 1
+    elif label_result_player5['bg'] == "yellow":
+        if label_result_player5['text'] == "":
+            label_result_player5['text'] = "1"
+        else:
+            label_result_player5['text'] = int(label_result_player5['text']) + 1
+
+    elif label_result_player6['bg'] == "yellow":
+        if label_result_player6['text'] == "":
+            label_result_player6['text'] = "1"
+        else:
+            label_result_player6['text'] = int(label_result_player6['text']) + 1
+
+    else:
+        plus_first_round_3()
+
+
+def plus_first_round_3():
+    """
+
+    :return:
+    """
+    if label_result_player7['bg'] == "yellow":
+        if label_result_player7['text'] == "":
+            label_result_player7['text'] = "1"
+        else:
+            label_result_player7['text'] = int(label_result_player7['text']) + 1
+
+    elif label_result_player8['bg'] == "yellow":
+        if label_result_player8['text'] == "":
+            label_result_player8['text'] = "1"
+        else:
+            label_result_player8['text'] = int(label_result_player8['text']) + 1
 
 
 def minus_first_round():
@@ -996,41 +1022,59 @@ def minus_first_round():
             elif int(label_result_player2['text']) > 0:
                 label_result_player2['text'] = int(label_result_player2['text']) - 1
 
-        elif label_result_player3['bg'] == "yellow":
-            if label_result_player3['text'] == "":
-                label_result_player3['text'] = "0"
-            elif int(label_result_player3['text']) > 0:
-                label_result_player3['text'] = int(label_result_player3['text']) - 1
+        else:
+            minus_first_round_2()
 
-        elif label_result_player4['bg'] == "yellow":
-            if label_result_player4['text'] == "":
-                label_result_player4['text'] = "0"
-            elif int(label_result_player4['text']) > 0:
-                label_result_player4['text'] = int(label_result_player4['text']) - 1
 
-        elif label_result_player5['bg'] == "yellow":
-            if label_result_player5['text'] == "":
-                label_result_player5['text'] = "0"
-            elif int(label_result_player5['text']) > 0:
-                label_result_player5['text'] = int(label_result_player5['text']) - 1
+def minus_first_round_2():
+    """
 
-        elif label_result_player6['bg'] == "yellow":
-            if label_result_player6['text'] == "":
-                label_result_player6['text'] = "0"
-            elif int(label_result_player6['text']) > 0:
-                label_result_player6['text'] = int(label_result_player6['text']) - 1
+    :return:
+    """
+    if label_result_player3['bg'] == "yellow":
+        if label_result_player3['text'] == "":
+            label_result_player3['text'] = "0"
+        elif int(label_result_player3['text']) > 0:
+            label_result_player3['text'] = int(label_result_player3['text']) - 1
 
-        elif label_result_player7['bg'] == "yellow":
-            if label_result_player7['text'] == "":
-                label_result_player7['text'] = "0"
-            elif int(label_result_player7['text']) > 0:
-                label_result_player7['text'] = int(label_result_player7['text']) - 1
+    elif label_result_player4['bg'] == "yellow":
+        if label_result_player4['text'] == "":
+            label_result_player4['text'] = "0"
+        elif int(label_result_player4['text']) > 0:
+            label_result_player4['text'] = int(label_result_player4['text']) - 1
 
-        elif label_result_player8['bg'] == "yellow":
-            if label_result_player8['text'] == "":
-                label_result_player8['text'] = "0"
-            elif int(label_result_player8['text']) > 0:
-                label_result_player8['text'] = int(label_result_player8['text']) - 1
+    elif label_result_player5['bg'] == "yellow":
+        if label_result_player5['text'] == "":
+            label_result_player5['text'] = "0"
+        elif int(label_result_player5['text']) > 0:
+            label_result_player5['text'] = int(label_result_player5['text']) - 1
+
+    else:
+        minus_first_round_3()
+
+
+def minus_first_round_3():
+    """
+
+    :return:
+    """
+    if label_result_player6['bg'] == "yellow":
+        if label_result_player6['text'] == "":
+            label_result_player6['text'] = "0"
+        elif int(label_result_player6['text']) > 0:
+            label_result_player6['text'] = int(label_result_player6['text']) - 1
+
+    elif label_result_player7['bg'] == "yellow":
+        if label_result_player7['text'] == "":
+            label_result_player7['text'] = "0"
+        elif int(label_result_player7['text']) > 0:
+            label_result_player7['text'] = int(label_result_player7['text']) - 1
+
+    elif label_result_player8['bg'] == "yellow":
+        if label_result_player8['text'] == "":
+            label_result_player8['text'] = "0"
+        elif int(label_result_player8['text']) > 0:
+            label_result_player8['text'] = int(label_result_player8['text']) - 1
 
 
 def plus_second_round():
@@ -1216,6 +1260,7 @@ if __name__ == "__main__":
     # define labels for switching mode (4 or 8 players)
     label_mode_4players = Label(gui, text="4 Players", bg="white", font=('Arial', 10))
     label_mode_8players = Label(gui, text="8 Players", bg="yellow", font=('Arial', 10))
+    label_mode_16players = Label(gui, text="16 Players", bg="yellow", font=('Arial', 10))
 
     label_mode_4players.place(x=610, y=0, height=30, width=60)
     label_mode_8players.place(x=670, y=0, height=30, width=60)
@@ -1233,38 +1278,20 @@ if __name__ == "__main__":
     button_enter_results = Button(gui, text="Enter results", bd=1, fg="black", bg="lightgreen",
                                   font=('Arial', 10), command=enter_results)
 
-    button_enter_results.place(x=5, y=10, height=30, width=130)
-
-    button_enter_results.pack()
-    button_enter_results.pack_forget()
-
     # define next-button for entering results
     button_next = Button(gui, text="Next", bd=1, fg="black", bg="lightgreen",
-                         font=('Arial', 10), command=next_button1)
-    button_next.place(x=215, y=10, height=30, width=100)
-    button_next.pack()
-    button_next.pack_forget()
+                         font=('Arial', 10), command=next_button_first_1)
 
     # define back-button for entering results
     button_back = Button(gui, text="Back", bd=1, fg="black", bg="lightgreen",
                          font=('Arial', 10), command=back_button1)
-    button_back.place(x=5, y=10, height=30, width=100)
-    button_back.pack()
-    button_back.pack_forget()
 
     # define plus and minus buttons
     button_minus = Button(gui, text="-", bd=1, fg="black", bg="red",
                           font=('Arial', 10), command=minus_first_round)
 
     button_plus = Button(gui, text="+", bd=1, fg="black", bg="lightgreen",
-                         font=('Arial', 10), command=plus_first_round)
-
-    button_minus.place(x=135, y=10, height=30, width=30)
-    button_plus.place(x=165, y=10, height=30, width=30)
-    button_minus.pack()
-    button_plus.pack()
-    button_minus.pack_forget()
-    button_plus.pack_forget()
+                         font=('Arial', 10), command=plus_first_round_1)
 
     # define labels, text-fields and buttons for name input
     input_name1 = Entry(gui, bd=1, font=('Arial', 13))
@@ -1276,35 +1303,13 @@ if __name__ == "__main__":
     input_name7 = Entry(gui, bd=1, font=('Arial', 13))
     input_name8 = Entry(gui, bd=1, font=('Arial', 13))
 
-    input_name1.pack()
-    input_name2.pack()
-    input_name3.pack()
-    input_name4.pack()
-    input_name5.pack()
-    input_name6.pack()
-    input_name7.pack()
-    input_name8.pack()
-
-    input_name1.pack_forget()
-    input_name2.pack_forget()
-    input_name3.pack_forget()
-    input_name4.pack_forget()
-    input_name5.pack_forget()
-    input_name6.pack_forget()
-    input_name7.pack_forget()
-    input_name8.pack_forget()
-
     # define label for entering names
     label_info_names = Label(gui, text="Please enter all names", font=('Arial', 10))
-    label_info_names.pack()
-    label_info_names.pack_forget()
 
     # define button for entering names
 
     button_enter_names = Button(gui, text="Continue", bg="lightgreen",
                                 font=('Arial', 10), command=check_names)
-    button_enter_names.pack()
-    button_enter_names.pack_forget()
 
     # define button and label for name - order
     label_name_order1 = Label(gui, text="Random order", bg="yellow", font=('Arial', 10))
@@ -1323,38 +1328,21 @@ if __name__ == "__main__":
     label_player7_name = Label(gui, text="", font=('Arial', 10))
     label_player8_name = Label(gui, text="", font=('Arial', 10))
 
-    label_player1_name.place(x=5, y=110, height=30, width=130)
-    label_player2_name.place(x=5, y=150, height=30, width=130)
-    label_player3_name.place(x=5, y=220, height=30, width=130)
-    label_player4_name.place(x=5, y=260, height=30, width=130)
-    label_player5_name.place(x=5, y=330, height=30, width=130)
-    label_player6_name.place(x=5, y=370, height=30, width=130)
-    label_player7_name.place(x=5, y=440, height=30, width=130)
-    label_player8_name.place(x=5, y=480, height=30, width=130)
-
     # define labels for 4 quarter finals
     label_quarter1 = Label(gui, text="", font=('Arial', 10))
     label_quarter2 = Label(gui, text="", font=('Arial', 10))
     label_quarter3 = Label(gui, text="", font=('Arial', 10))
     label_quarter4 = Label(gui, text="", font=('Arial', 10))
-    label_quarter1.place(x=180, y=165, height=30, width=130)
-    label_quarter2.place(x=180, y=205, height=30, width=130)
-    label_quarter3.place(x=180, y=385, height=30, width=130)
-    label_quarter4.place(x=180, y=425, height=30, width=130)
 
     # define labels for 2 semi finals
     label_semi1 = Label(gui, text="", font=('Arial', 10))
     label_semi2 = Label(gui, text="", font=('Arial', 10))
-    label_semi1.place(x=355, y=270, height=30, width=130)
-    label_semi2.place(x=355, y=310, height=30, width=130)
 
     # define label for winner for 4 players
     label_winner_4players = Label(gui, text="", font=('Arial', 10))
-    label_winner_4players.place(x=355, y=185, height=30, width=130)
 
     # define label for winner for 8 players
     label_winner_8players = Label(gui, text="", font=('Arial', 10))
-    label_winner_8players.place(x=530, y=290, height=30, width=130)
 
     # define result - labels for players 1-8
     label_result_player1 = Label(gui, text="", font=('Arial', 10))
@@ -1366,106 +1354,14 @@ if __name__ == "__main__":
     label_result_player7 = Label(gui, text="", font=('Arial', 10))
     label_result_player8 = Label(gui, text="", font=('Arial', 10))
 
-    label_result_player1.place(x=136, y=110, height=30, width=30)
-    label_result_player2.place(x=136, y=150, height=30, width=30)
-    label_result_player3.place(x=136, y=220, height=30, width=30)
-    label_result_player4.place(x=136, y=260, height=30, width=30)
-    label_result_player5.place(x=136, y=330, height=30, width=30)
-    label_result_player6.place(x=136, y=370, height=30, width=30)
-    label_result_player7.place(x=136, y=440, height=30, width=30)
-    label_result_player8.place(x=136, y=480, height=30, width=30)
-
     # define result - labels for 4 quarter
     label_result_quarter1 = Label(gui, text="", font=('Arial', 10))
     label_result_quarter2 = Label(gui, text="", font=('Arial', 10))
     label_result_quarter3 = Label(gui, text="", font=('Arial', 10))
     label_result_quarter4 = Label(gui, text="", font=('Arial', 10))
 
-    label_result_quarter1.place(x=311, y=165, height=30, width=30)
-    label_result_quarter2.place(x=311, y=205, height=30, width=30)
-    label_result_quarter3.place(x=311, y=385, height=30, width=30)
-    label_result_quarter4.place(x=311, y=425, height=30, width=30)
-
     # define result - labels for 2 semi
     label_result_semi1 = Label(gui, text="", font=('Arial', 10))
     label_result_semi2 = Label(gui, text="", font=('Arial', 10))
-
-    label_result_semi1.place(x=486, y=270, height=30, width=30)
-    label_result_semi2.place(x=486, y=310, height=30, width=30)
-
-    # ---------------------------------------------------------------------------------------------#
-    # disable all labels
-    label_player1_name.pack()
-    label_player2_name.pack()
-    label_player3_name.pack()
-    label_player4_name.pack()
-    label_player5_name.pack()
-    label_player6_name.pack()
-    label_player7_name.pack()
-    label_player8_name.pack()
-
-    label_player1_name.pack_forget()
-    label_player2_name.pack_forget()
-    label_player3_name.pack_forget()
-    label_player4_name.pack_forget()
-    label_player5_name.pack_forget()
-    label_player6_name.pack_forget()
-    label_player7_name.pack_forget()
-    label_player8_name.pack_forget()
-
-    label_quarter1.pack()
-    label_quarter2.pack()
-    label_quarter3.pack()
-    label_quarter4.pack()
-
-    label_quarter1.pack_forget()
-    label_quarter2.pack_forget()
-    label_quarter3.pack_forget()
-    label_quarter4.pack_forget()
-
-    label_semi1.pack()
-    label_semi2.pack()
-
-    label_semi1.pack_forget()
-    label_semi2.pack_forget()
-
-    label_winner_4players.pack()
-    label_winner_8players.pack()
-
-    label_winner_4players.pack_forget()
-    label_winner_8players.pack_forget()
-
-    label_result_player1.pack()
-    label_result_player2.pack()
-    label_result_player3.pack()
-    label_result_player4.pack()
-    label_result_player5.pack()
-    label_result_player6.pack()
-    label_result_player7.pack()
-    label_result_player8.pack()
-
-    label_result_player1.pack_forget()
-    label_result_player2.pack_forget()
-    label_result_player3.pack_forget()
-    label_result_player4.pack_forget()
-    label_result_player5.pack_forget()
-    label_result_player6.pack_forget()
-    label_result_player7.pack_forget()
-    label_result_player8.pack_forget()
-
-    label_result_quarter1.pack()
-    label_result_quarter2.pack()
-    label_result_quarter3.pack()
-    label_result_quarter4.pack()
-
-    label_result_quarter1.pack_forget()
-    label_result_quarter2.pack_forget()
-    label_result_quarter3.pack_forget()
-    label_result_quarter4.pack_forget()
-
-    label_result_semi1.pack()
-    label_result_semi2.pack()
-    label_result_semi1.pack_forget()
-    label_result_semi2.pack_forget()
 
     gui.mainloop()
