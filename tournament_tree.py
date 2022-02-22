@@ -242,37 +242,20 @@ def mode_4players():
     This function creates all required labels for 4 players
     :return:
     """
-    label_player1_name.pack()
-    label_player2_name.pack()
-    label_player3_name.pack()
-    label_player4_name.pack()
-
     label_player1_name.place(x=5, y=140, height=30, width=130)
     label_player2_name.place(x=5, y=180, height=30, width=130)
     label_player3_name.place(x=5, y=250, height=30, width=130)
     label_player4_name.place(x=5, y=290, height=30, width=130)
 
-    label_quarter1.pack()
-    label_quarter2.pack()
-
     label_quarter1.place(x=180, y=195, height=30, width=130)
     label_quarter2.place(x=180, y=235, height=30, width=130)
 
-    label_winner_4players.pack()
     label_winner_4players.place(x=355, y=215, height=30, width=130)
-
-    label_result_player1.pack()
-    label_result_player2.pack()
-    label_result_player3.pack()
-    label_result_player4.pack()
 
     label_result_player1.place(x=136, y=140, height=30, width=30)
     label_result_player2.place(x=136, y=180, height=30, width=30)
     label_result_player3.place(x=136, y=250, height=30, width=30)
     label_result_player4.place(x=136, y=290, height=30, width=30)
-
-    label_result_quarter1.pack()
-    label_result_quarter2.pack()
 
     label_result_quarter1.place(x=311, y=195, height=30, width=30)
     label_result_quarter2.place(x=311, y=235, height=30, width=30)
@@ -283,14 +266,58 @@ def mode_8players():
     This function creates all required labels for 8 players
     :return:
     """
-    label_player1_name.pack()
-    label_player2_name.pack()
-    label_player3_name.pack()
-    label_player4_name.pack()
-    label_player5_name.pack()
-    label_player6_name.pack()
-    label_player7_name.pack()
-    label_player8_name.pack()
+    label_player1_name.place(x=5, y=140, height=30, width=130)
+    label_player2_name.place(x=5, y=180, height=30, width=130)
+    label_player3_name.place(x=5, y=250, height=30, width=130)
+    label_player4_name.place(x=5, y=290, height=30, width=130)
+    label_player5_name.place(x=5, y=360, height=30, width=130)
+    label_player6_name.place(x=5, y=400, height=30, width=130)
+    label_player7_name.place(x=5, y=470, height=30, width=130)
+    label_player8_name.place(x=5, y=510, height=30, width=130)
+
+    label_quarter1.place(x=180, y=195, height=30, width=130)
+    label_quarter2.place(x=180, y=235, height=30, width=130)
+    label_quarter3.place(x=180, y=415, height=30, width=130)
+    label_quarter4.place(x=180, y=455, height=30, width=130)
+
+    label_semi1.place(x=355, y=300, height=30, width=130)
+    label_semi2.place(x=355, y=340, height=30, width=130)
+
+    label_winner_8players.place(x=530, y=320, height=30, width=130)
+
+    mode_8players2()
+
+
+def mode_8players2():
+    """
+    This function is called by mode_8players
+    Due to pylint warnings, the function was split
+    :return:
+    """
+    label_result_player1.place(x=136, y=140, height=30, width=30)
+    label_result_player2.place(x=136, y=180, height=30, width=30)
+    label_result_player3.place(x=136, y=250, height=30, width=30)
+    label_result_player4.place(x=136, y=290, height=30, width=30)
+    label_result_player5.place(x=136, y=360, height=30, width=30)
+    label_result_player6.place(x=136, y=400, height=30, width=30)
+    label_result_player7.place(x=136, y=470, height=30, width=30)
+    label_result_player8.place(x=136, y=510, height=30, width=30)
+
+    label_result_quarter1.place(x=311, y=195, height=30, width=30)
+    label_result_quarter2.place(x=311, y=235, height=30, width=30)
+    label_result_quarter3.place(x=311, y=415, height=30, width=30)
+    label_result_quarter4.place(x=311, y=455, height=30, width=30)
+
+    label_result_semi1.place(x=486, y=300, height=30, width=30)
+    label_result_semi2.place(x=486, y=340, height=30, width=30)
+
+
+def mode_16players():
+    """
+
+    :return:
+    """
+    mode_8players2()
 
     label_player1_name.place(x=5, y=140, height=30, width=130)
     label_player2_name.place(x=5, y=180, height=30, width=130)
@@ -301,66 +328,55 @@ def mode_8players():
     label_player7_name.place(x=5, y=470, height=30, width=130)
     label_player8_name.place(x=5, y=510, height=30, width=130)
 
-    label_quarter1.pack()
-    label_quarter2.pack()
-    label_quarter3.pack()
-    label_quarter4.pack()
-
     label_quarter1.place(x=180, y=195, height=30, width=130)
     label_quarter2.place(x=180, y=235, height=30, width=130)
     label_quarter3.place(x=180, y=415, height=30, width=130)
     label_quarter4.place(x=180, y=455, height=30, width=130)
 
-    label_semi1.pack()
-    label_semi2.pack()
+    label_quarter5.place(x=965, y=195, height=30, width=130)
+    label_quarter6.place(x=965, y=235, height=30, width=130)
+    label_quarter7.place(x=965, y=415, height=30, width=130)
+    label_quarter8.place(x=965, y=455, height=30, width=130)
 
     label_semi1.place(x=355, y=300, height=30, width=130)
     label_semi2.place(x=355, y=340, height=30, width=130)
+    label_semi3.place(x=790, y=300, height=30, width=130)
+    label_semi4.place(x=790, y=340, height=30, width=130)
 
-    label_winner_8players.pack()
-    label_winner_8players.place(x=530, y=320, height=30, width=130)
-    mode_8players2()
+    label_final1.place(x=461.5, y=400, height=30, width=130)
+    label_final2.place(x=683.5, y=400, height=30, width=130)
 
+    label_result_final1.place(x=592.5, y=400, height=30, width=30)
+    label_result_final2.place(x=652.5, y=400, height=30, width=30)
 
-def mode_8players2():
-    """
-    This function is called by mode_8players
-    Due to pylint warnings, the function was split
-    :return:
-    """
-    label_result_player1.pack()
-    label_result_player2.pack()
-    label_result_player3.pack()
-    label_result_player4.pack()
-    label_result_player5.pack()
-    label_result_player6.pack()
-    label_result_player7.pack()
-    label_result_player8.pack()
+    label_winner_16players.place(x=572.5, y=460, height=30, width=130)
 
-    label_result_player1.place(x=136, y=140, height=30, width=30)
-    label_result_player2.place(x=136, y=180, height=30, width=30)
-    label_result_player3.place(x=136, y=250, height=30, width=30)
-    label_result_player4.place(x=136, y=290, height=30, width=30)
-    label_result_player5.place(x=136, y=360, height=30, width=30)
-    label_result_player6.place(x=136, y=400, height=30, width=30)
-    label_result_player7.place(x=136, y=470, height=30, width=30)
-    label_result_player8.place(x=136, y=510, height=30, width=30)
+    # define labels for the other 8 players
+    label_player9_name.place(x=1140, y=140, height=30, width=130)
+    label_player10_name.place(x=1140, y=180, height=30, width=130)
+    label_player11_name.place(x=1140, y=250, height=30, width=130)
+    label_player12_name.place(x=1140, y=290, height=30, width=130)
+    label_player13_name.place(x=1140, y=360, height=30, width=130)
+    label_player14_name.place(x=1140, y=400, height=30, width=130)
+    label_player15_name.place(x=1140, y=470, height=30, width=130)
+    label_player16_name.place(x=1140, y=510, height=30, width=130)
 
-    label_result_quarter1.pack()
-    label_result_quarter2.pack()
-    label_result_quarter3.pack()
-    label_result_quarter4.pack()
+    label_result_player9.place(x=1109, y=140, height=30, width=30)
+    label_result_player10.place(x=1109, y=180, height=30, width=30)
+    label_result_player11.place(x=1109, y=250, height=30, width=30)
+    label_result_player12.place(x=1109, y=290, height=30, width=30)
+    label_result_player13.place(x=1109, y=360, height=30, width=30)
+    label_result_player14.place(x=1109, y=400, height=30, width=30)
+    label_result_player15.place(x=1109, y=470, height=30, width=30)
+    label_result_player16.place(x=1109, y=510, height=30, width=30)
 
-    label_result_quarter1.place(x=311, y=195, height=30, width=30)
-    label_result_quarter2.place(x=311, y=235, height=30, width=30)
-    label_result_quarter3.place(x=311, y=415, height=30, width=30)
-    label_result_quarter4.place(x=311, y=455, height=30, width=30)
+    label_result_quarter5.place(x=934, y=195, height=30, width=30)
+    label_result_quarter6.place(x=934, y=235, height=30, width=30)
+    label_result_quarter7.place(x=934, y=415, height=30, width=30)
+    label_result_quarter8.place(x=934, y=455, height=30, width=30)
 
-    label_result_semi1.pack()
-    label_result_semi2.pack()
-
-    label_result_semi1.place(x=486, y=300, height=30, width=30)
-    label_result_semi2.place(x=486, y=340, height=30, width=30)
+    label_result_semi3.place(x=759, y=300, height=30, width=30)
+    label_result_semi4.place(x=759, y=340, height=30, width=30)
 
 
 def check_names():
@@ -373,9 +389,9 @@ def check_names():
     name3 = input_name3.get()
     name4 = input_name4.get()
 
-    if name1 == "" or name2 == "" or name3 == "" or name4 == "":
-        messagebox.showinfo("Error", "Not all names were entered.")
-        return
+    # if name1 == "" or name2 == "" or name3 == "" or name4 == "":
+        # messagebox.showinfo("Error", "Not all names were entered.")
+        # return
 
     all_player_names.append(name1)
     all_player_names.append(name2)
@@ -383,20 +399,47 @@ def check_names():
     all_player_names.append(name4)
 
     # check if 8 players
-    if label_mode_8players['bg'] == "yellow":
+    if label_mode_8players['bg'] == "yellow" or label_mode_16players['bg'] == "yellow":
         name5 = input_name5.get()
         name6 = input_name6.get()
         name7 = input_name7.get()
         name8 = input_name8.get()
 
-        if name5 == "" or name6 == "" or name7 == "" or name8 == "":
-            messagebox.showinfo("Error", "Not all names were entered.")
-            return
+        # if name5 == "" or name6 == "" or name7 == "" or name8 == "":
+            # messagebox.showinfo("Error", "Not all names were entered.")
+            # return
 
         all_player_names.append(name5)
         all_player_names.append(name6)
         all_player_names.append(name7)
         all_player_names.append(name8)
+
+    if label_mode_16players['bg'] == "yellow":
+        name9 = input_name9.get()
+        name10 = input_name10.get()
+        name11 = input_name11.get()
+        name12 = input_name12.get()
+        name13 = input_name13.get()
+        name14 = input_name14.get()
+        name15 = input_name15.get()
+        name16 = input_name16.get()
+
+        # if name9 == "" or name10 == "" or name11 == "" or name12 == "":
+            # messagebox.showinfo("Error", "Not all names were entered.")
+            # return
+
+        # if name13 == "" or name14 == "" or name15 == "" or name16 == "":
+            # messagebox.showinfo("Error", "Not all names were entered.")
+            # return
+
+        all_player_names.append(name9)
+        all_player_names.append(name10)
+        all_player_names.append(name11)
+        all_player_names.append(name12)
+        all_player_names.append(name13)
+        all_player_names.append(name14)
+        all_player_names.append(name15)
+        all_player_names.append(name16)
 
     button_enter_names.pack()
     button_enter_names.pack_forget()
@@ -412,16 +455,34 @@ def check_names():
     input_name3.pack_forget()
     input_name4.pack_forget()
 
-    if label_mode_8players['bg'] == "yellow":
+    if label_mode_8players['bg'] == "yellow" or label_mode_16players['bg'] == "yellow":
         input_name5.pack()
         input_name6.pack()
         input_name7.pack()
         input_name8.pack()
 
+        input_name9.pack()
+        input_name10.pack()
+        input_name11.pack()
+        input_name12.pack()
+        input_name13.pack()
+        input_name14.pack()
+        input_name15.pack()
+        input_name16.pack()
+
         input_name5.pack_forget()
         input_name6.pack_forget()
         input_name7.pack_forget()
         input_name8.pack_forget()
+
+        input_name9.pack_forget()
+        input_name10.pack_forget()
+        input_name11.pack_forget()
+        input_name12.pack_forget()
+        input_name13.pack_forget()
+        input_name14.pack_forget()
+        input_name15.pack_forget()
+        input_name16.pack_forget()
 
     label_info_names.pack()
     label_info_names.pack_forget()
@@ -447,7 +508,6 @@ def take_names():
         if label_mode_4players['bg'] == "yellow":
             numbers = []
             while len(numbers) < 4:
-                # i = 8
 
                 random_number = round(random.uniform(0, 3))
                 if random_number not in numbers:
@@ -458,10 +518,9 @@ def take_names():
             label_player3_name['text'] = all_player_names[numbers[2]]
             label_player4_name['text'] = all_player_names[numbers[3]]
 
-        else:
+        elif label_mode_8players['bg'] == "yellow":
             numbers = []
             while len(numbers) < 8:
-                # i = 8
 
                 random_number = round(random.uniform(0, 7))
                 if random_number not in numbers:
@@ -476,17 +535,52 @@ def take_names():
             label_player7_name['text'] = all_player_names[numbers[6]]
             label_player8_name['text'] = all_player_names[numbers[7]]
 
+        else:
+            numbers = []
+            while len(numbers) < 16:
+                random_number = round(random.uniform(0, 15))
+                if random_number not in numbers:
+                    numbers.append(random_number)
+
+            #label_player1_name['text'] = all_player_names[numbers[0]]
+            #label_player2_name['text'] = all_player_names[numbers[1]]
+            #label_player3_name['text'] = all_player_names[numbers[2]]
+            #label_player4_name['text'] = all_player_names[numbers[3]]
+            #label_player5_name['text'] = all_player_names[numbers[4]]
+            #label_player6_name['text'] = all_player_names[numbers[5]]
+            #label_player7_name['text'] = all_player_names[numbers[6]]
+            #label_player8_name['text'] = all_player_names[numbers[7]]
+
+            #label_player9_name['text'] = all_player_names[numbers[8]]
+            #label_player10_name['text'] = all_player_names[numbers[9]]
+            #label_player11_name['text'] = all_player_names[numbers[10]]
+            #label_player12_name['text'] = all_player_names[numbers[11]]
+            #label_player13_name['text'] = all_player_names[numbers[12]]
+            #label_player14_name['text'] = all_player_names[numbers[13]]
+            #label_player15_name['text'] = all_player_names[numbers[14]]
+            #label_player16_name['text'] = all_player_names[numbers[15]]
+
     else:
         label_player1_name['text'] = all_player_names[0]
         label_player2_name['text'] = all_player_names[1]
         label_player3_name['text'] = all_player_names[2]
         label_player4_name['text'] = all_player_names[3]
 
-        if label_mode_8players['bg'] == "yellow":
+        if label_mode_8players['bg'] == "yellow" or label_mode_16players['bg'] == "yellow":
             label_player5_name['text'] = all_player_names[4]
             label_player6_name['text'] = all_player_names[5]
             label_player7_name['text'] = all_player_names[6]
             label_player8_name['text'] = all_player_names[7]
+
+            #if label_mode_16players['bg'] == "yellow":
+                #label_player9_name['text'] = all_player_names[8]
+                #label_player10_name['text'] = all_player_names[9]
+                #label_player11_name['text'] = all_player_names[10]
+                #label_player12_name['text'] = all_player_names[11]
+                #label_player13_name['text'] = all_player_names[12]
+                #label_player14_name['text'] = all_player_names[13]
+                #label_player15_name['text'] = all_player_names[14]
+                #label_player16_name['text'] = all_player_names[15]
 
     start_tree()
 
@@ -498,18 +592,22 @@ def start_tree():
     """
     label_mode_4players.pack()
     label_mode_8players.pack()
+    label_mode_16players.pack()
     switch_mode_button.pack()
     start_button.pack()
 
     label_mode_4players.pack_forget()
     label_mode_8players.pack_forget()
+    label_mode_16players.pack_forget()
     switch_mode_button.pack_forget()
     start_button.pack_forget()
 
     if label_mode_4players['bg'] == "yellow":
         mode_4players()
-    else:
+    elif label_mode_8players['bg'] == "yellow":
         mode_8players()
+    else:
+        mode_16players()
 
     button_enter_results.pack()
     button_enter_results.place(x=5, y=10, height=30, width=130)
@@ -555,7 +653,39 @@ def back_button1():
         back_second_round()
 
     else:
-        if label_result_player8['bg'] == "yellow":
+        if label_result_player16['bg'] == "yellow":
+            label_result_player16['bg'] = "white"
+            label_result_player15['bg'] = "yellow"
+
+        elif label_result_player15['bg'] == "yellow":
+            label_result_player15['bg'] = "white"
+            label_result_player14['bg'] = "yellow"
+
+        elif label_result_player14['bg'] == "yellow":
+            label_result_player14['bg'] = "white"
+            label_result_player13['bg'] = "yellow"
+
+        elif label_result_player13['bg'] == "yellow":
+            label_result_player13['bg'] = "white"
+            label_result_player12['bg'] = "yellow"
+
+        elif label_result_player12['bg'] == "yellow":
+            label_result_player12['bg'] = "white"
+            label_result_player11['bg'] = "yellow"
+
+        elif label_result_player11['bg'] == "yellow":
+            label_result_player11['bg'] = "white"
+            label_result_player10['bg'] = "yellow"
+
+        elif label_result_player10['bg'] == "yellow":
+            label_result_player10['bg'] = "white"
+            label_result_player9['bg'] = "yellow"
+
+        elif label_result_player9['bg'] == "yellow":
+            label_result_player9['bg'] = "white"
+            label_result_player8['bg'] = "yellow"
+
+        elif label_result_player8['bg'] == "yellow":
             label_result_player8['bg'] = "white"
             label_result_player7['bg'] = "yellow"
 
@@ -589,6 +719,22 @@ def back_second_round():
 
     :return:
     """
+    if label_result_quarter8['bg'] == "yellow":
+        label_result_quarter8['bg'] = "white"
+        label_result_quarter7['bg'] = "yellow"
+
+    if label_result_quarter7['bg'] == "yellow":
+        label_result_quarter7['bg'] = "white"
+        label_result_quarter6['bg'] = "yellow"
+
+    if label_result_quarter6['bg'] == "yellow":
+        label_result_quarter6['bg'] = "white"
+        label_result_quarter5['bg'] = "yellow"
+
+    if label_result_quarter5['bg'] == "yellow":
+        label_result_quarter5['bg'] = "white"
+        label_result_quarter4['bg'] = "yellow"
+
     if label_result_quarter4['bg'] == "yellow":
         label_result_quarter4['bg'] = "white"
         label_result_quarter3['bg'] = "yellow"
@@ -607,6 +753,14 @@ def back_third_round():
 
     :return:
     """
+    if label_result_semi4['bg'] == "yellow":
+        label_result_semi4['bg'] = "white"
+        label_result_semi3['bg'] = "yellow"
+
+    if label_result_semi3['bg'] == "yellow":
+        label_result_semi3['bg'] = "white"
+        label_result_semi2['bg'] = "yellow"
+
     if label_result_semi2['bg'] == "yellow":
         label_result_semi2['bg'] = "white"
         label_result_semi1['bg'] = "yellow"
@@ -666,8 +820,54 @@ def next_button_first_2():
         label_result_player8['bg'] = "yellow"
 
     elif label_result_player8['bg'] == "yellow":
-        if check_if_all_labels_filled():
+        if label_mode_8players['bg'] == "yellow":
+            if check_if_all_labels_filled():
+                label_result_player8['bg'] = "white"
+                calculate1()
+        else:
             label_result_player8['bg'] = "white"
+            label_result_player9['bg'] = "yellow"
+
+    else:
+        next_button_first_3()
+
+
+def next_button_first_3():
+    """
+
+    :return:
+    """
+    if label_result_player9['bg'] == "yellow":
+        label_result_player9['bg'] = "white"
+        label_result_player10['bg'] = "yellow"
+
+    elif label_result_player10['bg'] == "yellow":
+        label_result_player10['bg'] = "white"
+        label_result_player11['bg'] = "yellow"
+
+    elif label_result_player11['bg'] == "yellow":
+        label_result_player11['bg'] = "white"
+        label_result_player12['bg'] = "yellow"
+
+    elif label_result_player12['bg'] == "yellow":
+        label_result_player12['bg'] = "white"
+        label_result_player13['bg'] = "yellow"
+
+    elif label_result_player13['bg'] == "yellow":
+        label_result_player13['bg'] = "white"
+        label_result_player14['bg'] = "yellow"
+
+    elif label_result_player14['bg'] == "yellow":
+        label_result_player14['bg'] = "white"
+        label_result_player15['bg'] = "yellow"
+
+    elif label_result_player15['bg'] == "yellow":
+        label_result_player15['bg'] = "white"
+        label_result_player16['bg'] = "yellow"
+
+    elif label_result_player16['bg'] == "yellow":
+        if check_if_all_labels_filled():
+            label_result_player16['bg'] = "white"
             calculate1()
 
 
@@ -704,8 +904,29 @@ def next_second_round():
         label_result_quarter4['bg'] = "yellow"
 
     elif label_result_quarter4['bg'] == "yellow":
-        if check_if_all_labels_filled2():
+        if label_mode_8players['bg'] == "yellow":
+            if check_if_all_labels_filled2():
+                label_result_quarter4['bg'] = "white"
+                calculate2()
+        else:
             label_result_quarter4['bg'] = "white"
+            label_result_quarter5['bg'] = "yellow"
+
+    elif label_result_quarter5['bg'] == "yellow":
+        label_result_quarter5['bg'] = "white"
+        label_result_quarter6['bg'] = "yellow"
+
+    elif label_result_quarter6['bg'] == "yellow":
+        label_result_quarter6['bg'] = "white"
+        label_result_quarter7['bg'] = "yellow"
+
+    elif label_result_quarter7['bg'] == "yellow":
+        label_result_quarter7['bg'] = "white"
+        label_result_quarter8['bg'] = "yellow"
+
+    elif label_result_quarter8['bg'] == "yellow":
+        if check_if_all_labels_filled2():
+            label_result_quarter8['bg'] = "white"
             calculate2()
 
     if label_mode_4players['bg'] == "yellow":
@@ -753,7 +974,7 @@ def check_if_all_labels_filled():
         messagebox.showinfo("Error", "Check if everything has been entered correctly.")
         return False
 
-    if label_mode_8players['bg'] == "yellow":
+    if label_mode_8players['bg'] == "yellow" or label_mode_16players['bg'] == "yellow":
         if label_result_player5['text'] == "" or label_result_player6['text'] == "" \
                 or label_result_player7['text'] == "" or label_result_player8['text'] == "":
             messagebox.showinfo("Error", "Check if everything has been entered correctly.")
@@ -763,6 +984,37 @@ def check_if_all_labels_filled():
                 or int(label_result_player7['text']) == int(label_result_player8['text']):
             messagebox.showinfo("Error", "Check if everything has been entered correctly.")
             return False
+
+        if not check_if_all_labels_filled_16_players():
+            return False
+
+    return True
+
+
+def check_if_all_labels_filled_16_players():
+    """
+
+    :return:
+    """
+    if label_result_player9['text'] == "" or label_result_player10['text'] == "" \
+            or label_result_player11['text'] == "" or label_result_player12['text'] == "":
+        messagebox.showinfo("Error", "Check if everything has been entered correctly.")
+        return False
+
+    if label_result_player13['text'] == "" or label_result_player14['text'] == "" \
+            or label_result_player15['text'] == "" or label_result_player16['text'] == "":
+        messagebox.showinfo("Error", "Check if everything has been entered correctly.")
+        return False
+
+    if int(label_result_player9['text']) == int(label_result_player10['text']) \
+            or int(label_result_player11['text']) == int(label_result_player12['text']):
+        messagebox.showinfo("Error", "Check if everything has been entered correctly.")
+        return False
+
+    if int(label_result_player13['text']) == int(label_result_player14['text']) \
+            or int(label_result_player15['text']) == int(label_result_player16['text']):
+        messagebox.showinfo("Error", "Check if everything has been entered correctly.")
+        return False
 
     return True
 
@@ -780,12 +1032,29 @@ def check_if_all_labels_filled2():
         messagebox.showinfo("Error", "Check if everything has been entered correctly.")
         return False
 
-    if label_mode_8players['bg'] == "yellow":
+    if label_mode_8players['bg'] == "yellow" or label_mode_16players['bg'] == "yellow":
         if label_result_quarter3['text'] == "" or label_result_quarter4['text'] == "":
             messagebox.showinfo("Error", "Check if everything has been entered correctly.")
             return False
 
         if int(label_result_quarter3['text']) == int(label_result_quarter4['text']):
+            messagebox.showinfo("Error", "Check if everything has been entered correctly.")
+            return False
+
+    if label_mode_16players['bg'] == "yellow":
+        if label_result_quarter5['text'] == "" or label_result_quarter5['text'] == "":
+            messagebox.showinfo("Error", "Check if everything has been entered correctly.")
+            return False
+
+        if label_result_quarter7['text'] == "" or label_result_quarter8['text'] == "":
+            messagebox.showinfo("Error", "Check if everything has been entered correctly.")
+            return False
+
+        if int(label_result_quarter5['text']) == int(label_result_quarter6['text']):
+            messagebox.showinfo("Error", "Check if everything has been entered correctly.")
+            return False
+
+        if int(label_result_quarter7['text']) == int(label_result_quarter8['text']):
             messagebox.showinfo("Error", "Check if everything has been entered correctly.")
             return False
 
@@ -795,7 +1064,7 @@ def check_if_all_labels_filled2():
 def check_if_all_labels_filled3():
     """
 
-    :return
+    :return:
     """
     if label_result_semi1['text'] == "" or label_result_semi2['text'] == "":
         messagebox.showinfo("Error", "Check if everything has been entered correctly.")
@@ -836,7 +1105,7 @@ def calculate1():
         label_quarter2['text'] = label_player4_name['text']
 
     # if 8 players check the other 4 players too
-    if label_mode_8players['bg'] == "yellow":
+    if label_mode_8players['bg'] == "yellow" or label_mode_16players['bg'] == "yellow":
         if int(label_result_player5['text']) > int(label_result_player6['text']):
             label_quarter3['text'] = label_player5_name['text']
         else:
@@ -847,8 +1116,37 @@ def calculate1():
         else:
             label_quarter4['text'] = label_player8_name['text']
 
+        if label_mode_16players['bg'] == "yellow":
+            calculate_help_16players()
+
     button_enter_results.pack()
     button_enter_results.place(x=5, y=10, height=30, width=130)
+
+
+def calculate_help_16players():
+    """
+
+    :return:
+    """
+    if int(label_result_player9['text']) > int(label_result_player10['text']):
+        label_quarter5['text'] = label_player9_name['text']
+    else:
+        label_quarter5['text'] = label_player10_name['text']
+
+    if int(label_result_player11['text']) > int(label_result_player12['text']):
+        label_quarter6['text'] = label_player11_name['text']
+    else:
+        label_quarter6['text'] = label_player12_name['text']
+
+    if int(label_result_player13['text']) > int(label_result_player14['text']):
+        label_quarter7['text'] = label_player13_name['text']
+    else:
+        label_quarter7['text'] = label_player14_name['text']
+
+    if int(label_result_player15['text']) > int(label_result_player16['text']):
+        label_quarter8['text'] = label_player15_name['text']
+    else:
+        label_quarter8['text'] = label_player16_name['text']
 
 
 def calculate2():
@@ -868,12 +1166,12 @@ def calculate2():
     button_minus.pack_forget()
 
     # check which player has won the second round und set him to the
-    # semi-finals or winner (4 players)
+    # quarter, semi-finals or winner (4 players)
     if label_mode_4players['bg'] == "yellow":
         if int(label_result_quarter1['text']) > int(label_result_quarter2['text']):
             label_winner_4players['text'] = label_quarter1['text']
         else:
-            label_winner_4players['text'] = label_quarter1['text']
+            label_winner_4players['text'] = label_quarter2['text']
 
         label_winner_4players['bg'] = "yellow"
         messagebox.showinfo("Info", label_winner_4players['text'] +
@@ -881,7 +1179,7 @@ def calculate2():
 
         end_game()
 
-    else:
+    elif label_mode_8players['bg'] == "yellow" or label_mode_16players['bg'] == "yellow":
         if int(label_result_quarter1['text']) > int(label_result_quarter2['text']):
             label_semi1['text'] = label_quarter1['text']
         else:
@@ -891,6 +1189,17 @@ def calculate2():
             label_semi2['text'] = label_quarter3['text']
         else:
             label_semi2['text'] = label_quarter4['text']
+
+    if label_mode_16players['bg'] == "yellow":
+        if int(label_result_quarter5['text']) > int(label_result_quarter6['text']):
+            label_semi3['text'] = label_quarter5['text']
+        else:
+            label_semi3['text'] = label_quarter6['text']
+
+        if int(label_result_quarter7['text']) > int(label_result_quarter8['text']):
+            label_semi4['text'] = label_quarter7['text']
+        else:
+            label_semi4['text'] = label_quarter8['text']
 
     button_enter_results.pack()
     button_enter_results.place(x=5, y=10, height=30, width=130)
@@ -1001,6 +1310,54 @@ def plus_first_round_3():
         else:
             label_result_player8['text'] = int(label_result_player8['text']) + 1
 
+    elif label_result_player9['bg'] == "yellow":
+        if label_result_player9['text'] == "":
+            label_result_player9['text'] = "1"
+        else:
+            label_result_player9['text'] = int(label_result_player9['text']) + 1
+
+    elif label_result_player10['bg'] == "yellow":
+        if label_result_player10['text'] == "":
+            label_result_player10['text'] = "1"
+        else:
+            label_result_player10['text'] = int(label_result_player10['text']) + 1
+
+    elif label_result_player11['bg'] == "yellow":
+        if label_result_player11['text'] == "":
+            label_result_player11['text'] = "1"
+        else:
+            label_result_player11['text'] = int(label_result_player11['text']) + 1
+
+    elif label_result_player12['bg'] == "yellow":
+        if label_result_player12['text'] == "":
+            label_result_player12['text'] = "1"
+        else:
+            label_result_player12['text'] = int(label_result_player12['text']) + 1
+
+    elif label_result_player13['bg'] == "yellow":
+        if label_result_player13['text'] == "":
+            label_result_player13['text'] = "1"
+        else:
+            label_result_player13['text'] = int(label_result_player13['text']) + 1
+
+    elif label_result_player14['bg'] == "yellow":
+        if label_result_player14['text'] == "":
+            label_result_player14['text'] = "1"
+        else:
+            label_result_player14['text'] = int(label_result_player14['text']) + 1
+
+    elif label_result_player15['bg'] == "yellow":
+        if label_result_player15['text'] == "":
+            label_result_player15['text'] = "1"
+        else:
+            label_result_player15['text'] = int(label_result_player15['text']) + 1
+
+    elif label_result_player16['bg'] == "yellow":
+        if label_result_player16['text'] == "":
+            label_result_player16['text'] = "1"
+        else:
+            label_result_player16['text'] = int(label_result_player16['text']) + 1
+
 
 def minus_first_round():
     """
@@ -1080,6 +1437,54 @@ def minus_first_round_3():
         elif int(label_result_player8['text']) > 0:
             label_result_player8['text'] = int(label_result_player8['text']) - 1
 
+    elif label_result_player9['bg'] == "yellow":
+        if label_result_player9['text'] == "":
+            label_result_player9['text'] = "0"
+        elif int(label_result_player9['text']) > 0:
+            label_result_player9['text'] = int(label_result_player9['text']) - 1
+
+    elif label_result_player10['bg'] == "yellow":
+        if label_result_player10['text'] == "":
+            label_result_player10['text'] = "0"
+        elif int(label_result_player10['text']) > 0:
+            label_result_player10['text'] = int(label_result_player10['text']) - 1
+
+    elif label_result_player11['bg'] == "yellow":
+        if label_result_player11['text'] == "":
+            label_result_player11['text'] = "0"
+        elif int(label_result_player11['text']) > 0:
+            label_result_player11['text'] = int(label_result_player11['text']) - 1
+
+    elif label_result_player12['bg'] == "yellow":
+        if label_result_player12['text'] == "":
+            label_result_player12['text'] = "0"
+        elif int(label_result_player12['text']) > 0:
+            label_result_player12['text'] = int(label_result_player12['text']) - 1
+
+    elif label_result_player13['bg'] == "yellow":
+        if label_result_player13['text'] == "":
+            label_result_player13['text'] = "0"
+        elif int(label_result_player13['text']) > 0:
+            label_result_player13['text'] = int(label_result_player13['text']) - 1
+
+    elif label_result_player14['bg'] == "yellow":
+        if label_result_player14['text'] == "":
+            label_result_player14['text'] = "0"
+        elif int(label_result_player14['text']) > 0:
+            label_result_player14['text'] = int(label_result_player14['text']) - 1
+
+    elif label_result_player15['bg'] == "yellow":
+        if label_result_player15['text'] == "":
+            label_result_player15['text'] = "0"
+        elif int(label_result_player15['text']) > 0:
+            label_result_player15['text'] = int(label_result_player15['text']) - 1
+
+    elif label_result_player16['bg'] == "yellow":
+        if label_result_player16['text'] == "":
+            label_result_player16['text'] = "0"
+        elif int(label_result_player16['text']) > 0:
+            label_result_player16['text'] = int(label_result_player16['text']) - 1
+
 
 def plus_second_round():
     """
@@ -1110,6 +1515,30 @@ def plus_second_round():
         else:
             label_result_quarter4['text'] = int(label_result_quarter4['text']) + 1
 
+    elif label_result_quarter5['bg'] == "yellow":
+        if label_result_quarter5['text'] == "":
+            label_result_quarter5['text'] = "1"
+        else:
+            label_result_quarter5['text'] = int(label_result_quarter5['text']) + 1
+
+    elif label_result_quarter6['bg'] == "yellow":
+        if label_result_quarter6['text'] == "":
+            label_result_quarter6['text'] = "1"
+        else:
+            label_result_quarter6['text'] = int(label_result_quarter6['text']) + 1
+
+    elif label_result_quarter7['bg'] == "yellow":
+        if label_result_quarter7['text'] == "":
+            label_result_quarter7['text'] = "1"
+        else:
+            label_result_quarter7['text'] = int(label_result_quarter7['text']) + 1
+
+    elif label_result_quarter8['bg'] == "yellow":
+        if label_result_quarter8['text'] == "":
+            label_result_quarter8['text'] = "1"
+        else:
+            label_result_quarter8['text'] = int(label_result_quarter8['text']) + 1
+
 
 def minus_second_round():
     """
@@ -1139,6 +1568,30 @@ def minus_second_round():
             label_result_quarter4['text'] = "0"
         elif int(label_result_quarter4['text']) > 0:
             label_result_quarter4['text'] = int(label_result_quarter4['text']) - 1
+
+    elif label_result_quarter5['bg'] == "yellow":
+        if label_result_quarter5['text'] == "":
+            label_result_quarter5['text'] = "0"
+        elif int(label_result_quarter5['text']) > 0:
+            label_result_quarter5['text'] = int(label_result_quarter5['text']) - 1
+
+    elif label_result_quarter6['bg'] == "yellow":
+        if label_result_quarter6['text'] == "":
+            label_result_quarter6['text'] = "0"
+        elif int(label_result_quarter6['text']) > 0:
+            label_result_quarter6['text'] = int(label_result_quarter6['text']) - 1
+
+    elif label_result_quarter7['bg'] == "yellow":
+        if label_result_quarter7['text'] == "":
+            label_result_quarter7['text'] = "0"
+        elif int(label_result_quarter7['text']) > 0:
+            label_result_quarter7['text'] = int(label_result_quarter7['text']) - 1
+
+    elif label_result_quarter8['bg'] == "yellow":
+        if label_result_quarter8['text'] == "":
+            label_result_quarter8['text'] = "0"
+        elif int(label_result_quarter8['text']) > 0:
+            label_result_quarter8['text'] = int(label_result_quarter8['text']) - 1
 
 
 def plus_third_round():
@@ -1371,23 +1824,23 @@ if __name__ == "__main__":
 
     # ---------------------------------------------------------------------------------------------#
     # define labels for 16 player names
-    label_player1_name = Label(gui, text="", font=('Arial', 10))
-    label_player2_name = Label(gui, text="", font=('Arial', 10))
-    label_player3_name = Label(gui, text="", font=('Arial', 10))
-    label_player4_name = Label(gui, text="", font=('Arial', 10))
-    label_player5_name = Label(gui, text="", font=('Arial', 10))
-    label_player6_name = Label(gui, text="", font=('Arial', 10))
-    label_player7_name = Label(gui, text="", font=('Arial', 10))
-    label_player8_name = Label(gui, text="", font=('Arial', 10))
+    label_player1_name = Label(gui, text="Gerwyn Price", font=('Arial', 10))
+    label_player2_name = Label(gui, text="Peter Wright", font=('Arial', 10))
+    label_player3_name = Label(gui, text="Michael van Gerwen", font=('Arial', 10))
+    label_player4_name = Label(gui, text="James Wade", font=('Arial', 10))
+    label_player5_name = Label(gui, text="Jonny Clayton", font=('Arial', 10))
+    label_player6_name = Label(gui, text="Dimitri van den Bergh", font=('Arial', 10))
+    label_player7_name = Label(gui, text="Michael Smith", font=('Arial', 10))
+    label_player8_name = Label(gui, text="Jose de Sousa", font=('Arial', 10))
 
-    label_player9_name = Label(gui, text="", font=('Arial', 10))
-    label_player10_name = Label(gui, text="", font=('Arial', 10))
-    label_player11_name = Label(gui, text="", font=('Arial', 10))
-    label_player12_name = Label(gui, text="", font=('Arial', 10))
-    label_player13_name = Label(gui, text="", font=('Arial', 10))
-    label_player14_name = Label(gui, text="", font=('Arial', 10))
-    label_player15_name = Label(gui, text="", font=('Arial', 10))
-    label_player16_name = Label(gui, text="", font=('Arial', 10))
+    label_player9_name = Label(gui, text="Joe Cullen", font=('Arial', 10))
+    label_player10_name = Label(gui, text="Rob Cross", font=('Arial', 10))
+    label_player11_name = Label(gui, text="Gabriel Clemens", font=('Arial', 10))
+    label_player12_name = Label(gui, text="Raymond van Barneveld", font=('Arial', 10))
+    label_player13_name = Label(gui, text="Gary Anderson", font=('Arial', 10))
+    label_player14_name = Label(gui, text="Florian Hempel", font=('Arial', 10))
+    label_player15_name = Label(gui, text="Nathan Aspinall", font=('Arial', 10))
+    label_player16_name = Label(gui, text="Martin Schindler", font=('Arial', 10))
 
     # define labels for 8 quarter finals
     label_quarter1 = Label(gui, text="", font=('Arial', 10))
