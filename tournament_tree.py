@@ -7,7 +7,7 @@ Overview over all participants
 :author: Manuel Milde manuelmilde@gmx.net
 :copyright: 2022 Manuel Milde
 """
-import os
+# import os
 import random
 from tkinter import Tk
 from tkinter import Toplevel
@@ -15,9 +15,9 @@ from tkinter import Label
 from tkinter import Button
 from tkinter import Entry
 from tkinter import messagebox
-from datetime import datetime
-from openpyxl import Workbook
-from openpyxl.styles import PatternFill
+# from datetime import datetime
+# from openpyxl import Workbook
+# from openpyxl.styles import PatternFill
 
 all_player_names = []
 
@@ -55,6 +55,23 @@ def reset():
     The initial state will be restored
     :return:
     """
+    label_player1_name['text'] = ""
+    label_player2_name['text'] = ""
+    label_player3_name['text'] = ""
+    label_player4_name['text'] = ""
+    label_player5_name['text'] = ""
+    label_player6_name['text'] = ""
+    label_player7_name['text'] = ""
+    label_player8_name['text'] = ""
+    label_player9_name['text'] = ""
+    label_player10_name['text'] = ""
+    label_player11_name['text'] = ""
+    label_player12_name['text'] = ""
+    label_player13_name['text'] = ""
+    label_player14_name['text'] = ""
+    label_player15_name['text'] = ""
+    label_player16_name['text'] = ""
+
     label_result_player1['text'] = ""
     label_result_player2['text'] = ""
     label_result_player3['text'] = ""
@@ -63,39 +80,238 @@ def reset():
     label_result_player6['text'] = ""
     label_result_player7['text'] = ""
     label_result_player8['text'] = ""
+    label_result_player9['text'] = ""
+    label_result_player10['text'] = ""
+    label_result_player11['text'] = ""
+    label_result_player12['text'] = ""
+    label_result_player13['text'] = ""
+    label_result_player14['text'] = ""
+    label_result_player15['text'] = ""
+    label_result_player16['text'] = ""
 
     label_result_quarter1['text'] = ""
     label_result_quarter2['text'] = ""
     label_result_quarter3['text'] = ""
     label_result_quarter4['text'] = ""
+    label_result_quarter5['text'] = ""
+    label_result_quarter6['text'] = ""
+    label_result_quarter7['text'] = ""
+    label_result_quarter8['text'] = ""
 
     label_result_semi1['text'] = ""
     label_result_semi2['text'] = ""
+    label_result_semi3['text'] = ""
+    label_result_semi4['text'] = ""
 
+    label_result_final1['text'] = ""
+    label_result_final2['text'] = ""
+    reset2()
+
+
+def reset2():
+    """
+
+    :return:
+    """
+    # disable all labels
+    label_player1_name.pack()
+    label_player2_name.pack()
+    label_player3_name.pack()
+    label_player4_name.pack()
+    label_player5_name.pack()
+    label_player6_name.pack()
+    label_player7_name.pack()
+    label_player8_name.pack()
+    label_player9_name.pack()
+    label_player10_name.pack()
+    label_player11_name.pack()
+    label_player12_name.pack()
+    label_player13_name.pack()
+    label_player14_name.pack()
+    label_player15_name.pack()
+    label_player16_name.pack()
+
+    label_player1_name.pack_forget()
+    label_player2_name.pack_forget()
+    label_player3_name.pack_forget()
+    label_player4_name.pack_forget()
+    label_player5_name.pack_forget()
+    label_player6_name.pack_forget()
+    label_player7_name.pack_forget()
+    label_player8_name.pack_forget()
+    label_player9_name.pack_forget()
+    label_player10_name.pack_forget()
+    label_player11_name.pack_forget()
+    label_player12_name.pack_forget()
+    label_player13_name.pack_forget()
+    label_player14_name.pack_forget()
+    label_player15_name.pack_forget()
+    label_player16_name.pack_forget()
+
+    label_result_player1.pack()
+    label_result_player2.pack()
+    label_result_player3.pack()
+    label_result_player4.pack()
+    label_result_player5.pack()
+    label_result_player6.pack()
+    label_result_player7.pack()
+    label_result_player8.pack()
+    label_result_player9.pack()
+    label_result_player10.pack()
+    label_result_player11.pack()
+    label_result_player12.pack()
+    label_result_player13.pack()
+    label_result_player14.pack()
+    label_result_player15.pack()
+    label_result_player16.pack()
+
+    reset3()
+
+
+def reset3():
+    """
+
+    :return:
+    """
     label_winner_4players['text'] = ""
     label_winner_8players['text'] = ""
+    label_winner_16players['text'] = ""
 
     label_quarter1['text'] = ""
     label_quarter2['text'] = ""
     label_quarter3['text'] = ""
     label_quarter4['text'] = ""
+    label_quarter5['text'] = ""
+    label_quarter6['text'] = ""
+    label_quarter7['text'] = ""
+    label_quarter8['text'] = ""
 
     label_semi1['text'] = ""
     label_semi2['text'] = ""
+    label_semi3['text'] = ""
+    label_semi4['text'] = ""
+
+    label_final1['text'] = ""
+    label_final2['text'] = ""
 
     label_winner_4players['bg'] = "white"
     label_winner_8players['bg'] = "white"
+    label_winner_16players['bg'] = "white"
 
-    # enable start und switch buttons
-    label_mode_4players.pack()
-    label_mode_8players.pack()
-    switch_mode_button.pack()
-    start_button.pack()
+    label_result_player1.pack_forget()
+    label_result_player2.pack_forget()
+    label_result_player3.pack_forget()
+    label_result_player4.pack_forget()
+    label_result_player5.pack_forget()
+    label_result_player6.pack_forget()
+    label_result_player7.pack_forget()
+    label_result_player8.pack_forget()
+    label_result_player9.pack_forget()
+    label_result_player10.pack_forget()
+    label_result_player11.pack_forget()
+    label_result_player12.pack_forget()
+    label_result_player13.pack_forget()
+    label_result_player14.pack_forget()
+    label_result_player15.pack_forget()
+    label_result_player16.pack_forget()
 
-    label_mode_4players.place(x=610, y=0, height=30, width=60)
-    label_mode_8players.place(x=670, y=0, height=30, width=60)
-    switch_mode_button.place(x=490, y=0, height=30, width=100)
-    start_button.place(x=750, y=0, height=30, width=100)
+    reset4()
+
+
+def reset4():
+    """
+    This function is called by the reset()- function
+    The function is split due to pylint - warnings
+    :return:
+    """
+    label_result_quarter1.pack()
+    label_result_quarter2.pack()
+    label_result_quarter3.pack()
+    label_result_quarter4.pack()
+    label_result_quarter5.pack()
+    label_result_quarter6.pack()
+    label_result_quarter7.pack()
+    label_result_quarter8.pack()
+
+    label_result_quarter1.pack_forget()
+    label_result_quarter2.pack_forget()
+    label_result_quarter3.pack_forget()
+    label_result_quarter4.pack_forget()
+    label_result_quarter5.pack_forget()
+    label_result_quarter6.pack_forget()
+    label_result_quarter7.pack_forget()
+    label_result_quarter8.pack_forget()
+
+    label_quarter1.pack()
+    label_quarter2.pack()
+    label_quarter3.pack()
+    label_quarter4.pack()
+    label_quarter5.pack()
+    label_quarter6.pack()
+    label_quarter7.pack()
+    label_quarter8.pack()
+
+    label_quarter1.pack_forget()
+    label_quarter2.pack_forget()
+    label_quarter3.pack_forget()
+    label_quarter4.pack_forget()
+    label_quarter5.pack_forget()
+    label_quarter6.pack_forget()
+    label_quarter7.pack_forget()
+    label_quarter8.pack_forget()
+
+    label_result_semi1.pack()
+    label_result_semi2.pack()
+    label_result_semi3.pack()
+    label_result_semi4.pack()
+
+    label_result_semi1.pack_forget()
+    label_result_semi2.pack_forget()
+    label_result_semi3.pack_forget()
+    label_result_semi4.pack_forget()
+
+    label_result_final1.pack()
+    label_result_final2.pack()
+
+    label_result_final1.pack_forget()
+    label_result_final2.pack_forget()
+
+    reset5()
+
+
+def reset5():
+    """
+    This function is called by the reset()- function
+    The function is split due to pylint - warnings
+    :return:
+    """
+    label_semi1.pack()
+    label_semi2.pack()
+    label_semi3.pack()
+    label_semi4.pack()
+
+    label_semi1.pack_forget()
+    label_semi2.pack_forget()
+    label_semi3.pack_forget()
+    label_semi4.pack_forget()
+
+    label_final1.pack()
+    label_final2.pack()
+
+    label_final1.pack_forget()
+    label_final2.pack_forget()
+
+    label_winner_4players.pack()
+    label_winner_8players.pack()
+    label_winner_16players.pack()
+
+    label_winner_4players.pack_forget()
+    label_winner_8players.pack_forget()
+    label_winner_16players.pack_forget()
+
+    # disable enter result button
+    button_enter_results.pack()
+    button_enter_results.pack_forget()
 
     # disable plus,minus, next and back button
     button_plus.pack()
@@ -108,101 +324,21 @@ def reset():
     button_next.pack_forget()
     button_back.pack_forget()
 
-    # disable all labels
-    label_player1_name.pack()
-    label_player2_name.pack()
-    label_player3_name.pack()
-    label_player4_name.pack()
-    label_player5_name.pack()
-    label_player6_name.pack()
-    label_player7_name.pack()
-    label_player8_name.pack()
+    # enable start und switch buttons
+    label_mode_4players.pack()
+    label_mode_8players.pack()
+    switch_mode_button.pack()
+    start_button.pack()
 
-    reset2()
+    label_mode_4players.place(x=532.5, y=0, height=30, width=70)
+    label_mode_8players.place(x=602.5, y=0, height=30, width=70)
+    label_mode_16players.place(x=672.5, y=0, height=30, width=70)
+    switch_mode_button.place(x=412.4, y=0, height=30, width=100)
+    start_button.place(x=762.5, y=0, height=30, width=100)
 
-
-def reset2():
-    """
-    This function is called by the reset()- function
-    The function is split due to pylint - warnings
-    :return:
-    """
-    # disable enter result button
-    button_enter_results.pack()
-    button_enter_results.pack_forget()
-
-    label_player1_name.pack_forget()
-    label_player2_name.pack_forget()
-    label_player3_name.pack_forget()
-    label_player4_name.pack_forget()
-    label_player5_name.pack_forget()
-    label_player6_name.pack_forget()
-    label_player7_name.pack_forget()
-    label_player8_name.pack_forget()
-
-    label_quarter1.pack()
-    label_quarter2.pack()
-    label_quarter3.pack()
-    label_quarter4.pack()
-
-    label_quarter1.pack_forget()
-    label_quarter2.pack_forget()
-    label_quarter3.pack_forget()
-    label_quarter4.pack_forget()
-
-    label_semi1.pack()
-    label_semi2.pack()
-
-    label_semi1.pack_forget()
-    label_semi2.pack_forget()
-
-    label_winner_4players.pack()
-    label_winner_8players.pack()
-
-    label_winner_4players.pack_forget()
-    label_winner_8players.pack_forget()
-
-    label_result_player1.pack()
-    label_result_player2.pack()
-    label_result_player3.pack()
-    label_result_player4.pack()
-    label_result_player5.pack()
-    label_result_player6.pack()
-    label_result_player7.pack()
-    label_result_player8.pack()
-
-    label_result_player1.pack_forget()
-    label_result_player2.pack_forget()
-    label_result_player3.pack_forget()
-    label_result_player4.pack_forget()
-    label_result_player5.pack_forget()
-    label_result_player6.pack_forget()
-    label_result_player7.pack_forget()
-    label_result_player8.pack_forget()
-
-    label_result_quarter1.pack()
-    label_result_quarter2.pack()
-    label_result_quarter3.pack()
-    label_result_quarter4.pack()
-    reset3()
-
-
-def reset3():
-    """
-    This function is called by the reset()- function
-    The function is split due to pylint - warnings
-    :return:
-    """
-
-    label_result_quarter1.pack_forget()
-    label_result_quarter2.pack_forget()
-    label_result_quarter3.pack_forget()
-    label_result_quarter4.pack_forget()
-
-    label_result_semi1.pack()
-    label_result_semi2.pack()
-    label_result_semi1.pack_forget()
-    label_result_semi2.pack_forget()
+    while len(all_player_names) > 0:
+        for item in all_player_names:
+            all_player_names.remove(item)
 
 
 def switch_mode():
@@ -389,9 +525,9 @@ def check_names():
     name3 = input_name3.get()
     name4 = input_name4.get()
 
-    # if name1 == "" or name2 == "" or name3 == "" or name4 == "":
-        # messagebox.showinfo("Error", "Not all names were entered.")
-        # return
+    if name1 == "" or name2 == "" or name3 == "" or name4 == "":
+        messagebox.showinfo("Error", "Not all names were entered.")
+        return
 
     all_player_names.append(name1)
     all_player_names.append(name2)
@@ -405,9 +541,9 @@ def check_names():
         name7 = input_name7.get()
         name8 = input_name8.get()
 
-        # if name5 == "" or name6 == "" or name7 == "" or name8 == "":
-            # messagebox.showinfo("Error", "Not all names were entered.")
-            # return
+        if name5 == "" or name6 == "" or name7 == "" or name8 == "":
+         messagebox.showinfo("Error", "Not all names were entered.")
+         return
 
         all_player_names.append(name5)
         all_player_names.append(name6)
@@ -424,13 +560,13 @@ def check_names():
         name15 = input_name15.get()
         name16 = input_name16.get()
 
-        # if name9 == "" or name10 == "" or name11 == "" or name12 == "":
-            # messagebox.showinfo("Error", "Not all names were entered.")
-            # return
+        if name9 == "" or name10 == "" or name11 == "" or name12 == "":
+            messagebox.showinfo("Error", "Not all names were entered.")
+            return
 
-        # if name13 == "" or name14 == "" or name15 == "" or name16 == "":
-            # messagebox.showinfo("Error", "Not all names were entered.")
-            # return
+        if name13 == "" or name14 == "" or name15 == "" or name16 == "":
+            messagebox.showinfo("Error", "Not all names were entered.")
+            return
 
         all_player_names.append(name9)
         all_player_names.append(name10)
@@ -542,23 +678,23 @@ def take_names():
                 if random_number not in numbers:
                     numbers.append(random_number)
 
-            #label_player1_name['text'] = all_player_names[numbers[0]]
-            #label_player2_name['text'] = all_player_names[numbers[1]]
-            #label_player3_name['text'] = all_player_names[numbers[2]]
-            #label_player4_name['text'] = all_player_names[numbers[3]]
-            #label_player5_name['text'] = all_player_names[numbers[4]]
-            #label_player6_name['text'] = all_player_names[numbers[5]]
-            #label_player7_name['text'] = all_player_names[numbers[6]]
-            #label_player8_name['text'] = all_player_names[numbers[7]]
+            label_player1_name['text'] = all_player_names[numbers[0]]
+            label_player2_name['text'] = all_player_names[numbers[1]]
+            label_player3_name['text'] = all_player_names[numbers[2]]
+            label_player4_name['text'] = all_player_names[numbers[3]]
+            label_player5_name['text'] = all_player_names[numbers[4]]
+            label_player6_name['text'] = all_player_names[numbers[5]]
+            label_player7_name['text'] = all_player_names[numbers[6]]
+            label_player8_name['text'] = all_player_names[numbers[7]]
 
-            #label_player9_name['text'] = all_player_names[numbers[8]]
-            #label_player10_name['text'] = all_player_names[numbers[9]]
-            #label_player11_name['text'] = all_player_names[numbers[10]]
-            #label_player12_name['text'] = all_player_names[numbers[11]]
-            #label_player13_name['text'] = all_player_names[numbers[12]]
-            #label_player14_name['text'] = all_player_names[numbers[13]]
-            #label_player15_name['text'] = all_player_names[numbers[14]]
-            #label_player16_name['text'] = all_player_names[numbers[15]]
+            label_player9_name['text'] = all_player_names[numbers[8]]
+            label_player10_name['text'] = all_player_names[numbers[9]]
+            label_player11_name['text'] = all_player_names[numbers[10]]
+            label_player12_name['text'] = all_player_names[numbers[11]]
+            label_player13_name['text'] = all_player_names[numbers[12]]
+            label_player14_name['text'] = all_player_names[numbers[13]]
+            label_player15_name['text'] = all_player_names[numbers[14]]
+            label_player16_name['text'] = all_player_names[numbers[15]]
 
     else:
         label_player1_name['text'] = all_player_names[0]
@@ -572,15 +708,15 @@ def take_names():
             label_player7_name['text'] = all_player_names[6]
             label_player8_name['text'] = all_player_names[7]
 
-            #if label_mode_16players['bg'] == "yellow":
-                #label_player9_name['text'] = all_player_names[8]
-                #label_player10_name['text'] = all_player_names[9]
-                #label_player11_name['text'] = all_player_names[10]
-                #label_player12_name['text'] = all_player_names[11]
-                #label_player13_name['text'] = all_player_names[12]
-                #label_player14_name['text'] = all_player_names[13]
-                #label_player15_name['text'] = all_player_names[14]
-                #label_player16_name['text'] = all_player_names[15]
+            if label_mode_16players['bg'] == "yellow":
+                label_player9_name['text'] = all_player_names[8]
+                label_player10_name['text'] = all_player_names[9]
+                label_player11_name['text'] = all_player_names[10]
+                label_player12_name['text'] = all_player_names[11]
+                label_player13_name['text'] = all_player_names[12]
+                label_player14_name['text'] = all_player_names[13]
+                label_player15_name['text'] = all_player_names[14]
+                label_player16_name['text'] = all_player_names[15]
 
     start_tree()
 
@@ -1375,7 +1511,8 @@ def calculate5():
         label_winner_16players['text'] = label_final2['text']
 
     label_winner_16players['bg'] = "yellow"
-    messagebox.showinfo("Info", label_winner_16players['text'] + " is the winner of the tournament!")
+    messagebox.showinfo("Info", label_winner_16players['text'] +
+                        " is the winner of the tournament!")
     end_game()
 
 
