@@ -112,7 +112,7 @@ def reset():
 
 def reset2():
     """
-
+    This function is called by the reset
     :return:
     """
     # disable all labels
@@ -172,7 +172,7 @@ def reset2():
 
 def reset3():
     """
-
+    This function is called by the reset2
     :return:
     """
     label_winner_4players['text'] = ""
@@ -222,8 +222,7 @@ def reset3():
 
 def reset4():
     """
-    This function is called by the reset()- function
-    The function is split due to pylint - warnings
+    This function is called by the reset3
     :return:
     """
     label_result_quarter1.pack()
@@ -283,10 +282,12 @@ def reset4():
 
 def reset5():
     """
-    This function is called by the reset()- function
-    The function is split due to pylint - warnings
+    This function is called by the reset4
     :return:
     """
+    disable_first_four_input_fields()
+    disable_input_fields_5_to_16()
+
     label_semi1.pack()
     label_semi2.pack()
     label_semi3.pack()
@@ -338,14 +339,118 @@ def reset5():
     switch_mode_button.place(x=412.4, y=0, height=30, width=100)
     start_button.place(x=762.5, y=0, height=30, width=100)
 
+    button_enter_names.pack()
+    button_enter_names.pack_forget()
+
+    reset6()
+
+
+def reset6():
+    """
+    This function is called by the reset5
+    :return:
+    """
     while len(all_player_names) > 0:
         for item in all_player_names:
             all_player_names.remove(item)
 
+    label_name_order1.pack()
+    label_name_order2.pack()
+
+    label_info_names.pack()
+    button_switch_order.pack()
+
+    label_name_order1.pack_forget()
+    label_name_order2.pack_forget()
+    label_info_names.pack_forget()
+    button_switch_order.pack_forget()
+
+    label_result_player1['bg'] = "white"
+    label_result_player2['bg'] = "white"
+    label_result_player3['bg'] = "white"
+    label_result_player4['bg'] = "white"
+    label_result_player5['bg'] = "white"
+    label_result_player6['bg'] = "white"
+    label_result_player7['bg'] = "white"
+    label_result_player8['bg'] = "white"
+    label_result_player9['bg'] = "white"
+    label_result_player10['bg'] = "white"
+    label_result_player11['bg'] = "white"
+    label_result_player12['bg'] = "white"
+    label_result_player13['bg'] = "white"
+    label_result_player14['bg'] = "white"
+    label_result_player15['bg'] = "white"
+    label_result_player16['bg'] = "white"
+
+    label_result_quarter1['bg'] = "white"
+    label_result_quarter2['bg'] = "white"
+    label_result_quarter3['bg'] = "white"
+    label_result_quarter4['bg'] = "white"
+    label_result_quarter5['bg'] = "white"
+    label_result_quarter6['bg'] = "white"
+    label_result_quarter7['bg'] = "white"
+    label_result_quarter8['bg'] = "white"
+
+    label_result_semi1['bg'] = "white"
+    label_result_semi2['bg'] = "white"
+    label_result_semi3['bg'] = "white"
+    label_result_semi4['bg'] = "white"
+
+    label_result_final1['bg'] = "white"
+    label_result_final2['bg'] = "white"
+
+
+def disable_first_four_input_fields():
+    """
+
+    :return:
+    """
+    input_name1.pack()
+    input_name2.pack()
+    input_name3.pack()
+    input_name4.pack()
+
+    input_name1.pack_forget()
+    input_name2.pack_forget()
+    input_name3.pack_forget()
+    input_name4.pack_forget()
+
+
+def disable_input_fields_5_to_16():
+    """
+
+    :return:
+    """
+    input_name5.pack()
+    input_name6.pack()
+    input_name7.pack()
+    input_name8.pack()
+    input_name9.pack()
+    input_name10.pack()
+    input_name11.pack()
+    input_name12.pack()
+    input_name13.pack()
+    input_name14.pack()
+    input_name15.pack()
+    input_name16.pack()
+
+    input_name5.pack_forget()
+    input_name6.pack_forget()
+    input_name7.pack_forget()
+    input_name8.pack_forget()
+    input_name9.pack_forget()
+    input_name10.pack_forget()
+    input_name11.pack_forget()
+    input_name12.pack_forget()
+    input_name13.pack_forget()
+    input_name14.pack_forget()
+    input_name15.pack_forget()
+    input_name16.pack_forget()
+
 
 def switch_mode():
     """
-
+    This function switches the mode between 4, 8 and 16 players
     :return:
     """
     if label_mode_4players['bg'] == "yellow":
@@ -363,7 +468,8 @@ def switch_mode():
 
 def switch_order():
     """
-
+    This function switches the mode between random or entered order
+    for the player names in the tournament tree
     :return:
     """
     if label_name_order1['bg'] == "yellow":
@@ -429,7 +535,6 @@ def mode_8players():
 def mode_8players2():
     """
     This function is called by mode_8players
-    Due to pylint warnings, the function was split
     :return:
     """
     label_result_player1.place(x=136, y=140, height=30, width=30)
@@ -452,7 +557,7 @@ def mode_8players2():
 
 def mode_16players():
     """
-
+    This function creates all required labels for 16 players
     :return:
     """
     mode_8players2()
@@ -557,7 +662,7 @@ def check_names():
 
 def check_names2():
     """
-
+    this function is called by check_names
     :return:
     """
 
@@ -592,53 +697,19 @@ def check_names2():
     button_enter_names.pack_forget()
 
     # disable input fields
-    input_name1.pack()
-    input_name2.pack()
-    input_name3.pack()
-    input_name4.pack()
-
-    input_name1.pack_forget()
-    input_name2.pack_forget()
-    input_name3.pack_forget()
-    input_name4.pack_forget()
+    disable_first_four_input_fields()
 
     check_names3()
 
 
 def check_names3():
     """
-
+    This function is called by check_names2
     :return:
     """
 
     if label_mode_8players['bg'] == "yellow" or label_mode_16players['bg'] == "yellow":
-        input_name5.pack()
-        input_name6.pack()
-        input_name7.pack()
-        input_name8.pack()
-
-        input_name9.pack()
-        input_name10.pack()
-        input_name11.pack()
-        input_name12.pack()
-        input_name13.pack()
-        input_name14.pack()
-        input_name15.pack()
-        input_name16.pack()
-
-        input_name5.pack_forget()
-        input_name6.pack_forget()
-        input_name7.pack_forget()
-        input_name8.pack_forget()
-
-        input_name9.pack_forget()
-        input_name10.pack_forget()
-        input_name11.pack_forget()
-        input_name12.pack_forget()
-        input_name13.pack_forget()
-        input_name14.pack_forget()
-        input_name15.pack_forget()
-        input_name16.pack_forget()
+        disable_input_fields_5_to_16()
 
     label_info_names.pack()
     label_info_names.pack_forget()
@@ -724,7 +795,7 @@ def take_names():
 
 def take_names2():
     """
-
+    This function is called by take_names
     :return:
     """
     label_player1_name['text'] = all_player_names[0]
@@ -810,9 +881,9 @@ def enter_results():
     button_plus.place(x=165, y=10, height=30, width=30)
 
 
-def back_button1():
+def back_button_first_round():
     """
-     This function switches the labels of the player names (4 or 8) backwards
+    This function switches the labels of the player names backwards
     :return:
     """
     if label_final1['text'] != "":
@@ -825,12 +896,12 @@ def back_button1():
         back_second_round()
 
     else:
-        back_button1_1()
+        back_button_first_round2()
 
 
-def back_button1_1():
+def back_button_first_round2():
     """
-
+    This function is called by back_button_first_round
     :return:
     """
     if label_result_player16['bg'] == "yellow":
@@ -862,12 +933,12 @@ def back_button1_1():
         label_result_player9['bg'] = "yellow"
 
     else:
-        back_button_1_2()
+        back_button_first_round3()
 
 
-def back_button_1_2():
+def back_button_first_round3():
     """
-
+    This function is called by back_button_first_round2
     :return:
     """
     if label_result_player9['bg'] == "yellow":
@@ -905,7 +976,7 @@ def back_button_1_2():
 
 def back_second_round():
     """
-
+    This function switches the labels of the player names in the second round backwards
     :return:
     """
     if label_result_quarter8['bg'] == "yellow":
@@ -939,7 +1010,7 @@ def back_second_round():
 
 def back_third_round():
     """
-
+    This function switches the labels of the player names in the third round backwards
     :return:
     """
     if label_result_semi4['bg'] == "yellow":
@@ -957,7 +1028,7 @@ def back_third_round():
 
 def back_fourth_round():
     """
-
+    This function switches the labels of the player names in the fourth round backwards
     :return:
     """
     if label_result_final2['bg'] == "yellow":
@@ -965,9 +1036,9 @@ def back_fourth_round():
         label_result_final1['bg'] = "yellow"
 
 
-def next_button_first_1():
+def next_button_first_round():
     """
-    This function switches the labels of the player names (4 or 8) forwards
+    This function switches the labels of the player names forwards
     :return:
     """
     if label_final1['text'] != "":
@@ -980,12 +1051,12 @@ def next_button_first_1():
         next_second_round()
 
     else:
-        next_button_first_round_2()
+        next_button_first_round2()
 
 
-def next_button_first_round_2():
+def next_button_first_round2():
     """
-
+    This function is called by next_button_first_round
     :return:
     """
     if label_result_player1['bg'] == "yellow":
@@ -1022,12 +1093,12 @@ def next_button_first_round_2():
         label_result_player8['bg'] = "yellow"
 
     else:
-        next_button_first_round_3()
+        next_button_first_round3()
 
 
-def next_button_first_round_3():
+def next_button_first_round3():
     """
-
+    This function is called by next_button_first_round2
     :return:
     """
     if label_result_player8['bg'] == "yellow":
@@ -1040,12 +1111,12 @@ def next_button_first_round_3():
             label_result_player9['bg'] = "yellow"
 
     else:
-        next_button_first_round_4()
+        next_button_first_round4()
 
 
-def next_button_first_round_4():
+def next_button_first_round4():
     """
-
+    This function is called by next_button_first_round3
     :return:
     """
     if label_result_player9['bg'] == "yellow":
@@ -1084,7 +1155,7 @@ def next_button_first_round_4():
 
 def next_second_round():
     """
-    This function shall enable the plus, minus, back and next - button
+    This function switches the labels of the player names in the second round forwards
     :return:
     """
     button_next.pack()
@@ -1124,11 +1195,12 @@ def next_second_round():
             label_result_quarter5['bg'] = "yellow"
 
     else:
-        next_second_round_2()
+        next_second_round2()
 
 
-def next_second_round_2():
+def next_second_round2():
     """
+    This function is called by next_second_round
     :return:
     """
     if label_result_quarter5['bg'] == "yellow":
@@ -1155,7 +1227,7 @@ def next_second_round_2():
 
 def next_third_round():
     """
-
+    This function switches the labels of the player names in the third round forwards
     :return:
     """
     button_next.pack()
@@ -1193,7 +1265,7 @@ def next_third_round():
 
 def next_fourth_round():
     """
-
+    This function switches the labels of the player names in the fourth round forwards
     :return:
     """
     button_next.pack()
@@ -1219,7 +1291,7 @@ def next_fourth_round():
 def check_if_all_labels_filled():
     """
     After entering the results we need a check if all labels are filled
-    :return:
+    :return: true if check of the labels are successful, otherwise false
     """
     if label_result_player1['text'] == "" or label_result_player2['text'] == "" \
             or label_result_player3['text'] == "" or label_result_player4['text'] == "":
@@ -1251,8 +1323,8 @@ def check_if_all_labels_filled():
 
 def check_if_all_labels_filled_16_players():
     """
-
-    :return:
+    Check if all labels filled when 16 players participate
+    :return: true if check of the labels are successful, otherwise false
     """
     if label_result_player9['text'] == "" or label_result_player10['text'] == "" \
             or label_result_player11['text'] == "" or label_result_player12['text'] == "":
@@ -1280,7 +1352,7 @@ def check_if_all_labels_filled_16_players():
 def check_if_all_labels_filled2():
     """
     After entering the results of the second round we need a check if all labels are filled
-    :return:
+    :return: true if check of the labels are successful, otherwise false
     """
     if label_result_quarter1['text'] == "" or label_result_quarter2['text'] == "" \
             or int(label_result_quarter1['text']) == int(label_result_quarter2['text']):
@@ -1312,8 +1384,8 @@ def check_if_all_labels_filled2():
 
 def check_if_all_labels_filled3():
     """
-
-    :return:
+    After entering the results of the third round we need a check if all labels are filled
+    :return: true if check of the labels are successful, otherwise false
     """
     if label_result_semi1['text'] == "" or label_result_semi2['text'] == "":
         messagebox.showinfo("Error", "Check if everything has been entered correctly.")
@@ -1328,8 +1400,9 @@ def check_if_all_labels_filled3():
 
 def check_if_all_labels_filled4():
     """
-
-    :return:
+    After entering the results of the third round we need a check if all labels are filled
+    Check only if 16 players were chosen
+    :return: true if check of the labels are successful, otherwise false
     """
     if not check_if_all_labels_filled3():
         return False
@@ -1347,8 +1420,8 @@ def check_if_all_labels_filled4():
 
 def check_if_all_labels_filled5():
     """
-
-    :return:
+    After entering the results of the fourth round we need a check if all labels are filled
+    :return: true if check of the labels are successful, otherwise false
     """
     if label_result_final1['text'] == "" or label_result_final2['text'] == "":
         messagebox.showinfo("Error", "Check if everything has been entered correctly.")
@@ -1359,7 +1432,7 @@ def check_if_all_labels_filled5():
 
 def calculate1():
     """
-
+    Calculate the winners of the first round
     :return:
     """
     button_next.pack()
@@ -1405,7 +1478,7 @@ def calculate1():
 
 def calculate_help_16players():
     """
-
+    Calculate the winners of the first round when 16 player participate
     :return:
     """
     if int(label_result_player9['text']) > int(label_result_player10['text']):
@@ -1431,7 +1504,7 @@ def calculate_help_16players():
 
 def calculate2():
     """
-
+    Calculate the winners of the second round
     :return:
     """
     button_next.pack()
@@ -1458,6 +1531,7 @@ def calculate2():
                             " is the winner of the tournament!")
 
         end_game()
+        return
 
     elif label_mode_8players['bg'] == "yellow" or label_mode_16players['bg'] == "yellow":
         if int(label_result_quarter1['text']) > int(label_result_quarter2['text']):
@@ -1479,7 +1553,7 @@ def calculate2():
 
 def calculate2_1():
     """
-
+    Calculate the winners of the second round
     :return:
     """
     if int(label_result_quarter5['text']) > int(label_result_quarter6['text']):
@@ -1498,7 +1572,7 @@ def calculate2_1():
 
 def calculate3():
     """
-
+    Calculate the winners of the third round
     :return:
     """
     # check which player has won the final
@@ -1525,7 +1599,7 @@ def calculate3():
 
 def calculate4():
     """
-
+    Calculate the winners of the fourth round
     :return:
     """
     # check which player has won the final
@@ -1556,7 +1630,7 @@ def calculate4():
 
 def calculate5():
     """
-
+    Calculate the winners of the last round
     :return:
     """
     # check which player has won the final
@@ -1582,9 +1656,9 @@ def calculate5():
     end_game()
 
 
-def plus_first_round_1():
+def plus_first_round():
     """
-    This function increments
+    This function increments the score of the players in the first round
     :return:
     """
     if label_mode_16players['bg'] == "yellow" and label_final1['text'] != "":
@@ -1597,12 +1671,12 @@ def plus_first_round_1():
         plus_second_round()
 
     else:
-        plus_first_round_2()
+        plus_first_round2()
 
 
-def plus_first_round_2():
+def plus_first_round2():
     """
-
+    This function increments the score of the players in the first round
     :return:
     """
     if label_result_player1['bg'] == "yellow":
@@ -1624,12 +1698,12 @@ def plus_first_round_2():
             label_result_player3['text'] = int(label_result_player3['text']) + 1
 
     else:
-        plus_first_round_3()
+        plus_first_round3()
 
 
-def plus_first_round_3():
+def plus_first_round3():
     """
-
+    This function increments the score of the players in the first round
     :return:
     """
     if label_result_player4['bg'] == "yellow":
@@ -1651,12 +1725,12 @@ def plus_first_round_3():
             label_result_player6['text'] = int(label_result_player6['text']) + 1
 
     else:
-        plus_first_round_4()
+        plus_first_round4()
 
 
-def plus_first_round_4():
+def plus_first_round4():
     """
-
+    This function increments the score of the players in the first round
     :return:
     """
     if label_result_player7['bg'] == "yellow":
@@ -1678,12 +1752,12 @@ def plus_first_round_4():
             label_result_player9['text'] = int(label_result_player9['text']) + 1
 
     else:
-        plus_first_round_5()
+        plus_first_round5()
 
 
-def plus_first_round_5():
+def plus_first_round5():
     """
-
+    This function increments the score of the players in the first round
     :return:
     """
     if label_result_player10['bg'] == "yellow":
@@ -1705,11 +1779,12 @@ def plus_first_round_5():
             label_result_player12['text'] = int(label_result_player12['text']) + 1
 
     else:
-        plus_first_round_6()
+        plus_first_round6()
 
 
-def plus_first_round_6():
+def plus_first_round6():
     """
+    This function increments the score of the players in the first round
     :return:
     """
     if label_result_player13['bg'] == "yellow":
@@ -1731,12 +1806,12 @@ def plus_first_round_6():
             label_result_player15['text'] = int(label_result_player15['text']) + 1
 
     else:
-        plus_first_round_7()
+        plus_first_round7()
 
 
-def plus_first_round_7():
+def plus_first_round7():
     """
-
+    This function increments the score of the players in the first round
     :return:
     """
     if label_result_player16['bg'] == "yellow":
@@ -1748,7 +1823,7 @@ def plus_first_round_7():
 
 def minus_first_round():
     """
-    This function decrements
+    This function decrements the score of the players in the first round
     :return:
     """
     if label_mode_16players['bg'] == "yellow" and label_final1['text'] != "":
@@ -1774,12 +1849,12 @@ def minus_first_round():
                 label_result_player2['text'] = int(label_result_player2['text']) - 1
 
         else:
-            minus_first_round_2()
+            minus_first_round2()
 
 
-def minus_first_round_2():
+def minus_first_round2():
     """
-
+    This function decrements the score of the players in the first round
     :return:
     """
     if label_result_player3['bg'] == "yellow":
@@ -1801,12 +1876,12 @@ def minus_first_round_2():
             label_result_player5['text'] = int(label_result_player5['text']) - 1
 
     else:
-        minus_first_round_3()
+        minus_first_round3()
 
 
-def minus_first_round_3():
+def minus_first_round3():
     """
-
+    This function decrements the score of the players in the first round
     :return:
     """
     if label_result_player6['bg'] == "yellow":
@@ -1828,12 +1903,12 @@ def minus_first_round_3():
             label_result_player8['text'] = int(label_result_player8['text'])
 
     else:
-        minus_first_round_4()
+        minus_first_round4()
 
 
-def minus_first_round_4():
+def minus_first_round4():
     """
-
+    This function decrements the score of the players in the first round
     :return:
     """
     if label_result_player9['bg'] == "yellow":
@@ -1855,12 +1930,12 @@ def minus_first_round_4():
             label_result_player11['text'] = int(label_result_player11['text']) - 1
 
     else:
-        minus_first_round_5()
+        minus_first_round5()
 
 
-def minus_first_round_5():
+def minus_first_round5():
     """
-
+    This function decrements the score of the players in the first round
     :return:
     """
     if label_result_player12['bg'] == "yellow":
@@ -1882,11 +1957,12 @@ def minus_first_round_5():
             label_result_player14['text'] = int(label_result_player14['text']) - 1
 
     else:
-        minus_first_round_6()
+        minus_first_round6()
 
 
-def minus_first_round_6():
+def minus_first_round6():
     """
+    This function decrements the score of the players in the first round
     :return:
     """
     if label_result_player15['bg'] == "yellow":
@@ -1904,7 +1980,7 @@ def minus_first_round_6():
 
 def plus_second_round():
     """
-    This function increments for the second round
+    This function increments the score of the players in the second round
     :return:
     """
     if label_result_quarter1['bg'] == "yellow":
@@ -1931,7 +2007,7 @@ def plus_second_round():
 
 def plus_second_round2():
     """
-
+    This function increments the score of the players in the second round
     :return:
     """
     if label_result_quarter4['bg'] == "yellow":
@@ -1958,7 +2034,7 @@ def plus_second_round2():
 
 def plus_second_round3():
     """
-
+    This function increments the score of the players in the second round
     :return:
     """
     if label_result_quarter7['bg'] == "yellow":
@@ -1976,7 +2052,7 @@ def plus_second_round3():
 
 def minus_second_round():
     """
-    This function decrements for the second round
+    This function decrements the score of the players in the second round
     :return:
     """
     if label_result_quarter1['bg'] == "yellow":
@@ -2003,7 +2079,7 @@ def minus_second_round():
 
 def minus_second_round2():
     """
-
+    This function decrements the score of the players in the second round
     :return:
     """
     if label_result_quarter4['bg'] == "yellow":
@@ -2030,7 +2106,7 @@ def minus_second_round2():
 
 def minus_second_round3():
     """
-
+    This function decrements the score of the players in the second round
     :return:
     """
     if label_result_quarter7['bg'] == "yellow":
@@ -2048,7 +2124,7 @@ def minus_second_round3():
 
 def plus_third_round():
     """
-    This function increments for the third round
+    This function increments the score of the players in the third round
     :return:
     """
     if label_result_semi1['bg'] == "yellow":
@@ -2078,7 +2154,7 @@ def plus_third_round():
 
 def plus_fourth_round():
     """
-    This function increments for the third round
+    This function increments the score of the players in the fourth round
     :return:
     """
     if label_result_final1['bg'] == "yellow":
@@ -2096,7 +2172,7 @@ def plus_fourth_round():
 
 def minus_third_round():
     """
-    This function decrements for the third round
+    This function decrements the score of the players in the third round
     """
     if label_result_semi1['bg'] == "yellow":
         if label_result_semi1['text'] == "":
@@ -2125,7 +2201,7 @@ def minus_third_round():
 
 def minus_fourth_round():
     """
-    This function decrements for the third round
+    This function decrements the score of the players in the fourth round
     """
     if label_result_final1['bg'] == "yellow":
         if label_result_final1['text'] == "":
@@ -2142,7 +2218,7 @@ def minus_fourth_round():
 
 def end_game():
     """
-
+    This function is called when the tournament tree is completely full
     :return:
     """
     button_enter_results.pack()
@@ -2189,7 +2265,7 @@ def start():
 
 def start2():
     """
-
+    This functions starts the tournament tree
     :return:
     """
     if label_mode_8players['bg'] == "yellow":
@@ -2295,18 +2371,18 @@ if __name__ == "__main__":
 
     # define next-button for entering results
     button_next = Button(gui, text="Next", bd=1, fg="black", bg="lightgreen",
-                         font=('Arial', 10), command=next_button_first_1)
+                         font=('Arial', 10), command=next_button_first_round)
 
     # define back-button for entering results
     button_back = Button(gui, text="Back", bd=1, fg="black", bg="lightgreen",
-                         font=('Arial', 10), command=back_button1)
+                         font=('Arial', 10), command=back_button_first_round)
 
     # define plus and minus buttons
     button_minus = Button(gui, text="-", bd=1, fg="black", bg="red",
                           font=('Arial', 10), command=minus_first_round)
 
     button_plus = Button(gui, text="+", bd=1, fg="black", bg="lightgreen",
-                         font=('Arial', 10), command=plus_first_round_1)
+                         font=('Arial', 10), command=plus_first_round)
 
     # define labels, text-fields and buttons for name input
     input_name1 = Entry(gui, bd=1, font=('Arial', 13))
