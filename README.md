@@ -69,7 +69,7 @@ Description
 - If the first player has 0 points left, a new game will be started automatically. If there are three or four players, the game will continue until there is only one player left
 - When you have finished playing, you can press `Calculate Score`, which will create an Excel file where you can view your average and various statistics.
 
-![Screenshot](Images/zähler.png?raw=true)
+![Screenshot](Images/counter/counter.png?raw=true)
 
 ## Setup for around-the-clock
 Step into directory 
@@ -89,4 +89,4 @@ Description:
 - Use the `+` and `-` buttons to set the number of darts hit, minimum 0 and maximum 3. Use the `next` button to move to the next field.
 - When you have finished, an excel file is automatically created in which everything important is listed.
 
-![Screenshot: around-the-clock](Images/around-the-clock.png?raw=true)
+![Screenshot: around-the-clock](Images/around-the-clock/around-the-clock.png?raw=true)
