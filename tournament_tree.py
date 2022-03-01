@@ -21,8 +21,6 @@ from tkinter import messagebox
 
 all_player_names = []
 
-# TODO: reset also the input fields and labels
-
 
 def button_exit():
     """
@@ -1284,7 +1282,7 @@ def next_fourth_round():
 
     elif label_result_final2['bg'] == "yellow":
         if check_if_all_labels_filled5():
-            label_result_semi2['bg'] = "white"
+            label_result_final2['bg'] = "white"
             calculate5()
 
 
@@ -1531,7 +1529,6 @@ def calculate2():
                             " is the winner of the tournament!")
 
         end_game()
-        return
 
     elif label_mode_8players['bg'] == "yellow" or label_mode_16players['bg'] == "yellow":
         if int(label_result_quarter1['text']) > int(label_result_quarter2['text']):
@@ -1544,11 +1541,11 @@ def calculate2():
         else:
             label_semi2['text'] = label_quarter4['text']
 
-    if label_mode_16players['bg'] == "yellow":
-        calculate2_1()
-    else:
-        button_enter_results.pack()
-        button_enter_results.place(x=5, y=10, height=30, width=130)
+        if label_mode_16players['bg'] == "yellow":
+            calculate2_1()
+        else:
+            button_enter_results.pack()
+            button_enter_results.place(x=5, y=10, height=30, width=130)
 
 
 def calculate2_1():
@@ -2223,7 +2220,6 @@ def end_game():
     """
     button_enter_results.pack()
     button_enter_results.pack_forget()
-    # TODO enable button for creating excel with all information
 
 
 def start():
