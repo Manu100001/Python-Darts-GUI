@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# pylint: disable=C0302
 """
 This script will help you play darts.
 If you don't have an electric dartboard but a normal one,
@@ -18,7 +19,7 @@ from datetime import datetime
 from openpyxl import Workbook
 from openpyxl.styles import PatternFill
 
-# color for excel
+# color for Excel
 greenFill = PatternFill(start_color='92D050', end_color='92D050', fill_type='solid')
 redFill = PatternFill(start_color='FFFF0000', end_color='FFFF0000', fill_type='solid')
 
@@ -48,9 +49,9 @@ player4_scores = [{"T20": 0, "T19": 0, "T18": 0, "S20": 0, "S19": 0, "S18": 0,
                    "Bull": 0, "Single_Bull": 0, "Triple": 0, "Double": 0, "No_Score": 0}]
 
 
-def create_excel():
+def create_directory_if_not_exists():
     """
-    This function creates an excel file
+    This function creates a directory for the Excel file
     :return:
     """
     if not os.path.isdir("Spielstände"):
@@ -79,33 +80,17 @@ def create_excel():
     # create new score - file
     time = datetime.now().strftime('%H-%M-%S')
 
-    excel_file = Workbook()
-    sheet = excel_file.create_sheet('Scoring')
     path = "Spielstände/Scoring/" + current_year + "/" + \
            month_name + "/" + date + "/" + time + ".xlsx"
-    # set standards
-    sheet.cell(row=3, column=2).value = "Spieler"
-    sheet.cell(row=3, column=3).value = "Average"
-    sheet.cell(row=3, column=4).value = "180"
-    sheet.cell(row=3, column=5).value = "140+"
-    sheet.cell(row=3, column=6).value = "100+"
-    sheet.cell(row=3, column=7).value = "80+"
-    sheet.cell(row=3, column=8).value = "60+"
 
-    sheet.cell(row=3, column=9).value = "Geworfene Punkte"
-    sheet.cell(row=3, column=10).value = "Geworfene Darts"
-    sheet.cell(row=3, column=11).value = "Geworfene T20"
-    sheet.cell(row=3, column=12).value = "Geworfene S20"
-    sheet.cell(row=3, column=13).value = "Geworfene T19"
-    sheet.cell(row=3, column=14).value = "Geworfene S19"
-    sheet.cell(row=3, column=15).value = "Geworfene T18"
-    sheet.cell(row=3, column=16).value = "Geworfene S18"
-    sheet.cell(row=3, column=17).value = "Geworfene Single-Bulls"
-    sheet.cell(row=3, column=18).value = "Geworfene Bulls"
-    sheet.cell(row=3, column=19).value = "Geworfene Triple"
-    sheet.cell(row=3, column=20).value = "Geworfene Double"
-    sheet.cell(row=3, column=21).value = "No hit"
+    return path
 
+
+def set_standards_in_excel(sheet):
+    """
+
+    :return:
+    """
     sheet['B3'].fill = greenFill
     sheet['C3'].fill = greenFill
     sheet['D3'].fill = greenFill
@@ -142,61 +127,48 @@ def create_excel():
     sheet.column_dimensions['T'].width = 17
     sheet.column_dimensions['U'].width = 12
 
-    # logic for excel - file
+
+def fill_values_in_cells(sheet):
+    """
+    This function sets standard values in the Excel file
+    :param sheet: the Excel sheet to write in
+    :return:
+    """
+    sheet.cell(row=3, column=2).value = "Spieler"
+    sheet.cell(row=3, column=3).value = "Average"
+    sheet.cell(row=3, column=4).value = "180"
+    sheet.cell(row=3, column=5).value = "140+"
+    sheet.cell(row=3, column=6).value = "100+"
+    sheet.cell(row=3, column=7).value = "80+"
+    sheet.cell(row=3, column=8).value = "60+"
+
+    sheet.cell(row=3, column=9).value = "Geworfene Punkte"
+    sheet.cell(row=3, column=10).value = "Geworfene Darts"
+    sheet.cell(row=3, column=11).value = "Geworfene T20"
+    sheet.cell(row=3, column=12).value = "Geworfene S20"
+    sheet.cell(row=3, column=13).value = "Geworfene T19"
+    sheet.cell(row=3, column=14).value = "Geworfene S19"
+    sheet.cell(row=3, column=15).value = "Geworfene T18"
+    sheet.cell(row=3, column=16).value = "Geworfene S18"
+    sheet.cell(row=3, column=17).value = "Geworfene Single-Bulls"
+    sheet.cell(row=3, column=18).value = "Geworfene Bulls"
+    sheet.cell(row=3, column=19).value = "Geworfene Triple"
+    sheet.cell(row=3, column=20).value = "Geworfene Double"
+    sheet.cell(row=3, column=21).value = "No hit"
+
+    # set player names in Excel
     sheet.cell(row=4, column=2).value = label_player_1_name['text']
     sheet.cell(row=5, column=2).value = label_player_2_name['text']
     sheet.cell(row=6, column=2).value = label_player_3_name['text']
     sheet.cell(row=7, column=2).value = label_player_4_name['text']
 
-    # show data in excel
-    # player 1
-    sheet.cell(row=4, column=3).value = round((player1_kpis[0]['Score'] /
-                                               player1_kpis[0]['Darts']) * 3, 2)
-    sheet.cell(row=4, column=4).value = player1_kpis[0]['180']
-    sheet.cell(row=4, column=5).value = player1_kpis[0]['140']
-    sheet.cell(row=4, column=6).value = player1_kpis[0]['100']
-    sheet.cell(row=4, column=7).value = player1_kpis[0]['80']
-    sheet.cell(row=4, column=8).value = player1_kpis[0]['60']
 
-    sheet.cell(row=4, column=9).value = player1_kpis[0]['Score']
-    sheet.cell(row=4, column=10).value = player1_kpis[0]['Darts']
-
-    sheet.cell(row=4, column=11).value = player1_scores[0]['T20']
-    sheet.cell(row=4, column=12).value = player1_scores[0]['S20']
-    sheet.cell(row=4, column=13).value = player1_scores[0]['T19']
-    sheet.cell(row=4, column=14).value = player1_scores[0]['S19']
-    sheet.cell(row=4, column=15).value = player1_scores[0]['T18']
-    sheet.cell(row=4, column=16).value = player1_scores[0]['S18']
-    sheet.cell(row=4, column=17).value = player1_scores[0]['Single_Bull']
-    sheet.cell(row=4, column=18).value = player1_scores[0]['Bull']
-    sheet.cell(row=4, column=19).value = player1_scores[0]['Triple']
-    sheet.cell(row=4, column=20).value = player1_scores[0]['Double']
-    sheet.cell(row=4, column=21).value = player1_scores[0]['No_Score']
-
-    # player 2
-    sheet.cell(row=5, column=3).value = round((player2_kpis[0]['Score'] /
-                                               player2_kpis[0]['Darts']) * 3, 2)
-    sheet.cell(row=5, column=4).value = player2_kpis[0]['180']
-    sheet.cell(row=5, column=5).value = player2_kpis[0]['140']
-    sheet.cell(row=5, column=6).value = player2_kpis[0]['100']
-    sheet.cell(row=5, column=7).value = player2_kpis[0]['80']
-    sheet.cell(row=5, column=8).value = player2_kpis[0]['60']
-
-    sheet.cell(row=5, column=9).value = player2_kpis[0]['Score']
-    sheet.cell(row=5, column=10).value = player2_kpis[0]['Darts']
-
-    sheet.cell(row=5, column=11).value = player2_scores[0]['T20']
-    sheet.cell(row=5, column=12).value = player2_scores[0]['S20']
-    sheet.cell(row=5, column=13).value = player2_scores[0]['T19']
-    sheet.cell(row=5, column=14).value = player2_scores[0]['S19']
-    sheet.cell(row=5, column=15).value = player2_scores[0]['T18']
-    sheet.cell(row=5, column=16).value = player2_scores[0]['S18']
-    sheet.cell(row=5, column=17).value = player2_scores[0]['Single_Bull']
-    sheet.cell(row=5, column=18).value = player2_scores[0]['Bull']
-    sheet.cell(row=5, column=19).value = player2_scores[0]['Triple']
-    sheet.cell(row=5, column=20).value = player2_scores[0]['Double']
-    sheet.cell(row=5, column=21).value = player2_scores[0]['No_Score']
-
+def add_players(sheet):
+    """
+    This function adds player 3 and 4 to the Excel file if they exist
+    :param sheet: the Excel sheet to write in
+    :return:
+    """
     # player 3
     if label_player_3_name['text'] != "":
         sheet.cell(row=6, column=3).value = round((player3_kpis[0]['Score'] /
@@ -246,6 +218,70 @@ def create_excel():
         sheet.cell(row=7, column=19).value = player4_scores[0]['Triple']
         sheet.cell(row=7, column=20).value = player4_scores[0]['Double']
         sheet.cell(row=7, column=21).value = player4_scores[0]['No_Score']
+
+
+def create_excel():
+    """
+    This function creates an Excel file
+    :return:
+    """
+    path = create_directory_if_not_exists()
+
+    excel_file = Workbook()
+    sheet = excel_file.create_sheet('Scoring')
+
+    set_standards_in_excel(sheet)
+    fill_values_in_cells(sheet)
+
+    # player 1
+    sheet.cell(row=4, column=3).value = round((player1_kpis[0]['Score'] /
+                                               player1_kpis[0]['Darts']) * 3, 2)
+    sheet.cell(row=4, column=4).value = player1_kpis[0]['180']
+    sheet.cell(row=4, column=5).value = player1_kpis[0]['140']
+    sheet.cell(row=4, column=6).value = player1_kpis[0]['100']
+    sheet.cell(row=4, column=7).value = player1_kpis[0]['80']
+    sheet.cell(row=4, column=8).value = player1_kpis[0]['60']
+
+    sheet.cell(row=4, column=9).value = player1_kpis[0]['Score']
+    sheet.cell(row=4, column=10).value = player1_kpis[0]['Darts']
+
+    sheet.cell(row=4, column=11).value = player1_scores[0]['T20']
+    sheet.cell(row=4, column=12).value = player1_scores[0]['S20']
+    sheet.cell(row=4, column=13).value = player1_scores[0]['T19']
+    sheet.cell(row=4, column=14).value = player1_scores[0]['S19']
+    sheet.cell(row=4, column=15).value = player1_scores[0]['T18']
+    sheet.cell(row=4, column=16).value = player1_scores[0]['S18']
+    sheet.cell(row=4, column=17).value = player1_scores[0]['Single_Bull']
+    sheet.cell(row=4, column=18).value = player1_scores[0]['Bull']
+    sheet.cell(row=4, column=19).value = player1_scores[0]['Triple']
+    sheet.cell(row=4, column=20).value = player1_scores[0]['Double']
+    sheet.cell(row=4, column=21).value = player1_scores[0]['No_Score']
+
+    # player 2
+    sheet.cell(row=5, column=3).value = round((player2_kpis[0]['Score'] /
+                                               player2_kpis[0]['Darts']) * 3, 2)
+    sheet.cell(row=5, column=4).value = player2_kpis[0]['180']
+    sheet.cell(row=5, column=5).value = player2_kpis[0]['140']
+    sheet.cell(row=5, column=6).value = player2_kpis[0]['100']
+    sheet.cell(row=5, column=7).value = player2_kpis[0]['80']
+    sheet.cell(row=5, column=8).value = player2_kpis[0]['60']
+
+    sheet.cell(row=5, column=9).value = player2_kpis[0]['Score']
+    sheet.cell(row=5, column=10).value = player2_kpis[0]['Darts']
+
+    sheet.cell(row=5, column=11).value = player2_scores[0]['T20']
+    sheet.cell(row=5, column=12).value = player2_scores[0]['S20']
+    sheet.cell(row=5, column=13).value = player2_scores[0]['T19']
+    sheet.cell(row=5, column=14).value = player2_scores[0]['S19']
+    sheet.cell(row=5, column=15).value = player2_scores[0]['T18']
+    sheet.cell(row=5, column=16).value = player2_scores[0]['S18']
+    sheet.cell(row=5, column=17).value = player2_scores[0]['Single_Bull']
+    sheet.cell(row=5, column=18).value = player2_scores[0]['Bull']
+    sheet.cell(row=5, column=19).value = player2_scores[0]['Triple']
+    sheet.cell(row=5, column=20).value = player2_scores[0]['Double']
+    sheet.cell(row=5, column=21).value = player2_scores[0]['No_Score']
+
+    add_players(sheet)
 
     # save excel - file
     excel_file.save(path)
