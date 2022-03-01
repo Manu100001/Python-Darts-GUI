@@ -1409,10 +1409,10 @@ def next_label():
         return
 
 
-def count_down():
+def count_down_helper():
     """
-    This function counts the score down
-    :return:
+
+    :return: amount of darts
     """
     count_down_button.pack()
     count_down_button.pack_forget()
@@ -1421,7 +1421,6 @@ def count_down():
     button_dart_score.pack()
     button_dart_score.place(x=90, y=300, height=30, width=80)
 
-    result = int(zwischen_label['text'])
     zwischen_label['text'] = "0"
 
     darts = 3
@@ -1436,6 +1435,17 @@ def count_down():
     label_first_dart['bg'] = "yellow"
     label_second_dart['bg'] = "white"
     label_third_dart['bg'] = "white"
+
+    return darts
+
+
+def count_down():
+    """
+    This function counts the score down
+    :return:
+    """
+    result = int(zwischen_label['text'])
+    darts = count_down_helper()
 
     one = int(label_1_score['text'])
     two = int(label_2_score['text'])
@@ -1470,7 +1480,7 @@ def count_down():
             # first check if all players participate
             if label_2_score['text'] != "" and label_3_score['text'] != "" \
                     and label_4_score['text'] != "":
-                # check if ein spieler bereits bei 0
+                # check if one player has 0 points left
                 if (two == 0 and three != 0 and four != 0) or \
                         (two != 0 and three == 0 and four != 0) or \
                         (two != 0 and three != 0 and four == 0):
@@ -1509,6 +1519,17 @@ def count_down():
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
 
+    else:
+        count_down2(result, darts, one, two, three, four)
+
+    next_label()
+
+
+def count_down2(result, darts, one, two, three, four):
+    """
+
+    :return:
+    """
     # label 2
     if label_2_score['bg'] == "yellow":
         current = int(label_2_score['text'])
@@ -1571,6 +1592,15 @@ def count_down():
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
 
+    else:
+        count_down3(result, darts, one, two, three, four)
+
+
+def count_down3(result, darts, one, two, three, four):
+    """
+
+    :return:
+    """
     # label 3
     if label_3_score['bg'] == "yellow":
         current = int(label_3_score['text'])
@@ -1626,6 +1656,15 @@ def count_down():
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
 
+    else:
+        count_down4(result, darts, one, two, three, four)
+
+
+def count_down4(result, darts, one, two, three, four):
+    """
+
+    :return:
+    """
     if label_4_score['bg'] == "yellow":
         current = int(label_4_score['text'])
         if result > current:
@@ -1661,8 +1700,6 @@ def count_down():
 
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
-
-    next_label()
 
 
 def add_scores():
