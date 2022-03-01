@@ -1797,7 +1797,6 @@ def add_scores():
             player4_scores[0]["No_Score"] += 1
 
     else:
-        messagebox.showinfo(SystemError, "Restart")
         messagebox.showinfo("Error", "Restart")
 
 
@@ -1882,21 +1881,6 @@ def reset():
     label_4_score['bg'] = "white"
 
     save_score()
-
-    while len(player1) > 0:
-        for item in player1:
-            player1.remove(item)
-
-    while len(player2) > 0:
-        for item in player2:
-            player2.remove(item)
-
-    while len(player3) > 0:
-        for item in player3:
-            player3.remove(item)
-
-    while len(player4) > 0:
-            player4.remove(item)
     clear_players()
 
 
@@ -1929,19 +1913,7 @@ def new_game():
             label_4_score['text'] = "301"
 
     save_score()
-        for item in player1:
-            player1.remove(item)
-
-    while len(player2) > 0:
-        for item in player2:
-            player2.remove(item)
-
-    while len(player3) > 0:
-        for item in player3:
-            player3.remove(item)
-
-        for item in player4:
-            player4.remove(item)
+    clear_players()
 
 
 def end_game():
@@ -1974,6 +1946,13 @@ def end_game():
             label_4_score['text'] = "301"
 
     save_score()
+    clear_players()
+
+
+def clear_players():
+    """
+    This function removes all items from the players
+    :return:
     """
 
     while len(player1) > 0:
@@ -1998,7 +1977,7 @@ if __name__ == "__main__":
     # configure the window to generate
     gui = Tk()
     gui.geometry('1275x645')
-    gui.resizable(width=0, height=0)
+    gui.resizable(width=False, height=False)
     gui.title("Dart - User Interface")
     gui.configure(background='grey')
 
