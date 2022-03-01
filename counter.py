@@ -292,7 +292,7 @@ def save_score():
     This function saves the score
     :return:
     """
-    # update data
+    # update player 1
     for item in player1:
         score = item['Score']
         darts = item['Darts']
@@ -300,20 +300,20 @@ def save_score():
         player1_kpis[0]['Score'] += score
         player1_kpis[0]['Darts'] += darts
 
-        if score >= 60:
-            if score >= 80:
-                if score >= 100:
-                    if score >= 140:
-                        if score == 180:
-                            player1_kpis[0]['180'] += 1
-                        else:
-                            player1_kpis[0]['140'] += 1
-                    else:
-                        player1_kpis[0]['100'] += 1
-                else:
-                    player1_kpis[0]['80'] += 1
-            else:
-                player1_kpis[0]['60'] += 1
+        if score == 180:
+            player1_kpis[0]['180'] += 1
+
+        elif score >= 140:
+            player1_kpis[0]['140'] += 1
+
+        elif score >= 100:
+            player1_kpis[0]['100'] += 1
+
+        elif score >= 80:
+            player1_kpis[0]['80'] += 1
+
+        elif score >= 60:
+            player1_kpis[0]['60'] += 1
 
     # update player 2
     for item in player2:
@@ -323,21 +323,29 @@ def save_score():
         player2_kpis[0]['Score'] += score
         player2_kpis[0]['Darts'] += darts
 
-        if score >= 60:
-            if score >= 80:
-                if score >= 100:
-                    if score >= 140:
-                        if score == 180:
-                            player2_kpis[0]['180'] += 1
-                        else:
-                            player2_kpis[0]['140'] += 1
-                    else:
-                        player2_kpis[0]['100'] += 1
-                else:
-                    player2_kpis[0]['80'] += 1
-            else:
-                player2_kpis[0]['60'] += 1
+        if score == 180:
+            player2_kpis[0]['180'] += 1
 
+        elif score >= 140:
+            player2_kpis[0]['140'] += 1
+
+        elif score >= 100:
+            player2_kpis[0]['100'] += 1
+
+        elif score >= 80:
+            player2_kpis[0]['80'] += 1
+
+        elif score >= 60:
+            player2_kpis[0]['60'] += 1
+
+    save_score2()
+
+
+def save_score2():
+    """
+    This function is called bei save-score and saves the scores for player 3 and 4
+    :return
+    """
     # update player 3
     for item in player3:
         score = item['Score']
@@ -346,20 +354,20 @@ def save_score():
         player3_kpis[0]['Score'] += score
         player3_kpis[0]['Darts'] += darts
 
-        if score >= 60:
-            if score >= 80:
-                if score >= 100:
-                    if score >= 140:
-                        if score == 180:
-                            player3_kpis[0]['180'] += 1
-                        else:
-                            player3_kpis[0]['140'] += 1
-                    else:
-                        player3_kpis[0]['100'] += 1
-                else:
-                    player3_kpis[0]['80'] += 1
-            else:
-                player3_kpis[0]['60'] += 1
+        if score == 180:
+            player3_kpis[0]['180'] += 1
+
+        elif score >= 140:
+            player3_kpis[0]['140'] += 1
+
+        elif score >= 100:
+            player3_kpis[0]['100'] += 1
+
+        elif score >= 80:
+            player3_kpis[0]['80'] += 1
+
+        elif score >= 60:
+            player3_kpis[0]['60'] += 1
 
     # update player 4
     for item in player4:
@@ -369,20 +377,20 @@ def save_score():
         player4_kpis[0]['Score'] += score
         player4_kpis[0]['Darts'] += darts
 
-        if score >= 60:
-            if score >= 80:
-                if score >= 100:
-                    if score >= 140:
-                        if score == 180:
-                            player4_kpis[0]['180'] += 1
-                        else:
-                            player4_kpis[0]['140'] += 1
-                    else:
-                        player4_kpis[0]['100'] += 1
-                else:
-                    player4_kpis[0]['80'] += 1
-            else:
-                player4_kpis[0]['60'] += 1
+        if score == 180:
+            player4_kpis[0]['180'] += 1
+
+        elif score >= 140:
+            player4_kpis[0]['140'] += 1
+
+        elif score >= 100:
+            player4_kpis[0]['100'] += 1
+
+        elif score >= 80:
+            player4_kpis[0]['80'] += 1
+
+        elif score >= 60:
+            player4_kpis[0]['60'] += 1
 
 
 def add_player1(result, dart):
@@ -994,7 +1002,7 @@ def button_exit():
     if not any(isinstance(window, Toplevel) for window in gui.winfo_children()):
         exit_window = Toplevel(gui)
         exit_window.geometry('250x150')
-        exit_window.resizable(width=0, height=0)
+        exit_window.resizable(width=False, height=False)
         exit_window.title("Stop?")
 
         label_exit = Label(exit_window, text="End game?", font=('Arial', 11))
@@ -1180,6 +1188,14 @@ def button_start_game_function():
         else:
             label_4_score['text'] = "301"
 
+    disable_button_for_start_game()
+
+
+def disable_button_for_start_game():
+    """
+    This function disable some buttons when the game is started
+    :return:
+    """
     button_start_game.pack()
     button_start_game.pack_forget()
     button_name_1.pack()
@@ -1782,6 +1798,7 @@ def add_scores():
 
     else:
         messagebox.showinfo(SystemError, "Restart")
+        messagebox.showinfo("Error", "Restart")
 
 
 def add():
@@ -1879,8 +1896,8 @@ def reset():
             player3.remove(item)
 
     while len(player4) > 0:
-        for item in player4:
             player4.remove(item)
+    clear_players()
 
 
 def new_game():
@@ -1912,8 +1929,6 @@ def new_game():
             label_4_score['text'] = "301"
 
     save_score()
-
-    while len(player1) > 0:
         for item in player1:
             player1.remove(item)
 
@@ -1925,7 +1940,6 @@ def new_game():
         for item in player3:
             player3.remove(item)
 
-    while len(player4) > 0:
         for item in player4:
             player4.remove(item)
 
@@ -1960,6 +1974,7 @@ def end_game():
             label_4_score['text'] = "301"
 
     save_score()
+    """
 
     while len(player1) > 0:
         for item in player1:
