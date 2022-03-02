@@ -1021,68 +1021,20 @@ def button_exit():
         messagebox.showinfo("Info", "You already clicked on \"Stop\"!")
 
 
-def button_name_1():
-    """
-    This function gets the name of player 1
-    :return:
-    """
-    name = eingabefeld_p1.get()
-    eingabefeld_p1.delete("0", "end")
-    label_player_1_name['text'] = name
-
-
-def button_name_2():
-    """
-    This function gets the name of player 2
-    :return:
-    """
-    name = eingabefeld_p2.get()
-    eingabefeld_p2.delete("0", "end")
-    label_player_2_name['text'] = name
-
-
-def button_name_3():
-    """
-    This function gets the name of player 3
-    :return:
-    """
-    name = eingabefeld_p3.get()
-    eingabefeld_p3.delete("0", "end")
-    label_player_3_name['text'] = name
-
-
-def button_name_4():
-    """
-    This function gets the name of player 4
-    :return:
-    """
-    name = eingabefeld_p4.get()
-    eingabefeld_p4.delete("0", "end")
-    label_player_4_name['text'] = name
-
-
-def button_switch_score_inc():
+def increment_starting_points():
     """
     Ths function sets all labels to 501
     :return:
     """
-    label_switch_score['text'] = "501"
-    label_1_score['text'] = "501"
-    label_2_score['text'] = "501"
-    label_3_score['text'] = "501"
-    label_4_score['text'] = "501"
+    label_switch_starting_points['text'] = "501"
 
 
-def button_switch_score_dec():
+def decrement_starting_points():
     """
     This function sets all labels to 301
     :return:
     """
-    label_switch_score['text'] = "301"
-    label_1_score['text'] = "301"
-    label_2_score['text'] = "301"
-    label_3_score['text'] = "301"
-    label_4_score['text'] = "301"
+    label_switch_starting_points['text'] = "301"
 
 
 def button_stop_game_function():
@@ -1098,26 +1050,6 @@ def button_stop_game_function():
 
     button_start_game.pack()
     button_start_game.place(x=850, y=90, height=30, width=100)
-
-    button_name_1.pack()
-    button_name_2.pack()
-    button_name_3.pack()
-    button_name_4.pack()
-
-    button_name_1.place(x=850, y=5, height=30)
-    button_name_2.place(x=850, y=35, height=30)
-    button_name_3.place(x=1000, y=5, height=30)
-    button_name_4.place(x=1000, y=35, height=30)
-
-    eingabefeld_p1.pack()
-    eingabefeld_p2.pack()
-    eingabefeld_p3.pack()
-    eingabefeld_p4.pack()
-
-    eingabefeld_p1.place(x=750, y=5, width=100, height=30)
-    eingabefeld_p2.place(x=750, y=35, width=100, height=30)
-    eingabefeld_p3.place(x=900, y=5, width=100, height=30)
-    eingabefeld_p4.place(x=900, y=35, width=100, height=30)
 
     label_switch_score.pack()
     button_switch_score_dec.pack()
@@ -1142,108 +1074,6 @@ def button_stop_game_function():
     label_second_dart.pack_forget()
     label_third_dart.pack_forget()
     zwischen_label.pack_forget()
-
-
-def button_start_game_function():
-    """
-    This function starts the game
-    :return:
-    """
-    label_1_score['bg'] = "yellow"
-    label_2_score['bg'] = "white"
-    label_3_score['bg'] = "white"
-    label_4_score['bg'] = "white"
-
-    for item in player1:
-        player1.remove(item)
-    for item in player2:
-        player2.remove(item)
-    for item in player3:
-        player3.remove(item)
-    for item in player4:
-        player4.remove(item)
-
-    if int(label_switch_score['text']) == 501:
-        label_1_score['text'] = "501"
-        label_2_score['text'] = "501"
-    else:
-        label_1_score['text'] = "301"
-        label_2_score['text'] = "301"
-
-    if label_player_3_name['text'] == "Player 3: " or label_player_3_name['text'] == "":
-        label_player_3_name['text'] = ""
-        label_3_score['text'] = ""
-    else:
-        if int(label_switch_score['text']) == 501:
-            label_3_score['text'] = "501"
-        else:
-            label_3_score['text'] = "301"
-
-    if label_player_4_name['text'] == "Player 4: " or label_player_4_name['text'] == "":
-        label_player_4_name['text'] = ""
-        label_4_score['text'] = ""
-    else:
-        if int(label_switch_score['text']) == 501:
-            label_4_score['text'] = "501"
-        else:
-            label_4_score['text'] = "301"
-
-    disable_button_for_start_game()
-
-
-def disable_button_for_start_game():
-    """
-    This function disable some buttons when the game is started
-    :return:
-    """
-    button_start_game.pack()
-    button_start_game.pack_forget()
-    button_name_1.pack()
-    button_name_1.pack_forget()
-    button_name_2.pack()
-    button_name_2.pack_forget()
-    button_name_3.pack()
-    button_name_3.pack_forget()
-    button_name_4.pack()
-    button_name_4.pack_forget()
-
-    eingabefeld_p1.pack()
-    eingabefeld_p1.pack_forget()
-    eingabefeld_p2.pack()
-    eingabefeld_p2.pack_forget()
-    eingabefeld_p3.pack()
-    eingabefeld_p3.pack_forget()
-    eingabefeld_p4.pack()
-    eingabefeld_p4.pack_forget()
-
-    button_switch_score_inc.pack()
-    button_switch_score_inc.pack_forget()
-    button_switch_score_dec.pack()
-    button_switch_score_dec.pack_forget()
-    label_switch_score.pack()
-    label_switch_score.pack_forget()
-
-    button_stop_game.pack()
-    button_stop_game.place(x=950, y=90, height=30, width=100)
-
-    next_button.pack()
-    next_button.place(x=610, y=60, height=30, width=100)
-
-    label_dart_score.pack()
-    button_dart_score.pack()
-
-    label_dart_score.place(x=0, y=300, height=30, width=90)
-    button_dart_score.place(x=90, y=300, height=30, width=80)
-
-    label_first_dart.pack()
-    label_second_dart.pack()
-    label_third_dart.pack()
-    zwischen_label.pack()
-
-    label_first_dart.place(x=210, y=300, height=30, width=30)
-    label_second_dart.place(x=250, y=300, height=30, width=30)
-    label_third_dart.place(x=290, y=300, height=30, width=30)
-    zwischen_label.place(x=340, y=300, height=30, width=100)
 
 
 def next_button():
@@ -2009,13 +1839,203 @@ def clear_players():
             player4.remove(item)
 
 
-if __name__ == "__main__":
+def button_start_game_function():
+    """
+    This function starts the game
+    :return:
+    """
+    label_1_score['bg'] = "yellow"
+    label_2_score['bg'] = "white"
+    label_3_score['bg'] = "white"
+    label_4_score['bg'] = "white"
 
+    # clear content of the players
+    clear_players()
+
+    if int(label_switch_score['text']) == 501:
+        label_1_score['text'] = "501"
+        label_2_score['text'] = "501"
+    else:
+        label_1_score['text'] = "301"
+        label_2_score['text'] = "301"
+
+    if label_player_3_name['text'] == "Player 3: " or label_player_3_name['text'] == "":
+        label_player_3_name['text'] = ""
+        label_3_score['text'] = ""
+    else:
+        if int(label_switch_score['text']) == 501:
+            label_3_score['text'] = "501"
+        else:
+            label_3_score['text'] = "301"
+
+    if label_player_4_name['text'] == "Player 4: " or label_player_4_name['text'] == "":
+        label_player_4_name['text'] = ""
+        label_4_score['text'] = ""
+    else:
+        if int(label_switch_score['text']) == 501:
+            label_4_score['text'] = "501"
+        else:
+            label_4_score['text'] = "301"
+
+    disable_button_for_start_game()
+
+
+def disable_button_for_start_game():
+    """
+    This function disable some buttons when the game is started
+    :return:
+    """
+    button_start_game.pack()
+    button_start_game.pack_forget()
+
+    button_switch_score_inc.pack()
+    button_switch_score_inc.pack_forget()
+    button_switch_score_dec.pack()
+    button_switch_score_dec.pack_forget()
+    label_switch_score.pack()
+    label_switch_score.pack_forget()
+
+    button_stop_game.pack()
+    button_stop_game.place(x=950, y=90, height=30, width=100)
+
+    next_button.pack()
+    next_button.place(x=610, y=60, height=30, width=100)
+
+    label_dart_score.pack()
+    button_dart_score.pack()
+
+    label_dart_score.place(x=0, y=300, height=30, width=90)
+    button_dart_score.place(x=90, y=300, height=30, width=80)
+
+    label_first_dart.pack()
+    label_second_dart.pack()
+    label_third_dart.pack()
+    zwischen_label.pack()
+
+    label_first_dart.place(x=210, y=300, height=30, width=30)
+    label_second_dart.place(x=250, y=300, height=30, width=30)
+    label_third_dart.place(x=290, y=300, height=30, width=30)
+    zwischen_label.place(x=340, y=300, height=30, width=100)
+
+
+def plus_player_numbers():
+    """
+    This function increments the number of players, max. 4 players
+    :return:
+    """
+    number = int(label_number_players['text'])
+
+    if number == 2:
+        label_number_players['text'] = 3
+        input_name3.place(x=583.5, y=380, height=30, width=110)
+
+    elif number == 3:
+        label_number_players['text'] = 4
+        input_name4.place(x=583.5, y=430, height=30, width=110)
+
+
+def minus_player_numbers():
+    """
+    This function decrements the number of players, min. 2 players
+    :return:
+    """
+    number = int(label_number_players['text'])
+
+    if number == 4:
+        label_number_players['text'] = 3
+        input_name4.pack()
+        input_name4.pack_forget()
+
+    elif number == 3:
+        label_number_players['text'] = 2
+        input_name3.pack()
+        input_name3.pack_forget()
+
+
+def check_names():
+    """
+    This function checks if all names were entered, and then the game will start
+    :return:
+    """
+    number = int(label_number_players['text'])
+    name1 = input_name1.get()
+    name2 = input_name2.get()
+    name3 = input_name3.get()
+    name4 = input_name4.get()
+
+    if number == 2:
+        if name1 == "" or name2 == "":
+            messagebox.showinfo("Error", "Not all names were entered.")
+            return
+
+    elif number == 3:
+        if name1 == "" or name2 == "" or name3 == "":
+            messagebox.showinfo("Error", "Not all names were entered.")
+            return
+        else:
+            label_player_3_name['text'] = name3
+
+    elif number == 4:
+        if name1 == "" or name2 == "" or name3 == "" or name4 == "":
+            messagebox.showinfo("Error", "Not all names were entered.")
+            return
+        else:
+            label_player_4_name['text'] = name4
+
+    label_player_1_name['text'] = name1
+    label_player_2_name['text'] = name2
+
+    # disable input fields and labels and buttons for selecting player numbers
+    input_name1.pack()
+    input_name2.pack()
+    input_name3.pack()
+    input_name4.pack()
+
+    input_name1.pack_forget()
+    input_name2.pack_forget()
+    input_name3.pack_forget()
+    input_name4.pack_forget()
+
+    button_continue.pack()
+    button_continue.pack_forget()
+
+    # disable plus and minus
+    button_plus_number_players.pack()
+    button_minus_number_players.pack()
+
+    button_plus_number_players.pack_forget()
+    button_minus_number_players.pack_forget()
+
+    label_number_players.pack()
+    label_welcome.pack()
+
+    label_number_players.pack_forget()
+    label_welcome.pack_forget()
+
+    button_inc_starting_points.pack()
+    button_dec_starting_points.pack()
+    label_switch_starting_points.pack()
+
+    button_inc_starting_points.pack_forget()
+    button_dec_starting_points.pack_forget()
+    label_switch_starting_points.pack_forget()
+
+    start_game()
+
+
+def start_game():
+    """
+    This function starts the game after the names were entered
+    """
+    reset_button.place(x=1175, y=100, height=30, width=100)
+
+
+if __name__ == "__main__":
     # configure the window to generate
     gui = Tk()
     gui.geometry('1275x645')
     gui.resizable(width=False, height=False)
-    gui.title("Dart - User Interface")
+    gui.title("Darts counter - User Interface")
     gui.configure(background='grey')
 
     # define the exit - button
@@ -2023,101 +2043,105 @@ if __name__ == "__main__":
                          font=('Arial', 10, 'bold'))
     exit_button.place(x=1175, y=0, height=80, width=100)
 
+    # label for introducing and welcome
+    label_welcome = Label(gui, text="Welcome to the darts - counter!\n"
+                                    " Please select the number of players and the starting points.", bg="grey",
+                          font=('Arial', 14))
+    label_welcome.place(x=337.5, y=20, height=50, width=600)
+
+    # label and buttons for selecting the number of players
+    label_number_players = Label(gui, text="2", fg="black", font=('Arial', 13, 'bold'))
+
+    button_plus_number_players = Button(gui, text="+", fg="black", bg="lightgreen",
+                                        font=('Arial', 13, 'bold'), command=plus_player_numbers)
+    button_minus_number_players = Button(gui, text="-", fg="black", bg="red",
+                                         font=('Arial', 13, 'bold'), command=minus_player_numbers)
+
+    label_number_players.place(x=587.5, y=200, height=30, width=100)
+    button_minus_number_players.place(x=557.5, y=200, height=30, width=30)
+    button_plus_number_players.place(x=687.5, y=200, height=30, width=30)
+
+    # text input for 4 player names
+    input_name1 = Entry(gui, bd=1, font=('Arial', 13))
+    input_name2 = Entry(gui, bd=1, font=('Arial', 13))
+    input_name3 = Entry(gui, bd=1, font=('Arial', 13))
+    input_name4 = Entry(gui, bd=1, font=('Arial', 13))
+
+    # default: 2 input fields are enabled
+    input_name1.place(x=583.5, y=280, height=30, width=110)
+    input_name2.place(x=583.5, y=330, height=30, width=110)
+
+    # button for checking names and starting the game
+    button_continue = Button(gui, text="Continue", bg="lightgreen", fg="black",
+                             font=('Arial', 13, 'bold'), command=check_names)
+    button_continue.place(x=750, y=120, height=30, width=100)
+
+    # label and button for selecting the starting points (301 or 501)
+    label_switch_starting_points = Label(gui, text="501", fg="black", font=('Arial', 13, 'bold'))
+    button_inc_starting_points = Button(gui, text="+", fg="black",
+                                        bg="lightgreen", font=('Arial', 10),
+                                        command=increment_starting_points)
+    button_dec_starting_points = Button(gui, text="-", fg="black", bg="red", font=('Arial', 10),
+                                        command=decrement_starting_points)
+
+    label_switch_starting_points.place(x=587.5, y=120, height=30, width=100)
+    button_dec_starting_points.place(x=557.5, y=120, height=30, width=30)
+    button_inc_starting_points.place(x=687.5, y=120, height=30, width=30)
+
     # labels for 4 players
     label_player_1_name = Label(gui, text="Player 1: ", fg="black", font=('Arial', 13, 'bold'))
     label_player_2_name = Label(gui, text="Player 2: ", fg="black", font=('Arial', 13, 'bold'))
     label_player_3_name = Label(gui, text="Player 3: ", fg="black", font=('Arial', 13, 'bold'))
     label_player_4_name = Label(gui, text="Player 4: ", fg="black", font=('Arial', 13, 'bold'))
 
+    """
     label_player_1_name.place(x=10, y=10, height=30, width=110)
     label_player_2_name.place(x=160, y=10, height=30, width=110)
     label_player_3_name.place(x=310, y=10, height=30, width=110)
     label_player_4_name.place(x=460, y=10, height=30, width=110)
-
-    # text input for 4 player names and buttons
-    eingabefeld_p1 = Entry(gui, bd=4, font=('Arial', 13))
-    eingabefeld_p2 = Entry(gui, bd=4, font=('Arial', 13))
-    eingabefeld_p3 = Entry(gui, bd=4, font=('Arial', 13))
-    eingabefeld_p4 = Entry(gui, bd=4, font=('Arial', 13))
-
     eingabefeld_p1.place(x=750, y=5, width=100, height=30)
     eingabefeld_p2.place(x=750, y=35, width=100, height=30)
     eingabefeld_p3.place(x=900, y=5, width=100, height=30)
     eingabefeld_p4.place(x=900, y=35, width=100, height=30)
-
-    button_name_1 = Button(gui, text="P1", bd=4, fg="black", bg="grey", font=('Arial', 10),
-                           command=button_name_1)
-    button_name_2 = Button(gui, text="P2", bd=4, fg="black", bg="white", font=('Arial', 10),
-                           command=button_name_2)
-    button_name_3 = Button(gui, text="P3", bd=4, fg="black", bg="grey", font=('Arial', 10),
-                           command=button_name_3)
-    button_name_4 = Button(gui, text="P4", bd=4, fg="black", bg="white", font=('Arial', 10),
-                           command=button_name_4)
-
-    button_name_1.place(x=850, y=5, height=30)
-    button_name_2.place(x=850, y=35, height=30)
-    button_name_3.place(x=1000, y=5, height=30)
-    button_name_4.place(x=1000, y=35, height=30)
-
+    """
     # labels for game score for 4 players
     label_1_score = Label(gui, text="501", fg="black", bg="white", font=('Arial', 13, 'bold'))
     label_2_score = Label(gui, text="501", fg="black", bg="white", font=('Arial', 13, 'bold'))
     label_3_score = Label(gui, text="501", fg="black", bg="white", font=('Arial', 13, 'bold'))
     label_4_score = Label(gui, text="501", fg="black", bg="white", font=('Arial', 13, 'bold'))
 
+    """
     label_1_score.place(x=10, y=60, height=30, width=110)
     label_2_score.place(x=160, y=60, height=30, width=110)
     label_3_score.place(x=310, y=60, height=30, width=110)
     label_4_score.place(x=460, y=60, height=30, width=110)
+    """
 
-    # label and button for switching points
-    label_switch_score = Label(gui, text="501", fg="black", font=('Arial', 13, 'bold'))
-    button_switch_score_inc = Button(gui, text="+", bd=4, fg="black",
-                                     bg="lightgreen", font=('Arial', 10),
-                                     command=button_switch_score_inc)
-    button_switch_score_dec = Button(gui, text="-", bd=4, fg="black", bg="red", font=('Arial', 10),
-                                     command=button_switch_score_dec)
-
+    """
     label_switch_score.place(x=1105, y=90, height=30, width=110)
     button_switch_score_dec.place(x=1215, y=90, height=30, width=30)
     button_switch_score_inc.place(x=1240, y=90, height=30, width=30)
-
+    """
     # start - button und stop - button
     button_start_game = Button(gui, text="Start", bd=4, fg="black", bg="yellow", font=('Arial', 11),
                                command=button_start_game_function)
-    button_start_game.place(x=850, y=90, height=30, width=100)
+    # button_start_game.place(x=850, y=90, height=30, width=100)
 
     button_stop_game = Button(gui, text="Stop", bd=4, fg="black", bg="red", font=('Arial', 11),
                               command=button_stop_game_function)
-    button_stop_game.pack()
-    button_stop_game.pack_forget()
 
     # next - button
     next_button = Button(gui, text="Next", bd=4, fg="black", bg="yellow", font=('Arial', 11),
                          command=next_button)
-    next_button.place(x=610, y=60, height=30, width=100)
-    next_button.pack()
-    next_button.pack_forget()
 
     # textarea for scoring points which shall be decremented
     label_dart_score = Label(gui, text="", bd=4, font=('Arial', 13))
     button_dart_score = Button(gui, text="Add", bd=4, fg="black",
                                bg="lightgreen", font=('Arial', 10),
                                command=add)
-    label_dart_score.place(x=0, y=300, height=30, width=90)
-    button_dart_score.place(x=100, y=300, height=30, width=80)
-
-    label_dart_score.pack()
-    button_dart_score.pack()
-
-    label_dart_score.pack_forget()
-    button_dart_score.pack_forget()
 
     # label, which will be invisible, for calculating scores at the end
     label_invisible = Label(gui, text="", bd=4, font=('Arial', 13))
-    label_invisible.place(x=0, y=250, height=30, width=90)
-    label_invisible.pack()
-    label_invisible.pack_forget()
 
     # create Label for 1,2 and 3 Darts and count down button
     label_first_dart = Label(gui, text="1", bd=4, bg="yellow", font=('Arial', 13))
@@ -2129,29 +2153,11 @@ if __name__ == "__main__":
                                bg="lightgreen", font=('Arial', 10),
                                command=count_down)
 
-    label_first_dart.place(x=210, y=300, height=30, width=30)
-    label_second_dart.place(x=250, y=300, height=30, width=30)
-    label_third_dart.place(x=290, y=300, height=30, width=30)
-    zwischen_label.place(x=340, y=300, height=30, width=100)
-    count_down_button.place(x=440, y=300, height=30, width=90)
-
-    label_first_dart.pack()
-    label_second_dart.pack()
-    label_third_dart.pack()
-    zwischen_label.pack()
-    count_down_button.pack()
-
-    label_first_dart.pack_forget()
-    label_second_dart.pack_forget()
-    label_third_dart.pack_forget()
-    zwischen_label.pack_forget()
-    count_down_button.pack_forget()
-
     # calculate kpis button
     button_create_excel = Button(gui, text="Calculate Score", bd=4, fg="black",
                                  bg="lightblue", font=('Arial', 11),
                                  command=create_excel)
-    button_create_excel.place(x=1125, y=250, height=80, width=150)
+    # button_create_excel.place(x=1125, y=250, height=80, width=150)
 
     # create all triple, double and single buttons
     button_triple_20 = Button(gui, text="T20", bd=4, fg="black", bg="red", font=('Arial', 14),
@@ -2290,6 +2296,7 @@ if __name__ == "__main__":
     button_0 = Button(gui, text="0", bd=4, fg="black", bg="green", font=('Arial', 14),
                       command=null)
 
+    """
     # all single, double and triple buttons are placed here
     button_triple_20.place(x=0, y=400, height=60, width=60)
     button_double_20.place(x=0, y=470, height=60, width=60)
@@ -2359,19 +2366,12 @@ if __name__ == "__main__":
     button_single_bull.place(x=1210, y=400, height=60, width=60)
     button_bull.place(x=1210, y=470, height=60, width=60)
     button_0.place(x=1210, y=540, height=60, width=60)
-
+    """
     # reset - button
     reset_button = Button(gui, text="Reset", bd=4, fg="black", bg="red", font=('Arial', 11),
                           command=reset)
 
-    reset_button.place(x=1175, y=190, height=30, width=100)
-
     new_game_button = Button(gui, text="New Game", bd=4, fg="black", bg="red", font=('Arial', 11),
                              command=new_game)
-
-    new_game_button.place(x=850, y=200, height=30, width=100)
-
-    new_game_button.pack()
-    new_game_button.pack_forget()
 
     gui.mainloop()
