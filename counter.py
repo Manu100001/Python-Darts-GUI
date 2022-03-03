@@ -170,7 +170,7 @@ def add_players(sheet):
     :return:
     """
     # player 3
-    if label_player_3_name['text'] != "":
+    if int(label_number_players['text']) >= 3:
         sheet.cell(row=6, column=3).value = round((player3_kpis[0]['Score'] /
                                                    player3_kpis[0]['Darts']) * 3, 2)
         sheet.cell(row=6, column=4).value = player3_kpis[0]['180']
@@ -195,7 +195,7 @@ def add_players(sheet):
         sheet.cell(row=6, column=21).value = player3_scores[0]['No_Score']
 
     # player 4
-    if label_player_4_name['text'] != "":
+    if int(label_number_players['text']) == 4:
         sheet.cell(row=7, column=3).value = round((player4_kpis[0]['Score'] /
                                                    player4_kpis[0]['Darts']) * 3, 2)
         sheet.cell(row=7, column=4).value = player4_kpis[0]['180']
@@ -285,6 +285,241 @@ def create_excel():
 
     # save excel - file
     excel_file.save(path)
+
+
+def reset():
+    """
+    This function restores the original state
+    :return:
+    """
+    clear_players()
+
+    # disable excel button
+    button_create_excel.pack()
+    button_create_excel.pack_forget()
+
+    # disable all throw buttons
+    button_triple_20.pack()
+    button_double_20.pack()
+    button_single_20.pack()
+    button_triple_19.pack()
+    button_double_19.pack()
+    button_single_19.pack()
+    button_triple_18.pack()
+    button_double_18.pack()
+    button_single_18.pack()
+    button_triple_17.pack()
+    button_double_17.pack()
+    button_single_17.pack()
+
+    button_triple_20.pack_forget()
+    button_double_20.pack_forget()
+    button_single_20.pack_forget()
+    button_triple_19.pack_forget()
+    button_double_19.pack_forget()
+    button_single_19.pack_forget()
+    button_triple_18.pack_forget()
+    button_double_18.pack_forget()
+    button_single_18.pack_forget()
+    button_triple_17.pack_forget()
+    button_double_17.pack_forget()
+    button_single_17.pack_forget()
+
+    button_triple_16.pack()
+    button_double_16.pack()
+    button_single_16.pack()
+    button_triple_15.pack()
+    button_double_15.pack()
+    button_single_15.pack()
+    button_triple_14.pack()
+    button_double_14.pack()
+    button_single_14.pack()
+
+    button_triple_16.pack_forget()
+    button_double_16.pack_forget()
+    button_single_16.pack_forget()
+    button_triple_15.pack_forget()
+    button_double_15.pack_forget()
+    button_single_15.pack_forget()
+    button_triple_14.pack_forget()
+    button_double_14.pack_forget()
+    button_single_14.pack_forget()
+
+    reset2()
+
+
+def reset2():
+    """
+    This function restores the original state
+    :return:
+    """
+    button_triple_13.pack()
+    button_double_13.pack()
+    button_single_13.pack()
+    button_triple_13.pack_forget()
+    button_double_13.pack_forget()
+    button_single_13.pack_forget()
+
+    button_triple_12.pack()
+    button_double_12.pack()
+    button_single_12.pack()
+    button_triple_11.pack()
+    button_double_11.pack()
+    button_single_11.pack()
+    button_triple_10.pack()
+    button_double_10.pack()
+    button_single_10.pack()
+    button_triple_9.pack()
+    button_double_9.pack()
+    button_single_9.pack()
+
+    button_triple_12.pack_forget()
+    button_double_12.pack_forget()
+    button_single_12.pack_forget()
+    button_triple_11.pack_forget()
+    button_double_11.pack_forget()
+    button_single_11.pack_forget()
+    button_triple_10.pack_forget()
+    button_double_10.pack_forget()
+    button_single_10.pack_forget()
+    button_triple_9.pack_forget()
+    button_double_9.pack_forget()
+    button_single_9.pack_forget()
+
+    button_triple_8.pack()
+    button_double_8.pack()
+    button_single_8.pack()
+    button_triple_7.pack()
+    button_double_7.pack()
+    button_single_7.pack()
+    button_triple_6.pack()
+    button_double_6.pack()
+    button_single_6.pack()
+
+    button_triple_8.pack_forget()
+    button_double_8.pack_forget()
+    button_single_8.pack_forget()
+    button_triple_7.pack_forget()
+    button_double_7.pack_forget()
+    button_single_7.pack_forget()
+    button_triple_6.pack_forget()
+    button_double_6.pack_forget()
+    button_single_6.pack_forget()
+
+    reset3()
+
+
+def reset3():
+    """
+    This function restores the original state
+    :return:
+    """
+    button_triple_5.pack()
+    button_double_5.pack()
+    button_single_5.pack()
+    button_triple_4.pack()
+    button_double_4.pack()
+    button_single_4.pack()
+    button_triple_3.pack()
+    button_double_3.pack()
+    button_single_3.pack()
+    button_triple_2.pack()
+    button_double_2.pack()
+    button_single_2.pack()
+    button_triple_1.pack()
+    button_double_1.pack()
+    button_single_1.pack()
+
+    button_triple_5.pack_forget()
+    button_double_5.pack_forget()
+    button_single_5.pack_forget()
+    button_triple_4.pack_forget()
+    button_double_4.pack_forget()
+    button_single_4.pack_forget()
+    button_triple_3.pack_forget()
+    button_double_3.pack_forget()
+    button_single_3.pack_forget()
+    button_triple_2.pack_forget()
+    button_double_2.pack_forget()
+    button_single_2.pack_forget()
+    button_triple_1.pack_forget()
+    button_double_1.pack_forget()
+    button_single_1.pack_forget()
+
+    button_bull.pack()
+    button_single_bull.pack()
+    button_0.pack()
+
+    button_bull.pack_forget()
+    button_single_bull.pack_forget()
+    button_0.pack_forget()
+
+    # disable all player names and scores
+    label_player_1_name.pack()
+    label_player_2_name.pack()
+    label_player_3_name.pack()
+    label_player_4_name.pack()
+
+    label_player_1_name.pack_forget()
+    label_player_2_name.pack_forget()
+    label_player_3_name.pack_forget()
+    label_player_4_name.pack_forget()
+
+    reset4()
+
+
+def reset4():
+    """
+    This function restores the original state
+    :return:
+    """
+
+    label_1_score.pack()
+    label_2_score.pack()
+    label_3_score.pack()
+    label_4_score.pack()
+
+    label_1_score.pack_forget()
+    label_2_score.pack_forget()
+    label_3_score.pack_forget()
+    label_4_score.pack_forget()
+
+    zwischen_label.pack()
+    zwischen_label.pack_forget()
+
+    label_first_dart.pack()
+    label_second_dart.pack()
+    label_third_dart.pack()
+
+    label_first_dart.pack_forget()
+    label_second_dart.pack_forget()
+    label_third_dart.pack_forget()
+
+    next_button.pack()
+    next_button.pack_forget()
+
+    button_dart_score.pack()
+    button_dart_score.pack_forget()
+
+    label_dart_score.pack()
+    label_dart_score.pack_forget()
+
+    label_switch_starting_points.place(x=587.5, y=120, height=30, width=100)
+    button_dec_starting_points.place(x=557.5, y=120, height=30, width=30)
+    button_inc_starting_points.place(x=687.5, y=120, height=30, width=30)
+
+    label_number_players.place(x=587.5, y=200, height=30, width=100)
+    button_minus_number_players.place(x=557.5, y=200, height=30, width=30)
+    button_plus_number_players.place(x=687.5, y=200, height=30, width=30)
+
+    input_name1.place(x=583.5, y=280, height=30, width=110)
+    input_name2.place(x=583.5, y=330, height=30, width=110)
+
+    label_welcome.place(x=337.5, y=20, height=50, width=600)
+    button_continue.place(x=750, y=120, height=30, width=100)
+
+    label_switch_starting_points['text'] = "501"
+    label_number_players['text'] = "2"
 
 
 def save_score():
@@ -1037,45 +1272,6 @@ def decrement_starting_points():
     label_switch_starting_points['text'] = "301"
 
 
-def button_stop_game_function():
-    """
-    This function stops the game
-    :return:
-    """
-    button_stop_game.pack()
-    button_stop_game.pack_forget()
-
-    next_button.pack()
-    next_button.pack_forget()
-
-    button_start_game.pack()
-    button_start_game.place(x=850, y=90, height=30, width=100)
-
-    label_switch_score.pack()
-    button_switch_score_dec.pack()
-    button_switch_score_inc.pack()
-
-    label_switch_score.place(x=1030, y=90, height=30, width=110)
-    button_switch_score_dec.place(x=1140, y=90, height=30, width=30)
-    button_switch_score_inc.place(x=1170, y=90, height=30, width=30)
-
-    label_dart_score.pack()
-    button_dart_score.pack()
-
-    label_dart_score.pack_forget()
-    button_dart_score.pack_forget()
-
-    label_first_dart.pack()
-    label_second_dart.pack()
-    label_third_dart.pack()
-    zwischen_label.pack()
-
-    label_first_dart.pack_forget()
-    label_second_dart.pack_forget()
-    label_third_dart.pack_forget()
-    zwischen_label.pack_forget()
-
-
 def next_button():
     """
     This function switches to the next player
@@ -1086,51 +1282,72 @@ def next_button():
     label_second_dart['bg'] = "white"
     label_third_dart['bg'] = "white"
 
+    number = int(label_number_players['text'])
+
     # check label 1
     if label_1_score['bg'] == "yellow":
         label_1_score['bg'] = "white"
 
-        if int(label_2_score['text']) == 0:
-            # is label 3 set?
-            if label_3_score['text'] != "":
-                if label_4_score['text'] != "":
-                    if int(label_3_score['text']) == 0:
-                        if int(label_4_score['text']) == 0:
-                            label_1_score['bg'] = "yellow"
-                        else:
-                            label_4_score['bg'] = "yellow"
-                    else:
-                        label_3_score['bg'] = "yellow"
-        else:
+        if number == 2:
             label_2_score['bg'] = "yellow"
-        return
 
-    # check label 2
-    if label_2_score['bg'] == "yellow":
-        label_2_score['bg'] = "white"
+        elif number == 3:
+            if int(label_2_score['text']) == 0:
+                label_3_score['bg'] = "yellow"
+            else:
+                label_2_score['bg'] = "yellow"
 
-        if label_3_score['text'] != "":
-            if label_4_score['text'] != "":
+        elif number == 4:
+            if int(label_2_score['text']) == 0:
                 if int(label_3_score['text']) == 0:
-                    if int(label_4_score['text']) == 0:
-                        label_1_score['bg'] = "yellow"
-                    else:
-                        label_4_score['bg'] = "yellow"
+                    label_4_score['bg'] = "yellow"
                 else:
                     label_3_score['bg'] = "yellow"
-            elif int(label_3_score['text']) == 0:
+            else:
+                label_2_score['bg'] = "yellow"
+
+    # check label 2
+    elif label_2_score['bg'] == "yellow":
+        label_2_score['bg'] = "white"
+
+        if number == 2:
+            label_1_score['bg'] = "yellow"
+
+        elif number == 3:
+            if int(label_3_score['text']) == 0:
                 label_1_score['bg'] = "yellow"
             else:
                 label_3_score['bg'] = "yellow"
-        else:
-            label_1_score['bg'] = "yellow"
-        return
 
+        elif number == 4:
+            if int(label_3_score['text']) == 0:
+                if int(label_4_score['text']) == 0:
+                    label_1_score['bg'] = "yellow"
+                else:
+                    label_4_score['bg'] = "yellow"
+            else:
+                label_3_score['bg'] = "yellow"
+
+    else:
+        next_button2(number)
+
+
+def next_button2(number):
+    """
+    This function switches to the next player
+    :return:
+    """
     # check label 3
     if label_3_score['bg'] == "yellow":
         label_3_score['bg'] = "white"
-        # check if label 4 is in use
-        if label_4_score['text'] != "":
+
+        if number == 3:
+            if int(label_1_score['text']) == 0:
+                label_2_score['bg'] = "yellow"
+            else:
+                label_1_score['bg'] = "yellow"
+
+        elif number == 4:
             if int(label_4_score['text']) == 0:
                 if int(label_1_score['text']) == 0:
                     label_2_score['bg'] = "yellow"
@@ -1138,26 +1355,19 @@ def next_button():
                     label_1_score['bg'] = "yellow"
             else:
                 label_4_score['bg'] = "yellow"
-        else:
-            if int(label_1_score['text']) == 0:
-                label_2_score['bg'] = "yellow"
-            else:
-                label_1_score['bg'] = "yellow"
-
-        return
 
     # check label 4
-    if label_4_score['bg'] == "yellow":
+    elif label_4_score['bg'] == "yellow":
         label_4_score['bg'] = "white"
 
-        if int(label_1_score['text']) == 0:
-            if int(label_2_score['text']) == 0:
-                label_3_score['bg'] = "yellow"
+        if number == 4:
+            if int(label_1_score['text']) == 0:
+                if int(label_2_score['text']) == 0:
+                    label_3_score['bg'] = "yellow"
+                else:
+                    label_2_score['bg'] = "yellow"
             else:
-                label_2_score['bg'] = "yellow"
-        else:
-            label_1_score['bg'] = "yellow"
-        return
+                label_1_score['bg'] = "yellow"
 
 
 def next_label():
@@ -1165,51 +1375,72 @@ def next_label():
     This function switches to the next player
     :return:
     """
+    number = int(label_number_players['text'])
+
     # check label 1
     if label_1_score['bg'] == "yellow":
         label_1_score['bg'] = "white"
 
-        if int(label_2_score['text']) == 0:
-            # is label 3 set?
-            if label_3_score['text'] != "":
-                if label_4_score['text'] != "":
-                    if int(label_3_score['text']) == 0:
-                        if int(label_4_score['text']) == 0:
-                            label_1_score['bg'] = "yellow"
-                        else:
-                            label_4_score['bg'] = "yellow"
-                    else:
-                        label_3_score['bg'] = "yellow"
-        else:
+        if number == 2:
             label_2_score['bg'] = "yellow"
-        return
 
-    # check label 2
-    if label_2_score['bg'] == "yellow":
-        label_2_score['bg'] = "white"
+        elif number == 3:
+            if int(label_2_score['text']) == 0:
+                label_3_score['bg'] = "yellow"
+            else:
+                label_2_score['bg'] = "yellow"
 
-        if label_3_score['text'] != "":
-            if label_4_score['text'] != "":
+        elif number == 4:
+            if int(label_2_score['text']) == 0:
                 if int(label_3_score['text']) == 0:
-                    if int(label_4_score['text']) == 0:
-                        label_1_score['bg'] = "yellow"
-                    else:
-                        label_4_score['bg'] = "yellow"
+                    label_4_score['bg'] = "yellow"
                 else:
                     label_3_score['bg'] = "yellow"
-            elif int(label_3_score['text']) == 0:
+            else:
+                label_2_score['bg'] = "yellow"
+
+    # check label 2
+    elif label_2_score['bg'] == "yellow":
+        label_2_score['bg'] = "white"
+
+        if number == 2:
+            label_1_score['bg'] = "yellow"
+
+        elif number == 3:
+            if int(label_3_score['text']) == 0:
                 label_1_score['bg'] = "yellow"
             else:
                 label_3_score['bg'] = "yellow"
-        else:
-            label_1_score['bg'] = "yellow"
-        return
 
+        elif number == 4:
+            if int(label_3_score['text']) == 0:
+                if int(label_4_score['text']) == 0:
+                    label_1_score['bg'] = "yellow"
+                else:
+                    label_4_score['bg'] = "yellow"
+            else:
+                label_3_score['bg'] = "yellow"
+
+    else:
+        next_label2(number)
+
+
+def next_label2(number):
+    """
+    This function switches to the next player
+    :return:
+    """
     # check label 3
     if label_3_score['bg'] == "yellow":
         label_3_score['bg'] = "white"
-        # check if label 4 is in use
-        if label_4_score['text'] != "":
+
+        if number == 3:
+            if int(label_1_score['text']) == 0:
+                label_2_score['bg'] = "yellow"
+            else:
+                label_1_score['bg'] = "yellow"
+
+        elif number == 4:
             if int(label_4_score['text']) == 0:
                 if int(label_1_score['text']) == 0:
                     label_2_score['bg'] = "yellow"
@@ -1217,29 +1448,22 @@ def next_label():
                     label_1_score['bg'] = "yellow"
             else:
                 label_4_score['bg'] = "yellow"
-        else:
+
+    # check label 4
+    elif label_4_score['bg'] == "yellow":
+        label_4_score['bg'] = "white"
+
+        if number == 4:
             if int(label_1_score['text']) == 0:
-                label_2_score['bg'] = "yellow"
+                if int(label_2_score['text']) == 0:
+                    label_3_score['bg'] = "yellow"
+                else:
+                    label_2_score['bg'] = "yellow"
             else:
                 label_1_score['bg'] = "yellow"
 
-        return
 
-    # check label 4
-    if label_4_score['bg'] == "yellow":
-        label_4_score['bg'] = "white"
-
-        if int(label_1_score['text']) == 0:
-            if int(label_2_score['text']) == 0:
-                label_3_score['bg'] = "yellow"
-            else:
-                label_2_score['bg'] = "yellow"
-        else:
-            label_1_score['bg'] = "yellow"
-        return
-
-
-def count_down_helper():
+def get_amount_of_darts():
     """
 
     :return: amount of darts
@@ -1274,21 +1498,21 @@ def count_down():
     This function counts the score down
     :return:
     """
+    number = int(label_number_players['text'])
     result = int(zwischen_label['text'])
-    darts = count_down_helper()
+    darts = get_amount_of_darts()
 
-    one = int(label_1_score['text'])
     two = int(label_2_score['text'])
-    three = 501
-    four = 501
 
-    if label_3_score['text'] != "":
+    try:
         three = int(label_3_score['text'])
-
-    if label_4_score['text'] != "":
         four = int(label_4_score['text'])
 
-    # label 1
+    except ValueError:
+        three = 501
+        four = 501
+
+    # count down player 1
     if label_1_score['bg'] == "yellow":
         current = int(label_1_score['text'])
         if result > current:
@@ -1305,62 +1529,76 @@ def count_down():
             current = current - result
             label_1_score['text'] = current
             add_player1(result, darts)
-            one = 0
 
-            # first check if all players participate
-            if label_2_score['text'] != "" and label_3_score['text'] != "" \
-                    and label_4_score['text'] != "":
+            # first check: 2 players
+            if number == 2:
+                messagebox.showinfo("Info", label_player_1_name['text'] + " is the winner.")
+                end_game()
+
+            # second check: 3 players
+            elif number == 3:
                 # check if one player has 0 points left
-                if (two == 0 and three != 0 and four != 0) or \
-                        (two != 0 and three == 0 and four != 0) or \
-                        (two != 0 and three != 0 and four == 0):
+                if two == 0 or three == 0:
                     messagebox.showinfo("Info", label_player_1_name['text'] +
                                         " is the second winner.")
+                    end_game()
+                    return
+                else:
+                    messagebox.showinfo("Info", label_player_1_name['text'] +
+                                        " is the first winner.")
 
-                # check if two players have 0 points left
-                elif (two == 0 and three == 0 and four != 0) or \
-                        (two == 0 and three != 0 and four == 0) or \
-                        (two != 0 and three == 0 and four == 0):
+            # third check: 4 players
+            elif number == 4:
+                players_with_zero_points = 0
+
+                if two == 0:
+                    players_with_zero_points += 1
+
+                if three == 0:
+                    players_with_zero_points += 1
+
+                if four == 0:
+                    players_with_zero_points += 1
+
+                if players_with_zero_points == 0:
+                    messagebox.showinfo("Info", label_player_1_name['text'] +
+                                        " is the first winner.")
+
+                elif players_with_zero_points == 1:
+                    messagebox.showinfo("Info", label_player_1_name['text'] +
+                                        " is second the winner.")
+
+                elif players_with_zero_points == 2:
                     messagebox.showinfo("Info", label_player_1_name['text'] +
                                         " is the third winner.")
                     end_game()
-                    return
-                else:
-                    messagebox.showinfo("Info", label_player_1_name['text'] + " is the winner.")
 
-            # second check: only 3 player
-            elif label_2_score['text'] != "" and label_3_score['text'] != "" \
-                    and label_4_score['text'] == "":
-                # check if one player has 0 points left
-                if (two == 0 and three != 0) or (two != 0 and three == 0):
-                    messagebox.showinfo("Info", label_player_1_name['text'] +
-                                        " is the second winner.")
-                    end_game()
-                    return
-                else:
-                    messagebox.showinfo("Info", label_player_1_name['text'] + " is the winner.")
-
-            # third check: only 2 player
-            elif label_2_score['text'] != "" and label_3_score['text'] == "" \
-                    and label_4_score['text'] == "":
-                messagebox.showinfo("Info", label_player_1_name['text'] + " is the winner.")
-                end_game()
-                return
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
 
+        next_label()
     else:
-        count_down2(result, darts, one, two, three, four)
-
-    next_label()
+        count_down_player2(result, darts)
 
 
-def count_down2(result, darts, one, two, three, four):
+def count_down_player2(result, darts):
     """
-
+    This function counts the score of player 2 down
     :return:
     """
-    # label 2
+    one = int(label_1_score['text'])
+
+    try:
+        three = int(label_3_score['text'])
+        four = int(label_4_score['text'])
+
+    except ValueError:
+        three = 501
+        four = 501
+
+    number = int(label_number_players['text'])
+
+    # count down label 2
     if label_2_score['bg'] == "yellow":
         current = int(label_2_score['text'])
         if result > current:
@@ -1377,60 +1615,75 @@ def count_down2(result, darts, one, two, three, four):
             current = current - result
             label_2_score['text'] = current
             add_player2(result, darts)
-            two = 0
 
-            # first check: all players participate
-            if label_1_score['text'] != "" and label_3_score['text'] != "" \
-                    and label_4_score['text'] != "":
+            # first check: 2 players
+            if number == 2:
+                messagebox.showinfo("Info", label_player_2_name['text'] + " is the winner.")
+                end_game()
+
+            # second check: 3 players
+            elif number == 3:
                 # check if one player has 0 points left
-                if (one == 0 and three != 0 and four != 0) or \
-                        (one != 0 and three == 0 and four != 0) or \
-                        (one != 0 and three != 0 and four == 0):
+                if one == 0 or three == 0:
                     messagebox.showinfo("Info", label_player_2_name['text'] +
                                         " is the second winner.")
+                    end_game()
+                    return
+                else:
+                    messagebox.showinfo("Info", label_player_2_name['text'] +
+                                        " is the first winner.")
 
-                # check if two players have 0 points left
-                elif (one == 0 and three == 0 and four != 0) or \
-                        (one == 0 and three != 0 and four == 0) or \
-                        (one != 0 and three == 0 and four == 0):
+            # third check: 4 players
+            elif number == 4:
+                players_with_zero_points = 0
+
+                if one == 0:
+                    players_with_zero_points += 1
+
+                if three == 0:
+                    players_with_zero_points += 1
+
+                if four == 0:
+                    players_with_zero_points += 1
+
+                if players_with_zero_points == 0:
+                    messagebox.showinfo("Info", label_player_2_name['text'] +
+                                        " is the first winner.")
+
+                elif players_with_zero_points == 1:
+                    messagebox.showinfo("Info", label_player_2_name['text'] +
+                                        " is second the winner.")
+
+                elif players_with_zero_points == 2:
                     messagebox.showinfo("Info", label_player_2_name['text'] +
                                         " is the third winner.")
                     end_game()
                     return
-                else:
-                    messagebox.showinfo("Info", label_player_2_name['text'] + " is the winner.")
-
-            # second check: only 3 player
-            elif label_1_score['text'] != "" and label_3_score['text'] != "" \
-                    and label_4_score['text'] == "":
-                # check if one player has 0 points left
-                if (one == 0 and three != 0) or (one != 0 and three == 0):
-                    messagebox.showinfo("Info", label_player_2_name['text'] +
-                                        " is the second winner.")
-                    end_game()
-                    return
-                else:
-                    messagebox.showinfo("Info", label_player_2_name['text'] + " is the winner.")
-
-            # third check: only 2 player
-            elif label_1_score['text'] != "" and label_3_score['text'] == "" \
-                    and label_4_score['text'] == "":
-                messagebox.showinfo("Info", label_player_2_name['text'] + " is the winner.")
-                end_game()
-                return
 
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
 
+        next_label()
     else:
-        count_down3(result, darts, one, two, three, four)
+        count_down_player3(result, darts)
 
 
-def count_down3(result, darts, one, two, three, four):
+def count_down_player3(result, darts):
     """
-
+    This function counts the score of player 3 down
     :return:
     """
+    one = int(label_1_score['text'])
+    two = int(label_2_score['text'])
+
+    try:
+        four = int(label_4_score['text'])
+
+    except ValueError:
+        four = 501
+
+    number = int(label_number_players['text'])
+
     # label 3
     if label_3_score['bg'] == "yellow":
         current = int(label_3_score['text'])
@@ -1448,53 +1701,70 @@ def count_down3(result, darts, one, two, three, four):
             current = current - result
             label_3_score['text'] = current
             add_player3(result, darts)
-            three = 0
 
-            # first check: all players participate
-            if label_1_score['text'] != "" and label_2_score['text'] != "" \
-                    and label_4_score['text'] != "":
+            # first check: 3 players
+            if number == 3:
                 # check if one player has 0 points left
-                if (two == 0 and one != 0 and four != 0) or \
-                        (two != 0 and one == 0 and four != 0) or \
-                        (two != 0 and one != 0 and four == 0):
+                if one == 0 or two == 0:
                     messagebox.showinfo("Info", label_player_3_name['text'] +
                                         " is the second winner.")
+                    end_game()
+                    return
+                else:
+                    messagebox.showinfo("Info", label_player_3_name['text'] +
+                                        " is the first winner.")
 
-                # check if two players have 0 points left
-                elif (two == 0 and one == 0 and four != 0) or \
-                        (two == 0 and one != 0 and four == 0) or \
-                        (two != 0 and one == 0 and four == 0):
+            # second check: 4 players
+            elif number == 4:
+                players_with_zero_points = 0
+
+                if one == 0:
+                    players_with_zero_points += 1
+
+                if two == 0:
+                    players_with_zero_points += 1
+
+                if four == 0:
+                    players_with_zero_points += 1
+
+                if players_with_zero_points == 0:
+                    messagebox.showinfo("Info", label_player_3_name['text'] +
+                                        " is the first winner.")
+
+                elif players_with_zero_points == 1:
+                    messagebox.showinfo("Info", label_player_3_name['text'] +
+                                        " is second the winner.")
+
+                elif players_with_zero_points == 2:
                     messagebox.showinfo("Info", label_player_3_name['text'] +
                                         " is the third winner.")
                     end_game()
                     return
-                else:
-                    messagebox.showinfo("Info", label_player_3_name['text'] + " is the winner.")
-
-            # second check: only 3 player
-            elif label_1_score['text'] != "" and label_2_score['text'] != "" \
-                    and label_4_score['text'] == "":
-                # check if one player has 0 points left
-                if (two == 0 and one != 0) or (two != 0 and one == 0):
-                    messagebox.showinfo("Info", label_player_3_name['text'] +
-                                        " is the second winner.")
-                    end_game()
-                    return
-                else:
-                    messagebox.showinfo("Info", label_player_3_name['text'] + " is the winner.")
 
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
 
+        next_label()
     else:
-        count_down4(result, darts, one, two, three, four)
+        count_down_player4(result, darts)
 
 
-def count_down4(result, darts, one, two, three, four):
+def count_down_player4(result, darts):
     """
-
+    This function counts the score of player 3 down
     :return:
     """
+    one = int(label_1_score['text'])
+    two = int(label_2_score['text'])
+
+    try:
+        three = int(label_3_score['text'])
+
+    except ValueError:
+        three = 501
+
+    number = int(label_number_players['text'])
+
     if label_4_score['bg'] == "yellow":
         current = int(label_4_score['text'])
         if result > current:
@@ -1512,29 +1782,41 @@ def count_down4(result, darts, one, two, three, four):
             label_4_score['text'] = current
             add_player4(result, darts)
 
-            # check if one player has 0 points left
-            if (two == 0 and three != 0 and one != 0) or \
-                    (two != 0 and three == 0 and one != 0) or \
-                    (two != 0 and three != 0 and one == 0):
-                messagebox.showinfo("Info", label_player_4_name['text'] + " is the second winner.")
+            # first check: 4 players
+            if number == 4:
+                players_with_zero_points = 0
 
-            # check if two players have 0 points left
-            elif (two == 0 and three == 0 and one != 0) or \
-                    (two == 0 and three != 0 and one == 0) or \
-                    (two != 0 and three == 0 and one == 0):
-                messagebox.showinfo("Info", label_player_4_name['text'] + " is the third winner.")
-                end_game()
-                return
-            else:
-                messagebox.showinfo("Info", label_player_4_name['text'] + " is the first winner.")
+                if one == 0:
+                    players_with_zero_points += 1
+
+                if two == 0:
+                    players_with_zero_points += 1
+
+                if three == 0:
+                    players_with_zero_points += 1
+
+                if players_with_zero_points == 0:
+                    messagebox.showinfo("Info", label_player_4_name['text'] +
+                                        "is the first winner.")
+
+                elif players_with_zero_points == 1:
+                    messagebox.showinfo("Info", label_player_4_name['text'] +
+                                        " is second the winner.")
+
+                elif players_with_zero_points == 2:
+                    messagebox.showinfo("Info", label_player_4_name['text'] +
+                                        " is the third winner.")
+                    end_game()
+                    return
 
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
+        next_label()
 
 
 def add_scores():
     """
-    This function adds the thrown darts to the kpis/player_scores
+    This function adds the thrown darts to the kpis/player_scores of player 1
     :return:
     """
     # get the score from invisible label and reset it to 0
@@ -1570,8 +1852,17 @@ def add_scores():
         else:
             player1_scores[0]["No_Score"] += 1
 
+    else:
+        add_scores_player2(score)
+
+
+def add_scores_player2(score):
+    """
+    This function adds the thrown darts to the kpis/player_scores of player 2
+    :return
+    """
     # player 2
-    elif label_2_score['bg'] == "yellow":
+    if label_2_score['bg'] == "yellow":
         if "T" in score:
             player2_scores[0]["Triple"] += 1
             if score == "T20":
@@ -1601,8 +1892,17 @@ def add_scores():
         else:
             player2_scores[0]["No_Score"] += 1
 
+    else:
+        add_scores_player3(score)
+
+
+def add_scores_player3(score):
+    """
+    This function adds the thrown darts to the kpis/player_scores of player 3
+    :return
+    """
     # player 3
-    elif label_3_score['bg'] == "yellow":
+    if label_3_score['bg'] == "yellow":
         if "T" in score:
             player3_scores[0]["Triple"] += 1
             if score == "T20":
@@ -1632,8 +1932,17 @@ def add_scores():
         else:
             player3_scores[0]["No_Score"] += 1
 
+    else:
+        add_scores_player4(score)
+
+
+def add_scores_player4(score):
+    """
+    This function adds the thrown darts to the kpis/player_scores of player 4
+    :return:
+    """
     # player 4
-    elif label_4_score['bg'] == "yellow":
+    if label_4_score['bg'] == "yellow":
         if "T" in score:
             player4_scores[0]["Triple"] += 1
             if score == "T20":
@@ -1721,68 +2030,6 @@ def add():
         button_dart_score.pack_forget()
 
 
-def reset():
-    """
-    This function resets the GUI
-    :return:
-    """
-    label_1_score['text'] = "501"
-    label_2_score['text'] = "501"
-    label_3_score['text'] = "501"
-    label_4_score['text'] = "501"
-    label_player_1_name['text'] = "Player 1: "
-    label_player_2_name['text'] = "Player 2: "
-    label_player_3_name['text'] = "Player 3: "
-    label_player_4_name['text'] = "Player 4: "
-
-    zwischen_label['text'] = "0"
-    label_dart_score['text'] = ""
-
-    label_first_dart['bg'] = "yellow"
-    label_second_dart['bg'] = "white"
-    label_third_dart['bg'] = "white"
-
-    label_1_score['bg'] = "yellow"
-    label_2_score['bg'] = "white"
-    label_3_score['bg'] = "white"
-    label_4_score['bg'] = "white"
-
-    save_score()
-    clear_players()
-
-
-def new_game():
-    """
-    This function starts a new game
-    return:
-    """
-    label_1_score['bg'] = "yellow"
-    label_2_score['bg'] = "white"
-    label_3_score['bg'] = "white"
-    label_4_score['bg'] = "white"
-
-    if label_switch_score['text'] == "501":
-        label_1_score['text'] = "501"
-        label_2_score['text'] = "501"
-
-        if label_player_3_name['text'] != "":
-            label_3_score['text'] = "501"
-
-        if label_player_4_name['text'] != "":
-            label_4_score['text'] = "501"
-    else:
-        label_1_score['text'] = "301"
-        label_2_score['text'] = "301"
-        if label_player_3_name['text'] != "":
-            label_3_score['text'] = "301"
-
-        if label_player_4_name['text'] != "":
-            label_4_score['text'] = "301"
-
-    save_score()
-    clear_players()
-
-
 def end_game():
     """
     This function stops the game
@@ -1794,24 +2041,25 @@ def end_game():
     label_3_score['bg'] = "white"
     label_4_score['bg'] = "white"
 
-    if label_switch_score['text'] == "501":
+    if label_switch_starting_points['text'] == "501":
         label_1_score['text'] = "501"
         label_2_score['text'] = "501"
 
-        if label_player_3_name['text'] != "":
+        if int(label_number_players['text']) == 3:
             label_3_score['text'] = "501"
 
-        if label_player_4_name['text'] != "":
+        if int(label_number_players['text']) == 4:
             label_4_score['text'] = "501"
     else:
         label_1_score['text'] = "301"
         label_2_score['text'] = "301"
-        if label_player_3_name['text'] != "":
+        if int(label_number_players['text']) == 3:
             label_3_score['text'] = "301"
 
-        if label_player_4_name['text'] != "":
+        if int(label_number_players['text']) == 4:
             label_4_score['text'] = "301"
 
+    button_create_excel.place(x=1125, y=210, height=80, width=150)
     save_score()
     clear_players()
 
@@ -1837,85 +2085,6 @@ def clear_players():
     while len(player4) > 0:
         for item in player4:
             player4.remove(item)
-
-
-def button_start_game_function():
-    """
-    This function starts the game
-    :return:
-    """
-    label_1_score['bg'] = "yellow"
-    label_2_score['bg'] = "white"
-    label_3_score['bg'] = "white"
-    label_4_score['bg'] = "white"
-
-    # clear content of the players
-    clear_players()
-
-    if int(label_switch_score['text']) == 501:
-        label_1_score['text'] = "501"
-        label_2_score['text'] = "501"
-    else:
-        label_1_score['text'] = "301"
-        label_2_score['text'] = "301"
-
-    if label_player_3_name['text'] == "Player 3: " or label_player_3_name['text'] == "":
-        label_player_3_name['text'] = ""
-        label_3_score['text'] = ""
-    else:
-        if int(label_switch_score['text']) == 501:
-            label_3_score['text'] = "501"
-        else:
-            label_3_score['text'] = "301"
-
-    if label_player_4_name['text'] == "Player 4: " or label_player_4_name['text'] == "":
-        label_player_4_name['text'] = ""
-        label_4_score['text'] = ""
-    else:
-        if int(label_switch_score['text']) == 501:
-            label_4_score['text'] = "501"
-        else:
-            label_4_score['text'] = "301"
-
-    disable_button_for_start_game()
-
-
-def disable_button_for_start_game():
-    """
-    This function disable some buttons when the game is started
-    :return:
-    """
-    button_start_game.pack()
-    button_start_game.pack_forget()
-
-    button_switch_score_inc.pack()
-    button_switch_score_inc.pack_forget()
-    button_switch_score_dec.pack()
-    button_switch_score_dec.pack_forget()
-    label_switch_score.pack()
-    label_switch_score.pack_forget()
-
-    button_stop_game.pack()
-    button_stop_game.place(x=950, y=90, height=30, width=100)
-
-    next_button.pack()
-    next_button.place(x=610, y=60, height=30, width=100)
-
-    label_dart_score.pack()
-    button_dart_score.pack()
-
-    label_dart_score.place(x=0, y=300, height=30, width=90)
-    button_dart_score.place(x=90, y=300, height=30, width=80)
-
-    label_first_dart.pack()
-    label_second_dart.pack()
-    label_third_dart.pack()
-    zwischen_label.pack()
-
-    label_first_dart.place(x=210, y=300, height=30, width=30)
-    label_second_dart.place(x=250, y=300, height=30, width=30)
-    label_third_dart.place(x=290, y=300, height=30, width=30)
-    zwischen_label.place(x=340, y=300, height=30, width=100)
 
 
 def plus_player_numbers():
@@ -1980,6 +2149,7 @@ def check_names():
             messagebox.showinfo("Error", "Not all names were entered.")
             return
         else:
+            label_player_3_name['text'] = name3
             label_player_4_name['text'] = name4
 
     label_player_1_name['text'] = name1
@@ -2027,7 +2197,145 @@ def start_game():
     """
     This function starts the game after the names were entered
     """
-    reset_button.place(x=1175, y=100, height=30, width=100)
+    number_players = int(label_number_players['text'])
+    clear_players()
+
+    reset_button.place(x=1175, y=80, height=30, width=100)
+
+    label_1_score['bg'] = "yellow"
+    label_2_score['bg'] = "white"
+    label_3_score['bg'] = "white"
+    label_4_score['bg'] = "white"
+
+    if label_switch_starting_points['text'] == "501":
+        label_1_score['text'] = "501"
+        label_2_score['text'] = "501"
+        label_3_score['text'] = "501"
+        label_4_score['text'] = "501"
+
+    else:
+        label_1_score['text'] = "301"
+        label_2_score['text'] = "301"
+        label_3_score['text'] = "301"
+        label_4_score['text'] = "301"
+
+    label_1_score.place(x=10, y=60, height=30, width=150)
+    label_2_score.place(x=200, y=60, height=30, width=150)
+
+    label_player_1_name.place(x=10, y=10, height=30, width=150)
+    label_player_2_name.place(x=200, y=10, height=30, width=150)
+
+    if number_players >= 3:
+        label_3_score.place(x=390, y=60, height=30, width=150)
+        label_player_3_name.place(x=390, y=10, height=30, width=150)
+
+    if number_players == 4:
+        label_4_score.place(x=580, y=60, height=30, width=150)
+        label_player_4_name.place(x=580, y=10, height=30, width=150)
+
+    next_button.place(x=810, y=60, height=30, width=130)
+
+    label_dart_score.pack()
+    button_dart_score.pack()
+
+    label_dart_score.place(x=0, y=300, height=30, width=90)
+    button_dart_score.place(x=90, y=300, height=30, width=80)
+
+    label_first_dart.pack()
+    label_second_dart.pack()
+    label_third_dart.pack()
+    zwischen_label.pack()
+
+    label_first_dart.place(x=210, y=300, height=30, width=30)
+    label_second_dart.place(x=250, y=300, height=30, width=30)
+    label_third_dart.place(x=290, y=300, height=30, width=30)
+    zwischen_label.place(x=340, y=300, height=30, width=100)
+
+    enable_throw_buttons()
+
+
+def enable_throw_buttons():
+    """
+    This function enables button (0 to T20)
+    :return:
+    """
+    button_triple_20.place(x=0, y=400, height=60, width=60)
+    button_double_20.place(x=0, y=470, height=60, width=60)
+    button_single_20.place(x=0, y=540, height=60, width=60)
+    button_triple_19.place(x=60, y=400, height=60, width=60)
+    button_double_19.place(x=60, y=470, height=60, width=60)
+    button_single_19.place(x=60, y=540, height=60, width=60)
+    button_triple_18.place(x=120, y=400, height=60, width=60)
+    button_double_18.place(x=120, y=470, height=60, width=60)
+    button_single_18.place(x=120, y=540, height=60, width=60)
+    button_triple_17.place(x=180, y=400, height=60, width=60)
+    button_double_17.place(x=180, y=470, height=60, width=60)
+    button_single_17.place(x=180, y=540, height=60, width=60)
+
+    button_triple_16.place(x=240, y=400, height=60, width=60)
+    button_double_16.place(x=240, y=470, height=60, width=60)
+    button_single_16.place(x=240, y=540, height=60, width=60)
+    button_triple_15.place(x=300, y=400, height=60, width=60)
+    button_double_15.place(x=300, y=470, height=60, width=60)
+    button_single_15.place(x=300, y=540, height=60, width=60)
+    button_triple_14.place(x=360, y=400, height=60, width=60)
+    button_double_14.place(x=360, y=470, height=60, width=60)
+    button_single_14.place(x=360, y=540, height=60, width=60)
+    button_triple_13.place(x=420, y=400, height=60, width=60)
+    button_double_13.place(x=420, y=470, height=60, width=60)
+    button_single_13.place(x=420, y=540, height=60, width=60)
+
+    button_triple_12.place(x=480, y=400, height=60, width=60)
+    button_double_12.place(x=480, y=470, height=60, width=60)
+    button_single_12.place(x=480, y=540, height=60, width=60)
+    button_triple_11.place(x=540, y=400, height=60, width=60)
+    button_double_11.place(x=540, y=470, height=60, width=60)
+    button_single_11.place(x=540, y=540, height=60, width=60)
+    button_triple_10.place(x=600, y=400, height=60, width=60)
+    button_double_10.place(x=600, y=470, height=60, width=60)
+    button_single_10.place(x=600, y=540, height=60, width=60)
+    button_triple_9.place(x=660, y=400, height=60, width=60)
+    button_double_9.place(x=660, y=470, height=60, width=60)
+    button_single_9.place(x=660, y=540, height=60, width=60)
+
+    button_triple_8.place(x=720, y=400, height=60, width=60)
+    button_double_8.place(x=720, y=470, height=60, width=60)
+    button_single_8.place(x=720, y=540, height=60, width=60)
+    button_triple_7.place(x=780, y=400, height=60, width=60)
+    button_double_7.place(x=780, y=470, height=60, width=60)
+    button_single_7.place(x=780, y=540, height=60, width=60)
+    button_triple_6.place(x=840, y=400, height=60, width=60)
+    button_double_6.place(x=840, y=470, height=60, width=60)
+    button_single_6.place(x=840, y=540, height=60, width=60)
+    button_triple_5.place(x=900, y=400, height=60, width=60)
+    button_double_5.place(x=900, y=470, height=60, width=60)
+    button_single_5.place(x=900, y=540, height=60, width=60)
+
+    enable_throw_buttons2()
+
+
+def enable_throw_buttons2():
+    """
+    This function enables button (0 to T20)
+    :return:
+    """
+
+    button_triple_4.place(x=960, y=400, height=60, width=60)
+    button_double_4.place(x=960, y=470, height=60, width=60)
+    button_single_4.place(x=960, y=540, height=60, width=60)
+    button_triple_3.place(x=1020, y=400, height=60, width=60)
+    button_double_3.place(x=1020, y=470, height=60, width=60)
+    button_single_3.place(x=1020, y=540, height=60, width=60)
+    button_triple_2.place(x=1080, y=400, height=60, width=60)
+    button_double_2.place(x=1080, y=470, height=60, width=60)
+    button_single_2.place(x=1080, y=540, height=60, width=60)
+    button_triple_1.place(x=1140, y=400, height=60, width=60)
+    button_double_1.place(x=1140, y=470, height=60, width=60)
+    button_single_1.place(x=1140, y=540, height=60, width=60)
+
+    button_single_bull.place(x=1210, y=400, height=60, width=60)
+    button_bull.place(x=1210, y=470, height=60, width=60)
+    button_0.place(x=1210, y=540, height=60, width=60)
 
 
 if __name__ == "__main__":
@@ -2045,7 +2353,8 @@ if __name__ == "__main__":
 
     # label for introducing and welcome
     label_welcome = Label(gui, text="Welcome to the darts - counter!\n"
-                                    " Please select the number of players and the starting points.", bg="grey",
+                                    " Please select the number of players "
+                                    "and the starting points.", bg="grey",
                           font=('Arial', 14))
     label_welcome.place(x=337.5, y=20, height=50, width=600)
 
@@ -2089,46 +2398,24 @@ if __name__ == "__main__":
     button_inc_starting_points.place(x=687.5, y=120, height=30, width=30)
 
     # labels for 4 players
-    label_player_1_name = Label(gui, text="Player 1: ", fg="black", font=('Arial', 13, 'bold'))
-    label_player_2_name = Label(gui, text="Player 2: ", fg="black", font=('Arial', 13, 'bold'))
-    label_player_3_name = Label(gui, text="Player 3: ", fg="black", font=('Arial', 13, 'bold'))
-    label_player_4_name = Label(gui, text="Player 4: ", fg="black", font=('Arial', 13, 'bold'))
+    label_player_1_name = Label(gui, text="", fg="black", font=('Arial', 13, 'bold'))
+    label_player_2_name = Label(gui, text="", fg="black", font=('Arial', 13, 'bold'))
+    label_player_3_name = Label(gui, text="", fg="black", font=('Arial', 13, 'bold'))
+    label_player_4_name = Label(gui, text="", fg="black", font=('Arial', 13, 'bold'))
 
-    """
-    label_player_1_name.place(x=10, y=10, height=30, width=110)
-    label_player_2_name.place(x=160, y=10, height=30, width=110)
-    label_player_3_name.place(x=310, y=10, height=30, width=110)
-    label_player_4_name.place(x=460, y=10, height=30, width=110)
-    eingabefeld_p1.place(x=750, y=5, width=100, height=30)
-    eingabefeld_p2.place(x=750, y=35, width=100, height=30)
-    eingabefeld_p3.place(x=900, y=5, width=100, height=30)
-    eingabefeld_p4.place(x=900, y=35, width=100, height=30)
-    """
     # labels for game score for 4 players
     label_1_score = Label(gui, text="501", fg="black", bg="white", font=('Arial', 13, 'bold'))
     label_2_score = Label(gui, text="501", fg="black", bg="white", font=('Arial', 13, 'bold'))
     label_3_score = Label(gui, text="501", fg="black", bg="white", font=('Arial', 13, 'bold'))
     label_4_score = Label(gui, text="501", fg="black", bg="white", font=('Arial', 13, 'bold'))
 
-    """
-    label_1_score.place(x=10, y=60, height=30, width=110)
-    label_2_score.place(x=160, y=60, height=30, width=110)
-    label_3_score.place(x=310, y=60, height=30, width=110)
-    label_4_score.place(x=460, y=60, height=30, width=110)
-    """
-
-    """
-    label_switch_score.place(x=1105, y=90, height=30, width=110)
-    button_switch_score_dec.place(x=1215, y=90, height=30, width=30)
-    button_switch_score_inc.place(x=1240, y=90, height=30, width=30)
-    """
     # start - button und stop - button
     button_start_game = Button(gui, text="Start", bd=4, fg="black", bg="yellow", font=('Arial', 11),
-                               command=button_start_game_function)
+                               command=start_game)
     # button_start_game.place(x=850, y=90, height=30, width=100)
 
     button_stop_game = Button(gui, text="Stop", bd=4, fg="black", bg="red", font=('Arial', 11),
-                              command=button_stop_game_function)
+                              command=start_game)
 
     # next - button
     next_button = Button(gui, text="Next", bd=4, fg="black", bg="yellow", font=('Arial', 11),
@@ -2296,82 +2583,8 @@ if __name__ == "__main__":
     button_0 = Button(gui, text="0", bd=4, fg="black", bg="green", font=('Arial', 14),
                       command=null)
 
-    """
-    # all single, double and triple buttons are placed here
-    button_triple_20.place(x=0, y=400, height=60, width=60)
-    button_double_20.place(x=0, y=470, height=60, width=60)
-    button_single_20.place(x=0, y=540, height=60, width=60)
-    button_triple_19.place(x=60, y=400, height=60, width=60)
-    button_double_19.place(x=60, y=470, height=60, width=60)
-    button_single_19.place(x=60, y=540, height=60, width=60)
-    button_triple_18.place(x=120, y=400, height=60, width=60)
-    button_double_18.place(x=120, y=470, height=60, width=60)
-    button_single_18.place(x=120, y=540, height=60, width=60)
-    button_triple_17.place(x=180, y=400, height=60, width=60)
-    button_double_17.place(x=180, y=470, height=60, width=60)
-    button_single_17.place(x=180, y=540, height=60, width=60)
-
-    button_triple_16.place(x=240, y=400, height=60, width=60)
-    button_double_16.place(x=240, y=470, height=60, width=60)
-    button_single_16.place(x=240, y=540, height=60, width=60)
-    button_triple_15.place(x=300, y=400, height=60, width=60)
-    button_double_15.place(x=300, y=470, height=60, width=60)
-    button_single_15.place(x=300, y=540, height=60, width=60)
-    button_triple_14.place(x=360, y=400, height=60, width=60)
-    button_double_14.place(x=360, y=470, height=60, width=60)
-    button_single_14.place(x=360, y=540, height=60, width=60)
-    button_triple_13.place(x=420, y=400, height=60, width=60)
-    button_double_13.place(x=420, y=470, height=60, width=60)
-    button_single_13.place(x=420, y=540, height=60, width=60)
-
-    button_triple_12.place(x=480, y=400, height=60, width=60)
-    button_double_12.place(x=480, y=470, height=60, width=60)
-    button_single_12.place(x=480, y=540, height=60, width=60)
-    button_triple_11.place(x=540, y=400, height=60, width=60)
-    button_double_11.place(x=540, y=470, height=60, width=60)
-    button_single_11.place(x=540, y=540, height=60, width=60)
-    button_triple_10.place(x=600, y=400, height=60, width=60)
-    button_double_10.place(x=600, y=470, height=60, width=60)
-    button_single_10.place(x=600, y=540, height=60, width=60)
-    button_triple_9.place(x=660, y=400, height=60, width=60)
-    button_double_9.place(x=660, y=470, height=60, width=60)
-    button_single_9.place(x=660, y=540, height=60, width=60)
-
-    button_triple_8.place(x=720, y=400, height=60, width=60)
-    button_double_8.place(x=720, y=470, height=60, width=60)
-    button_single_8.place(x=720, y=540, height=60, width=60)
-    button_triple_7.place(x=780, y=400, height=60, width=60)
-    button_double_7.place(x=780, y=470, height=60, width=60)
-    button_single_7.place(x=780, y=540, height=60, width=60)
-    button_triple_6.place(x=840, y=400, height=60, width=60)
-    button_double_6.place(x=840, y=470, height=60, width=60)
-    button_single_6.place(x=840, y=540, height=60, width=60)
-    button_triple_5.place(x=900, y=400, height=60, width=60)
-    button_double_5.place(x=900, y=470, height=60, width=60)
-    button_single_5.place(x=900, y=540, height=60, width=60)
-
-    button_triple_4.place(x=960, y=400, height=60, width=60)
-    button_double_4.place(x=960, y=470, height=60, width=60)
-    button_single_4.place(x=960, y=540, height=60, width=60)
-    button_triple_3.place(x=1020, y=400, height=60, width=60)
-    button_double_3.place(x=1020, y=470, height=60, width=60)
-    button_single_3.place(x=1020, y=540, height=60, width=60)
-    button_triple_2.place(x=1080, y=400, height=60, width=60)
-    button_double_2.place(x=1080, y=470, height=60, width=60)
-    button_single_2.place(x=1080, y=540, height=60, width=60)
-    button_triple_1.place(x=1140, y=400, height=60, width=60)
-    button_double_1.place(x=1140, y=470, height=60, width=60)
-    button_single_1.place(x=1140, y=540, height=60, width=60)
-
-    button_single_bull.place(x=1210, y=400, height=60, width=60)
-    button_bull.place(x=1210, y=470, height=60, width=60)
-    button_0.place(x=1210, y=540, height=60, width=60)
-    """
     # reset - button
-    reset_button = Button(gui, text="Reset", bd=4, fg="black", bg="red", font=('Arial', 11),
+    reset_button = Button(gui, text="Go back", bd=4, fg="black", bg="red", font=('Arial', 11),
                           command=reset)
-
-    new_game_button = Button(gui, text="New Game", bd=4, fg="black", bg="red", font=('Arial', 11),
-                             command=new_game)
 
     gui.mainloop()
