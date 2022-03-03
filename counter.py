@@ -1305,9 +1305,17 @@ def next_button():
                     label_3_score['bg'] = "yellow"
             else:
                 label_2_score['bg'] = "yellow"
+    else:
+        next_button2(number)
 
+
+def next_button2(number):
+    """
+    This function switches to the next player
+    :return:
+    """
     # check label 2
-    elif label_2_score['bg'] == "yellow":
+    if label_2_score['bg'] == "yellow":
         label_2_score['bg'] = "white"
 
         if number == 2:
@@ -1329,10 +1337,10 @@ def next_button():
                 label_3_score['bg'] = "yellow"
 
     else:
-        next_button2(number)
+        next_button3(number)
 
 
-def next_button2(number):
+def next_button3(number):
     """
     This function switches to the next player
     :return:
@@ -1355,9 +1363,17 @@ def next_button2(number):
                     label_1_score['bg'] = "yellow"
             else:
                 label_4_score['bg'] = "yellow"
+    else:
+        next_button4(number)
 
+
+def next_button4(number):
+    """
+    This function switches to the next player
+    :return:
+    """
     # check label 4
-    elif label_4_score['bg'] == "yellow":
+    if label_4_score['bg'] == "yellow":
         label_4_score['bg'] = "white"
 
         if number == 4:
@@ -1398,9 +1414,17 @@ def next_label():
                     label_3_score['bg'] = "yellow"
             else:
                 label_2_score['bg'] = "yellow"
+    else:
+        next_label2(number)
 
+
+def next_label2(number):
+    """
+    This function switches to the next player
+    :return:
+    """
     # check label 2
-    elif label_2_score['bg'] == "yellow":
+    if label_2_score['bg'] == "yellow":
         label_2_score['bg'] = "white"
 
         if number == 2:
@@ -1422,10 +1446,10 @@ def next_label():
                 label_3_score['bg'] = "yellow"
 
     else:
-        next_label2(number)
+        next_label3(number)
 
 
-def next_label2(number):
+def next_label3(number):
     """
     This function switches to the next player
     :return:
@@ -1448,9 +1472,17 @@ def next_label2(number):
                     label_1_score['bg'] = "yellow"
             else:
                 label_4_score['bg'] = "yellow"
+    else:
+        next_label4(number)
 
+
+def next_label4(number):
+    """
+    This function switches to the next player
+    :return:
+    """
     # check label 4
-    elif label_4_score['bg'] == "yellow":
+    if label_4_score['bg'] == "yellow":
         label_4_score['bg'] = "white"
 
         if number == 4:
@@ -1542,36 +1574,13 @@ def count_down():
                     messagebox.showinfo("Info", label_player_1_name['text'] +
                                         " is the second winner.")
                     end_game()
-                    return
                 else:
                     messagebox.showinfo("Info", label_player_1_name['text'] +
                                         " is the first winner.")
 
             # third check: 4 players
             elif number == 4:
-                players_with_zero_points = 0
-
-                if two == 0:
-                    players_with_zero_points += 1
-
-                if three == 0:
-                    players_with_zero_points += 1
-
-                if four == 0:
-                    players_with_zero_points += 1
-
-                if players_with_zero_points == 0:
-                    messagebox.showinfo("Info", label_player_1_name['text'] +
-                                        " is the first winner.")
-
-                elif players_with_zero_points == 1:
-                    messagebox.showinfo("Info", label_player_1_name['text'] +
-                                        " is second the winner.")
-
-                elif players_with_zero_points == 2:
-                    messagebox.showinfo("Info", label_player_1_name['text'] +
-                                        " is the third winner.")
-                    end_game()
+                check_4players_label1(two, three, four)
 
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
@@ -1579,6 +1588,36 @@ def count_down():
         next_label()
     else:
         count_down_player2(result, darts)
+
+
+def check_4players_label1(two, three, four):
+    """
+
+    :return:
+    """
+    players_with_zero_points = 0
+
+    if two == 0:
+        players_with_zero_points += 1
+
+    if three == 0:
+        players_with_zero_points += 1
+
+    if four == 0:
+        players_with_zero_points += 1
+
+    if players_with_zero_points == 0:
+        messagebox.showinfo("Info", label_player_1_name['text'] +
+                            " is the first winner.")
+
+    elif players_with_zero_points == 1:
+        messagebox.showinfo("Info", label_player_1_name['text'] +
+                            " is second the winner.")
+
+    elif players_with_zero_points == 2:
+        messagebox.showinfo("Info", label_player_1_name['text'] +
+                            " is the third winner.")
+        end_game()
 
 
 def count_down_player2(result, darts):
@@ -1597,7 +1636,6 @@ def count_down_player2(result, darts):
         four = 501
 
     number = int(label_number_players['text'])
-
     # count down label 2
     if label_2_score['bg'] == "yellow":
         current = int(label_2_score['text'])
@@ -1628,37 +1666,13 @@ def count_down_player2(result, darts):
                     messagebox.showinfo("Info", label_player_2_name['text'] +
                                         " is the second winner.")
                     end_game()
-                    return
                 else:
                     messagebox.showinfo("Info", label_player_2_name['text'] +
                                         " is the first winner.")
 
             # third check: 4 players
             elif number == 4:
-                players_with_zero_points = 0
-
-                if one == 0:
-                    players_with_zero_points += 1
-
-                if three == 0:
-                    players_with_zero_points += 1
-
-                if four == 0:
-                    players_with_zero_points += 1
-
-                if players_with_zero_points == 0:
-                    messagebox.showinfo("Info", label_player_2_name['text'] +
-                                        " is the first winner.")
-
-                elif players_with_zero_points == 1:
-                    messagebox.showinfo("Info", label_player_2_name['text'] +
-                                        " is second the winner.")
-
-                elif players_with_zero_points == 2:
-                    messagebox.showinfo("Info", label_player_2_name['text'] +
-                                        " is the third winner.")
-                    end_game()
-                    return
+                check_4players_label2(one, three, four)
 
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
@@ -1666,6 +1680,37 @@ def count_down_player2(result, darts):
         next_label()
     else:
         count_down_player3(result, darts)
+
+
+def check_4players_label2(one, three, four):
+    """
+
+    :return:
+    """
+    players_with_zero_points = 0
+
+    if one == 0:
+        players_with_zero_points += 1
+
+    if three == 0:
+        players_with_zero_points += 1
+
+    if four == 0:
+        players_with_zero_points += 1
+
+    if players_with_zero_points == 0:
+        messagebox.showinfo("Info", label_player_2_name['text'] +
+                            " is the first winner.")
+
+    elif players_with_zero_points == 1:
+        messagebox.showinfo("Info", label_player_2_name['text'] +
+                            " is second the winner.")
+
+    elif players_with_zero_points == 2:
+        messagebox.showinfo("Info", label_player_2_name['text'] +
+                            " is the third winner.")
+        end_game()
+        return
 
 
 def count_down_player3(result, darts):
@@ -1709,37 +1754,13 @@ def count_down_player3(result, darts):
                     messagebox.showinfo("Info", label_player_3_name['text'] +
                                         " is the second winner.")
                     end_game()
-                    return
                 else:
                     messagebox.showinfo("Info", label_player_3_name['text'] +
                                         " is the first winner.")
 
             # second check: 4 players
             elif number == 4:
-                players_with_zero_points = 0
-
-                if one == 0:
-                    players_with_zero_points += 1
-
-                if two == 0:
-                    players_with_zero_points += 1
-
-                if four == 0:
-                    players_with_zero_points += 1
-
-                if players_with_zero_points == 0:
-                    messagebox.showinfo("Info", label_player_3_name['text'] +
-                                        " is the first winner.")
-
-                elif players_with_zero_points == 1:
-                    messagebox.showinfo("Info", label_player_3_name['text'] +
-                                        " is second the winner.")
-
-                elif players_with_zero_points == 2:
-                    messagebox.showinfo("Info", label_player_3_name['text'] +
-                                        " is the third winner.")
-                    end_game()
-                    return
+                check_4players_label3(one, two, four)
 
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
@@ -1747,6 +1768,37 @@ def count_down_player3(result, darts):
         next_label()
     else:
         count_down_player4(result, darts)
+
+
+def check_4players_label3(one, two, four):
+    """
+
+    :return:
+    """
+    players_with_zero_points = 0
+
+    if one == 0:
+        players_with_zero_points += 1
+
+    if two == 0:
+        players_with_zero_points += 1
+
+    if four == 0:
+        players_with_zero_points += 1
+
+    if players_with_zero_points == 0:
+        messagebox.showinfo("Info", label_player_3_name['text'] +
+                            " is the first winner.")
+
+    elif players_with_zero_points == 1:
+        messagebox.showinfo("Info", label_player_3_name['text'] +
+                            " is second the winner.")
+
+    elif players_with_zero_points == 2:
+        messagebox.showinfo("Info", label_player_3_name['text'] +
+                            " is the third winner.")
+        end_game()
+        return
 
 
 def count_down_player4(result, darts):
@@ -1784,34 +1836,42 @@ def count_down_player4(result, darts):
 
             # first check: 4 players
             if number == 4:
-                players_with_zero_points = 0
-
-                if one == 0:
-                    players_with_zero_points += 1
-
-                if two == 0:
-                    players_with_zero_points += 1
-
-                if three == 0:
-                    players_with_zero_points += 1
-
-                if players_with_zero_points == 0:
-                    messagebox.showinfo("Info", label_player_4_name['text'] +
-                                        "is the first winner.")
-
-                elif players_with_zero_points == 1:
-                    messagebox.showinfo("Info", label_player_4_name['text'] +
-                                        " is second the winner.")
-
-                elif players_with_zero_points == 2:
-                    messagebox.showinfo("Info", label_player_4_name['text'] +
-                                        " is the third winner.")
-                    end_game()
-                    return
+                check_4players_label4(one, two, three)
 
         else:
             messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
         next_label()
+
+
+def check_4players_label4(one, two, three):
+    """
+
+    :return:
+    """
+    players_with_zero_points = 0
+
+    if one == 0:
+        players_with_zero_points += 1
+
+    if two == 0:
+        players_with_zero_points += 1
+
+    if three == 0:
+        players_with_zero_points += 1
+
+    if players_with_zero_points == 0:
+        messagebox.showinfo("Info", label_player_4_name['text'] +
+                            "is the first winner.")
+
+    elif players_with_zero_points == 1:
+        messagebox.showinfo("Info", label_player_4_name['text'] +
+                            " is second the winner.")
+
+    elif players_with_zero_points == 2:
+        messagebox.showinfo("Info", label_player_4_name['text'] +
+                            " is the third winner.")
+        end_game()
+        return
 
 
 def add_scores():
@@ -1843,17 +1903,25 @@ def add_scores():
             else:
                 player1_scores[0]["Bull"] += 1
         elif "S" in score:
-            if score == "S20":
-                player1_scores[0]["S20"] += 1
-            elif score == "S19":
-                player1_scores[0]["S19"] += 1
-            elif score == "S18":
-                player1_scores[0]["S18"] += 1
+            add_scores_player1_help(score)
         else:
             player1_scores[0]["No_Score"] += 1
 
     else:
         add_scores_player2(score)
+
+
+def add_scores_player1_help(score):
+    """
+
+    :return:
+    """
+    if score == "S20":
+        player1_scores[0]["S20"] += 1
+    elif score == "S19":
+        player1_scores[0]["S19"] += 1
+    elif score == "S18":
+        player1_scores[0]["S18"] += 1
 
 
 def add_scores_player2(score):
@@ -1882,18 +1950,26 @@ def add_scores_player2(score):
                 player2_scores[0]["Bull"] += 1
 
         elif "S" in score:
-            if score == "S20":
-                player2_scores[0]["S20"] += 1
-            elif score == "S19":
-                player2_scores[0]["S19"] += 1
-            elif score == "S18":
-                player2_scores[0]["S18"] += 1
+            add_scores_player2_help(score)
 
         else:
             player2_scores[0]["No_Score"] += 1
 
     else:
         add_scores_player3(score)
+
+
+def add_scores_player2_help(score):
+    """
+
+    :return:
+    """
+    if score == "S20":
+        player2_scores[0]["S20"] += 1
+    elif score == "S19":
+        player2_scores[0]["S19"] += 1
+    elif score == "S18":
+        player2_scores[0]["S18"] += 1
 
 
 def add_scores_player3(score):
@@ -1922,18 +1998,26 @@ def add_scores_player3(score):
                 player3_scores[0]["Bull"] += 1
 
         elif "S" in score:
-            if score == "S20":
-                player3_scores[0]["S20"] += 1
-            elif score == "S19":
-                player3_scores[0]["S19"] += 1
-            elif score == "S18":
-                player3_scores[0]["S18"] += 1
+            add_scores_player3_help(score)
 
         else:
             player3_scores[0]["No_Score"] += 1
 
     else:
         add_scores_player4(score)
+
+
+def add_scores_player3_help(score):
+    """
+
+    :return:
+    """
+    if score == "S20":
+        player3_scores[0]["S20"] += 1
+    elif score == "S19":
+        player3_scores[0]["S19"] += 1
+    elif score == "S18":
+        player3_scores[0]["S18"] += 1
 
 
 def add_scores_player4(score):
@@ -1962,18 +2046,26 @@ def add_scores_player4(score):
                 player4_scores[0]["Bull"] += 1
 
         elif "S" in score:
-            if score == "S20":
-                player4_scores[0]["S20"] += 1
-            elif score == "S19":
-                player4_scores[0]["S19"] += 1
-            elif score == "S18":
-                player4_scores[0]["S18"] += 1
+            add_scores_player4_help(score)
 
         else:
             player4_scores[0]["No_Score"] += 1
 
     else:
         messagebox.showinfo("Error", "Restart")
+
+
+def add_scores_player4_help(score):
+    """
+
+    :return:
+    """
+    if score == "S20":
+        player4_scores[0]["S20"] += 1
+    elif score == "S19":
+        player4_scores[0]["S19"] += 1
+    elif score == "S18":
+        player4_scores[0]["S18"] += 1
 
 
 def add():
@@ -1991,10 +2083,14 @@ def add():
     zwischen_label['text'] = result
     label_dart_score['text'] = ""
 
+    flag1 = False
+
     if (label_1_score['bg'] == "yellow" and result == int(label_1_score['text'])) \
-            or (label_2_score['bg'] == "yellow" and result == int(label_2_score['text'])) \
-            or (label_3_score['bg'] == "yellow" and result == int(label_3_score['text'])) \
-            or (label_4_score['bg'] == "yellow" and result == int(label_4_score['text'])):
+            or (label_2_score['bg'] == "yellow" and result == int(label_2_score['text'])):
+        flag1 = True
+
+    if flag1 or (label_3_score['bg'] == "yellow" and result == int(label_3_score['text'])) \
+                or (label_4_score['bg'] == "yellow" and result == int(label_4_score['text'])):
         count_down_button.pack()
         count_down_button['text'] = "Count down"
         count_down_button.place(x=440, y=300, height=30, width=90)
@@ -2002,10 +2098,14 @@ def add():
         button_dart_score.pack_forget()
         return
 
+    flag2 = False
+
     if (label_1_score['bg'] == "yellow" and result > int(label_1_score['text'])) \
-            or (label_2_score['bg'] == "yellow" and result > int(label_2_score['text'])) \
-            or (label_3_score['bg'] == "yellow" and result > int(label_3_score['text'])) \
-            or (label_4_score['bg'] == "yellow" and result > int(label_4_score['text'])):
+            or (label_2_score['bg'] == "yellow" and result > int(label_2_score['text'])):
+        flag2 = True
+
+    if flag2 or (label_3_score['bg'] == "yellow" and result > int(label_3_score['text'])) \
+                or (label_4_score['bg'] == "yellow" and result > int(label_4_score['text'])):
         count_down_button.pack()
         count_down_button['text'] = "No score. Next Player"
         count_down_button.place(x=440, y=300, height=30, width=150)
@@ -2126,6 +2226,7 @@ def check_names():
     This function checks if all names were entered, and then the game will start
     :return:
     """
+    flag = True
     number = int(label_number_players['text'])
     name1 = input_name1.get()
     name2 = input_name2.get()
@@ -2135,23 +2236,32 @@ def check_names():
     if number == 2:
         if name1 == "" or name2 == "":
             messagebox.showinfo("Error", "Not all names were entered.")
-            return
+            flag = False
 
     elif number == 3:
         if name1 == "" or name2 == "" or name3 == "":
             messagebox.showinfo("Error", "Not all names were entered.")
-            return
+            flag = False
         else:
             label_player_3_name['text'] = name3
 
     elif number == 4:
         if name1 == "" or name2 == "" or name3 == "" or name4 == "":
             messagebox.showinfo("Error", "Not all names were entered.")
-            return
+            flag = False
         else:
             label_player_3_name['text'] = name3
             label_player_4_name['text'] = name4
 
+    if flag:
+        check_names2(name1, name2)
+
+
+def check_names2(name1, name2):
+    """
+     This function checks if all names were entered, and then the game will start
+    :return:
+    """
     label_player_1_name['text'] = name1
     label_player_2_name['text'] = name2
 
