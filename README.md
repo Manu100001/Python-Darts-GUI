@@ -113,4 +113,4 @@ Description:
 - Use the `+` and `-` buttons to set the number of darts hit, minimum 0 and maximum 3. Use the `next` button to move to the next field.
 - When you have finished, an Excel file is automatically created in which everything important is listed.
 
-![Screenshot: around-the-clock](Images/around-the-clock/03_around-the-clock.png?raw=true)
+![Screenshot: around-the-clock](Images/around-the-clock/03_around_the_clock.png?raw=true)
