@@ -105,13 +105,14 @@ cd Python-Darts-GUI
 Run:
 
 ```bash
-python around_the_clock.py  # to start the gui for counting
+python around_the_clock.py  # to start the gui for around-the-clock game
 ```
 
 Description:
-- You can use the `Switch` button to set whether you want to play on the single, double or triple fields.
+- First enter your name.
+- Then you can use the `Switch` button to set whether you want to play on the single, double or triple fields.
 - You always start with `1` and end with `20` or `Bull`.
 - Use the `+` and `-` buttons to set the number of darts hit, minimum 0 and maximum 3. Use the `next` button to move to the next field.
-- When you have finished, an excel file is automatically created in which everything important is listed.
+- When you have finished, an Excel file is automatically created in which everything important is listed.
 
-![Screenshot: around-the-clock](Images/around-the-clock/around-the-clock.png?raw=true)
+![Screenshot: around-the-clock](Images/around-the-clock/03_around-the-clock.png?raw=true)
