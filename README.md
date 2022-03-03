@@ -21,7 +21,7 @@ cd Python-Darts-GUI
 Run:
 
 ```bash
-python zähler.py  # to start the gui for counting
+python tournament_tree.py  # to start the tournament tree
 ```
 
 Description:
@@ -80,7 +80,7 @@ cd Python-Darts-GUI
 Run:
 
 ```bash
-python zähler.py  # to start the gui for counting
+python counter.py  # to start the gui for counting
 ```
 
 Description
