@@ -34,10 +34,10 @@ player3 = []
 player4 = []
 
 # dictionaries for each player
-player1_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, "60": 0}]
-player2_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, "60": 0}]
-player3_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, "60": 0}]
-player4_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, "60": 0}]
+player1_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, "60": 0, "Legs": 0}]
+player2_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, "60": 0, "Legs": 0}]
+player3_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, "60": 0, "Legs": 0}]
+player4_kpis = [{"Score": 0, "Darts": 0, "180": 0, "140": 0, "100": 0, "80": 0, "60": 0, "Legs": 0}]
 
 player1_scores = [{"T20": 0, "T19": 0, "T18": 0, "S20": 0, "S19": 0, "S18": 0,
                    "Bull": 0, "Single_Bull": 0, "Triple": 0, "Double": 0, "No_Score": 0}]
@@ -92,6 +92,7 @@ def set_standards_in_excel(sheet):
     :param sheet: the Excel sheet to write in
     :return:
     """
+    sheet['A3'].fill = greenFill
     sheet['B3'].fill = greenFill
     sheet['C3'].fill = greenFill
     sheet['D3'].fill = greenFill
@@ -113,6 +114,7 @@ def set_standards_in_excel(sheet):
     sheet['T3'].fill = redFill
     sheet['U3'].fill = greenFill
 
+    sheet.column_dimensions['B'].width = 16
     sheet.column_dimensions['C'].width = 8
     sheet.column_dimensions['I'].width = 18
     sheet.column_dimensions['J'].width = 18
@@ -135,6 +137,7 @@ def fill_values_in_cells(sheet):
     :param sheet: the Excel sheet to write in
     :return:
     """
+    sheet.cell(row=3, column=1).value = "Legs won"
     sheet.cell(row=3, column=2).value = "Spieler"
     sheet.cell(row=3, column=3).value = "Average"
     sheet.cell(row=3, column=4).value = "180"
@@ -172,6 +175,7 @@ def add_players(sheet):
     """
     # player 3
     if int(label_number_players['text']) >= 3:
+        sheet.cell(row=6, column=1).value = player3_kpis[0]['Legs']
         sheet.cell(row=6, column=3).value = round((player3_kpis[0]['Score'] /
                                                    player3_kpis[0]['Darts']) * 3, 2)
         sheet.cell(row=6, column=4).value = player3_kpis[0]['180']
@@ -197,6 +201,7 @@ def add_players(sheet):
 
     # player 4
     if int(label_number_players['text']) == 4:
+        sheet.cell(row=7, column=1).value = player4_kpis[0]['Legs']
         sheet.cell(row=7, column=3).value = round((player4_kpis[0]['Score'] /
                                                    player4_kpis[0]['Darts']) * 3, 2)
         sheet.cell(row=7, column=4).value = player4_kpis[0]['180']
@@ -235,6 +240,7 @@ def create_excel():
     fill_values_in_cells(sheet)
 
     # player 1
+    sheet.cell(row=4, column=1).value = player1_kpis[0]['Legs']
     sheet.cell(row=4, column=3).value = round((player1_kpis[0]['Score'] /
                                                player1_kpis[0]['Darts']) * 3, 2)
     sheet.cell(row=4, column=4).value = player1_kpis[0]['180']
@@ -259,6 +265,7 @@ def create_excel():
     sheet.cell(row=4, column=21).value = player1_scores[0]['No_Score']
 
     # player 2
+    sheet.cell(row=5, column=1).value = player2_kpis[0]['Legs']
     sheet.cell(row=5, column=3).value = round((player2_kpis[0]['Score'] /
                                                player2_kpis[0]['Darts']) * 3, 2)
     sheet.cell(row=5, column=4).value = player2_kpis[0]['180']
@@ -513,8 +520,8 @@ def reset4():
     button_minus_number_players.place(x=557.5, y=200, height=30, width=30)
     button_plus_number_players.place(x=687.5, y=200, height=30, width=30)
 
-    input_name1.place(x=583.5, y=280, height=30, width=110)
-    input_name2.place(x=583.5, y=330, height=30, width=110)
+    input_name1.place(x=563.5, y=280, height=30, width=150)
+    input_name2.place(x=563.5, y=330, height=30, width=150)
 
     label_welcome.place(x=337.5, y=20, height=50, width=600)
     button_continue.place(x=750, y=120, height=30, width=100)
@@ -1545,6 +1552,7 @@ def count_down():
     This function counts the score down
     :return:
     """
+    flag = True
     number = int(label_number_players['text'])
     result = int(zwischen_label['text'])
     darts = get_amount_of_darts()
@@ -1579,7 +1587,10 @@ def count_down():
 
             # first check: 2 players
             if number == 2:
+                player1_kpis[0]['Legs'] += 1
                 messagebox.showinfo("Info", label_player_1_name['text'] + " is the winner.")
+                flag = False
+
                 end_game()
 
             # second check: 3 players
@@ -1588,19 +1599,19 @@ def count_down():
                 if two == 0 or three == 0:
                     messagebox.showinfo("Info", label_player_1_name['text'] +
                                         " is the second winner.")
+                    flag = False
                     end_game()
                 else:
+                    player1_kpis[0]['Legs'] += 1
                     messagebox.showinfo("Info", label_player_1_name['text'] +
                                         " is the first winner.")
 
             # third check: 4 players
             elif number == 4:
-                check_4players_label1(two, three, four)
+                flag = check_4players_label1(two, three, four)
 
-        else:
-            messagebox.showerror("Error", "Systemerror. Please restart.")
-
-        next_label()
+        if flag:
+            next_label()
     else:
         count_down_player2(result, darts)
 
@@ -1611,7 +1622,7 @@ def check_4players_label1(two, three, four):
     :param two: score of player 2
     :param three: score of player 3
     :param four: score of player 4
-    :return:
+    :return: false if game is finished
     """
     players_with_zero_points = 0
 
@@ -1625,6 +1636,7 @@ def check_4players_label1(two, three, four):
         players_with_zero_points += 1
 
     if players_with_zero_points == 0:
+        player1_kpis[0]['Legs'] += 1
         messagebox.showinfo("Info", label_player_1_name['text'] +
                             " is the first winner.")
 
@@ -1636,7 +1648,9 @@ def check_4players_label1(two, three, four):
         messagebox.showinfo("Info", label_player_1_name['text'] +
                             " is the third winner.")
         end_game()
+        return False
 
+    return True
 
 def count_down_player2(result, darts):
     """
@@ -1645,6 +1659,7 @@ def count_down_player2(result, darts):
     :param darts: number of darts
     :return:
     """
+    flag = True
     one = int(label_1_score['text'])
 
     try:
@@ -1676,7 +1691,9 @@ def count_down_player2(result, darts):
 
             # first check: 2 players
             if number == 2:
+                player2_kpis[0]['Legs'] += 1
                 messagebox.showinfo("Info", label_player_2_name['text'] + " is the winner.")
+                flag = False
                 end_game()
 
             # second check: 3 players
@@ -1685,19 +1702,19 @@ def count_down_player2(result, darts):
                 if one == 0 or three == 0:
                     messagebox.showinfo("Info", label_player_2_name['text'] +
                                         " is the second winner.")
+                    flag = False
                     end_game()
                 else:
+                    player2_kpis[0]['Legs'] += 1
                     messagebox.showinfo("Info", label_player_2_name['text'] +
                                         " is the first winner.")
 
             # third check: 4 players
             elif number == 4:
-                check_4players_label2(one, three, four)
+                flag = check_4players_label2(one, three, four)
 
-        else:
-            messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
-
-        next_label()
+        if flag:
+            next_label()
     else:
         count_down_player3(result, darts)
 
@@ -1708,7 +1725,7 @@ def check_4players_label2(one, three, four):
      :param one: score of player 1
     :param three: score of player 3
     :param four: score of player 4
-    :return:
+    :return: false if game is finished
     """
     players_with_zero_points = 0
 
@@ -1722,6 +1739,7 @@ def check_4players_label2(one, three, four):
         players_with_zero_points += 1
 
     if players_with_zero_points == 0:
+        player2_kpis[0]['Legs'] += 1
         messagebox.showinfo("Info", label_player_2_name['text'] +
                             " is the first winner.")
 
@@ -1733,7 +1751,9 @@ def check_4players_label2(one, three, four):
         messagebox.showinfo("Info", label_player_2_name['text'] +
                             " is the third winner.")
         end_game()
-        return
+        return False
+
+    return True
 
 
 def count_down_player3(result, darts):
@@ -1743,6 +1763,7 @@ def count_down_player3(result, darts):
     :param darts: number of darts
     :return:
     """
+    flag = True
     one = int(label_1_score['text'])
     two = int(label_2_score['text'])
 
@@ -1778,19 +1799,19 @@ def count_down_player3(result, darts):
                 if one == 0 or two == 0:
                     messagebox.showinfo("Info", label_player_3_name['text'] +
                                         " is the second winner.")
+                    flag = False
                     end_game()
                 else:
+                    player3_kpis[0]['Legs'] += 1
                     messagebox.showinfo("Info", label_player_3_name['text'] +
                                         " is the first winner.")
 
             # second check: 4 players
             elif number == 4:
-                check_4players_label3(one, two, four)
+                flag = check_4players_label3(one, two, four)
 
-        else:
-            messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
-
-        next_label()
+        if flag:
+            next_label()
     else:
         count_down_player4(result, darts)
 
@@ -1801,7 +1822,7 @@ def check_4players_label3(one, two, four):
      :param one: score of player 1
     :param two: score of player 2
     :param four: score of player 4
-    :return:
+    :return: false if game is finished
     """
     players_with_zero_points = 0
 
@@ -1815,6 +1836,7 @@ def check_4players_label3(one, two, four):
         players_with_zero_points += 1
 
     if players_with_zero_points == 0:
+        player3_kpis[0]['Legs'] += 1
         messagebox.showinfo("Info", label_player_3_name['text'] +
                             " is the first winner.")
 
@@ -1826,8 +1848,9 @@ def check_4players_label3(one, two, four):
         messagebox.showinfo("Info", label_player_3_name['text'] +
                             " is the third winner.")
         end_game()
-        return
+        return False
 
+    return True
 
 def count_down_player4(result, darts):
     """
@@ -1836,6 +1859,7 @@ def count_down_player4(result, darts):
     :param darts: number of darts
     :return:
     """
+    flag = True
     one = int(label_1_score['text'])
     two = int(label_2_score['text'])
 
@@ -1866,11 +1890,10 @@ def count_down_player4(result, darts):
 
             # first check: 4 players
             if number == 4:
-                check_4players_label4(one, two, three)
+                flag = check_4players_label4(one, two, three)
 
-        else:
-            messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
-        next_label()
+        if flag:
+            next_label()
 
 
 def check_4players_label4(one, two, three):
@@ -1879,7 +1902,7 @@ def check_4players_label4(one, two, three):
     :param one: score of player 1
     :param two: score of player 2
     :param three: score of player 3
-    :return:
+    :return: false if game is finished
     """
     players_with_zero_points = 0
 
@@ -1893,6 +1916,7 @@ def check_4players_label4(one, two, three):
         players_with_zero_points += 1
 
     if players_with_zero_points == 0:
+        player4_kpis[0]['Legs'] += 1
         messagebox.showinfo("Info", label_player_4_name['text'] +
                             "is the first winner.")
 
@@ -1904,7 +1928,9 @@ def check_4players_label4(one, two, three):
         messagebox.showinfo("Info", label_player_4_name['text'] +
                             " is the third winner.")
         end_game()
-        return
+        return False
+
+    return True
 
 
 def add_scores():
@@ -2236,11 +2262,11 @@ def plus_player_numbers():
 
     if number == 2:
         label_number_players['text'] = 3
-        input_name3.place(x=583.5, y=380, height=30, width=110)
+        input_name3.place(x=563.5, y=380, height=30, width=150)
 
     elif number == 3:
         label_number_players['text'] = 4
-        input_name4.place(x=583.5, y=430, height=30, width=110)
+        input_name4.place(x=563.5, y=430, height=30, width=150)
 
 
 def minus_player_numbers():
@@ -2527,8 +2553,8 @@ if __name__ == "__main__":
     input_name4 = Entry(gui, bd=1, font=('Arial', 13))
 
     # default: 2 input fields are enabled
-    input_name1.place(x=583.5, y=280, height=30, width=110)
-    input_name2.place(x=583.5, y=330, height=30, width=110)
+    input_name1.place(x=563.5, y=280, height=30, width=150)
+    input_name2.place(x=563.5, y=330, height=30, width=150)
 
     # button for checking names and starting the game
     button_continue = Button(gui, text="Continue", bg="lightgreen", fg="black",
