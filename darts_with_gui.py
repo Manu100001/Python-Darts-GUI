@@ -76,7 +76,7 @@ def button_exit():
     if not any(isinstance(window, Toplevel) for window in gui.winfo_children()):
         exit_window = Toplevel(gui)
         exit_window.geometry('250x150')
-        exit_window.resizable(width=0, height=0)
+        exit_window.resizable(width=False, height=False)
         exit_window.title("Stop?")
 
         label_exit = Label(exit_window, text="Stop game?", font=('Arial', 11))
@@ -548,7 +548,7 @@ def switch_button_sets():
 if __name__ == "__main__":
     gui = Tk()
     gui.geometry('700x500')
-    gui.resizable(width=0, height=0)
+    gui.resizable(width=False, height=False)
     gui.title("Dart - User Interface")
 
     # exit - buttons
@@ -745,5 +745,3 @@ if __name__ == "__main__":
     p2_switch_sets.place(x=630, y=310)
 
     gui.mainloop()
-
-    sys.exit(0)
