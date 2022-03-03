@@ -90,7 +90,10 @@ Description
 - The next player will be chosen automatically.
 - If you throw more, e.g. 60, but you only have 50 left, a message appears that you have overthrown, and it is the next players turn.
 - If the first player has 0 points left, a new game will be started automatically. If there are three or four players, the game will continue until there is only one player left.
-- When you have finished playing, you can press `Calculate Score`, which will create an Excel file where you can view your average and various statistics. This button appears after the first leg has been played.  
+- When you have finished playing, you can press `Calculate Score`, which will create an Excel file where you can view your average and various statistics. This button appears after the first leg has been played.
+
+Images:
+- In the directory `Images/counter` are a few more pictures, which also show the processes. 
 
 ![Screenshot](Images/counter/02_counter.png?raw=true)
 
@@ -112,5 +115,8 @@ Description:
 - You always start with `1` and end with `20` or `Bull`.
 - Use the `+` and `-` buttons to set the number of darts hit, minimum 0 and maximum 3. Use the `next` button to move to the next field.
 - When you have finished, an Excel file is automatically created in which everything important is listed.
+
+Images:
+- In the directory `Images/around-the-clock` are a few more pictures, which also show the processes.
 
 ![Screenshot: around-the-clock](Images/around-the-clock/03_around_the_clock.png?raw=true)
