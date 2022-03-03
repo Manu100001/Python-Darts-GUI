@@ -29,8 +29,8 @@ months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August'
 
 def check_directories():
     """
-
-    :return:
+    This function creates a directory for the Excel file
+    :return: return the path to the Excel file
     """
     # create new directories if they do not exist yet
     if not os.path.isdir("Spielstände"):
@@ -68,7 +68,8 @@ def check_directories():
 
 def set_standards_in_excel(sheet):
     """
-
+    This function fills the cells in the Excel sheet
+    :param sheet: the Excel sheet to write in
     :return:
     """
     sheet['B5'].fill = greenFill
@@ -107,9 +108,10 @@ def set_standards_in_excel(sheet):
     sheet.column_dimensions['M'].width = 13
 
 
-def set_values_in_excel(sheet):
+def fill_values_in_cells(sheet):
     """
-
+    This function sets standard values in the Excel file
+    :param sheet: the Excel sheet to write in
     :return:
     """
     sheet.cell(row=1, column=1).value = "Mode:"
@@ -176,7 +178,7 @@ def create_excel():
 
     # set cells in excel sheet
     set_standards_in_excel(sheet)
-    set_values_in_excel(sheet)
+    fill_values_in_cells(sheet)
 
     darts = 0
     all_darts = 0
@@ -392,7 +394,6 @@ def reset3():
     This function restores the original state
     :return:
     """
-
     label_1.pack()
     label_2.pack()
     label_3.pack()
@@ -447,7 +448,6 @@ def reset4():
     This function restores the original state
     :return
     """
-
     button_next.pack()
     button_plus.pack()
     button_minus.pack()
@@ -1062,7 +1062,7 @@ def start_game2():
 
 def enter_name():
     """
-
+    Entering the name
     :return:
     """
     name = input_name1.get()

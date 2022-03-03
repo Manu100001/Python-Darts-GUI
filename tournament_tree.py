@@ -400,7 +400,7 @@ def reset6():
 
 def disable_first_four_input_fields():
     """
-
+    This function disables the first four input names
     :return:
     """
     input_name1.pack()
@@ -416,7 +416,7 @@ def disable_first_four_input_fields():
 
 def disable_input_fields_5_to_16():
     """
-
+    This function disables the input fields 5 to 16
     :return:
     """
     input_name5.pack()
@@ -660,7 +660,7 @@ def check_names():
 
 def check_names2():
     """
-    this function is called by check_names
+    This function is called by check_names
     :return:
     """
 
