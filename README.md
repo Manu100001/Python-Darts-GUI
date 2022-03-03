@@ -12,6 +12,28 @@ Contact me: manuelmilde@gmx.net
 ## Created Excel - files
 The created excel - files can be found here: `../Python-Darts-GUI/Spielstände/..`
 
+## Setup for tournament tree
+Step into directory 
+```bash
+cd Python-Darts-GUI
+```
+
+Run:
+
+```bash
+python zähler.py  # to start the gui for counting
+```
+
+Description:
+- First select the mode (4, 8 or 16 players).
+- After that enter all names for the players.
+- The tree will be generated automatically.
+- As you can see the tree, press the button `Enter results`. Now you are able to fill in the results.
+- With `Back`, `-`, `+` and `Next` you can control the input. Once all results have been entered, simply press `Next` again.
+- The next round will be caculated automatically.
+
+![Screenshot](Images/tournament_tree/04_full_tree.png?raw=true)
+
 ## Setup for electronic dartboard
 #### This can be used for an electronic dartboard or for playing best of sets/legs or for getting suggestions for checkouts
 Step into directory 
