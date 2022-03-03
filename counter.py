@@ -52,7 +52,7 @@ player4_scores = [{"T20": 0, "T19": 0, "T18": 0, "S20": 0, "S19": 0, "S18": 0,
 def create_directory_if_not_exists():
     """
     This function creates a directory for the Excel file
-    :return:
+    :return: return the path to the Excel file
     """
     if not os.path.isdir("Spielstände"):
         os.mkdir("Spielstände")
@@ -88,7 +88,8 @@ def create_directory_if_not_exists():
 
 def set_standards_in_excel(sheet):
     """
-
+    This function fills the cells in the Excel sheet
+    :param sheet: the Excel sheet to write in
     :return:
     """
     sheet['B3'].fill = greenFill
@@ -142,18 +143,18 @@ def fill_values_in_cells(sheet):
     sheet.cell(row=3, column=7).value = "80+"
     sheet.cell(row=3, column=8).value = "60+"
 
-    sheet.cell(row=3, column=9).value = "Geworfene Punkte"
-    sheet.cell(row=3, column=10).value = "Geworfene Darts"
-    sheet.cell(row=3, column=11).value = "Geworfene T20"
-    sheet.cell(row=3, column=12).value = "Geworfene S20"
-    sheet.cell(row=3, column=13).value = "Geworfene T19"
-    sheet.cell(row=3, column=14).value = "Geworfene S19"
-    sheet.cell(row=3, column=15).value = "Geworfene T18"
-    sheet.cell(row=3, column=16).value = "Geworfene S18"
-    sheet.cell(row=3, column=17).value = "Geworfene Single-Bulls"
-    sheet.cell(row=3, column=18).value = "Geworfene Bulls"
-    sheet.cell(row=3, column=19).value = "Geworfene Triple"
-    sheet.cell(row=3, column=20).value = "Geworfene Double"
+    sheet.cell(row=3, column=9).value = "Thrown Points"
+    sheet.cell(row=3, column=10).value = "Thrown Darts"
+    sheet.cell(row=3, column=11).value = "Thrown T20"
+    sheet.cell(row=3, column=12).value = "Thrown S20"
+    sheet.cell(row=3, column=13).value = "Thrown T19"
+    sheet.cell(row=3, column=14).value = "Thrown S19"
+    sheet.cell(row=3, column=15).value = "Thrown T18"
+    sheet.cell(row=3, column=16).value = "Thrown S18"
+    sheet.cell(row=3, column=17).value = "Thrown Single-Bulls"
+    sheet.cell(row=3, column=18).value = "Thrown Bulls"
+    sheet.cell(row=3, column=19).value = "Thrown Triple"
+    sheet.cell(row=3, column=20).value = "Thrown Double"
     sheet.cell(row=3, column=21).value = "No hit"
 
     # set player names in Excel
@@ -524,7 +525,7 @@ def reset4():
 
 def save_score():
     """
-    This function saves the score
+    This function saves the score for player 1 and player 2
     :return:
     """
     # update player 1
@@ -631,6 +632,8 @@ def save_score2():
 def add_player1(result, dart):
     """
     This function adds a throw to the list
+    :param result: thrown points
+    :param dart: number of darts
     :return:
     """
     player1.append({"Score": result, "Darts": dart})
@@ -639,6 +642,8 @@ def add_player1(result, dart):
 def add_player2(result, dart):
     """
     This function adds a throw to the list
+    :param result: thrown points
+    :param dart: number of darts
     :return:
     """
     player2.append({"Score": result, "Darts": dart})
@@ -647,6 +652,8 @@ def add_player2(result, dart):
 def add_player3(result, dart):
     """
     This function adds a throw to the list
+    :param result: thrown points
+    :param dart: number of darts
     :return:
     """
     player3.append({"Score": result, "Darts": dart})
@@ -655,6 +662,8 @@ def add_player3(result, dart):
 def add_player4(result, dart):
     """
     This function adds a throw to the list
+    :param result: thrown points
+    :param dart: number of darts
     :return:
     """
     player4.append({"Score": result, "Darts": dart})
@@ -1312,6 +1321,7 @@ def next_button():
 def next_button2(number):
     """
     This function switches to the next player
+    :param number: number of players
     :return:
     """
     # check label 2
@@ -1343,6 +1353,7 @@ def next_button2(number):
 def next_button3(number):
     """
     This function switches to the next player
+    :param number: number of players
     :return:
     """
     # check label 3
@@ -1370,6 +1381,7 @@ def next_button3(number):
 def next_button4(number):
     """
     This function switches to the next player
+    :param number: number of players
     :return:
     """
     # check label 4
@@ -1421,6 +1433,7 @@ def next_label():
 def next_label2(number):
     """
     This function switches to the next player
+    :param number: number of players
     :return:
     """
     # check label 2
@@ -1452,6 +1465,7 @@ def next_label2(number):
 def next_label3(number):
     """
     This function switches to the next player
+    :param number: number of players
     :return:
     """
     # check label 3
@@ -1479,6 +1493,7 @@ def next_label3(number):
 def next_label4(number):
     """
     This function switches to the next player
+    :param number: number of players
     :return:
     """
     # check label 4
@@ -1497,7 +1512,7 @@ def next_label4(number):
 
 def get_amount_of_darts():
     """
-
+    This function calculate the number of thrown darts
     :return: amount of darts
     """
     count_down_button.pack()
@@ -1583,7 +1598,7 @@ def count_down():
                 check_4players_label1(two, three, four)
 
         else:
-            messagebox.showerror("Error", "Systemerror. Bitte neustarten.")
+            messagebox.showerror("Error", "Systemerror. Please restart.")
 
         next_label()
     else:
@@ -1592,7 +1607,10 @@ def count_down():
 
 def check_4players_label1(two, three, four):
     """
-
+    This function check 4 players for label 1
+    :param two: score of player 2
+    :param three: score of player 3
+    :param four: score of player 4
     :return:
     """
     players_with_zero_points = 0
@@ -1623,6 +1641,8 @@ def check_4players_label1(two, three, four):
 def count_down_player2(result, darts):
     """
     This function counts the score of player 2 down
+    :param result: thrown points
+    :param darts: number of darts
     :return:
     """
     one = int(label_1_score['text'])
@@ -1684,7 +1704,10 @@ def count_down_player2(result, darts):
 
 def check_4players_label2(one, three, four):
     """
-
+    This function check 4 players for label 2
+     :param one: score of player 1
+    :param three: score of player 3
+    :param four: score of player 4
     :return:
     """
     players_with_zero_points = 0
@@ -1716,6 +1739,8 @@ def check_4players_label2(one, three, four):
 def count_down_player3(result, darts):
     """
     This function counts the score of player 3 down
+    :param result: thrown points
+    :param darts: number of darts
     :return:
     """
     one = int(label_1_score['text'])
@@ -1772,7 +1797,10 @@ def count_down_player3(result, darts):
 
 def check_4players_label3(one, two, four):
     """
-
+    This function check 4 players for label 3
+     :param one: score of player 1
+    :param two: score of player 2
+    :param four: score of player 4
     :return:
     """
     players_with_zero_points = 0
@@ -1804,6 +1832,8 @@ def check_4players_label3(one, two, four):
 def count_down_player4(result, darts):
     """
     This function counts the score of player 3 down
+    :param result: thrown points
+    :param darts: number of darts
     :return:
     """
     one = int(label_1_score['text'])
@@ -1845,7 +1875,10 @@ def count_down_player4(result, darts):
 
 def check_4players_label4(one, two, three):
     """
-
+    This function check 4 players for label 4
+    :param one: score of player 1
+    :param two: score of player 2
+    :param three: score of player 3
     :return:
     """
     players_with_zero_points = 0
@@ -1913,7 +1946,8 @@ def add_scores():
 
 def add_scores_player1_help(score):
     """
-
+    This function adds the thrown darts to the kpis/player_scores of player 1
+    :param score: current score
     :return:
     """
     if score == "S20":
@@ -1927,6 +1961,7 @@ def add_scores_player1_help(score):
 def add_scores_player2(score):
     """
     This function adds the thrown darts to the kpis/player_scores of player 2
+    :param score: current score
     :return
     """
     # player 2
@@ -1961,7 +1996,8 @@ def add_scores_player2(score):
 
 def add_scores_player2_help(score):
     """
-
+    This function adds the thrown darts to the kpis/player_scores of player 2
+    :param score: current score
     :return:
     """
     if score == "S20":
@@ -1975,6 +2011,7 @@ def add_scores_player2_help(score):
 def add_scores_player3(score):
     """
     This function adds the thrown darts to the kpis/player_scores of player 3
+    :param score: current score
     :return
     """
     # player 3
@@ -2009,7 +2046,8 @@ def add_scores_player3(score):
 
 def add_scores_player3_help(score):
     """
-
+    This function adds the thrown darts to the kpis/player_scores of player 3
+    :param score: current score
     :return:
     """
     if score == "S20":
@@ -2023,6 +2061,7 @@ def add_scores_player3_help(score):
 def add_scores_player4(score):
     """
     This function adds the thrown darts to the kpis/player_scores of player 4
+    :param score: current score
     :return:
     """
     # player 4
@@ -2057,7 +2096,8 @@ def add_scores_player4(score):
 
 def add_scores_player4_help(score):
     """
-
+    This function adds the thrown darts to the kpis/player_scores of player 4
+    :param score: current score
     :return:
     """
     if score == "S20":
