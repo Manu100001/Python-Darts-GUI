@@ -32,6 +32,9 @@ Description:
 - With `Back`, `-`, `+` and `Next` you can control the input. Once all results have been entered, simply press `Next` again.
 - The next round will be caculated automatically.
 
+Images:
+- In the directory `Images/tournament_tree` are a few more pictures, which also show the processes.
+
 ![Screenshot](Images/tournament_tree/04_full_tree.png?raw=true)
 
 ## Setup for electronic dartboard
