@@ -12,6 +12,33 @@ Contact me: manuelmilde@gmx.net
 ## Created Excel - files
 The created excel - files can be found here: `../Python-Darts-GUI/Spielstände/..`
 
+## Setup for counter (normal dartboard)
+  
+Step into directory 
+```bash
+cd Python-Darts-GUI
+```
+
+Run:
+
+```bash
+python counter.py  # to start the gui for counting
+```
+
+Description
+- First, select the starting points (301 or 501), then select the number of players (minimum 2, maximum 4).
+- Then enter all player names and press `Continue`.
+- Now you can type in what you have thrown and press respectively `Add`. After 3 entries press `Count Down` to count down your thrown number of points from your stand.
+- The next player will be chosen automatically.
+- If you throw more, e.g. 60, but you only have 50 left, a message appears that you have overthrown, and it is the next players turn.
+- If the first player has 0 points left, a new game will be started automatically. If there are three or four players, the game will continue until there is only one player left.
+- When you have finished playing, you can press `Calculate Score`, which will create an Excel file where you can view your average and various statistics. This button appears after the first leg has been played.
+
+Images:
+- In the directory `Images/counter` are a few more pictures, which also show the processes. 
+
+![Screenshot](Images/counter/02_counter.png?raw=true)
+
 ## Setup for tournament tree
 Step into directory 
 ```bash
@@ -69,33 +96,6 @@ Description
   The switch - button has the same function here. 
 
 ![Screenshot](Images/darts-with-gui.png?raw=true)
-  
-## Setup for normal dartboard
-  
-Step into directory 
-```bash
-cd Python-Darts-GUI
-```
-
-Run:
-
-```bash
-python counter.py  # to start the gui for counting
-```
-
-Description
-- First, select the starting points (301 or 501), then select the number of players (minimum 2, maximum 4).
-- Then enter all player names and press `Continue`.
-- Now you can type in what you have thrown and press respectively `Add`. After 3 entries press `Count Down` to count down your thrown number of points from your stand.
-- The next player will be chosen automatically.
-- If you throw more, e.g. 60, but you only have 50 left, a message appears that you have overthrown, and it is the next players turn.
-- If the first player has 0 points left, a new game will be started automatically. If there are three or four players, the game will continue until there is only one player left.
-- When you have finished playing, you can press `Calculate Score`, which will create an Excel file where you can view your average and various statistics. This button appears after the first leg has been played.
-
-Images:
-- In the directory `Images/counter` are a few more pictures, which also show the processes. 
-
-![Screenshot](Images/counter/02_counter.png?raw=true)
 
 ## Setup for around-the-clock
 Step into directory 
