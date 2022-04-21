@@ -293,6 +293,7 @@ def create_excel():
 
     # save excel - file
     excel_file.save(path)
+    messagebox.showinfo("Info", "Excel - file was successfully created.")
 
 
 def reset():
