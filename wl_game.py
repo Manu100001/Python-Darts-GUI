@@ -19,7 +19,7 @@ from tkinter import messagebox
 # from openpyxl import Workbook
 # from openpyxl.styles import PatternFill
 
-all_player_names = []
+all_player_names = ["Manu S.", "Manu M.", "Chrissi", "Dani R", "Markus", "Tobi S.", "Tobi W.", "Ramy", "Feyyaz", "J", "K", "L", "M", "N", "O", "P"]
 
 
 def button_exit():
@@ -169,7 +169,7 @@ def check_names():
     name14 = input_name14.get()
     name15 = input_name15.get()
     name16 = input_name16.get()
-
+    """
     if name1 == "" or name2 == "" or name3 == "" or name4 == "":
         messagebox.showinfo("Error", "Not all names were entered.")
         return
@@ -185,7 +185,7 @@ def check_names():
     if name13 == "" or name14 == "" or name15 == "" or name16 == "":
         messagebox.showinfo("Error", "Not all names were entered.")
         return
-
+    """
     all_player_names.append(name1)
     all_player_names.append(name2)
     all_player_names.append(name3)
@@ -295,34 +295,79 @@ def start_tree():
     start_button.pack_forget()
 
     # place all 16 player names
-    label_player1_name.place(x=850, y=10, height=30, width=130)
-    label_player2_name.place(x=850, y=45, height=30, width=130)
-    label_player3_name.place(x=850, y=85, height=30, width=130)
-    label_player4_name.place(x=850, y=120, height=30, width=130)
-    label_player5_name.place(x=850, y=160, height=30, width=130)
-    label_player6_name.place(x=850, y=195, height=30, width=130)
-    label_player7_name.place(x=850, y=235, height=30, width=130)
-    label_player8_name.place(x=850, y=270, height=30, width=130)
-    label_player9_name.place(x=850, y=310, height=30, width=130)
-    label_player10_name.place(x=850, y=345, height=30, width=130)
-    label_player11_name.place(x=850, y=385, height=30, width=130)
-    label_player12_name.place(x=850, y=420, height=30, width=130)
-    label_player13_name.place(x=850, y=460, height=30, width=130)
-    label_player14_name.place(x=850, y=495, height=30, width=130)
-    label_player15_name.place(x=850, y=535, height=30, width=130)
-    label_player16_name.place(x=850, y=570, height=30, width=130)
+    label_player1_name.place(x=800, y=10, height=30, width=100)
+    label_player2_name.place(x=800, y=45, height=30, width=100)
+    label_player3_name.place(x=800, y=85, height=30, width=100)
+    label_player4_name.place(x=800, y=120, height=30, width=100)
+    label_player5_name.place(x=800, y=160, height=30, width=100)
+    label_player6_name.place(x=800, y=195, height=30, width=100)
+    label_player7_name.place(x=800, y=235, height=30, width=100)
+    label_player8_name.place(x=800, y=270, height=30, width=100)
+    label_player9_name.place(x=800, y=310, height=30, width=100)
+    label_player10_name.place(x=800, y=345, height=30, width=100)
+    label_player11_name.place(x=800, y=385, height=30, width=100)
+    label_player12_name.place(x=800, y=420, height=30, width=100)
+    label_player13_name.place(x=800, y=460, height=30, width=100)
+    label_player14_name.place(x=800, y=495, height=30, width=100)
+    label_player15_name.place(x=800, y=535, height=30, width=100)
+    label_player16_name.place(x=800, y=570, height=30, width=100)
+
+    label_result_player1.place(x=901, y=10, height=30, width=30)
+    label_result_player2.place(x=901, y=45, height=30, width=30)
+    label_result_player3.place(x=901, y=85, height=30, width=30)
+    label_result_player4.place(x=901, y=120, height=30, width=30)
+    label_result_player5.place(x=901, y=160, height=30, width=30)
+    label_result_player6.place(x=901, y=195, height=30, width=30)
+    label_result_player7.place(x=901, y=235, height=30, width=30)
+    label_result_player8.place(x=901, y=270, height=30, width=30)
+    label_result_player9.place(x=901, y=310, height=30, width=30)
+    label_result_player10.place(x=901, y=345, height=30, width=30)
+    label_result_player11.place(x=901, y=385, height=30, width=30)
+    label_result_player12.place(x=901, y=420, height=30, width=30)
+    label_result_player13.place(x=901, y=460, height=30, width=30)
+    label_result_player14.place(x=901, y=495, height=30, width=30)
+    label_result_player15.place(x=901, y=535, height=30, width=30)
+    label_result_player16.place(x=901, y=570, height=30, width=30)
 
     # place all 8 first losers # middle of 2 players (height = 17.5)
-    label_loser1_name.place(x=700, y=27.5, height=30, width=130)
-    label_loser2_name.place(x=700, y=102.5, height=30, width=130)
-    label_loser3_name.place(x=700, y=177.5, height=30, width=130)
-    label_loser4_name.place(x=700, y=252.5, height=30, width=130)
-    label_loser5_name.place(x=700, y=327.5, height=30, width=130)
-    label_loser6_name.place(x=700, y=402.5, height=30, width=130)
-    label_loser7_name.place(x=700, y=477.5, height=30, width=130)
-    label_loser8_name.place(x=700, y=552.5, height=30, width=130)
+    label_loser1_name.place(x=680, y=27.5, height=30, width=100)
+    label_loser2_name.place(x=680, y=102.5, height=30, width=100)
+    label_loser3_name.place(x=680, y=177.5, height=30, width=100)
+    label_loser4_name.place(x=680, y=252.5, height=30, width=100)
+    label_loser5_name.place(x=680, y=327.5, height=30, width=100)
+    label_loser6_name.place(x=680, y=402.5, height=30, width=100)
+    label_loser7_name.place(x=680, y=477.5, height=30, width=100)
+    label_loser8_name.place(x=680, y=552.5, height=30, width=100)
+
+    label_result_loser1.place(x=649, y=27.5, height=30, width=30)
+    label_result_loser2.place(x=649, y=102.5, height=30, width=30)
+    label_result_loser3.place(x=649, y=177.5, height=30, width=30)
+    label_result_loser4.place(x=649, y=252.5, height=30, width=30)
+    label_result_loser5.place(x=649, y=327.5, height=30, width=30)
+    label_result_loser6.place(x=649, y=402.5, height=30, width=30)
+    label_result_loser7.place(x=649, y=477.5, height=30, width=30)
+    label_result_loser8.place(x=649, y=552.5, height=30, width=30)
+
+    label_winner1_name.place(x=951, y=27.5, height=30, width=100)
+    label_winner2_name.place(x=951, y=102.5, height=30, width=100)
+    label_winner3_name.place(x=951, y=177.5, height=30, width=100)
+    label_winner4_name.place(x=951, y=252.5, height=30, width=100)
+    label_winner5_name.place(x=951, y=327.5, height=30, width=100)
+    label_winner6_name.place(x=951, y=402.5, height=30, width=100)
+    label_winner7_name.place(x=951, y=477.5, height=30, width=100)
+    label_winner8_name.place(x=951, y=552.5, height=30, width=100)
+
+    label_result_winner1.place(x=1052, y=27.5, height=30, width=30)
+    label_result_winner2.place(x=1052, y=102.5, height=30, width=30)
+    label_result_winner3.place(x=1052, y=177.5, height=30, width=30)
+    label_result_winner4.place(x=1052, y=252.5, height=30, width=30)
+    label_result_winner5.place(x=1052, y=327.5, height=30, width=30)
+    label_result_winner6.place(x=1052, y=402.5, height=30, width=30)
+    label_result_winner7.place(x=1052, y=477.5, height=30, width=30)
+    label_result_winner8.place(x=1052, y=552.5, height=30, width=30)
+
     # button_enter_results.pack()
-    # button_enter_results.place(x=5, y=10, height=30, width=130)
+    # button_enter_results.place(x=5, y=10, height=30, width=100)
 
 
 if __name__ == "__main__":
@@ -330,7 +375,7 @@ if __name__ == "__main__":
     gui = Tk()
     gui.geometry('1275x645')
     gui.resizable(width=False, height=False)
-    gui.title("Darts - Tournament tree")
+    gui.title("Darts: winner - loser game")
     gui.configure(background='grey')
 
     # define the exit - button
@@ -429,6 +474,15 @@ if __name__ == "__main__":
     label_loser7_name = Label(gui, text="", font=('Arial', 10))
     label_loser8_name = Label(gui, text="", font=('Arial', 10))
 
+    label_result_loser1 = Label(gui, text="", font=('Arial', 10))
+    label_result_loser2 = Label(gui, text="", font=('Arial', 10))
+    label_result_loser3 = Label(gui, text="", font=('Arial', 10))
+    label_result_loser4 = Label(gui, text="", font=('Arial', 10))
+    label_result_loser5 = Label(gui, text="", font=('Arial', 10))
+    label_result_loser6 = Label(gui, text="", font=('Arial', 10))
+    label_result_loser7 = Label(gui, text="", font=('Arial', 10))
+    label_result_loser8 = Label(gui, text="", font=('Arial', 10))
+
     # define labels for first winners
     label_winner1_name = Label(gui, text="", font=('Arial', 10))
     label_winner2_name = Label(gui, text="", font=('Arial', 10))
@@ -439,8 +493,13 @@ if __name__ == "__main__":
     label_winner7_name = Label(gui, text="", font=('Arial', 10))
     label_winner8_name = Label(gui, text="", font=('Arial', 10))
 
-
-
-
+    label_result_winner1 = Label(gui, text="", font=('Arial', 10))
+    label_result_winner2 = Label(gui, text="", font=('Arial', 10))
+    label_result_winner3 = Label(gui, text="", font=('Arial', 10))
+    label_result_winner4 = Label(gui, text="", font=('Arial', 10))
+    label_result_winner5 = Label(gui, text="", font=('Arial', 10))
+    label_result_winner6 = Label(gui, text="", font=('Arial', 10))
+    label_result_winner7 = Label(gui, text="", font=('Arial', 10))
+    label_result_winner8 = Label(gui, text="", font=('Arial', 10))
 
     gui.mainloop()
